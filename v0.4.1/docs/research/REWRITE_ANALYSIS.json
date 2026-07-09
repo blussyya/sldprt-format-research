@@ -1,0 +1,71 @@
+{
+  "mappingStats": {
+    "BOTTOM→TOP": {
+      "bijection": false,
+      "oneToOne": false,
+      "manyToOne": true,
+      "contextDependent": true,
+      "totalMappings": 70,
+      "consistentMappings": 59,
+      "inconsistentMappings": 11,
+      "maxFanOut": 2,
+      "examples": []
+    },
+    "BOTTOM→GEAR": {
+      "bijection": false,
+      "oneToOne": false,
+      "manyToOne": true,
+      "contextDependent": true,
+      "totalMappings": 40,
+      "consistentMappings": 36,
+      "inconsistentMappings": 4,
+      "maxFanOut": 2,
+      "examples": []
+    },
+    "BOTTOM→DEKOR": {
+      "bijection": false,
+      "oneToOne": false,
+      "manyToOne": true,
+      "contextDependent": true,
+      "totalMappings": 42,
+      "consistentMappings": 36,
+      "inconsistentMappings": 6,
+      "maxFanOut": 2,
+      "examples": []
+    },
+    "TOP→GEAR": {
+      "bijection": false,
+      "oneToOne": false,
+      "manyToOne": true,
+      "contextDependent": true,
+      "totalMappings": 64,
+      "consistentMappings": 49,
+      "inconsistentMappings": 15,
+      "maxFanOut": 2,
+      "examples": []
+    },
+    "TOP→DEKOR": {
+      "bijection": false,
+      "oneToOne": false,
+      "manyToOne": true,
+      "contextDependent": true,
+      "totalMappings": 81,
+      "consistentMappings": 63,
+      "inconsistentMappings": 18,
+      "maxFanOut": 2,
+      "examples": []
+    },
+    "GEAR→DEKOR": {
+      "bijection": false,
+      "oneToOne": false,
+      "manyToOne": true,
+      "contextDependent": true,
+      "totalMappings": 189,
+      "consistentMappings": 142,
+      "inconsistentMappings": 47,
+      "maxFanOut": 2,
+      "examples": []
+    }
+  },
+  "timestamp": "2026-06-27T19:45:36.109Z"
+}
