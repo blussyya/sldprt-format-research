@@ -4,6 +4,8 @@ This is a research project to recover the serialization grammar of the SolidWork
 
 This is **not** a production converter. The old converter code (`src/`, `test/`) was removed in v0.4.0 to focus purely on format research. The goal is to understand the format well enough to build a read-only parser.
 
+kinda vibecoded but i dont really wanna spend months working on it so agents saving me rn
+dump of all the progress is [right here](https://github.com/blussyya/sldprt-research-dump "just all the files produced and used for this project all in once place")
 ## Knowledge Base
 
 The project-wide knowledge base is maintained under `knowledge/`:
