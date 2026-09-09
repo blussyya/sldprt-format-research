@@ -1,7 +1,7 @@
 # SLDPRT Reverse-Engineering Research
 
 This is a research project to recover the serialization grammar of the SolidWorks SLDPRT binary format — syntax before semantics, never guessing meanings.
-
+### [JOIN THE DISCUSSION WITH US ON DISCORD](https://discord.gg/vC4Jee5Q4n "join our discussion and share findings/breakthroughs")
 This is **not** a production converter. The old converter code (`src/`, `test/`) was removed in v0.4.0 to focus purely on format research. The goal is to understand the format well enough to build a read-only parser.
 
 kinda vibecoded but i dont really wanna spend months working on it so agents saving me rn
