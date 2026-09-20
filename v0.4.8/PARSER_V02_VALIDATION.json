@@ -1,0 +1,220 @@
+{
+  "date": "2026-09-14",
+  "faces": 1272,
+  "triangles": 50976,
+  "metadata": 1272,
+  "unsupported": 3,
+  "warnings": 8,
+  "mutationCases": [
+    "strip partition mismatch",
+    "Block2 section-length mismatch",
+    "nonfinite normal",
+    "wrong strip control",
+    "Block3 count mismatch",
+    "truncated Block3",
+    "metadata ID mismatch retains geometry but refuses interpretation"
+  ],
+  "models": [
+    {
+      "file": "test files original/controlled/C00_cube_10mm/model.SLDPRT",
+      "sha256": "89ad8d93148d853dc07bd2a2a8b3e6b3be27cd10dbae212d42da11eb2b215877",
+      "faces": 6,
+      "triangles": 12,
+      "metadataFaces": 6,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C01_cube_20mm/model.SLDPRT",
+      "sha256": "1da2b075fd3492e49699bd4cf0065e11411b1017e88e1822e1cded9ee51f9af0",
+      "faces": 6,
+      "triangles": 12,
+      "metadataFaces": 6,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C02_cube_translated/model.SLDPRT",
+      "sha256": "cc73f8cbc0f9e4fce2c4f4cdf8ab3d5fcaaa3bdd593318e2f8f74108d91b50d5",
+      "faces": 6,
+      "triangles": 12,
+      "metadataFaces": 6,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT",
+      "sha256": "a14df0089bbc7cc5bf47e1d0d2cfbe50ba17be21c636cef4540d509164a514d2",
+      "faces": 7,
+      "triangles": 36,
+      "metadataFaces": 7,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C04_cube_hole_5mm/model.SLDPRT",
+      "sha256": "38ff0e82f9f92002e2cb6092345bbd76b19e5a40e3d085f1e36a0d3139f4f8e3",
+      "faces": 7,
+      "triangles": 152,
+      "metadataFaces": 7,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C05_cube_hole_3mm/model.SLDPRT",
+      "sha256": "3dd9eaf83e44f81d769e852b6468bf04de7a565e75cb49fcfc34f3aeaf6cbd96",
+      "faces": 7,
+      "triangles": 124,
+      "metadataFaces": 7,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C06_cube_hole_moved/model.SLDPRT",
+      "sha256": "b4880b5a192c29f52cfc2036563caad3b8ff6384a863c4ea949d3eaa1e3404ed",
+      "faces": 7,
+      "triangles": 152,
+      "metadataFaces": 7,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C07_cube_two_holes/model.SLDPRT",
+      "sha256": "1fca948b6ab1a3ea94eec6f1013cdf60c81dcf9a4fbdb0b2fe100afdd9ba07c9",
+      "faces": 8,
+      "triangles": 292,
+      "metadataFaces": 8,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C08_cube_second_hole_modified/model.SLDPRT",
+      "sha256": "0213ffbcba1f2d95de22445b62d35faaa2ee26d43fc644b03a91cca06159b811",
+      "faces": 8,
+      "triangles": 264,
+      "metadataFaces": 8,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C09_cube_chamfer_1mm/model.SLDPRT",
+      "sha256": "a76902070b7f47e97ee7cb7c76a9064796b8b4ab182f1c25ded41e97e2b61246",
+      "faces": 7,
+      "triangles": 16,
+      "metadataFaces": 7,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C10_cube_shell_1mm/model.SLDPRT",
+      "sha256": "12668ec6b393b765a5d4076a5a2b49378886d08ea8ffef0e2aa8d9c71c911cce",
+      "faces": 11,
+      "triangles": 28,
+      "metadataFaces": 11,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C11_cube_hole_4mm/model.SLDPRT",
+      "sha256": "fb78c483202368cd9d50a340be17b269048c285ae58dc1d5ca2b1f118243fa9e",
+      "faces": 7,
+      "triangles": 140,
+      "metadataFaces": 7,
+      "warnings": []
+    },
+    {
+      "file": "test files original/controlled/C12_cube_fillet_1mm_edge2/model.SLDPRT",
+      "sha256": "8c835c79e0b30e4ba2ae4a0f6d9aa37ceedf0f6aa181624935f663700475a8e4",
+      "faces": 7,
+      "triangles": 36,
+      "metadataFaces": 7,
+      "warnings": []
+    },
+    {
+      "file": "test files original/cube.SLDPRT",
+      "sha256": "e002c483df1faab6c635d52dd190311e2b0fd4a36758e54020efdd7512026cb1",
+      "faces": 6,
+      "triangles": 12,
+      "metadataFaces": 6,
+      "warnings": []
+    },
+    {
+      "file": "test files original/Dekor.SLDPRT",
+      "sha256": "865142829c7d91aa85f65771d2a6e60dad4f58d0093422cb56c94ce6c8959c89",
+      "faces": 375,
+      "triangles": 15282,
+      "metadataFaces": 375,
+      "warnings": []
+    },
+    {
+      "file": "test files original/distributor main boss rev a.SLDPRT",
+      "sha256": "72454b269924d6361d3b88a1e7f4ce217751abdf5e413580ac62d23392897711",
+      "faces": 51,
+      "triangles": 3902,
+      "metadataFaces": 51,
+      "warnings": [
+        {
+          "offset": 130026,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        },
+        {
+          "offset": 133332,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        },
+        {
+          "offset": 140202,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        },
+        {
+          "offset": 143508,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        },
+        {
+          "offset": 150378,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        },
+        {
+          "offset": 153684,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        },
+        {
+          "offset": 160554,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        },
+        {
+          "offset": 163860,
+          "message": "Unvalidated metadata auxiliary values retained raw"
+        }
+      ]
+    },
+    {
+      "file": "test files original/Helical Bevel Gear.SLDPRT",
+      "sha256": "d694ebd12683ffd1b6b225f465fd358005b6015388b1cc4fc1867cb38c371a92",
+      "faces": 113,
+      "triangles": 6042,
+      "metadataFaces": 113,
+      "warnings": []
+    },
+    {
+      "file": "test files original/Pocket Wheel.SLDPRT",
+      "sha256": "678a73af7c6eca8b5e6df60905a96f437bd5d1f85a2eed19277332c25629bb8c",
+      "faces": 400,
+      "triangles": 17078,
+      "metadataFaces": 400,
+      "warnings": []
+    },
+    {
+      "file": "test files original/PTC GE8080-8.SLDPRT",
+      "sha256": "162e6293b95508072f65d39b4d933553d2f3fa6c77863e29e6135afd026c8f94",
+      "faces": 126,
+      "triangles": 1192,
+      "metadataFaces": 126,
+      "warnings": []
+    },
+    {
+      "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+      "sha256": "851f385248ed25cf7c9a2677df3169738c139f34120cb8734ae6ef89d26521a1",
+      "faces": 39,
+      "triangles": 1488,
+      "metadataFaces": 39,
+      "warnings": []
+    },
+    {
+      "file": "test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT",
+      "sha256": "b2928e16b72dd92f085e5d3cb83c101777acf075d2abf1b268563fdd564c14fc",
+      "faces": 68,
+      "triangles": 4704,
+      "metadataFaces": 68,
+      "warnings": []
+    }
+  ]
+}

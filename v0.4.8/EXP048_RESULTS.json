@@ -1,0 +1,1597 @@
+{
+  "experiment": "EXP-048",
+  "date": "2026-09-15",
+  "method": "All candidate STEP CONICAL_SURFACE entities compared using analytic cone residual, axis, angle and apex; no token or face-index correspondence",
+  "scope": "One independently exported USB-hub model; geometry of both cone nappes via absolute radius, not trim topology or oriented B-rep validation",
+  "scriptSha256": "049d4dcb95a93fa5fa6e51d5ea0a398f61e4426d95ecb07af9d98957ac710134",
+  "dependencies": [
+    {
+      "path": "research-common.js",
+      "sha256": "7ad4431c168e247de3e5d66df2268b348a68173c369aef30df77a95d35851e15"
+    },
+    {
+      "path": "exp045_forward_metadata.js",
+      "sha256": "aeaf320004c177b16db052bd879789832450c86ba601efb14b29ac2bab0af37d"
+    },
+    {
+      "path": "../step-tools/step-parse.js",
+      "sha256": "566b13606d191e8845b9ed4f8bc51f68114b0ae11650ef451319a04f79b30360"
+    }
+  ],
+  "source": {
+    "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+    "sha256": "851f385248ed25cf7c9a2677df3169738c139f34120cb8734ae6ef89d26521a1",
+    "dlSha256": "dceff203932d7bd7f465fca30ff3848a643eeb9c83465212ca7e8107d30d15c8"
+  },
+  "step": {
+    "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM ORIGINAL.STEP",
+    "sha256": "953db73c017d857ac86ef262738b849a2f09a41e03426801ef32209e10607800",
+    "units": "mm/radian",
+    "cones": [
+      {
+        "id": 144,
+        "origin": [
+          0.0286,
+          0.003999999999999993,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.002999999999999994,
+        "angle": 0.785398163397444,
+        "apex": [
+          0.0286,
+          0.007000000000000013,
+          0.0154
+        ]
+      },
+      {
+        "id": 242,
+        "origin": [
+          0.0286,
+          0,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999997,
+        "angle": 0.7853981633974467,
+        "apex": [
+          0.0286,
+          0.004500000000000012,
+          -0.0154
+        ]
+      },
+      {
+        "id": 278,
+        "origin": [
+          0.004000000000000002,
+          0.004000000000000035,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.002999999999999999,
+        "angle": 0.7853981633974434,
+        "apex": [
+          0.004000000000000002,
+          0.0070000000000000635,
+          -0.0154
+        ]
+      },
+      {
+        "id": 329,
+        "origin": [
+          0.0286,
+          0,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999997,
+        "angle": 0.7853981633974467,
+        "apex": [
+          0.0286,
+          0.004500000000000012,
+          -0.0154
+        ]
+      },
+      {
+        "id": 395,
+        "origin": [
+          0.0286,
+          0.004000000000000035,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.0029999999999999927,
+        "angle": 0.7853981633974432,
+        "apex": [
+          0.0286,
+          0.007000000000000058,
+          -0.0154
+        ]
+      },
+      {
+        "id": 514,
+        "origin": [
+          0.004000000000000002,
+          0.004000000000000035,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.002999999999999999,
+        "angle": 0.7853981633974434,
+        "apex": [
+          0.004000000000000002,
+          0.0070000000000000635,
+          -0.0154
+        ]
+      },
+      {
+        "id": 577,
+        "origin": [
+          0.004000000000000002,
+          0,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999997,
+        "angle": 0.7853981633974468,
+        "apex": [
+          0.004000000000000002,
+          0.004500000000000011,
+          0.0154
+        ]
+      },
+      {
+        "id": 663,
+        "origin": [
+          0.004000000000000002,
+          0,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999994,
+        "angle": 0.7853981633974464,
+        "apex": [
+          0.004000000000000002,
+          0.004500000000000011,
+          -0.0154
+        ]
+      },
+      {
+        "id": 843,
+        "origin": [
+          0.004000000000000002,
+          0,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999997,
+        "angle": 0.7853981633974468,
+        "apex": [
+          0.004000000000000002,
+          0.004500000000000011,
+          0.0154
+        ]
+      },
+      {
+        "id": 984,
+        "origin": [
+          0.004000000000000002,
+          0.004000000000000028,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.003000000000000001,
+        "angle": 0.7853981633974418,
+        "apex": [
+          0.004000000000000002,
+          0.007000000000000068,
+          0.0154
+        ]
+      },
+      {
+        "id": 1008,
+        "origin": [
+          0.004000000000000002,
+          0,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999994,
+        "angle": 0.7853981633974464,
+        "apex": [
+          0.004000000000000002,
+          0.004500000000000011,
+          -0.0154
+        ]
+      },
+      {
+        "id": 1078,
+        "origin": [
+          0.0286,
+          0,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999997,
+        "angle": 0.7853981633974467,
+        "apex": [
+          0.0286,
+          0.004500000000000012,
+          0.0154
+        ]
+      },
+      {
+        "id": 1171,
+        "origin": [
+          0.0286,
+          0.003999999999999993,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.002999999999999994,
+        "angle": 0.785398163397444,
+        "apex": [
+          0.0286,
+          0.007000000000000013,
+          0.0154
+        ]
+      },
+      {
+        "id": 1316,
+        "origin": [
+          0.004000000000000002,
+          0.004000000000000028,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.003000000000000001,
+        "angle": 0.7853981633974418,
+        "apex": [
+          0.004000000000000002,
+          0.007000000000000068,
+          0.0154
+        ]
+      },
+      {
+        "id": 1386,
+        "origin": [
+          0.0286,
+          0,
+          0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.004499999999999997,
+        "angle": 0.7853981633974467,
+        "apex": [
+          0.0286,
+          0.004500000000000012,
+          0.0154
+        ]
+      },
+      {
+        "id": 1412,
+        "origin": [
+          0.0286,
+          0.004000000000000035,
+          -0.0154
+        ],
+        "axis": [
+          0,
+          -1,
+          0
+        ],
+        "radius": 0.0029999999999999927,
+        "angle": 0.7853981633974432,
+        "apex": [
+          0.0286,
+          0.007000000000000058,
+          -0.0154
+        ]
+      }
+    ]
+  },
+  "totals": {
+    "facesTested": 8,
+    "stepCones": 16,
+    "facesMatched": 7,
+    "unambiguousFaces": 0,
+    "metadataMatchedFaces": 8,
+    "maxMatchedVertexResidual": 1.64778805877841e-9,
+    "maxMatchedApexError": 1.734723475976807e-18,
+    "maxApexEquationError": 8.673617379884035e-19
+  },
+  "rows": [
+    {
+      "index": 31,
+      "offset": 73252,
+      "metadataOffset": 75274,
+      "vertices": 50,
+      "origin": [
+        0.0286,
+        0,
+        0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.004499999999999997,
+      "angle": 0.7853981633974467,
+      "apex": [
+        0.0286,
+        0.004500000000000012,
+        0.0154
+      ],
+      "apexEquationError": 0,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 0.002500001449947686,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0025000000000000014,
+          "pass": false
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 0.030799999722838402,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 0.036909304845594446,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 0.030799999722838402,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.028299999722838413,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 0.036909304845594446,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 0.024600001513957977,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 0.03940930484559447,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 0.024600001513957977,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 0.022100001513957995,
+          "axis": 0,
+          "angle": 4.884981308350689e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 0.03940930484559447,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 1.5139579806824899e-9,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 0.002500001449947686,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0025000000000000014,
+          "pass": false
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 0.022100001513957995,
+          "axis": 0,
+          "angle": 4.884981308350689e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 1.5139579806824899e-9,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.028299999722838413,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "offset": 75550,
+      "metadataOffset": 77572,
+      "vertices": 50,
+      "origin": [
+        0.004000000000000002,
+        0,
+        0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.004499999999999997,
+      "angle": 0.7853981633974468,
+      "apex": [
+        0.004000000000000002,
+        0.004500000000000011,
+        0.0154
+      ],
+      "apexEquationError": 0,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 0.02210000008195641,
+          "axis": 0,
+          "angle": 2.886579864025407e-15,
+          "apex": 0.024726706210087906,
+          "pass": false
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 0.0394093045315399,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 0.028299999722838406,
+          "axis": 0,
+          "angle": 3.4416913763379853e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 0.0394093045315399,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.036909304531539885,
+          "axis": 0,
+          "angle": 3.6637359812630166e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 0.028299999722838406,
+          "axis": 0,
+          "angle": 3.4416913763379853e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 7.428228802463382e-10,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 0.030799999722838405,
+          "axis": 0,
+          "angle": 4.440892098500626e-16,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 7.428228802463382e-10,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 0.0025000007428228896,
+          "axis": 0,
+          "angle": 4.9960036108132044e-15,
+          "apex": 0.002500000000000057,
+          "pass": false
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 0.030799999722838405,
+          "axis": 0,
+          "angle": 4.440892098500626e-16,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 0.02460000008195638,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 0.02210000008195641,
+          "axis": 0,
+          "angle": 2.886579864025407e-15,
+          "apex": 0.024726706210087906,
+          "pass": false
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 0.0025000007428228896,
+          "axis": 0,
+          "angle": 4.9960036108132044e-15,
+          "apex": 0.002500000000000057,
+          "pass": false
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 0.02460000008195638,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.036909304531539885,
+          "axis": 0,
+          "angle": 3.6637359812630166e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "offset": 77848,
+      "metadataOffset": 79870,
+      "vertices": 50,
+      "origin": [
+        0.0286,
+        0,
+        -0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.004499999999999997,
+      "angle": 0.7853981633974467,
+      "apex": [
+        0.0286,
+        0.004500000000000012,
+        -0.0154
+      ],
+      "apexEquationError": 0,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 0.028299999722838448,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0309012944712677,
+          "pass": false
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 1.5139579806824899e-9,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 0.02210000151395798,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 1.5139579806824899e-9,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.002500001449947719,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.0025000000000000465,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 0.02210000151395798,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 0.03940930484559447,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 0.02460000151395798,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 0.03940930484559447,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 0.03690930484559446,
+          "axis": 0,
+          "angle": 4.884981308350689e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 0.02460000151395798,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 0.030799999722838402,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 0.028299999722838448,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0309012944712677,
+          "pass": false
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 0.03690930484559446,
+          "axis": 0,
+          "angle": 4.884981308350689e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 0.030799999722838402,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.002500001449947719,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.0025000000000000465,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "offset": 80146,
+      "metadataOffset": 82168,
+      "vertices": 50,
+      "origin": [
+        0.004000000000000002,
+        0,
+        -0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.004499999999999994,
+      "angle": 0.7853981633974464,
+      "apex": [
+        0.004000000000000002,
+        0.004500000000000012,
+        -0.0154
+      ],
+      "apexEquationError": 8.673617379884035e-19,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 0.03690930453153993,
+          "axis": 0,
+          "angle": 2.4424906541753444e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 0.02460000008195638,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 0.0025000007428228974,
+          "axis": 0,
+          "angle": 2.9976021664879227e-15,
+          "apex": 0.0025000000000000517,
+          "pass": false
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 0.02460000008195638,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.02210000008195637,
+          "axis": 0,
+          "angle": 3.219646771412954e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 0.0025000007428228974,
+          "axis": 0,
+          "angle": 2.9976021664879227e-15,
+          "apex": 0.0025000000000000517,
+          "pass": false
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 0.030799999722838402,
+          "axis": 0,
+          "angle": 4.440892098500626e-16,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 7.428228793789765e-10,
+          "axis": 0,
+          "angle": 0,
+          "apex": 8.673617379884035e-19,
+          "pass": true
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 0.030799999722838402,
+          "axis": 0,
+          "angle": 4.440892098500626e-16,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 0.02829999972283842,
+          "axis": 0,
+          "angle": 4.551914400963142e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 7.428228793789765e-10,
+          "axis": 0,
+          "angle": 0,
+          "apex": 8.673617379884035e-19,
+          "pass": true
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 0.0394093045315399,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 0.03690930453153993,
+          "axis": 0,
+          "angle": 2.4424906541753444e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 0.02829999972283842,
+          "axis": 0,
+          "angle": 4.551914400963142e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 0.0394093045315399,
+          "axis": 0,
+          "angle": 3.3306690738754696e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.02210000008195637,
+          "axis": 0,
+          "angle": 3.219646771412954e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "offset": 82444,
+      "metadataOffset": 86272,
+      "vertices": 104,
+      "origin": [
+        0.0286,
+        0.004000000000000035,
+        -0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.002999999999999994,
+      "angle": 0.7853981633974432,
+      "apex": [
+        0.0286,
+        0.00700000000000006,
+        -0.0154
+      ],
+      "apexEquationError": 0,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 0.030800000598281634,
+          "axis": 0,
+          "angle": 7.771561172376096e-16,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 0.0025000016565448428,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.002500000000000048,
+          "pass": false
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 0.02460000145807859,
+          "axis": 0,
+          "angle": 2.220446049250313e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 0.0025000016565448428,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.002500000000000048,
+          "pass": false
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.00001595926441797131,
+          "axis": 0,
+          "angle": 0,
+          "apex": 1.734723475976807e-18,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 0.02460000145807859,
+          "axis": 0,
+          "angle": 2.220446049250313e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 0.041918204149776525,
+          "axis": 0,
+          "angle": 3.6637359812630166e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 0.027100001458078612,
+          "axis": 0,
+          "angle": 3.219646771412954e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 0.041918204149776525,
+          "axis": 0,
+          "angle": 3.6637359812630166e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 0.03941820414977652,
+          "axis": 0,
+          "angle": 1.3322676295501878e-15,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 0.027100001458078612,
+          "axis": 0,
+          "angle": 3.219646771412954e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 0.030800000598281634,
+          "axis": 0,
+          "angle": 7.771561172376096e-16,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 0.03941820414977652,
+          "axis": 0,
+          "angle": 1.3322676295501878e-15,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 3.552713678800501e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.00001595926441797131,
+          "axis": 0,
+          "angle": 0,
+          "apex": 1.734723475976807e-18,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "offset": 86684,
+      "metadataOffset": 89374,
+      "vertices": 70,
+      "origin": [
+        0.004000000000000002,
+        0.004000000000000035,
+        -0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.003,
+      "angle": 0.7853981633974434,
+      "apex": [
+        0.004000000000000002,
+        0.007000000000000065,
+        -0.0154
+      ],
+      "apexEquationError": 8.673617379884035e-19,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 0.03941779926772584,
+          "axis": 0,
+          "angle": 5.551115123125783e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 0.02710000014249235,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 8.795662037250351e-10,
+          "axis": 0,
+          "angle": 0,
+          "apex": 1.734723475976807e-18,
+          "pass": true
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 0.02710000014249235,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.024600000142492348,
+          "axis": 0,
+          "angle": 2.220446049250313e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 8.795662037250351e-10,
+          "axis": 0,
+          "angle": 0,
+          "apex": 1.734723475976807e-18,
+          "pass": true
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 3.4416913763379853e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 0.0025000008795662285,
+          "axis": 0,
+          "angle": 2.9976021664879227e-15,
+          "apex": 0.0025000000000000543,
+          "pass": false
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 3.4416913763379853e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 0.030800000598281592,
+          "axis": 0,
+          "angle": 1.5543122344752192e-15,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 0.0025000008795662285,
+          "axis": 0,
+          "angle": 2.9976021664879227e-15,
+          "apex": 0.0025000000000000543,
+          "pass": false
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 0.041917799267725805,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 0.03941779926772584,
+          "axis": 0,
+          "angle": 5.551115123125783e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 0.030800000598281592,
+          "axis": 0,
+          "angle": 1.5543122344752192e-15,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 0.041917799267725805,
+          "axis": 0,
+          "angle": 3.3306690738754696e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.024600000142492348,
+          "axis": 0,
+          "angle": 2.220446049250313e-16,
+          "apex": 0.024599999999999997,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "offset": 89714,
+      "metadataOffset": 93508,
+      "vertices": 103,
+      "origin": [
+        0.0286,
+        0.003999999999999993,
+        0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.002999999999999994,
+      "angle": 0.785398163397444,
+      "apex": [
+        0.0286,
+        0.007000000000000013,
+        0.0154
+      ],
+      "apexEquationError": 0,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 1.64778805877841e-9,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0309012944712677,
+          "pass": false
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 0.03941818326235807,
+          "axis": 0,
+          "angle": 5.551115123125783e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0309012944712677,
+          "pass": false
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.030800000598281592,
+          "axis": 0,
+          "angle": 7.771561172376096e-16,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 0.03941818326235807,
+          "axis": 0,
+          "angle": 5.551115123125783e-16,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 0.027100001458078612,
+          "axis": 0,
+          "angle": 2.886579864025407e-15,
+          "apex": 0.024726706210087906,
+          "pass": false
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 0.041918183262358084,
+          "axis": 0,
+          "angle": 2.4424906541753444e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 0.027100001458078612,
+          "axis": 0,
+          "angle": 2.886579864025407e-15,
+          "apex": 0.024726706210087906,
+          "pass": false
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 0.024600001458078596,
+          "axis": 0,
+          "angle": 2.1094237467877974e-15,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 0.041918183262358084,
+          "axis": 0,
+          "angle": 2.4424906541753444e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 0.002500001647788031,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0025000000000000014,
+          "pass": false
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 1.64778805877841e-9,
+          "axis": 0,
+          "angle": 0,
+          "apex": 0,
+          "pass": true
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 0.024600001458078596,
+          "axis": 0,
+          "angle": 2.1094237467877974e-15,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 0.002500001647788031,
+          "axis": 0,
+          "angle": 2.7755575615628914e-15,
+          "apex": 0.0025000000000000014,
+          "pass": false
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.030800000598281592,
+          "axis": 0,
+          "angle": 7.771561172376096e-16,
+          "apex": 0.0308,
+          "pass": false
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "offset": 93920,
+      "metadataOffset": 96610,
+      "vertices": 70,
+      "origin": [
+        0.004000000000000002,
+        0.004000000000000028,
+        0.0154
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "radius": 0.0030000000000000014,
+      "angle": 0.7853981633974417,
+      "apex": [
+        0.004000000000000002,
+        0.007000000000000069,
+        0.0154
+      ],
+      "apexEquationError": 0,
+      "candidates": [
+        {
+          "stepSurface": 144,
+          "vertexResidual": 0.024600000142492383,
+          "axis": 0,
+          "angle": 2.220446049250313e-15,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 242,
+          "vertexResidual": 0.04191781976132862,
+          "axis": 0,
+          "angle": 4.9960036108132044e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 278,
+          "vertexResidual": 0.030800000598281585,
+          "axis": 0,
+          "angle": 1.6653345369377348e-15,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 329,
+          "vertexResidual": 0.04191781976132862,
+          "axis": 0,
+          "angle": 4.9960036108132044e-15,
+          "apex": 0.0394974682732957,
+          "pass": false
+        },
+        {
+          "stepSurface": 395,
+          "vertexResidual": 0.03941781976132861,
+          "axis": 0,
+          "angle": 1.4432899320127035e-15,
+          "apex": 0.039418269875782216,
+          "pass": false
+        },
+        {
+          "stepSurface": 514,
+          "vertexResidual": 0.030800000598281585,
+          "axis": 0,
+          "angle": 1.6653345369377348e-15,
+          "apex": 0.0308,
+          "pass": false
+        },
+        {
+          "stepSurface": 577,
+          "vertexResidual": 0.0025000008795662285,
+          "axis": 0,
+          "angle": 5.10702591327572e-15,
+          "apex": 0.0025000000000000577,
+          "pass": false
+        },
+        {
+          "stepSurface": 663,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 4.6629367034256575e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 843,
+          "vertexResidual": 0.0025000008795662285,
+          "axis": 0,
+          "angle": 5.10702591327572e-15,
+          "apex": 0.0025000000000000577,
+          "pass": false
+        },
+        {
+          "stepSurface": 984,
+          "vertexResidual": 8.795662089292056e-10,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 8.673617379884035e-19,
+          "pass": true
+        },
+        {
+          "stepSurface": 1008,
+          "vertexResidual": 0.03330000059828161,
+          "axis": 0,
+          "angle": 4.6629367034256575e-15,
+          "apex": 0.030901294471267708,
+          "pass": false
+        },
+        {
+          "stepSurface": 1078,
+          "vertexResidual": 0.02710000014249235,
+          "axis": 0,
+          "angle": 4.9960036108132044e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 1171,
+          "vertexResidual": 0.024600000142492383,
+          "axis": 0,
+          "angle": 2.220446049250313e-15,
+          "apex": 0.024599999999999997,
+          "pass": false
+        },
+        {
+          "stepSurface": 1316,
+          "vertexResidual": 8.795662089292056e-10,
+          "axis": 0,
+          "angle": 1.1102230246251565e-16,
+          "apex": 8.673617379884035e-19,
+          "pass": true
+        },
+        {
+          "stepSurface": 1386,
+          "vertexResidual": 0.02710000014249235,
+          "axis": 0,
+          "angle": 4.9960036108132044e-15,
+          "apex": 0.024726706210087913,
+          "pass": false
+        },
+        {
+          "stepSurface": 1412,
+          "vertexResidual": 0.03941781976132861,
+          "axis": 0,
+          "angle": 1.4432899320127035e-15,
+          "apex": 0.039418269875782216,
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

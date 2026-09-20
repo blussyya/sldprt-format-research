@@ -1,0 +1,190 @@
+{
+  "timestamp": "2026-08-14T01:38:04.872Z",
+  "experiment": "EXP-035",
+  "description": "Shell Feature Token Analysis",
+  "c10Parseable": true,
+  "c10FailureCause": "EXP033_FILTER_ISSUE",
+  "c10FailureExplanation": "C10 IS parseable. The parser extracted 11 faces successfully. The EXP-033 script filtered on faceType === 'planar_cube' and secCount being defined, but C10's Face 0 has secCount=1 and faceType=planar_other (ec=10, vc=10). The remaining 10 faces have faceType=planar_cube. The 'no parseable faces' report was caused by the EXP-033 script's filtering logic, not a structural parsing failure.",
+  "c10FaceCount": 11,
+  "c10FaceTypes": {
+    "planar_cube": 10,
+    "planar_other": 1
+  },
+  "c10Structure": {
+    "description": "Shell hollows out the cube, removing the +Z face and creating inner walls. C10 has 11 faces: 5 original outer faces (Faces 1-5), 1 modified top face (Face 0, ec=10, vc=10, multi-loop), and 5 new inner wall faces (Faces 6-10).",
+    "originalOuterFaces": [1, 2, 3, 4, 5],
+    "modifiedTopFace": 0,
+    "newInnerFaces": [6, 7, 8, 9, 10]
+  },
+  "planarFaceComparison": [
+    {
+      "orientation": "-X",
+      "c00Index": 0,
+      "c10Index": 1,
+      "c10Type": "planar_cube",
+      "c10Role": "original_outer",
+      "identical": true,
+      "c00Tokens": [1, 5, 82, 0, 79, 62],
+      "c10Tokens": [1, 5, 82, 0, 79, 62]
+    },
+    {
+      "orientation": "-X",
+      "c00Index": 0,
+      "c10Index": 8,
+      "c10Type": "planar_cube",
+      "c10Role": "new_inner",
+      "identical": false,
+      "c00Tokens": [1, 5, 82, 0, 79, 62],
+      "c10Tokens": [1, 169, 164, 0, 166, 163]
+    },
+    {
+      "orientation": "-Y",
+      "c00Index": 1,
+      "c10Index": 2,
+      "c10Type": "planar_cube",
+      "c10Role": "original_outer",
+      "identical": true,
+      "c00Tokens": [1, 9, 81, 0, 82, 58],
+      "c10Tokens": [1, 9, 81, 0, 82, 58]
+    },
+    {
+      "orientation": "-Y",
+      "c00Index": 1,
+      "c10Index": 9,
+      "c10Type": "planar_cube",
+      "c10Role": "new_inner",
+      "identical": false,
+      "c00Tokens": [1, 9, 81, 0, 82, 58],
+      "c10Tokens": [1, 170, 166, 0, 160, 165]
+    },
+    {
+      "orientation": "+X",
+      "c00Index": 2,
+      "c10Index": 3,
+      "c10Type": "planar_cube",
+      "c10Role": "original_outer",
+      "identical": true,
+      "c00Tokens": [1, 13, 80, 0, 81, 54],
+      "c10Tokens": [1, 13, 80, 0, 81, 54]
+    },
+    {
+      "orientation": "+X",
+      "c00Index": 2,
+      "c10Index": 6,
+      "c10Type": "planar_cube",
+      "c10Role": "new_inner",
+      "identical": false,
+      "c00Tokens": [1, 13, 80, 0, 81, 54],
+      "c10Tokens": [1, 167, 160, 0, 162, 159]
+    },
+    {
+      "orientation": "+Y",
+      "c00Index": 3,
+      "c10Index": 4,
+      "c10Type": "planar_cube",
+      "c10Role": "original_outer",
+      "identical": true,
+      "c00Tokens": [1, 17, 79, 0, 80, 50],
+      "c10Tokens": [1, 17, 79, 0, 80, 50]
+    },
+    {
+      "orientation": "+Y",
+      "c00Index": 3,
+      "c10Index": 7,
+      "c10Type": "planar_cube",
+      "c10Role": "new_inner",
+      "identical": false,
+      "c00Tokens": [1, 17, 79, 0, 80, 50],
+      "c10Tokens": [1, 168, 162, 0, 164, 161]
+    },
+    {
+      "orientation": "+Z",
+      "c00Index": 4,
+      "c10Index": 0,
+      "c10Type": "planar_other",
+      "c10Role": "modified_top",
+      "identical": false,
+      "c00Tokens": [1, 13, 9, 0, 17, 5],
+      "c10Tokens": [1, 0, 168, 0, 9, 0, 169, 0, 13, 0, 170, 0, 17, 0, 167, 0, 5, 0]
+    },
+    {
+      "orientation": "+Z",
+      "c00Index": 4,
+      "c10Index": 10,
+      "c10Type": "planar_cube",
+      "c10Role": "new_inner",
+      "identical": false,
+      "c00Tokens": [1, 13, 9, 0, 17, 5],
+      "c10Tokens": [1, 163, 161, 0, 165, 159]
+    },
+    {
+      "orientation": "-Z",
+      "c00Index": 5,
+      "c10Index": 5,
+      "c10Type": "planar_cube",
+      "c10Role": "original_outer",
+      "identical": true,
+      "c00Tokens": [1, 54, 50, 0, 58, 62],
+      "c10Tokens": [1, 54, 50, 0, 58, 62]
+    }
+  ],
+  "originalOuterFaceComparison": {
+    "description": "Comparison of C10's original outer faces (Faces 1-5) against C00's corresponding faces",
+    "results": [
+      {"orientation": "-X", "c00Index": 0, "c10Index": 1, "identical": true},
+      {"orientation": "-Y", "c00Index": 1, "c10Index": 2, "identical": true},
+      {"orientation": "+X", "c00Index": 2, "c10Index": 3, "identical": true},
+      {"orientation": "+Y", "c00Index": 3, "c10Index": 4, "identical": true},
+      {"orientation": "-Z", "c00Index": 5, "c10Index": 5, "identical": true}
+    ],
+    "allIdentical": true,
+    "conclusion": "Shell operation does NOT change tokens on existing outer faces"
+  },
+  "newInnerFaceAnalysis": {
+    "description": "Analysis of C10's new inner wall faces (Faces 6-10)",
+    "results": [
+      {"orientation": "+X", "c10Index": 6, "tokens": [1, 167, 160, 0, 162, 159]},
+      {"orientation": "+Y", "c10Index": 7, "tokens": [1, 168, 162, 0, 164, 161]},
+      {"orientation": "-X", "c10Index": 8, "tokens": [1, 169, 164, 0, 166, 163]},
+      {"orientation": "-Y", "c10Index": 9, "tokens": [1, 170, 166, 0, 160, 165]},
+      {"orientation": "+Z", "c10Index": 10, "tokens": [1, 163, 161, 0, 165, 159]}
+    ],
+    "allUnique": true,
+    "pattern": "Each inner face has a unique token signature not found in C00"
+  },
+  "hypotheses": {
+    "H1_shell_causes_changes_on_remaining_faces": "FALSIFIED",
+    "H2_shell_no_changes_on_remaining_faces": "SUPPORTED",
+    "H3_shell_distinct_pattern": "NOT_APPLICABLE",
+    "H4_outside_extraction_model": "FALSIFIED"
+  },
+  "hypothesisExplanations": {
+    "H1": "FALSIFIED because the 5 original outer faces (Faces 1-5) have IDENTICAL tokens to C00. Shell does NOT change tokens on existing faces.",
+    "H2": "SUPPORTED because all original outer face tokens are identical to C00.",
+    "H3": "NOT_APPLICABLE because H2 is supported (no changes to compare).",
+    "H4": "FALSIFIED because C10 IS parseable under the validated extraction model. All 11 faces pass INV-016/017/018."
+  },
+  "keyFindings": [
+    "C10 IS parseable under the validated extraction model (11 faces, all pass INV-016/017/018)",
+    "EXP-033's 'no parseable faces' report was a tooling/filtering issue, not a structural parsing failure",
+    "C10 has 11 faces: 5 original outer faces (Faces 1-5), 1 modified top face (Face 0, ec=10, vc=10), 5 new inner wall faces (Faces 6-10)",
+    "Shell operation does NOT change tokens on existing outer faces (5/5 IDENTICAL to C00)",
+    "Shell operation adds 5 new inner wall faces with unique token signatures",
+    "Shell operation modifies the +Z face from ec=4/vc=4 to ec=10/vc=10 (multi-loop)",
+    "New inner face tokens are NOT found in C00 — they are shell-specific signatures",
+    "All C10 faces pass INV-016 (b1Len = 2*(vc-secCount)) and INV-018 (sum(b2Body) = b1Len)"
+  ],
+  "structuralProperties": {
+    "allFacesPassINV016": true,
+    "allFacesPassINV018": true,
+    "face0Details": "ec=10, vc=10, secCount=1, b1Len=18, b1Body=[1,0,168,0,9,0,169,0,13,0,170,0,17,0,167,0,5,0], b2Body=[18]"
+  },
+  "relationshipToEXP033": {
+    "description": "EXP-033 reported C10 as 'no parseable faces'. EXP-035 determines this was a filtering issue in the EXP-033 script, not a structural parsing failure.",
+    "exp033FilterIssue": "The EXP-033 script filtered faces by faceType === 'planar_cube'. C10's Face 0 has faceType=planar_other (ec=10, vc=10), but Faces 1-10 have faceType=planar_cube. The script should have found 10 planar_cube faces.",
+    "exp033CorrectedResult": "If the filter had worked correctly, EXP-033 would have shown that C10's original outer faces have IDENTICAL tokens to C00, and C10's new inner faces have unique token signatures."
+  },
+  "relationshipToEXP034": {
+    "description": "EXP-034 showed that geometric transformations (scale, translation) do NOT change tokens. EXP-035 shows that shell (which modifies external boundary) also does NOT change tokens on existing faces. This further supports the conclusion that Block1 tokens are invariant under geometric operations."
+  }
+}

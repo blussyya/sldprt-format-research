@@ -1,0 +1,6037 @@
+{
+  "C00_cube_10mm": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 12050,
+    "faceCount": 6,
+    "rejectedCount": 18,
+    "rejectBreakdown": {
+      "INVALID_EC": 12,
+      "INVALID_VC": 6
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 5140,
+        "faceStartOffset": 5136,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5156,
+        "gapStart": 5204,
+        "normalsStart": 5220,
+        "block1Start": 5268,
+        "block2Start": 5308,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 6024,
+        "faceStartOffset": 6020,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6040,
+        "gapStart": 6088,
+        "normalsStart": 6104,
+        "block1Start": 6152,
+        "block2Start": 6192,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6908,
+        "faceStartOffset": 6904,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6924,
+        "gapStart": 6972,
+        "normalsStart": 6988,
+        "block1Start": 7036,
+        "block2Start": 7076,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7792,
+        "faceStartOffset": 7788,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7808,
+        "gapStart": 7856,
+        "normalsStart": 7872,
+        "block1Start": 7920,
+        "block2Start": 7960,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8676,
+        "faceStartOffset": 8672,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 8692,
+        "gapStart": 8740,
+        "normalsStart": 8756,
+        "block1Start": 8804,
+        "block2Start": 8844,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          9,
+          0,
+          17,
+          5
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 9556,
+        "faceStartOffset": 9552,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 9572,
+        "gapStart": 9620,
+        "normalsStart": 9636,
+        "block1Start": 9684,
+        "block2Start": 9724,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          54,
+          50,
+          0,
+          58,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 1965,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 24624,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2291,
+      "Contents/Config-0-Partition": 3390,
+      "Contents/Config-0-ResolvedFeatures": 11708,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3809,
+      "Contents/DisplayLists": 12050,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2291,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 25604,
+      "PreviewPNG": 26834,
+      "SwDocContentMgr/SwDocContentMgrInfo": 471,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1565,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1535,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10195,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 714,
+      "swXmlContents/KeyWords": 1675
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C01_cube_20mm": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 12050,
+    "faceCount": 6,
+    "rejectedCount": 18,
+    "rejectBreakdown": {
+      "INVALID_EC": 12,
+      "INVALID_VC": 6
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 5140,
+        "faceStartOffset": 5136,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5156,
+        "gapStart": 5204,
+        "normalsStart": 5220,
+        "block1Start": 5268,
+        "block2Start": 5308,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.019999999552965164,
+          0,
+          0.019999999552965164,
+          0.019999999552965164,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 6024,
+        "faceStartOffset": 6020,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6040,
+        "gapStart": 6088,
+        "normalsStart": 6104,
+        "block1Start": 6152,
+        "block2Start": 6192,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.019999999552965164,
+          0,
+          0.019999999552965164,
+          0,
+          0,
+          0.019999999552965164,
+          0.019999999552965164,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6908,
+        "faceStartOffset": 6904,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6924,
+        "gapStart": 6972,
+        "normalsStart": 6988,
+        "block1Start": 7036,
+        "block2Start": 7076,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0,
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7792,
+        "faceStartOffset": 7788,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7808,
+        "gapStart": 7856,
+        "normalsStart": 7872,
+        "block1Start": 7920,
+        "block2Start": 7960,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0,
+          0.019999999552965164,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8676,
+        "faceStartOffset": 8672,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 8692,
+        "gapStart": 8740,
+        "normalsStart": 8756,
+        "block1Start": 8804,
+        "block2Start": 8844,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.019999999552965164,
+          0,
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0.019999999552965164,
+          0,
+          0,
+          0.019999999552965164
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          9,
+          0,
+          17,
+          5
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 9556,
+        "faceStartOffset": 9552,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 9572,
+        "gapStart": 9620,
+        "normalsStart": 9636,
+        "block1Start": 9684,
+        "block2Start": 9724,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.019999999552965164,
+          0.019999999552965164,
+          0,
+          0.019999999552965164,
+          0,
+          0,
+          0,
+          0.019999999552965164,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          54,
+          50,
+          0,
+          58,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 1965,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 24624,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2291,
+      "Contents/Config-0-Partition": 3459,
+      "Contents/Config-0-ResolvedFeatures": 11708,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3809,
+      "Contents/DisplayLists": 12050,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2291,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 25346,
+      "PreviewPNG": 24354,
+      "SwDocContentMgr/SwDocContentMgrInfo": 471,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1565,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1535,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10195,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 714,
+      "swXmlContents/KeyWords": 1675
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C02_cube_translated": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 12050,
+    "faceCount": 6,
+    "rejectedCount": 18,
+    "rejectBreakdown": {
+      "INVALID_EC": 12,
+      "INVALID_VC": 6
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 5140,
+        "faceStartOffset": 5136,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5156,
+        "gapStart": 5204,
+        "normalsStart": 5220,
+        "block1Start": 5268,
+        "block2Start": 5308,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.05000000074505806,
+          0.05000000074505806,
+          0.009999999776482582,
+          0.05000000074505806,
+          0.05999999865889549,
+          0.009999999776482582,
+          0.05000000074505806,
+          0.05000000074505806,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 6024,
+        "faceStartOffset": 6020,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6040,
+        "gapStart": 6088,
+        "normalsStart": 6104,
+        "block1Start": 6152,
+        "block2Start": 6192,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.05999999865889549,
+          0.05000000074505806,
+          0.009999999776482582,
+          0.05000000074505806,
+          0.05000000074505806,
+          0.009999999776482582,
+          0.05999999865889549,
+          0.05000000074505806,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6908,
+        "faceStartOffset": 6904,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6924,
+        "gapStart": 6972,
+        "normalsStart": 6988,
+        "block1Start": 7036,
+        "block2Start": 7076,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.05999999865889549,
+          0.05999999865889549,
+          0.009999999776482582,
+          0.05999999865889549,
+          0.05000000074505806,
+          0.009999999776482582,
+          0.05999999865889549,
+          0.05999999865889549,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7792,
+        "faceStartOffset": 7788,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7808,
+        "gapStart": 7856,
+        "normalsStart": 7872,
+        "block1Start": 7920,
+        "block2Start": 7960,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.05000000074505806,
+          0.05999999865889549,
+          0.009999999776482582,
+          0.05999999865889549,
+          0.05999999865889549,
+          0.009999999776482582,
+          0.05000000074505806,
+          0.05999999865889549,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8676,
+        "faceStartOffset": 8672,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 8692,
+        "gapStart": 8740,
+        "normalsStart": 8756,
+        "block1Start": 8804,
+        "block2Start": 8844,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.05999999865889549,
+          0.05000000074505806,
+          0.009999999776482582,
+          0.05999999865889549,
+          0.05999999865889549,
+          0.009999999776482582,
+          0.05000000074505806,
+          0.05000000074505806,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          9,
+          0,
+          17,
+          5
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 9556,
+        "faceStartOffset": 9552,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 9572,
+        "gapStart": 9620,
+        "normalsStart": 9636,
+        "block1Start": 9684,
+        "block2Start": 9724,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.05999999865889549,
+          0.05999999865889549,
+          0,
+          0.05999999865889549,
+          0.05000000074505806,
+          0,
+          0.05000000074505806,
+          0.05999999865889549,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          54,
+          50,
+          0,
+          58,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 1965,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 24592,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2291,
+      "Contents/Config-0-Partition": 3483,
+      "Contents/Config-0-ResolvedFeatures": 11145,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3809,
+      "Contents/DisplayLists": 12050,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2291,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 25054,
+      "PreviewPNG": 23693,
+      "SwDocContentMgr/SwDocContentMgrInfo": 471,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1565,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1547,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10195,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 714,
+      "swXmlContents/KeyWords": 1675
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C03_cube_fillet_1mm": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 14350,
+    "faceCount": 7,
+    "rejectedCount": 21,
+    "rejectBreakdown": {
+      "INVALID_EC": 14,
+      "INVALID_VC": 7
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 5434,
+        "faceStartOffset": 5430,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5450,
+        "gapStart": 5498,
+        "normalsStart": 5514,
+        "block1Start": 5562,
+        "block2Start": 5602,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 6318,
+        "faceStartOffset": 6314,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6334,
+        "gapStart": 6382,
+        "normalsStart": 6398,
+        "block1Start": 6446,
+        "block2Start": 6486,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 7202,
+        "faceStartOffset": 7198,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7218,
+        "gapStart": 7266,
+        "normalsStart": 7282,
+        "block1Start": 7330,
+        "block2Start": 7370,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.008999999612569809,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          160,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 8086,
+        "faceStartOffset": 8082,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 8102,
+        "gapStart": 8150,
+        "normalsStart": 8166,
+        "block1Start": 8214,
+        "block2Start": 8254,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.008999999612569809,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          139,
+          144,
+          0,
+          79,
+          142
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8978,
+        "faceStartOffset": 8974,
+        "edgeCount": 6,
+        "vertexCount": 14,
+        "verticesStart": 8994,
+        "gapStart": 9162,
+        "normalsStart": 9178,
+        "block1Start": 9346,
+        "block2Start": 9450,
+        "b1Len": 22,
+        "secCount": 3,
+        "sectionLens": [
+          3,
+          7,
+          9
+        ],
+        "loopSizes": [
+          3,
+          5,
+          6
+        ],
+        "verticesPreview": [
+          0.008999999612569809,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          142,
+          0,
+          5,
+          1,
+          9,
+          0,
+          0,
+          13,
+          0,
+          0,
+          165,
+          1,
+          165,
+          0,
+          0,
+          165,
+          0,
+          165,
+          0
+        ],
+        "b2Body": [
+          4,
+          8,
+          10
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 10230,
+        "faceStartOffset": 10226,
+        "edgeCount": 6,
+        "vertexCount": 14,
+        "verticesStart": 10246,
+        "gapStart": 10414,
+        "normalsStart": 10430,
+        "block1Start": 10598,
+        "block2Start": 10702,
+        "b1Len": 22,
+        "secCount": 3,
+        "sectionLens": [
+          3,
+          7,
+          9
+        ],
+        "loopSizes": [
+          3,
+          5,
+          6
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.008999999612569809,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          54,
+          0,
+          58,
+          1,
+          62,
+          0,
+          0,
+          139,
+          0,
+          0,
+          152,
+          1,
+          152,
+          0,
+          0,
+          152,
+          0,
+          152,
+          0
+        ],
+        "b2Body": [
+          4,
+          8,
+          10
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 11478,
+        "faceStartOffset": 11474,
+        "edgeCount": 13,
+        "vertexCount": 16,
+        "verticesStart": 11494,
+        "gapStart": 11686,
+        "normalsStart": 11702,
+        "block1Start": 11894,
+        "block2Start": 12022,
+        "b1Len": 28,
+        "secCount": 2,
+        "sectionLens": [
+          3,
+          23
+        ],
+        "loopSizes": [
+          3,
+          13
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.008999999612569809,
+          0,
+          0.009965925477445126,
+          0.009258818812668324,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          1.2246468525851679e-16,
+          0,
+          1,
+          1.2246468525851679e-16,
+          0,
+          0.9659258127212524,
+          0.258819043636322,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          160,
+          0,
+          152,
+          1,
+          0,
+          165,
+          0,
+          152,
+          0,
+          165,
+          0,
+          152,
+          0,
+          165,
+          0,
+          152,
+          0,
+          165,
+          0
+        ],
+        "b2Body": [
+          4,
+          24
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 1981,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 25160,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2347,
+      "Contents/Config-0-Partition": 5778,
+      "Contents/Config-0-ResolvedFeatures": 15564,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3809,
+      "Contents/DisplayLists": 14350,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2347,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 30338,
+      "PreviewPNG": 31724,
+      "SwDocContentMgr/SwDocContentMgrInfo": 459,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1565,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1547,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10195,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 714,
+      "swXmlContents/KeyWords": 1766
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C04_cube_hole_5mm": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 19036,
+    "faceCount": 7,
+    "rejectedCount": 21,
+    "rejectBreakdown": {
+      "INVALID_EC": 14,
+      "INVALID_VC": 7
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 4996,
+        "faceStartOffset": 4992,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5012,
+        "gapStart": 5060,
+        "normalsStart": 5076,
+        "block1Start": 5124,
+        "block2Start": 5164,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 5880,
+        "faceStartOffset": 5876,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5896,
+        "gapStart": 5944,
+        "normalsStart": 5960,
+        "block1Start": 6008,
+        "block2Start": 6048,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6764,
+        "faceStartOffset": 6760,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6780,
+        "gapStart": 6828,
+        "normalsStart": 6844,
+        "block1Start": 6892,
+        "block2Start": 6932,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7648,
+        "faceStartOffset": 7644,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7664,
+        "gapStart": 7712,
+        "normalsStart": 7728,
+        "block1Start": 7776,
+        "block2Start": 7816,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8576,
+        "faceStartOffset": 8572,
+        "edgeCount": 7,
+        "vertexCount": 62,
+        "verticesStart": 8592,
+        "gapStart": 9336,
+        "normalsStart": 9352,
+        "block1Start": 10096,
+        "block2Start": 10512,
+        "b1Len": 100,
+        "secCount": 12,
+        "sectionLens": [
+          3,
+          5,
+          11,
+          7,
+          7,
+          9,
+          7,
+          7,
+          3,
+          11,
+          7,
+          11
+        ],
+        "loopSizes": [
+          3,
+          4,
+          7,
+          5,
+          5,
+          6,
+          5,
+          5,
+          3,
+          7,
+          5,
+          7
+        ],
+        "verticesPreview": [
+          0.006847522221505642,
+          0.006684239022433758,
+          0.009999999776482582,
+          0.007125542964786291,
+          0.0063160802237689495,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          153,
+          0,
+          0,
+          1,
+          153,
+          0,
+          0,
+          153,
+          0,
+          1,
+          153,
+          0,
+          0,
+          153,
+          0,
+          13,
+          0,
+          153,
+          0
+        ],
+        "b2Body": [
+          4,
+          6,
+          12,
+          8,
+          8,
+          10,
+          8,
+          8,
+          4,
+          12,
+          8,
+          12
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 11446,
+        "faceStartOffset": 11442,
+        "edgeCount": 7,
+        "vertexCount": 64,
+        "verticesStart": 11462,
+        "gapStart": 12230,
+        "normalsStart": 12246,
+        "block1Start": 13014,
+        "block2Start": 13438,
+        "b1Len": 102,
+        "secCount": 13,
+        "sectionLens": [
+          3,
+          3,
+          7,
+          3,
+          3,
+          7,
+          11,
+          5,
+          7,
+          11,
+          11,
+          7,
+          11
+        ],
+        "loopSizes": [
+          3,
+          3,
+          5,
+          3,
+          3,
+          5,
+          7,
+          4,
+          5,
+          7,
+          7,
+          5,
+          7
+        ],
+        "verticesPreview": [
+          0.007125542964786291,
+          0.0036839195527136326,
+          0,
+          0.007331180386245251,
+          0.004096895921975374,
+          0,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          150,
+          0,
+          0,
+          1,
+          150,
+          0,
+          0,
+          1,
+          150,
+          0,
+          0,
+          150,
+          0,
+          0,
+          150,
+          1,
+          0,
+          0,
+          150
+        ],
+        "b2Body": [
+          4,
+          4,
+          8,
+          4,
+          4,
+          8,
+          12,
+          6,
+          8,
+          12,
+          12,
+          8,
+          12
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 14330,
+        "faceStartOffset": 14326,
+        "edgeCount": 70,
+        "vertexCount": 70,
+        "verticesStart": 14346,
+        "gapStart": 15186,
+        "normalsStart": 15202,
+        "block1Start": 16042,
+        "block2Start": 16610,
+        "b1Len": 138,
+        "secCount": 1,
+        "sectionLens": [
+          137
+        ],
+        "loopSizes": [
+          70
+        ],
+        "verticesPreview": [
+          0.007499999832361937,
+          0.004999999888241291,
+          0,
+          0.007499999832361937,
+          0.004999999888241291,
+          0.009999999776482582,
+          0.0074574328027665615,
+          0.005459373816847801,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -0.9829730987548828,
+          -0.1837495118379593,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0
+        ],
+        "b2Body": [
+          138
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords",
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000Ý"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 2067,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 24712,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2445,
+      "Contents/Config-0-Partition": 4793,
+      "Contents/Config-0-ResolvedFeatures": 16958,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3665,
+      "Contents/DisplayLists": 19036,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2445,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 30488,
+      "PreviewPNG": 37166,
+      "SwDocContentMgr/SwDocContentMgrInfo": 469,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1672,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1543,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10195,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 714,
+      "swXmlContents/KeyWords": 1833,
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000Ý": 1
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C05_cube_hole_3mm": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 17688,
+    "faceCount": 7,
+    "rejectedCount": 21,
+    "rejectBreakdown": {
+      "INVALID_EC": 14,
+      "INVALID_VC": 7
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 4996,
+        "faceStartOffset": 4992,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5012,
+        "gapStart": 5060,
+        "normalsStart": 5076,
+        "block1Start": 5124,
+        "block2Start": 5164,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 5880,
+        "faceStartOffset": 5876,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5896,
+        "gapStart": 5944,
+        "normalsStart": 5960,
+        "block1Start": 6008,
+        "block2Start": 6048,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6764,
+        "faceStartOffset": 6760,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6780,
+        "gapStart": 6828,
+        "normalsStart": 6844,
+        "block1Start": 6892,
+        "block2Start": 6932,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7648,
+        "faceStartOffset": 7644,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7664,
+        "gapStart": 7712,
+        "normalsStart": 7728,
+        "block1Start": 7776,
+        "block2Start": 7816,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8568,
+        "faceStartOffset": 8564,
+        "edgeCount": 7,
+        "vertexCount": 51,
+        "verticesStart": 8584,
+        "gapStart": 9196,
+        "normalsStart": 9212,
+        "block1Start": 9824,
+        "block2Start": 10168,
+        "b1Len": 82,
+        "secCount": 10,
+        "sectionLens": [
+          5,
+          5,
+          7,
+          7,
+          9,
+          7,
+          7,
+          7,
+          7,
+          11
+        ],
+        "loopSizes": [
+          4,
+          4,
+          5,
+          5,
+          6,
+          5,
+          5,
+          5,
+          5,
+          7
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.006500000134110451,
+          0.004999999888241291,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          13,
+          0,
+          153,
+          0,
+          1,
+          153,
+          0,
+          0,
+          153,
+          0,
+          1,
+          153,
+          0,
+          0,
+          153,
+          0,
+          0,
+          153
+        ],
+        "b2Body": [
+          6,
+          6,
+          8,
+          8,
+          10,
+          8,
+          8,
+          8,
+          8,
+          12
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 11060,
+        "faceStartOffset": 11056,
+        "edgeCount": 7,
+        "vertexCount": 49,
+        "verticesStart": 11076,
+        "gapStart": 11664,
+        "normalsStart": 11680,
+        "block1Start": 12268,
+        "block2Start": 12604,
+        "b1Len": 80,
+        "secCount": 9,
+        "sectionLens": [
+          5,
+          7,
+          5,
+          7,
+          11,
+          11,
+          7,
+          7,
+          11
+        ],
+        "loopSizes": [
+          4,
+          5,
+          4,
+          5,
+          7,
+          7,
+          5,
+          5,
+          7
+        ],
+        "verticesPreview": [
+          0.006459567230194807,
+          0.005345923826098442,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.006500000134110451,
+          0.004999999888241291,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          150,
+          0,
+          54,
+          0,
+          1,
+          150,
+          0,
+          0,
+          150,
+          0,
+          0,
+          150,
+          1,
+          0,
+          150,
+          0,
+          0,
+          150
+        ],
+        "b2Body": [
+          6,
+          8,
+          6,
+          8,
+          12,
+          12,
+          8,
+          8,
+          12
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 13458,
+        "faceStartOffset": 13454,
+        "edgeCount": 56,
+        "vertexCount": 56,
+        "verticesStart": 13474,
+        "gapStart": 14146,
+        "normalsStart": 14162,
+        "block1Start": 14834,
+        "block2Start": 15290,
+        "b1Len": 110,
+        "secCount": 1,
+        "sectionLens": [
+          109
+        ],
+        "loopSizes": [
+          56
+        ],
+        "verticesPreview": [
+          0.006500000134110451,
+          0.004999999888241291,
+          0,
+          0.006500000134110451,
+          0.004999999888241291,
+          0.009999999776482582,
+          0.006459567230194807,
+          0.005345923826098442,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -0.9730448722839355,
+          -0.23061586916446686,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0
+        ],
+        "b2Body": [
+          110
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords",
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000-"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 2067,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 24990,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2445,
+      "Contents/Config-0-Partition": 4805,
+      "Contents/Config-0-ResolvedFeatures": 16957,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3665,
+      "Contents/DisplayLists": 17688,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2445,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 27900,
+      "PreviewPNG": 31990,
+      "SwDocContentMgr/SwDocContentMgrInfo": 469,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1672,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1543,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10195,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 714,
+      "swXmlContents/KeyWords": 1833,
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000-": 1
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C06_cube_hole_moved": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 19102,
+    "faceCount": 7,
+    "rejectedCount": 21,
+    "rejectBreakdown": {
+      "INVALID_EC": 14,
+      "INVALID_VC": 7
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 4996,
+        "faceStartOffset": 4992,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5012,
+        "gapStart": 5060,
+        "normalsStart": 5076,
+        "block1Start": 5124,
+        "block2Start": 5164,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 5880,
+        "faceStartOffset": 5876,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5896,
+        "gapStart": 5944,
+        "normalsStart": 5960,
+        "block1Start": 6008,
+        "block2Start": 6048,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6764,
+        "faceStartOffset": 6760,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6780,
+        "gapStart": 6828,
+        "normalsStart": 6844,
+        "block1Start": 6892,
+        "block2Start": 6932,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7648,
+        "faceStartOffset": 7644,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7664,
+        "gapStart": 7712,
+        "normalsStart": 7728,
+        "block1Start": 7776,
+        "block2Start": 7816,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8584,
+        "faceStartOffset": 8580,
+        "edgeCount": 7,
+        "vertexCount": 66,
+        "verticesStart": 8600,
+        "gapStart": 9392,
+        "normalsStart": 9408,
+        "block1Start": 10200,
+        "block2Start": 10632,
+        "b1Len": 104,
+        "secCount": 14,
+        "sectionLens": [
+          3,
+          3,
+          7,
+          3,
+          7,
+          3,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          11,
+          11
+        ],
+        "loopSizes": [
+          3,
+          3,
+          5,
+          3,
+          5,
+          3,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          7,
+          7
+        ],
+        "verticesPreview": [
+          0.00945743266493082,
+          0.005459373816847801,
+          0.009999999776482582,
+          0.009499999694526196,
+          0.004999999888241291,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          153,
+          0,
+          0,
+          1,
+          0,
+          13,
+          0,
+          1,
+          153,
+          0,
+          0,
+          153,
+          0,
+          0,
+          153,
+          1,
+          153,
+          0,
+          0
+        ],
+        "b2Body": [
+          4,
+          4,
+          8,
+          4,
+          8,
+          4,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          12,
+          12
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 11574,
+        "faceStartOffset": 11570,
+        "edgeCount": 7,
+        "vertexCount": 62,
+        "verticesStart": 11590,
+        "gapStart": 12334,
+        "normalsStart": 12350,
+        "block1Start": 13094,
+        "block2Start": 13510,
+        "b1Len": 100,
+        "secCount": 12,
+        "sectionLens": [
+          3,
+          5,
+          7,
+          5,
+          7,
+          11,
+          7,
+          11,
+          7,
+          7,
+          7,
+          11
+        ],
+        "loopSizes": [
+          3,
+          4,
+          5,
+          4,
+          5,
+          7,
+          5,
+          7,
+          5,
+          5,
+          5,
+          7
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0,
+          0.006769329309463501,
+          0.0025106645189225674,
+          0,
+          0.007230671122670174,
+          0.0025106645189225674,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          0,
+          150,
+          1,
+          150,
+          0,
+          0,
+          150,
+          0,
+          1,
+          150,
+          0,
+          0,
+          150,
+          0,
+          0,
+          150,
+          1,
+          0
+        ],
+        "b2Body": [
+          4,
+          6,
+          8,
+          6,
+          8,
+          12,
+          8,
+          12,
+          8,
+          8,
+          8,
+          12
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 14396,
+        "faceStartOffset": 14392,
+        "edgeCount": 70,
+        "vertexCount": 70,
+        "verticesStart": 14412,
+        "gapStart": 15252,
+        "normalsStart": 15268,
+        "block1Start": 16108,
+        "block2Start": 16676,
+        "b1Len": 138,
+        "secCount": 1,
+        "sectionLens": [
+          137
+        ],
+        "loopSizes": [
+          70
+        ],
+        "verticesPreview": [
+          0.009499999694526196,
+          0.004999999888241291,
+          0,
+          0.009499999694526196,
+          0.004999999888241291,
+          0.009999999776482582,
+          0.00945743266493082,
+          0.005459373816847801,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -0.9829730987548828,
+          -0.1837495118379593,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0
+        ],
+        "b2Body": [
+          138
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 2069,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 24992,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2445,
+      "Contents/Config-0-Partition": 4798,
+      "Contents/Config-0-ResolvedFeatures": 16959,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3665,
+      "Contents/DisplayLists": 19102,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2447,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 30458,
+      "PreviewPNG": 36860,
+      "SwDocContentMgr/SwDocContentMgrInfo": 469,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1672,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1547,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10196,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 715,
+      "swXmlContents/KeyWords": 1834
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C07_cube_two_holes": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 25968,
+    "faceCount": 8,
+    "rejectedCount": 24,
+    "rejectBreakdown": {
+      "INVALID_EC": 16,
+      "INVALID_VC": 8
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 4996,
+        "faceStartOffset": 4992,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5012,
+        "gapStart": 5060,
+        "normalsStart": 5076,
+        "block1Start": 5124,
+        "block2Start": 5164,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 5880,
+        "faceStartOffset": 5876,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5896,
+        "gapStart": 5944,
+        "normalsStart": 5960,
+        "block1Start": 6008,
+        "block2Start": 6048,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6764,
+        "faceStartOffset": 6760,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6780,
+        "gapStart": 6828,
+        "normalsStart": 6844,
+        "block1Start": 6892,
+        "block2Start": 6932,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7648,
+        "faceStartOffset": 7644,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7664,
+        "gapStart": 7712,
+        "normalsStart": 7728,
+        "block1Start": 7776,
+        "block2Start": 7816,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8624,
+        "faceStartOffset": 8620,
+        "edgeCount": 7,
+        "vertexCount": 122,
+        "verticesStart": 8640,
+        "gapStart": 10104,
+        "normalsStart": 10120,
+        "block1Start": 11584,
+        "block2Start": 12384,
+        "b1Len": 196,
+        "secCount": 24,
+        "sectionLens": [
+          3,
+          3,
+          3,
+          3,
+          7,
+          7,
+          9,
+          7,
+          7,
+          9,
+          7,
+          3,
+          7,
+          7,
+          3,
+          11,
+          7,
+          11,
+          7,
+          7,
+          15,
+          7,
+          11,
+          11
+        ],
+        "loopSizes": [
+          3,
+          3,
+          3,
+          3,
+          5,
+          5,
+          6,
+          5,
+          5,
+          6,
+          5,
+          3,
+          5,
+          5,
+          3,
+          7,
+          5,
+          7,
+          5,
+          5,
+          9,
+          5,
+          7,
+          7
+        ],
+        "verticesPreview": [
+          0.0054574329406023026,
+          0.0034593737218528986,
+          0.009999999776482582,
+          0.005499999970197678,
+          0.003000000026077032,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          153,
+          0,
+          0,
+          1,
+          199,
+          0,
+          0,
+          1,
+          0,
+          13,
+          0,
+          1,
+          153,
+          0,
+          0,
+          1,
+          199,
+          0,
+          0
+        ],
+        "b2Body": [
+          4,
+          4,
+          4,
+          4,
+          8,
+          8,
+          10,
+          8,
+          8,
+          10,
+          8,
+          4,
+          8,
+          8,
+          4,
+          12,
+          8,
+          12,
+          8,
+          8,
+          16,
+          8,
+          12,
+          12
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 13530,
+        "faceStartOffset": 13526,
+        "edgeCount": 5,
+        "vertexCount": 116,
+        "verticesStart": 13546,
+        "gapStart": 14938,
+        "normalsStart": 14954,
+        "block1Start": 16346,
+        "block2Start": 17122,
+        "b1Len": 190,
+        "secCount": 21,
+        "sectionLens": [
+          3,
+          3,
+          7,
+          11,
+          7,
+          7,
+          3,
+          7,
+          7,
+          7,
+          7,
+          9,
+          7,
+          7,
+          31,
+          7,
+          7,
+          7,
+          11,
+          7,
+          7
+        ],
+        "loopSizes": [
+          3,
+          3,
+          5,
+          7,
+          5,
+          5,
+          3,
+          5,
+          5,
+          5,
+          5,
+          6,
+          5,
+          5,
+          17,
+          5,
+          5,
+          5,
+          7,
+          5,
+          5
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0,
+          0.0041143461130559444,
+          0.0007620917749591172,
+          0,
+          0.0045065865851938725,
+          0.0010049568954855204,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          0,
+          150,
+          1,
+          196,
+          0,
+          0,
+          1,
+          150,
+          0,
+          0,
+          150,
+          0,
+          0,
+          150,
+          1,
+          150,
+          0,
+          0
+        ],
+        "b2Body": [
+          4,
+          4,
+          8,
+          12,
+          8,
+          8,
+          4,
+          8,
+          8,
+          8,
+          8,
+          10,
+          8,
+          8,
+          32,
+          8,
+          8,
+          8,
+          12,
+          8,
+          8
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 18170,
+        "faceStartOffset": 18166,
+        "edgeCount": 70,
+        "vertexCount": 70,
+        "verticesStart": 18186,
+        "gapStart": 19026,
+        "normalsStart": 19042,
+        "block1Start": 19882,
+        "block2Start": 20450,
+        "b1Len": 138,
+        "secCount": 1,
+        "sectionLens": [
+          137
+        ],
+        "loopSizes": [
+          70
+        ],
+        "verticesPreview": [
+          0.005499999970197678,
+          0.003000000026077032,
+          0,
+          0.005499999970197678,
+          0.003000000026077032,
+          0.009999999776482582,
+          0.0054574329406023026,
+          0.0034593737218528986,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -0.9829730987548828,
+          -0.1837495118379593,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0
+        ],
+        "b2Body": [
+          138
+        ]
+      },
+      {
+        "index": 7,
+        "markerOffset": 21262,
+        "faceStartOffset": 21258,
+        "edgeCount": 70,
+        "vertexCount": 70,
+        "verticesStart": 21278,
+        "gapStart": 22118,
+        "normalsStart": 22134,
+        "block1Start": 22974,
+        "block2Start": 23542,
+        "b1Len": 138,
+        "secCount": 1,
+        "sectionLens": [
+          137
+        ],
+        "loopSizes": [
+          70
+        ],
+        "verticesPreview": [
+          0.009499999694526196,
+          0.007000000216066837,
+          0,
+          0.009499999694526196,
+          0.007000000216066837,
+          0.009999999776482582,
+          0.00945743266493082,
+          0.00745937367901206,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -0.9829730987548828,
+          -0.1837495118379593,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0
+        ],
+        "b2Body": [
+          138
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 2183,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 25080,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2599,
+      "Contents/Config-0-Partition": 5642,
+      "Contents/Config-0-ResolvedFeatures": 22308,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3665,
+      "Contents/DisplayLists": 25968,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2601,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 36158,
+      "PreviewPNG": 47908,
+      "SwDocContentMgr/SwDocContentMgrInfo": 469,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1779,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1545,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10196,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 715,
+      "swXmlContents/KeyWords": 1992
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C08_cube_second_hole_modified": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 24884,
+    "faceCount": 8,
+    "rejectedCount": 24,
+    "rejectBreakdown": {
+      "INVALID_EC": 16,
+      "INVALID_VC": 8
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 4996,
+        "faceStartOffset": 4992,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5012,
+        "gapStart": 5060,
+        "normalsStart": 5076,
+        "block1Start": 5124,
+        "block2Start": 5164,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 5880,
+        "faceStartOffset": 5876,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5896,
+        "gapStart": 5944,
+        "normalsStart": 5960,
+        "block1Start": 6008,
+        "block2Start": 6048,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 6764,
+        "faceStartOffset": 6760,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6780,
+        "gapStart": 6828,
+        "normalsStart": 6844,
+        "block1Start": 6892,
+        "block2Start": 6932,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 7648,
+        "faceStartOffset": 7644,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7664,
+        "gapStart": 7712,
+        "normalsStart": 7728,
+        "block1Start": 7776,
+        "block2Start": 7816,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8612,
+        "faceStartOffset": 8608,
+        "edgeCount": 5,
+        "vertexCount": 109,
+        "verticesStart": 8628,
+        "gapStart": 9936,
+        "normalsStart": 9952,
+        "block1Start": 11260,
+        "block2Start": 11980,
+        "b1Len": 176,
+        "secCount": 21,
+        "sectionLens": [
+          3,
+          3,
+          3,
+          7,
+          7,
+          7,
+          3,
+          15,
+          7,
+          7,
+          11,
+          13,
+          3,
+          11,
+          7,
+          9,
+          7,
+          7,
+          7,
+          11,
+          7
+        ],
+        "loopSizes": [
+          3,
+          3,
+          3,
+          5,
+          5,
+          5,
+          3,
+          9,
+          5,
+          5,
+          7,
+          8,
+          3,
+          7,
+          5,
+          6,
+          5,
+          5,
+          5,
+          7,
+          5
+        ],
+        "verticesPreview": [
+          0.008459567092359066,
+          0.007345923688262701,
+          0.009999999776482582,
+          0.008500000461935997,
+          0.007000000216066837,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          199,
+          0,
+          0,
+          1,
+          0,
+          0,
+          199,
+          1,
+          0,
+          0,
+          199,
+          1,
+          0,
+          13,
+          0,
+          199,
+          0,
+          0,
+          199
+        ],
+        "b2Body": [
+          4,
+          4,
+          4,
+          8,
+          8,
+          8,
+          4,
+          16,
+          8,
+          8,
+          12,
+          14,
+          4,
+          12,
+          8,
+          10,
+          8,
+          8,
+          8,
+          12,
+          8
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 13098,
+        "faceStartOffset": 13094,
+        "edgeCount": 7,
+        "vertexCount": 111,
+        "verticesStart": 13114,
+        "gapStart": 14446,
+        "normalsStart": 14462,
+        "block1Start": 15794,
+        "block2Start": 16522,
+        "b1Len": 178,
+        "secCount": 22,
+        "sectionLens": [
+          3,
+          3,
+          11,
+          7,
+          3,
+          7,
+          9,
+          7,
+          7,
+          3,
+          7,
+          11,
+          7,
+          15,
+          3,
+          3,
+          3,
+          7,
+          11,
+          11,
+          7,
+          11
+        ],
+        "loopSizes": [
+          3,
+          3,
+          7,
+          5,
+          3,
+          5,
+          6,
+          5,
+          5,
+          3,
+          5,
+          7,
+          5,
+          9,
+          3,
+          3,
+          3,
+          5,
+          7,
+          7,
+          5,
+          7
+        ],
+        "verticesPreview": [
+          0.007895737886428833,
+          0.0057968152686953545,
+          0,
+          0.00814906693994999,
+          0.0060358187183737755,
+          0,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          196,
+          0,
+          0,
+          1,
+          196,
+          0,
+          0,
+          1,
+          196,
+          0,
+          0,
+          196,
+          0,
+          54,
+          0,
+          196,
+          0,
+          0,
+          196
+        ],
+        "b2Body": [
+          4,
+          4,
+          12,
+          8,
+          4,
+          8,
+          10,
+          8,
+          8,
+          4,
+          8,
+          12,
+          8,
+          16,
+          4,
+          4,
+          4,
+          8,
+          12,
+          12,
+          8,
+          12
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 17562,
+        "faceStartOffset": 17558,
+        "edgeCount": 70,
+        "vertexCount": 70,
+        "verticesStart": 17578,
+        "gapStart": 18418,
+        "normalsStart": 18434,
+        "block1Start": 19274,
+        "block2Start": 19842,
+        "b1Len": 138,
+        "secCount": 1,
+        "sectionLens": [
+          137
+        ],
+        "loopSizes": [
+          70
+        ],
+        "verticesPreview": [
+          0.005499999970197678,
+          0.003000000026077032,
+          0,
+          0.005499999970197678,
+          0.003000000026077032,
+          0.009999999776482582,
+          0.0054574329406023026,
+          0.0034593737218528986,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -0.9829730987548828,
+          -0.1837495118379593,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0,
+          153,
+          0,
+          150,
+          0
+        ],
+        "b2Body": [
+          138
+        ]
+      },
+      {
+        "index": 7,
+        "markerOffset": 20654,
+        "faceStartOffset": 20650,
+        "edgeCount": 56,
+        "vertexCount": 56,
+        "verticesStart": 20670,
+        "gapStart": 21342,
+        "normalsStart": 21358,
+        "block1Start": 22030,
+        "block2Start": 22486,
+        "b1Len": 110,
+        "secCount": 1,
+        "sectionLens": [
+          109
+        ],
+        "loopSizes": [
+          56
+        ],
+        "verticesPreview": [
+          0.008500000461935997,
+          0.007000000216066837,
+          0,
+          0.008500000461935997,
+          0.007000000216066837,
+          0.009999999776482582,
+          0.008459567092359066,
+          0.007345923688262701,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -1,
+          2.4492937051703357e-16,
+          0,
+          -0.9730448722839355,
+          -0.23061586916446686,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0,
+          199,
+          0,
+          196,
+          0
+        ],
+        "b2Body": [
+          110
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords",
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000Ü"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 2183,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 25080,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2599,
+      "Contents/Config-0-Partition": 5637,
+      "Contents/Config-0-ResolvedFeatures": 22307,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3665,
+      "Contents/DisplayLists": 24884,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2601,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 33686,
+      "PreviewPNG": 43371,
+      "SwDocContentMgr/SwDocContentMgrInfo": 469,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1779,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1567,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10196,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 715,
+      "swXmlContents/KeyWords": 1992,
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000Ü": 1
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C09_cube_chamfer_1mm": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 13342,
+    "faceCount": 7,
+    "rejectedCount": 21,
+    "rejectBreakdown": {
+      "INVALID_EC": 14,
+      "INVALID_VC": 7
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 5434,
+        "faceStartOffset": 5430,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 5450,
+        "gapStart": 5498,
+        "normalsStart": 5514,
+        "block1Start": 5562,
+        "block2Start": 5602,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 6318,
+        "faceStartOffset": 6314,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6334,
+        "gapStart": 6382,
+        "normalsStart": 6398,
+        "block1Start": 6446,
+        "block2Start": 6486,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 7202,
+        "faceStartOffset": 7198,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7218,
+        "gapStart": 7266,
+        "normalsStart": 7282,
+        "block1Start": 7330,
+        "block2Start": 7370,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.008999999612569809,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          160,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 8086,
+        "faceStartOffset": 8082,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 8102,
+        "gapStart": 8150,
+        "normalsStart": 8166,
+        "block1Start": 8214,
+        "block2Start": 8254,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.008999999612569809,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          139,
+          144,
+          0,
+          79,
+          142
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 8970,
+        "faceStartOffset": 8966,
+        "edgeCount": 5,
+        "vertexCount": 5,
+        "verticesStart": 8986,
+        "gapStart": 9046,
+        "normalsStart": 9062,
+        "block1Start": 9122,
+        "block2Start": 9170,
+        "b1Len": 8,
+        "secCount": 1,
+        "sectionLens": [
+          7
+        ],
+        "loopSizes": [
+          5
+        ],
+        "verticesPreview": [
+          0.008999999612569809,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.008999999612569809,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          142,
+          165,
+          0,
+          5,
+          0,
+          13,
+          9
+        ],
+        "b2Body": [
+          8
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 9920,
+        "faceStartOffset": 9916,
+        "edgeCount": 5,
+        "vertexCount": 5,
+        "verticesStart": 9936,
+        "gapStart": 9996,
+        "normalsStart": 10012,
+        "block1Start": 10072,
+        "block2Start": 10120,
+        "b1Len": 8,
+        "secCount": 1,
+        "sectionLens": [
+          7
+        ],
+        "loopSizes": [
+          5
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0,
+          0.008999999612569809,
+          0.009999999776482582,
+          0,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          139,
+          62,
+          0,
+          152,
+          0,
+          58,
+          54
+        ],
+        "b2Body": [
+          8
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 10870,
+        "faceStartOffset": 10866,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 10886,
+        "gapStart": 10934,
+        "normalsStart": 10950,
+        "block1Start": 10998,
+        "block2Start": 11038,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.008999999612569809,
+          0,
+          0.008999999612569809,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.008999999612569809,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0.7071067690849304,
+          0.7071067690849304,
+          0,
+          0.7071067690849304,
+          0.7071067690849304,
+          0,
+          0.7071067690849304,
+          0.7071067690849304,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          152,
+          160,
+          0,
+          144,
+          165
+        ],
+        "b2Body": [
+          6
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 1983,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 25162,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2349,
+      "Contents/Config-0-Partition": 5859,
+      "Contents/Config-0-ResolvedFeatures": 16426,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3809,
+      "Contents/DisplayLists": 13342,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2351,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 25390,
+      "PreviewPNG": 24909,
+      "SwDocContentMgr/SwDocContentMgrInfo": 461,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1565,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1549,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10196,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 715,
+      "swXmlContents/KeyWords": 1805
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "C10_cube_shell_1mm": {
+    "format": "openswx (modern, SW2015+)",
+    "dlLength": 17280,
+    "faceCount": 11,
+    "rejectedCount": 33,
+    "rejectBreakdown": {
+      "INVALID_EC": 22,
+      "INVALID_VC": 11
+    },
+    "faces": [
+      {
+        "index": 0,
+        "markerOffset": 5140,
+        "faceStartOffset": 5136,
+        "edgeCount": 10,
+        "vertexCount": 10,
+        "verticesStart": 5156,
+        "gapStart": 5276,
+        "normalsStart": 5292,
+        "block1Start": 5412,
+        "block2Start": 5500,
+        "b1Len": 18,
+        "secCount": 1,
+        "sectionLens": [
+          17
+        ],
+        "loopSizes": [
+          10
+        ],
+        "verticesPreview": [
+          0.0010000000474974513,
+          0.0010000000474974513,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.008999999612569809,
+          0.0010000000474974513,
+          0.009999999776482582
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          0,
+          168,
+          0,
+          9,
+          0,
+          169,
+          0,
+          13,
+          0,
+          170,
+          0,
+          17,
+          0,
+          167,
+          0,
+          5,
+          0
+        ],
+        "b2Body": [
+          18
+        ]
+      },
+      {
+        "index": 1,
+        "markerOffset": 6368,
+        "faceStartOffset": 6364,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 6384,
+        "gapStart": 6432,
+        "normalsStart": 6448,
+        "block1Start": 6496,
+        "block2Start": 6536,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          5,
+          82,
+          0,
+          79,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 2,
+        "markerOffset": 7252,
+        "faceStartOffset": 7248,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 7268,
+        "gapStart": 7316,
+        "normalsStart": 7332,
+        "block1Start": 7380,
+        "block2Start": 7420,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          9,
+          81,
+          0,
+          82,
+          58
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 3,
+        "markerOffset": 8136,
+        "faceStartOffset": 8132,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 8152,
+        "gapStart": 8200,
+        "normalsStart": 8216,
+        "block1Start": 8264,
+        "block2Start": 8304,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          13,
+          80,
+          0,
+          81,
+          54
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 4,
+        "markerOffset": 9020,
+        "faceStartOffset": 9016,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 9036,
+        "gapStart": 9084,
+        "normalsStart": 9100,
+        "block1Start": 9148,
+        "block2Start": 9188,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          17,
+          79,
+          0,
+          80,
+          50
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 5,
+        "markerOffset": 9904,
+        "faceStartOffset": 9900,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 9920,
+        "gapStart": 9968,
+        "normalsStart": 9984,
+        "block1Start": 10032,
+        "block2Start": 10072,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.009999999776482582,
+          0.009999999776482582,
+          0,
+          0.009999999776482582,
+          0,
+          0,
+          0,
+          0.009999999776482582,
+          0
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1
+        ],
+        "b1BodyPreview": [
+          1,
+          54,
+          50,
+          0,
+          58,
+          62
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 6,
+        "markerOffset": 10784,
+        "faceStartOffset": 10780,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 10800,
+        "gapStart": 10848,
+        "normalsStart": 10864,
+        "block1Start": 10912,
+        "block2Start": 10952,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.0010000000474974513,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.0010000000474974513,
+          0.0010000000474974513,
+          0.009999999776482582,
+          0.0010000000474974513,
+          0.008999999612569809,
+          0.0010000000474974513
+        ],
+        "normalsPreview": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          167,
+          160,
+          0,
+          162,
+          159
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 7,
+        "markerOffset": 11764,
+        "faceStartOffset": 11760,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 11780,
+        "gapStart": 11828,
+        "normalsStart": 11844,
+        "block1Start": 11892,
+        "block2Start": 11932,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.0010000000474974513,
+          0.0010000000474974513,
+          0.009999999776482582,
+          0.008999999612569809,
+          0.0010000000474974513,
+          0.009999999776482582,
+          0.0010000000474974513,
+          0.0010000000474974513,
+          0.0010000000474974513
+        ],
+        "normalsPreview": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          168,
+          162,
+          0,
+          164,
+          161
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 8,
+        "markerOffset": 12744,
+        "faceStartOffset": 12740,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 12760,
+        "gapStart": 12808,
+        "normalsStart": 12824,
+        "block1Start": 12872,
+        "block2Start": 12912,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.008999999612569809,
+          0.0010000000474974513,
+          0.009999999776482582,
+          0.008999999612569809,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.008999999612569809,
+          0.0010000000474974513,
+          0.0010000000474974513
+        ],
+        "normalsPreview": [
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          169,
+          164,
+          0,
+          166,
+          163
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 9,
+        "markerOffset": 13724,
+        "faceStartOffset": 13720,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 13740,
+        "gapStart": 13788,
+        "normalsStart": 13804,
+        "block1Start": 13852,
+        "block2Start": 13892,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.008999999612569809,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.0010000000474974513,
+          0.008999999612569809,
+          0.009999999776482582,
+          0.008999999612569809,
+          0.008999999612569809,
+          0.0010000000474974513
+        ],
+        "normalsPreview": [
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          -1,
+          0
+        ],
+        "b1BodyPreview": [
+          1,
+          170,
+          166,
+          0,
+          160,
+          165
+        ],
+        "b2Body": [
+          6
+        ]
+      },
+      {
+        "index": 10,
+        "markerOffset": 14704,
+        "faceStartOffset": 14700,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "verticesStart": 14720,
+        "gapStart": 14768,
+        "normalsStart": 14784,
+        "block1Start": 14832,
+        "block2Start": 14872,
+        "b1Len": 6,
+        "secCount": 1,
+        "sectionLens": [
+          5
+        ],
+        "loopSizes": [
+          4
+        ],
+        "verticesPreview": [
+          0.008999999612569809,
+          0.0010000000474974513,
+          0.0010000000474974513,
+          0.008999999612569809,
+          0.008999999612569809,
+          0.0010000000474974513,
+          0.0010000000474974513,
+          0.0010000000474974513,
+          0.0010000000474974513
+        ],
+        "normalsPreview": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        "b1BodyPreview": [
+          1,
+          163,
+          161,
+          0,
+          165,
+          159
+        ],
+        "b2Body": [
+          6
+        ]
+      }
+    ],
+    "streamNames": [
+      "Contents/3DExperienceExchange2",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/CnfgObjs",
+      "Contents/Config-0",
+      "Contents/Config-0-GhostPartition",
+      "Contents/Config-0-LWDATA",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0-Partition",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/CusProps",
+      "Contents/Definition",
+      "Contents/DisplayLists",
+      "Contents/OleItems",
+      "Contents/PMISemanticDataDB",
+      "Contents/eModelLic",
+      "Header2",
+      "ModelStamps",
+      "OleItemInformation/OLE_Item_Data",
+      "Preview",
+      "PreviewPNG",
+      "SwDocContentMgr/SwDocContentMgrInfo",
+      "ThirdPty/Animator",
+      "ThirdPty/CMMotionLoadMapU",
+      "ThirdPtyStore/VisualStates",
+      "[Content_Types].xml",
+      "_DL_VERSION_15000/DLUpdateStamp",
+      "_MO_VERSION_15000/Biography",
+      "_MO_VERSION_15000/History",
+      "_rels/.rels",
+      "docProps/Config-0-Properties.xml",
+      "docProps/ISolidWorksInformation.xml",
+      "docProps/OpenTime.xml",
+      "docProps/app.xml",
+      "docProps/core.xml",
+      "docProps/custom.xml",
+      "swXmlContents/Features",
+      "swXmlContents/KeyWords",
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+    ],
+    "streamSizes": {
+      "Contents/3DExperienceExchange2": 12288,
+      "Contents/CMgr": 1983,
+      "Contents/CMgrHdr2": 137,
+      "Contents/CnfgObjs": 12,
+      "Contents/Config-0": 24904,
+      "Contents/Config-0-GhostPartition": 635,
+      "Contents/Config-0-LWDATA": 1437,
+      "Contents/Config-0-ModelHeader": 2345,
+      "Contents/Config-0-Partition": 6538,
+      "Contents/Config-0-ResolvedFeatures": 14488,
+      "Contents/CusProps": 137,
+      "Contents/Definition": 3809,
+      "Contents/DisplayLists": 17280,
+      "Contents/OleItems": 4,
+      "Contents/PMISemanticDataDB": 12288,
+      "Contents/eModelLic": 4,
+      "Header2": 2347,
+      "ModelStamps": 12,
+      "OleItemInformation/OLE_Item_Data": 4,
+      "Preview": 31778,
+      "PreviewPNG": 31204,
+      "SwDocContentMgr/SwDocContentMgrInfo": 457,
+      "ThirdPty/Animator": 342,
+      "ThirdPty/CMMotionLoadMapU": 56,
+      "ThirdPtyStore/VisualStates": 1565,
+      "[Content_Types].xml": 556,
+      "_DL_VERSION_15000/DLUpdateStamp": 6,
+      "_MO_VERSION_15000/Biography": 1545,
+      "_MO_VERSION_15000/History": 101,
+      "_rels/.rels": 597,
+      "docProps/Config-0-Properties.xml": 688,
+      "docProps/ISolidWorksInformation.xml": 10196,
+      "docProps/OpenTime.xml": 403,
+      "docProps/app.xml": 570,
+      "docProps/core.xml": 523,
+      "docProps/custom.xml": 820,
+      "swXmlContents/Features": 715,
+      "swXmlContents/KeyWords": 1764,
+      "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000": 1
+    },
+    "errors": [],
+    "warnings": []
+  }
+}

@@ -65,6 +65,17 @@ Source migrated from `v0.3.5/docs/research/FORMAT_TIMELINE.md`.
 **Date last updated**: 2026-06-27
 
 ---
+### CORPUS EXTENSION NOTE (2026-07-10)
+
+Files added to modern corpus since original documentation:
+- `Headphone Stand.SLDPRT` (HEADPHONE): 62 faces. Contains `MeshData/Config-0-Mesh-27` stream (812,848 bytes) — not seen in v0.4.0 corpus. Stream role unknown.
+- `distributor main boss rev a.SLDPRT` (DISTRIBUTOR): 51 faces. Standard openswx structure.
+- `Pocket Wheel.SLDPRT` (POCKET): 400 faces. Largest single file in corpus. Standard openswx structure.
+- `PTC GE8080-8.SLDPRT` (PTC): 126 faces. Contains `Config-0-FeatureBodies/LocalBodies` stream (62,836 bytes) — not seen in v0.4.0 corpus. Stream role unknown.
+
+All new files use openswx format. OLE2 pipeline still not implemented.
+
+---
 
 ## Cross-Version Observations
 
@@ -77,13 +88,15 @@ Source migrated from `v0.3.5/docs/research/FORMAT_TIMELINE.md`.
 | Container | OLE2 compound document | Custom archive-like structure |
 | Stream naming | Plain text | Encoded stream names |
 | Geometry stream | DisplayLists-related streams | `Contents/DisplayLists` |
-| Face markers/layout | Partially decoded | Verified across 595 faces |
-| Block 1/2 | Not project-wide verified | Verified present |
+| Face markers/layout | Partially decoded | Verified across 1,234 faces |
+| Block 1/2 | Not project-wide verified | Verified across 1,234 faces (3 invariants) |
+| MeshData stream | Not observed | Present in HEADPHONE (812KB) |
+| FeatureBodies stream | Not observed | Present in PTC (62KB) |
 
-**Files tested**: `SW2000-s01.SLDPRT`, BOTTOM, TOP, GEAR, DEKOR
+**Files tested**: `SW2000-s01.SLDPRT`, BOTTOM, TOP, GEAR, DEKOR, HEADPHONE, DISTRIBUTOR, POCKET, PTC
 
-**Faces/models tested**: 5 models total; 595 modern faces in aggregate.
+**Faces/models tested**: 9 models total; 1,234 modern faces in aggregate.
 
 **Confidence**: Medium
 
-**Date last updated**: 2026-06-27
+**Date last updated**: 2026-07-10

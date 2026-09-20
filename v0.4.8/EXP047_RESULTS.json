@@ -1,0 +1,1824 @@
+{
+  "experiment": "EXP-047",
+  "date": "2026-09-15",
+  "method": "Geometric cone residual and scalar angular/axial mapping with swapped/sign/reversed controls; shared decoder, internal evidence only",
+  "scriptSha256": "a4737aeb5eb6282f6747aebf39f0500a5a1e2f8affd0df9007fecf8ac81f79d6",
+  "dependencies": [
+    {
+      "path": "research-common.js",
+      "sha256": "7ad4431c168e247de3e5d66df2268b348a68173c369aef30df77a95d35851e15"
+    },
+    {
+      "path": "exp045_forward_metadata.js",
+      "sha256": "aeaf320004c177b16db052bd879789832450c86ba601efb14b29ac2bab0af37d"
+    }
+  ],
+  "totals": {
+    "tags": {
+      "4001": {
+        "faces": 528,
+        "scalarFaces": 0
+      },
+      "4002": {
+        "faces": 276,
+        "scalarFaces": 0
+      },
+      "4003": {
+        "faces": 47,
+        "scalarFaces": 4
+      },
+      "4005": {
+        "faces": 35,
+        "scalarFaces": 0
+      },
+      "4006": {
+        "faces": 42,
+        "scalarFaces": 42
+      },
+      "4007": {
+        "faces": 33,
+        "scalarFaces": 33
+      },
+      "4009": {
+        "faces": 311,
+        "scalarFaces": 311
+      }
+    },
+    "coneFaces": 47,
+    "scalarConeFaces": 4,
+    "toleranceMetres": 1e-7,
+    "coneMinusPass": 27,
+    "conePlusPass": 0,
+    "cylinderPass": 0,
+    "negativeAxialPass": 4,
+    "positiveAxialPass": 0,
+    "angularPass": 4,
+    "swappedAngularPass": 0,
+    "reversedAngularPass": 0
+  },
+  "models": [
+    {
+      "file": "test files original/chainwheel.sldprt",
+      "sha256": "77b81e1ca94b266e4c977bb3ec8fbb9cac294f394ff9d5a2b2b208fb401e0f1a",
+      "unsupported": "legacy OLE2"
+    },
+    {
+      "file": "test files original/controlled/C00_cube_10mm/model.SLDPRT",
+      "sha256": "89ad8d93148d853dc07bd2a2a8b3e6b3be27cd10dbae212d42da11eb2b215877",
+      "dlSha256": "f9da194959c0781afd01d35af64759027e612f0859444c000b7fb9471e8fdf0a",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C01_cube_20mm/model.SLDPRT",
+      "sha256": "1da2b075fd3492e49699bd4cf0065e11411b1017e88e1822e1cded9ee51f9af0",
+      "dlSha256": "032b1114c5a2490a83423fcb5e7a5f3e450951dd799b4dd4d7c7ff641eef7a2b",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C02_cube_translated/model.SLDPRT",
+      "sha256": "cc73f8cbc0f9e4fce2c4f4cdf8ab3d5fcaaa3bdd593318e2f8f74108d91b50d5",
+      "dlSha256": "9ae007830f40232620835a30b27f43ebf6c979e62ce3b2f637bc12e78af952b3",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT",
+      "sha256": "a14df0089bbc7cc5bf47e1d0d2cfbe50ba17be21c636cef4540d509164a514d2",
+      "dlSha256": "390c8aa7ff90f5bdaac0fcdf0958f05b017d611ffc3fef8def746eb031b9fe85",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C04_cube_hole_5mm/model.SLDPRT",
+      "sha256": "38ff0e82f9f92002e2cb6092345bbd76b19e5a40e3d085f1e36a0d3139f4f8e3",
+      "dlSha256": "61b02366ae249b5b8d562d359dfa6d03c0a099b25b893edab95b1a473113a11e",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C05_cube_hole_3mm/model.SLDPRT",
+      "sha256": "3dd9eaf83e44f81d769e852b6468bf04de7a565e75cb49fcfc34f3aeaf6cbd96",
+      "dlSha256": "76c70e419f176b8e4922e8afcb33377321e4efab54e97152d2de336202267945",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C06_cube_hole_moved/model.SLDPRT",
+      "sha256": "b4880b5a192c29f52cfc2036563caad3b8ff6384a863c4ea949d3eaa1e3404ed",
+      "dlSha256": "b39a2b1aac9630215de29d0950a7e6ea0a31c7ca948f26730e9e5e5629de02e3",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C07_cube_two_holes/model.SLDPRT",
+      "sha256": "1fca948b6ab1a3ea94eec6f1013cdf60c81dcf9a4fbdb0b2fe100afdd9ba07c9",
+      "dlSha256": "9c269ae8794694145b38730e36a6bd358e93b45b3af29917c70830aa77f9c6ad",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C08_cube_second_hole_modified/model.SLDPRT",
+      "sha256": "0213ffbcba1f2d95de22445b62d35faaa2ee26d43fc644b03a91cca06159b811",
+      "dlSha256": "89965f40ea44a59df70e47649b986b90ad4a0ea1f7f3bf72a65fa2280cd65a83",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C09_cube_chamfer_1mm/model.SLDPRT",
+      "sha256": "a76902070b7f47e97ee7cb7c76a9064796b8b4ab182f1c25ded41e97e2b61246",
+      "dlSha256": "9aa7165c828c11548bc7b512b726c73ac8097c6dd188b7ae8143324b17cde83b",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C10_cube_shell_1mm/model.SLDPRT",
+      "sha256": "12668ec6b393b765a5d4076a5a2b49378886d08ea8ffef0e2aa8d9c71c911cce",
+      "dlSha256": "17783d741ab3436d6eede7bc475afbee7b35d38caac6180807f867446aded01e",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C11_cube_hole_4mm/model.SLDPRT",
+      "sha256": "fb78c483202368cd9d50a340be17b269048c285ae58dc1d5ca2b1f118243fa9e",
+      "dlSha256": "e76c6b47a97a732aa1be192b27f458a8102a641d2f1ca74dde1304429cd0debb",
+      "faces": []
+    },
+    {
+      "file": "test files original/controlled/C12_cube_fillet_1mm_edge2/model.SLDPRT",
+      "sha256": "8c835c79e0b30e4ba2ae4a0f6d9aa37ceedf0f6aa181624935f663700475a8e4",
+      "dlSha256": "8a569781a8dedd4804fd7830c94745e1a5045d03b50dee7e5cd3e49887ee69d8",
+      "faces": []
+    },
+    {
+      "file": "test files original/cube.SLDPRT",
+      "sha256": "e002c483df1faab6c635d52dd190311e2b0fd4a36758e54020efdd7512026cb1",
+      "dlSha256": "eb684cf5468a85104fdb623095a1d7a5d4cfceeed57b252d0002f3a837fe8fe1",
+      "faces": []
+    },
+    {
+      "file": "test files original/Dekor.SLDPRT",
+      "sha256": "865142829c7d91aa85f65771d2a6e60dad4f58d0093422cb56c94ce6c8959c89",
+      "dlSha256": "b4c825871d06651b6a106a5270c0dca1307660db184277c88ae2a8b88f4cfa66",
+      "faces": []
+    },
+    {
+      "file": "test files original/distributor main boss rev a.SLDPRT",
+      "sha256": "72454b269924d6361d3b88a1e7f4ce217751abdf5e413580ac62d23392897711",
+      "dlSha256": "84353d4c654420a1852f3343868711075d886a08794a263d163972b890bd6f1d",
+      "faces": [
+        {
+          "index": 15,
+          "offset": 80976,
+          "metadataOffset": 83474,
+          "scalarFlag": 0,
+          "parameters": [
+            0.11798300000000002,
+            0,
+            0,
+            0.12731749999999945,
+            0,
+            0,
+            0.009334499999999999,
+            0.785398163397479
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 64,
+          "radius": 0.009334499999999999,
+          "angle": 0.785398163397479,
+          "coneMinus": 1.912763336608947e-9,
+          "conePlus": 0.0010160017942497032,
+          "cylinder": 0.0005080003670760759,
+          "apexDistance": 0.009334499999999427,
+          "scalar": null
+        },
+        {
+          "index": 16,
+          "offset": 83860,
+          "metadataOffset": 87036,
+          "scalarFlag": 0,
+          "parameters": [
+            0.01041400000000002,
+            0,
+            0,
+            0.027635199999998607,
+            0,
+            0,
+            0.0172212,
+            0.7853981633974892
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 84,
+          "radius": 0.0172212,
+          "angle": 0.7853981633974892,
+          "coneMinus": 1.165021561860824e-9,
+          "conePlus": 0.0005080010283535462,
+          "cylinder": 0.0002540008220022656,
+          "apexDistance": 0.017221199999998587,
+          "scalar": null
+        },
+        {
+          "index": 17,
+          "offset": 87566,
+          "metadataOffset": 91744,
+          "scalarFlag": 0,
+          "parameters": [
+            -6.353735928380701e-19,
+            0,
+            0,
+            -0.01696719999999977,
+            0,
+            0,
+            0.0169672,
+            0.7853981633974552
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 114,
+          "radius": 0.0169672,
+          "angle": 0.7853981633974552,
+          "coneMinus": 8.669182351150884e-10,
+          "conePlus": 0.0005080008933752538,
+          "cylinder": 0.00025400088014674443,
+          "apexDistance": 0.01696719999999977,
+          "scalar": null
+        },
+        {
+          "index": 18,
+          "offset": 92562,
+          "metadataOffset": 95672,
+          "scalarFlag": 0,
+          "parameters": [
+            0.030099000000000008,
+            0,
+            0,
+            0.045974000000000015,
+            0,
+            0,
+            0.015875,
+            0.7853981633974483
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 82,
+          "radius": 0.015875,
+          "angle": 0.7853981633974483,
+          "coneMinus": 1.4997812332329108e-9,
+          "conePlus": 0.0005080006543013646,
+          "cylinder": 0.00025400026675197196,
+          "apexDistance": 0.015875000000000007,
+          "scalar": null
+        },
+        {
+          "index": 19,
+          "offset": 96058,
+          "metadataOffset": 99168,
+          "scalarFlag": 0,
+          "parameters": [
+            0.026289,
+            0,
+            0,
+            0.010668000000000843,
+            0,
+            0,
+            0.01562100000000001,
+            0.7853981633974756
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 82,
+          "radius": 0.01562100000000001,
+          "angle": 0.7853981633974756,
+          "coneMinus": 1.187333471125429e-9,
+          "conePlus": 0.0005080014309974852,
+          "cylinder": 0.0002540007180067104,
+          "apexDistance": 0.015620999999999156,
+          "scalar": null
+        },
+        {
+          "index": 21,
+          "offset": 123910,
+          "metadataOffset": 127242,
+          "scalarFlag": 1,
+          "parameters": [
+            0.008077305969734272,
+            4.185887747532035e-18,
+            -0.015081250000000665,
+            0.00889,
+            4.185887747532035e-18,
+            -0.015081250000000665,
+            0.0013525499999999977,
+            1.0297442586766532
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 72,
+          "radius": 0.0013525499999999977,
+          "angle": 1.0297442586766532,
+          "coneMinus": 1.1183294635393887e-9,
+          "conePlus": 0.002705100177410686,
+          "cylinder": 0.0013525498912221863,
+          "apexDistance": 0.0008126940302657284,
+          "scalar": {
+            "finite": true,
+            "ranges": [
+              [
+                0,
+                6.2831854820251465
+              ],
+              [
+                -0.0008126940228976309,
+                -1.302908726444525e-19
+              ]
+            ],
+            "secondEqualsNegativeAxial": 2.2812612922846263e-10,
+            "secondEqualsPositiveAxial": 0.0016253882251227592,
+            "reversedSecondEqualsNegativeAxial": 0.00081269425102376,
+            "firstEqualsNegativeAxial": 6.283998176227372,
+            "firstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0027051000776227973
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 5.03031415407908e-10
+              }
+            ],
+            "secondAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0027050985226723377
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.0027050985226723377
+              }
+            ],
+            "reversedFirstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0016467611078588705
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.0026819578010847723
+              }
+            ]
+          }
+        },
+        {
+          "index": 23,
+          "offset": 130744,
+          "metadataOffset": 133332,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            4.185887747532035e-18,
+            -0.015081250000000665,
+            0.0019049999999999968,
+            4.185887747532035e-18,
+            -0.015081250000000665,
+            0.0019049999999999998,
+            0.7853981633974491
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 54,
+          "radius": 0.0019049999999999998,
+          "angle": 0.7853981633974491,
+          "coneMinus": 8.233435764767871e-10,
+          "conePlus": 0.0011049007543391068,
+          "cylinder": 0.0005524507386638297,
+          "apexDistance": 0.0019049999999999968,
+          "scalar": null
+        },
+        {
+          "index": 24,
+          "offset": 134086,
+          "metadataOffset": 137418,
+          "scalarFlag": 1,
+          "parameters": [
+            0.008077305969734272,
+            -0.01508125,
+            -8.316361215449356e-16,
+            0.00889,
+            -0.01508125,
+            -8.316361215449356e-16,
+            0.0013525499999999975,
+            1.0297442586766532
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 72,
+          "radius": 0.0013525499999999975,
+          "angle": 1.0297442586766532,
+          "coneMinus": 1.1183290341953284e-9,
+          "conePlus": 0.0027051001774100196,
+          "cylinder": 0.00135254989122152,
+          "apexDistance": 0.0008126940302657284,
+          "scalar": {
+            "finite": true,
+            "ranges": [
+              [
+                0,
+                6.2831854820251465
+              ],
+              [
+                -0.0008126940228976309,
+                0
+              ]
+            ],
+            "secondEqualsNegativeAxial": 2.2812612909817176e-10,
+            "secondEqualsPositiveAxial": 0.0016253882251227592,
+            "reversedSecondEqualsNegativeAxial": 0.00081269425102376,
+            "firstEqualsNegativeAxial": 6.283998176227372,
+            "firstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0027050999015624457
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 9.070448607479042e-10
+              }
+            ],
+            "secondAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0027051000776215374
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.0027051000776215374
+              }
+            ],
+            "reversedFirstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.001646760787332504
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.002681957890239774
+              }
+            ]
+          }
+        },
+        {
+          "index": 26,
+          "offset": 140920,
+          "metadataOffset": 143508,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.01508125,
+            -8.316361215449356e-16,
+            0.0019049999999999974,
+            -0.01508125,
+            -8.316361215449356e-16,
+            0.0019050000000000004,
+            0.7853981633974491
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 54,
+          "radius": 0.0019050000000000004,
+          "angle": 0.7853981633974491,
+          "coneMinus": 8.233444332133438e-10,
+          "conePlus": 0.0011049007543386786,
+          "cylinder": 0.0005524507386634012,
+          "apexDistance": 0.0019049999999999974,
+          "scalar": null
+        },
+        {
+          "index": 27,
+          "offset": 144262,
+          "metadataOffset": 147594,
+          "scalarFlag": 1,
+          "parameters": [
+            0.008077305969734272,
+            -4.185887747532035e-18,
+            0.015081249999999333,
+            0.00889,
+            -4.185887747532035e-18,
+            0.015081249999999333,
+            0.0013525499999999977,
+            1.0297442586766532
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 72,
+          "radius": 0.0013525499999999977,
+          "angle": 1.0297442586766532,
+          "coneMinus": 1.1183281768082504e-9,
+          "conePlus": 0.002705100177409354,
+          "cylinder": 0.001352549891220854,
+          "apexDistance": 0.0008126940302657284,
+          "scalar": {
+            "finite": true,
+            "ranges": [
+              [
+                0,
+                6.2831854820251465
+              ],
+              [
+                -0.0008126940228976309,
+                9.120361085111675e-19
+              ]
+            ],
+            "secondEqualsNegativeAxial": 2.2812612818613565e-10,
+            "secondEqualsPositiveAxial": 0.0016253882251227592,
+            "reversedSecondEqualsNegativeAxial": 0.00081269425102376,
+            "firstEqualsNegativeAxial": 6.283998176227372,
+            "firstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0027051000776234678
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 7.025969389176206e-10
+              }
+            ],
+            "secondAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0027050999015615948
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.0027050999015615948
+              }
+            ],
+            "reversedFirstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0016467612203095502
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.0026819578308105896
+              }
+            ]
+          }
+        },
+        {
+          "index": 29,
+          "offset": 151096,
+          "metadataOffset": 153684,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -4.185887747532035e-18,
+            0.015081249999999333,
+            0.0019049999999999968,
+            -4.185887747532035e-18,
+            0.015081249999999333,
+            0.0019049999999999998,
+            0.7853981633974491
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 54,
+          "radius": 0.0019049999999999998,
+          "angle": 0.7853981633974491,
+          "coneMinus": 8.233448651594893e-10,
+          "conePlus": 0.00110490075433782,
+          "cylinder": 0.0005524507386625429,
+          "apexDistance": 0.0019049999999999968,
+          "scalar": null
+        },
+        {
+          "index": 30,
+          "offset": 154438,
+          "metadataOffset": 157770,
+          "scalarFlag": 1,
+          "parameters": [
+            0.008077305969734272,
+            0.015081250000000001,
+            -6.059433138881083e-16,
+            0.00889,
+            0.015081250000000001,
+            -6.059433138881083e-16,
+            0.0013525499999999975,
+            1.0297442586766532
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 72,
+          "radius": 0.0013525499999999975,
+          "angle": 1.0297442586766532,
+          "coneMinus": 1.1183289773831345e-9,
+          "conePlus": 0.0027051001774100213,
+          "cylinder": 0.0013525498912215217,
+          "apexDistance": 0.0008126940302657284,
+          "scalar": {
+            "finite": true,
+            "ranges": [
+              [
+                0,
+                6.2831854820251465
+              ],
+              [
+                -0.0008126940228976309,
+                0
+              ]
+            ],
+            "secondEqualsNegativeAxial": 2.2812612909817176e-10,
+            "secondEqualsPositiveAxial": 0.0016253882251227592,
+            "reversedSecondEqualsNegativeAxial": 0.00081269425102376,
+            "firstEqualsNegativeAxial": 6.283998176227372,
+            "firstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.002705099901563207
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 4.926706636088809e-10
+              }
+            ],
+            "secondAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.002705099965006263
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.002705099965006263
+              }
+            ],
+            "reversedFirstAngular": [
+              {
+                "sign": 1,
+                "tested": 47,
+                "maxResidual": 0.0016467606593777472
+              },
+              {
+                "sign": -1,
+                "tested": 47,
+                "maxResidual": 0.0026819579232820493
+              }
+            ]
+          }
+        },
+        {
+          "index": 32,
+          "offset": 161272,
+          "metadataOffset": 163860,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.015081250000000001,
+            -6.059433138881083e-16,
+            0.0019049999999999916,
+            0.015081250000000001,
+            -6.059433138881083e-16,
+            0.0019050000000000004,
+            0.7853981633974506
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 54,
+          "radius": 0.0019050000000000004,
+          "angle": 0.7853981633974506,
+          "coneMinus": 8.233443724980222e-10,
+          "conePlus": 0.0011049007543386235,
+          "cylinder": 0.0005524507386633444,
+          "apexDistance": 0.0019049999999999916,
+          "scalar": null
+        },
+        {
+          "index": 34,
+          "offset": 166062,
+          "metadataOffset": 167198,
+          "scalarFlag": 0,
+          "parameters": [
+            0.0002540000000000181,
+            0.0134703841816038,
+            -0.01347038418160366,
+            0.005016499999999744,
+            0.0134703841816038,
+            -0.01347038418160366,
+            0.004762500000000002,
+            0.7853981633974773
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 24,
+          "radius": 0.004762500000000002,
+          "angle": 0.7853981633974773,
+          "coneMinus": 4.885038259322405e-10,
+          "conePlus": 0.0005080004474339725,
+          "cylinder": 0.00025400044743389104,
+          "apexDistance": 0.004762499999999726,
+          "scalar": null
+        },
+        {
+          "index": 37,
+          "offset": 169984,
+          "metadataOffset": 171186,
+          "scalarFlag": 0,
+          "parameters": [
+            0.010414000000000007,
+            0.0134703841816038,
+            -0.01347038418160366,
+            0.005651500000000216,
+            0.0134703841816038,
+            -0.01347038418160366,
+            0.004762500000000002,
+            0.7853981633974705
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 26,
+          "radius": 0.004762500000000002,
+          "angle": 0.7853981633974705,
+          "coneMinus": 6.948550294177958e-10,
+          "conePlus": 0.0005080006537851759,
+          "cylinder": 0.00025400044743389104,
+          "apexDistance": 0.00476249999999979,
+          "scalar": null
+        },
+        {
+          "index": 41,
+          "offset": 182816,
+          "metadataOffset": 187014,
+          "scalarFlag": 0,
+          "parameters": [
+            0.0015875000000000004,
+            0,
+            0,
+            0.010032999999999953,
+            0,
+            0,
+            0.008445499999999951,
+            0.7853981633974483
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 114,
+          "radius": 0.008445499999999951,
+          "angle": 0.7853981633974483,
+          "coneMinus": 4.1251132544550817e-10,
+          "conePlus": 0.0010160001857129012,
+          "cylinder": 0.0005080001784411349,
+          "apexDistance": 0.008445499999999953,
+          "scalar": null
+        },
+        {
+          "index": 46,
+          "offset": 202110,
+          "metadataOffset": 204812,
+          "scalarFlag": 0,
+          "parameters": [
+            0.030099000000000015,
+            0,
+            0,
+            0.018986500000000472,
+            0,
+            0,
+            0.011112499999999999,
+            0.7853981633974688
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 70,
+          "radius": 0.011112499999999999,
+          "angle": 0.7853981633974688,
+          "coneMinus": 1.1518081263067748e-9,
+          "conePlus": 0.0005080007534098673,
+          "cylinder": 0.00025400036586047114,
+          "apexDistance": 0.011112499999999543,
+          "scalar": null
+        }
+      ]
+    },
+    {
+      "file": "test files original/Helical Bevel Gear.SLDPRT",
+      "sha256": "d694ebd12683ffd1b6b225f465fd358005b6015388b1cc4fc1867cb38c371a92",
+      "dlSha256": "f5cda11c83cb1b7060533935467642baae131d381ee671159dc2874e024b13a5",
+      "faces": [
+        {
+          "index": 111,
+          "offset": 525816,
+          "metadataOffset": 527838,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            5.324872316244089e-18,
+            -0.162,
+            0,
+            4.7496546277609356e-18,
+            -0.14450000000000018,
+            0.017500000000000005,
+            0.7853981633974536
+          ],
+          "direction": [
+            0,
+            -3.286958219903772e-17,
+            1
+          ],
+          "axisNorm": 1,
+          "vertices": 50,
+          "radius": 0.017500000000000005,
+          "angle": 0.7853981633974536,
+          "coneMinus": 3.144243618941056e-9,
+          "conePlus": 0.0020000027418136668,
+          "cylinder": 0.001000000238418581,
+          "apexDistance": 0.01749999999999982,
+          "scalar": null
+        },
+        {
+          "index": 112,
+          "offset": 528180,
+          "metadataOffset": 530202,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -3.254088637704726e-18,
+            0.09900000000000012,
+            0,
+            -2.6788709492216074e-18,
+            0.08150000000000127,
+            0.017500000000000005,
+            0.7853981633974813
+          ],
+          "direction": [
+            0,
+            3.286958219903752e-17,
+            -1
+          ],
+          "axisNorm": 1,
+          "vertices": 50,
+          "radius": 0.017500000000000005,
+          "angle": 0.7853981633974813,
+          "coneMinus": 2.1309646026923534e-9,
+          "conePlus": 0.002000001728534647,
+          "cylinder": 0.0010000002384185774,
+          "apexDistance": 0.01749999999999885,
+          "scalar": null
+        }
+      ]
+    },
+    {
+      "file": "test files original/plate4.sldprt",
+      "sha256": "ab35db15d337f808f9ce9ee8fc72cc243c2fb2d78d033cf8514ef96e0f65d399",
+      "unsupported": "legacy OLE2"
+    },
+    {
+      "file": "test files original/Pocket Wheel.SLDPRT",
+      "sha256": "678a73af7c6eca8b5e6df60905a96f437bd5d1f85a2eed19277332c25629bb8c",
+      "dlSha256": "0bbaa5d84727542d2195b4c21ddde47da5e538bd4b2b7e2537b21dfdc3b1e970",
+      "faces": [
+        {
+          "index": 1,
+          "offset": 25642,
+          "metadataOffset": 26872,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.00011995331740483062,
+          "conePlus": 0.0030000060475676993,
+          "cylinder": 0.0015000060624713318,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 2,
+          "offset": 27322,
+          "metadataOffset": 28552,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.0001199533174052747,
+          "conePlus": 0.0030000060475672274,
+          "cylinder": 0.00150000606247086,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 3,
+          "offset": 29002,
+          "metadataOffset": 30232,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.0001199533174055245,
+          "conePlus": 0.00300000604756695,
+          "cylinder": 0.0015000060624706102,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 4,
+          "offset": 30682,
+          "metadataOffset": 31978,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.0001199533174055245,
+          "conePlus": 0.00300000604756695,
+          "cylinder": 0.0015000060624706102,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 5,
+          "offset": 32428,
+          "metadataOffset": 33724,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.0001199533174052747,
+          "conePlus": 0.0030000060475672274,
+          "cylinder": 0.00150000606247086,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 6,
+          "offset": 34174,
+          "metadataOffset": 35470,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.00011995331740483062,
+          "conePlus": 0.0030000060475676993,
+          "cylinder": 0.0015000060624713318,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 7,
+          "offset": 35920,
+          "metadataOffset": 37216,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.00011995331740458082,
+          "conePlus": 0.003000006047567977,
+          "cylinder": 0.0015000060624715816,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 8,
+          "offset": 37666,
+          "metadataOffset": 38896,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.029999999999996696,
+            5.669687959689205e-16,
+            0,
+            0.18299999999991176,
+            5.859935777188866e-16,
+            0.153,
+            0.7853981633977258
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.153,
+          "angle": 0.7853981633977258,
+          "coneMinus": 0.00011995331740458082,
+          "conePlus": 0.003000006047567977,
+          "cylinder": 0.0015000060624715816,
+          "apexDistance": 0.15299999999991507,
+          "scalar": null
+        },
+        {
+          "index": 64,
+          "offset": 255668,
+          "metadataOffset": 256964,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.00011995331740927151,
+          "conePlus": 0.0030000019224691032,
+          "cylinder": 0.0015000025930233807,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 65,
+          "offset": 257414,
+          "metadataOffset": 258710,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.0001199533174097156,
+          "conePlus": 0.003000001922469575,
+          "cylinder": 0.0015000025930238525,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 66,
+          "offset": 259160,
+          "metadataOffset": 260456,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.00011995331741002091,
+          "conePlus": 0.003000001922469825,
+          "cylinder": 0.00150000259302413,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 67,
+          "offset": 260906,
+          "metadataOffset": 262136,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.00011995331741002091,
+          "conePlus": 0.003000001922469825,
+          "cylinder": 0.00150000259302413,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 68,
+          "offset": 262586,
+          "metadataOffset": 263816,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.0001199533174097156,
+          "conePlus": 0.003000001922469575,
+          "cylinder": 0.0015000025930238525,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 69,
+          "offset": 264266,
+          "metadataOffset": 265496,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.00011995331740927151,
+          "conePlus": 0.0030000019224691032,
+          "cylinder": 0.0015000025930233807,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 70,
+          "offset": 265946,
+          "metadataOffset": 267176,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 27,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.0001199533174089662,
+          "conePlus": 0.003000001922468881,
+          "cylinder": 0.0015000025930231309,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 71,
+          "offset": 267626,
+          "metadataOffset": 268922,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.028500000000001968,
+            5.596946147115767e-16,
+            0,
+            -0.18300000000000768,
+            5.404833154934622e-16,
+            0.1545,
+            0.7853981633974298
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 29,
+          "radius": 0.1545,
+          "angle": 0.7853981633974298,
+          "coneMinus": 0.0001199533174089662,
+          "conePlus": 0.003000001922468881,
+          "cylinder": 0.0015000025930231309,
+          "apexDistance": 0.15450000000000572,
+          "scalar": null
+        },
+        {
+          "index": 75,
+          "offset": 343698,
+          "metadataOffset": 353974,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.05099999999999838,
+            5.568968526895217e-16,
+            0,
+            -0.1409999999999908,
+            5.45705804601301e-16,
+            0.08999999999999242,
+            0.7853981633974483
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 296,
+          "radius": 0.08999999999999242,
+          "angle": 0.7853981633974483,
+          "coneMinus": 0.000119336463780359,
+          "conePlus": 0.00400000277195546,
+          "cylinder": 0.0020000033978026105,
+          "apexDistance": 0.08999999999999242,
+          "scalar": null
+        },
+        {
+          "index": 77,
+          "offset": 359914,
+          "metadataOffset": 366488,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            -0.05299999999999638,
+            5.566481627320059e-16,
+            0,
+            -0.012000000000018336,
+            5.617463068610819e-16,
+            0.040999999999999384,
+            0.7853981633977085
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 186,
+          "radius": 0.040999999999999384,
+          "angle": 0.7853981633977085,
+          "coneMinus": 0.00011676291678648643,
+          "conePlus": 0.002116760771013082,
+          "cylinder": 0.0011167618438997842,
+          "apexDistance": 0.04099999999997805,
+          "scalar": null
+        },
+        {
+          "index": 79,
+          "offset": 372810,
+          "metadataOffset": 379384,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.051999999999997826,
+            5.69704385501597e-16,
+            0,
+            0.012000000000015686,
+            5.647305863512785e-16,
+            0.039999999999998516,
+            0.785398163397653
+          ],
+          "direction": [
+            0,
+            -1,
+            -1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 186,
+          "radius": 0.039999999999998516,
+          "angle": 0.785398163397653,
+          "coneMinus": 0.00011676291678469619,
+          "conePlus": 0.0020000011805563697,
+          "cylinder": 0.0010000018064025631,
+          "apexDistance": 0.03999999999998214,
+          "scalar": null
+        },
+        {
+          "index": 81,
+          "offset": 385432,
+          "metadataOffset": 389970,
+          "scalarFlag": 0,
+          "parameters": [
+            0,
+            0.05299999999999816,
+            5.698287304803551e-16,
+            0,
+            0.14099999999999302,
+            5.807710886110601e-16,
+            0.08799999999999485,
+            0.7853981633974483
+          ],
+          "direction": [
+            0,
+            1,
+            1.2434497875801754e-16
+          ],
+          "axisNorm": 1,
+          "vertices": 124,
+          "radius": 0.08799999999999485,
+          "angle": 0.7853981633974483,
+          "coneMinus": 4.260741162664949e-9,
+          "conePlus": 0.004000004529956899,
+          "cylinder": 0.0020000035762844093,
+          "apexDistance": 0.08799999999999486,
+          "scalar": null
+        }
+      ]
+    },
+    {
+      "file": "test files original/PTC GE8080-8.SLDPRT",
+      "sha256": "162e6293b95508072f65d39b4d933553d2f3fa6c77863e29e6135afd026c8f94",
+      "dlSha256": "f44e168c468e496191b468aab658cd292473892cf848ef4abde266f41f9ffeef",
+      "faces": []
+    },
+    {
+      "file": "test files original/SW2000-s01.SLDPRT",
+      "sha256": "3a1007ea37bc19bec8a2398b83db204bc36db0c1687fba264160e898335c1ab2",
+      "unsupported": "legacy OLE2"
+    },
+    {
+      "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+      "sha256": "851f385248ed25cf7c9a2677df3169738c139f34120cb8734ae6ef89d26521a1",
+      "dlSha256": "dceff203932d7bd7f465fca30ff3848a643eeb9c83465212ca7e8107d30d15c8",
+      "faces": [
+        {
+          "index": 31,
+          "offset": 73252,
+          "metadataOffset": 75274,
+          "scalarFlag": 0,
+          "parameters": [
+            0.0286,
+            0,
+            0.0154,
+            0.0286,
+            0.004500000000000012,
+            0.0154,
+            0.004499999999999997,
+            0.7853981633974467
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 50,
+          "radius": 0.004499999999999997,
+          "angle": 0.7853981633974467,
+          "coneMinus": 1.5139579806824899e-9,
+          "conePlus": 0.006000000866502509,
+          "cylinder": 0.003000000840425486,
+          "apexDistance": 0.004500000000000012,
+          "scalar": null
+        },
+        {
+          "index": 32,
+          "offset": 75550,
+          "metadataOffset": 77572,
+          "scalarFlag": 0,
+          "parameters": [
+            0.004000000000000002,
+            0,
+            0.0154,
+            0.004000000000000002,
+            0.004500000000000011,
+            0.0154,
+            0.004499999999999997,
+            0.7853981633974468
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 50,
+          "radius": 0.004499999999999997,
+          "angle": 0.7853981633974468,
+          "coneMinus": 7.428228802463382e-10,
+          "conePlus": 0.006000000794976926,
+          "cylinder": 0.003000000768899903,
+          "apexDistance": 0.004500000000000011,
+          "scalar": null
+        },
+        {
+          "index": 33,
+          "offset": 77848,
+          "metadataOffset": 79870,
+          "scalarFlag": 0,
+          "parameters": [
+            0.0286,
+            0,
+            -0.0154,
+            0.0286,
+            0.004500000000000012,
+            -0.0154,
+            0.004499999999999997,
+            0.7853981633974467
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 50,
+          "radius": 0.004499999999999997,
+          "angle": 0.7853981633974467,
+          "coneMinus": 1.5139579806824899e-9,
+          "conePlus": 0.006000000866502509,
+          "cylinder": 0.003000000840425486,
+          "apexDistance": 0.004500000000000012,
+          "scalar": null
+        },
+        {
+          "index": 34,
+          "offset": 80146,
+          "metadataOffset": 82168,
+          "scalarFlag": 0,
+          "parameters": [
+            0.004000000000000002,
+            0,
+            -0.0154,
+            0.004000000000000002,
+            0.004500000000000012,
+            -0.0154,
+            0.004499999999999994,
+            0.7853981633974464
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 50,
+          "radius": 0.004499999999999994,
+          "angle": 0.7853981633974464,
+          "coneMinus": 7.428228793789765e-10,
+          "conePlus": 0.0060000007949769195,
+          "cylinder": 0.0030000007688998995,
+          "apexDistance": 0.004500000000000012,
+          "scalar": null
+        },
+        {
+          "index": 35,
+          "offset": 82444,
+          "metadataOffset": 86272,
+          "scalarFlag": 0,
+          "parameters": [
+            0.0286,
+            0.004000000000000035,
+            -0.0154,
+            0.0286,
+            0.00700000000000006,
+            -0.0154,
+            0.002999999999999994,
+            0.7853981633974432
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 104,
+          "radius": 0.002999999999999994,
+          "angle": 0.7853981633974432,
+          "coneMinus": 0.000015959264417973046,
+          "conePlus": 0.004000000625353425,
+          "cylinder": 0.002000000720348314,
+          "apexDistance": 0.003000000000000025,
+          "scalar": null
+        },
+        {
+          "index": 36,
+          "offset": 86684,
+          "metadataOffset": 89374,
+          "scalarFlag": 0,
+          "parameters": [
+            0.004000000000000002,
+            0.004000000000000035,
+            -0.0154,
+            0.004000000000000002,
+            0.007000000000000065,
+            -0.0154,
+            0.003,
+            0.7853981633974434
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 70,
+          "radius": 0.003,
+          "angle": 0.7853981633974434,
+          "coneMinus": 8.795662028576734e-10,
+          "conePlus": 0.004000000263029343,
+          "cylinder": 0.002000000358024231,
+          "apexDistance": 0.0030000000000000304,
+          "scalar": null
+        },
+        {
+          "index": 37,
+          "offset": 89714,
+          "metadataOffset": 93508,
+          "scalarFlag": 0,
+          "parameters": [
+            0.0286,
+            0.003999999999999993,
+            0.0154,
+            0.0286,
+            0.007000000000000013,
+            0.0154,
+            0.002999999999999994,
+            0.785398163397444
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 103,
+          "radius": 0.002999999999999994,
+          "angle": 0.785398163397444,
+          "coneMinus": 1.64778805877841e-9,
+          "conePlus": 0.004000000625353387,
+          "cylinder": 0.002000000720348314,
+          "apexDistance": 0.00300000000000002,
+          "scalar": null
+        },
+        {
+          "index": 38,
+          "offset": 93920,
+          "metadataOffset": 96610,
+          "scalarFlag": 0,
+          "parameters": [
+            0.004000000000000002,
+            0.004000000000000028,
+            0.0154,
+            0.004000000000000002,
+            0.007000000000000069,
+            0.0154,
+            0.0030000000000000014,
+            0.7853981633974417
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "axisNorm": 1,
+          "vertices": 70,
+          "radius": 0.0030000000000000014,
+          "angle": 0.7853981633974417,
+          "coneMinus": 8.795662084955247e-10,
+          "conePlus": 0.0040000002630293284,
+          "cylinder": 0.0020000003580242297,
+          "apexDistance": 0.003000000000000041,
+          "scalar": null
+        }
+      ]
+    },
+    {
+      "file": "test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT",
+      "sha256": "b2928e16b72dd92f085e5d3cb83c101777acf075d2abf1b268563fdd564c14fc",
+      "dlSha256": "02a7882c8ac34fb6214d391a66d509c46cacffc9ed27a04185e690c2f6fc2da4",
+      "faces": []
+    }
+  ]
+}

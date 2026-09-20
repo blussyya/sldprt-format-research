@@ -1,0 +1,1 @@
+{"faces":1272,"parseErrors":0,"checkFailures":[],"scalarFlagHistogram":{"0":882,"1":390},"surfaceTags":{"4001":528,"4002":276,"4003":47,"4005":35,"4006":42,"4007":33,"4009":311},"unknownWordTuples":{"0,0,0":1272},"stepFacesTested":94,"stepFacesMatched":94}

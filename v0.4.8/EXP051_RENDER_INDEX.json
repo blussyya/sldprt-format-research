@@ -1,0 +1,183 @@
+{
+  "experiment": "EXP-051",
+  "date": "2026-09-20",
+  "views": [
+    {
+      "name": "ISO FRONT",
+      "azimuthDeg": 45,
+      "elevationDeg": 35.264
+    },
+    {
+      "name": "ISO BACK",
+      "azimuthDeg": 225,
+      "elevationDeg": 35.264
+    },
+    {
+      "name": "ISO LEFT",
+      "azimuthDeg": 135,
+      "elevationDeg": 35.264
+    },
+    {
+      "name": "ISO UNDER",
+      "azimuthDeg": 45,
+      "elevationDeg": -35.264
+    },
+    {
+      "name": "TOP",
+      "azimuthDeg": 45,
+      "elevationDeg": 89.9
+    },
+    {
+      "name": "BOTTOM",
+      "azimuthDeg": 45,
+      "elevationDeg": -89.9
+    }
+  ],
+  "panelPx": 520,
+  "layout": "3x2",
+  "sheets": [
+    {
+      "model": "test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT",
+      "sheet": "EXP051_renders/C03.png",
+      "faces": 7,
+      "triangles": 36,
+      "boundaryEdges": 50,
+      "views": 6,
+      "stats": {
+        "faces": 7,
+        "triangles": 36,
+        "metadataFaces": 7
+      }
+    },
+    {
+      "model": "test files original/controlled/C04_cube_hole_5mm/model.SLDPRT",
+      "sheet": "EXP051_renders/C04.png",
+      "faces": 7,
+      "triangles": 152,
+      "boundaryEdges": 160,
+      "views": 6,
+      "stats": {
+        "faces": 7,
+        "triangles": 152,
+        "metadataFaces": 7
+      }
+    },
+    {
+      "model": "test files original/controlled/C07_cube_two_holes/model.SLDPRT",
+      "sheet": "EXP051_renders/C07.png",
+      "faces": 8,
+      "triangles": 292,
+      "boundaryEdges": 296,
+      "views": 6,
+      "stats": {
+        "faces": 8,
+        "triangles": 292,
+        "metadataFaces": 8
+      }
+    },
+    {
+      "model": "test files original/controlled/C10_cube_shell_1mm/model.SLDPRT",
+      "sheet": "EXP051_renders/C10.png",
+      "faces": 11,
+      "triangles": 28,
+      "boundaryEdges": 48,
+      "views": 6,
+      "stats": {
+        "faces": 11,
+        "triangles": 28,
+        "metadataFaces": 11
+      }
+    },
+    {
+      "model": "test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT",
+      "sheet": "EXP051_renders/usbtop.png",
+      "faces": 68,
+      "triangles": 4704,
+      "boundaryEdges": 2842,
+      "views": 6,
+      "stats": {
+        "faces": 68,
+        "triangles": 4704,
+        "metadataFaces": 68
+      }
+    },
+    {
+      "model": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+      "sheet": "EXP051_renders/usbbottom.png",
+      "faces": 39,
+      "triangles": 1488,
+      "boundaryEdges": 1516,
+      "views": 6,
+      "stats": {
+        "faces": 39,
+        "triangles": 1488,
+        "metadataFaces": 39
+      }
+    },
+    {
+      "model": "test files original/Pocket Wheel.SLDPRT",
+      "sheet": "EXP051_renders/pocket.png",
+      "faces": 400,
+      "triangles": 17078,
+      "boundaryEdges": 11718,
+      "views": 6,
+      "stats": {
+        "faces": 400,
+        "triangles": 17078,
+        "metadataFaces": 400
+      }
+    },
+    {
+      "model": "test files original/Dekor.SLDPRT",
+      "sheet": "EXP051_renders/dekor.png",
+      "faces": 375,
+      "triangles": 15282,
+      "boundaryEdges": 15366,
+      "views": 6,
+      "stats": {
+        "faces": 375,
+        "triangles": 15282,
+        "metadataFaces": 375
+      }
+    },
+    {
+      "model": "test files original/Helical Bevel Gear.SLDPRT",
+      "sheet": "EXP051_renders/gear.png",
+      "faces": 113,
+      "triangles": 6042,
+      "boundaryEdges": 3366,
+      "views": 6,
+      "stats": {
+        "faces": 113,
+        "triangles": 6042,
+        "metadataFaces": 113
+      }
+    },
+    {
+      "model": "test files original/distributor main boss rev a.SLDPRT",
+      "sheet": "EXP051_renders/distributor.png",
+      "faces": 51,
+      "triangles": 3902,
+      "boundaryEdges": 3400,
+      "views": 6,
+      "stats": {
+        "faces": 51,
+        "triangles": 3902,
+        "metadataFaces": 51
+      }
+    },
+    {
+      "model": "test files original/PTC GE8080-8.SLDPRT",
+      "sheet": "EXP051_renders/ptc.png",
+      "faces": 126,
+      "triangles": 1192,
+      "boundaryEdges": 1364,
+      "views": 6,
+      "stats": {
+        "faces": 126,
+        "triangles": 1192,
+        "metadataFaces": 126
+      }
+    }
+  ]
+}

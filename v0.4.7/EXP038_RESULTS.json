@@ -1,0 +1,704 @@
+{
+  "C00_cube_10mm_vs_C03_cube_fillet_1mm": {
+    "modelAName": "C00_cube_10mm",
+    "modelBName": "C03_cube_fillet_1mm",
+    "faceCountA": 6,
+    "faceCountB": 7,
+    "faceCountDiff": 1,
+    "matched": [
+      {
+        "aIndex": 0,
+        "bIndex": 0,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        },
+        "tokensChanged": false
+      },
+      {
+        "aIndex": 1,
+        "bIndex": 1,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        },
+        "tokensChanged": false
+      },
+      {
+        "aIndex": 4,
+        "bIndex": 4,
+        "centroidDist": 0,
+        "vertexOverlap": 0.3888888888888889,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "b2BodyChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            9,
+            0,
+            17,
+            5
+          ],
+          "orientation": "+Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            142,
+            0,
+            5,
+            1,
+            9,
+            0,
+            0,
+            13,
+            0,
+            0,
+            165,
+            1,
+            165,
+            0,
+            0,
+            165,
+            0,
+            165,
+            0,
+            165,
+            165
+          ],
+          "orientation": "+Z",
+          "faceType": "multi_loop"
+        },
+        "tokensChanged": true
+      },
+      {
+        "aIndex": 5,
+        "bIndex": 5,
+        "centroidDist": 0,
+        "vertexOverlap": 0.3888888888888889,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "b2BodyChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            54,
+            50,
+            0,
+            58,
+            62
+          ],
+          "orientation": "-Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            54,
+            0,
+            58,
+            1,
+            62,
+            0,
+            0,
+            139,
+            0,
+            0,
+            152,
+            1,
+            152,
+            0,
+            0,
+            152,
+            0,
+            152,
+            0,
+            152,
+            152
+          ],
+          "orientation": "-Z",
+          "faceType": "multi_loop"
+        },
+        "tokensChanged": true
+      },
+      {
+        "aIndex": 2,
+        "bIndex": 2,
+        "centroidDist": 0.0005000000819563866,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            13,
+            160,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        },
+        "tokensChanged": true
+      },
+      {
+        "aIndex": 3,
+        "bIndex": 3,
+        "centroidDist": 0.0005000000819563866,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            139,
+            144,
+            0,
+            79,
+            142
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        },
+        "tokensChanged": true
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "bIndex": 6,
+        "edgeCount": 13,
+        "vertexCount": 16,
+        "secCount": 2,
+        "b1Len": 28,
+        "tokens": {
+          "tokens": [
+            1,
+            160,
+            0,
+            152,
+            1,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            144
+          ],
+          "orientation": "NON_AXIS(0.766,0.642,0.000)",
+          "faceType": "multi_loop"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 4,
+            "sharedVertices": 8
+          },
+          {
+            "index": 5,
+            "sharedVertices": 8
+          },
+          {
+            "index": 2,
+            "sharedVertices": 3
+          },
+          {
+            "index": 3,
+            "sharedVertices": 2
+          }
+        ]
+      }
+    ],
+    "ambiguous": []
+  },
+  "C00_cube_10mm_vs_C12_cube_fillet_1mm_edge2": {
+    "modelAName": "C00_cube_10mm",
+    "modelBName": "C12_cube_fillet_1mm_edge2",
+    "faceCountA": 6,
+    "faceCountB": 7,
+    "faceCountDiff": 1,
+    "matched": [
+      {
+        "aIndex": 2,
+        "bIndex": 2,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X"
+        },
+        "tokensChanged": false
+      },
+      {
+        "aIndex": 3,
+        "bIndex": 3,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y"
+        },
+        "tokensChanged": false
+      },
+      {
+        "aIndex": 4,
+        "bIndex": 4,
+        "centroidDist": 0,
+        "vertexOverlap": 0.3888888888888889,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "b2BodyChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            9,
+            0,
+            17,
+            5
+          ],
+          "orientation": "+Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            13,
+            142,
+            0,
+            17,
+            0,
+            1,
+            5,
+            0,
+            0,
+            165,
+            0,
+            0,
+            165,
+            1,
+            165,
+            0,
+            0,
+            165,
+            0,
+            165,
+            165
+          ],
+          "orientation": "+Z"
+        },
+        "tokensChanged": true
+      },
+      {
+        "aIndex": 5,
+        "bIndex": 5,
+        "centroidDist": 0,
+        "vertexOverlap": 0.3333333333333333,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "b2BodyChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            54,
+            50,
+            0,
+            58,
+            62
+          ],
+          "orientation": "-Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            54,
+            50,
+            0,
+            139,
+            0,
+            62,
+            0,
+            1,
+            152,
+            0,
+            152,
+            1,
+            152,
+            0,
+            0,
+            152,
+            0,
+            152,
+            0,
+            0,
+            152
+          ],
+          "orientation": "-Z"
+        },
+        "tokensChanged": true
+      },
+      {
+        "aIndex": 0,
+        "bIndex": 0,
+        "centroidDist": 0.0005000000237487257,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            5,
+            160,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X"
+        },
+        "tokensChanged": true
+      },
+      {
+        "aIndex": 1,
+        "bIndex": 1,
+        "centroidDist": 0.0005000000237487257,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "b2BodyChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            139,
+            144,
+            0,
+            81,
+            142
+          ],
+          "orientation": "-Y"
+        },
+        "tokensChanged": true
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "bIndex": 6,
+        "edgeCount": 13,
+        "vertexCount": 16,
+        "secCount": 2,
+        "b1Len": 28,
+        "tokens": {
+          "tokens": [
+            1,
+            160,
+            0,
+            152,
+            1,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            144
+          ],
+          "orientation": "NON_AXIS(-0.766,-0.642,0.000)"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 4,
+            "sharedVertices": 8
+          },
+          {
+            "index": 5,
+            "sharedVertices": 8
+          },
+          {
+            "index": 0,
+            "sharedVertices": 3
+          },
+          {
+            "index": 1,
+            "sharedVertices": 2
+          }
+        ]
+      }
+    ],
+    "ambiguous": []
+  },
+  "_nq028CrossCheck": {
+    "c03": {
+      "newFaceIndex": 6,
+      "adjacentC00Indices": [
+        4,
+        5,
+        2,
+        3
+      ],
+      "structurallyChangedFaces": [
+        4,
+        5
+      ],
+      "tokenChangedUnmodifiedFaces": [
+        2,
+        3
+      ],
+      "tokenChangedUnmodifiedOrientations": [
+        "+X",
+        "+Y"
+      ],
+      "unchangedTokenFaces": [
+        0,
+        1
+      ]
+    },
+    "c12": {
+      "newFaceIndex": 6,
+      "adjacentC00Indices": [
+        4,
+        5,
+        0,
+        1
+      ],
+      "structurallyChangedFaces": [
+        4,
+        5
+      ],
+      "tokenChangedUnmodifiedFaces": [
+        0,
+        1
+      ],
+      "tokenChangedUnmodifiedOrientations": [
+        "-X",
+        "-Y"
+      ],
+      "unchangedTokenFaces": [
+        2,
+        3
+      ]
+    },
+    "sameIndexSet": false,
+    "sameOrientationSet": false,
+    "c12ChangedFacesMatchC12Adjacency": true
+  }
+}

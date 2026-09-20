@@ -1,0 +1,1 @@
+{"faces":1272,"ambiguousFaces":0,"cycles":1698,"cycleEdges":41010,"pairStatuses":{"exact":2889,"different-sampling":389},"maxEndpointToOtherPolylineM":8.32697841716346e-9}

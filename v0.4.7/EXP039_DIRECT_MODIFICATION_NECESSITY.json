@@ -1,0 +1,170 @@
+{
+  "timestamp": "2026-08-16T17:42:01.854Z",
+  "note": "Builds on EXP-037/038 validated tooling/JSON; does not re-derive Block1/Block2 extraction, correspondence, or adjacency logic.",
+  "rows": [
+    {
+      "pair": "C03(fillet)",
+      "bIndex": 0,
+      "orientation": "-X",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C03(fillet)",
+      "bIndex": 1,
+      "orientation": "-Y",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C09(chamfer)",
+      "bIndex": 0,
+      "orientation": "-X",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C09(chamfer)",
+      "bIndex": 1,
+      "orientation": "-Y",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C04(hole5mm)",
+      "bIndex": 0,
+      "orientation": "-X",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C04(hole5mm)",
+      "bIndex": 1,
+      "orientation": "-Y",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C04(hole5mm)",
+      "bIndex": 2,
+      "orientation": "+X",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C04(hole5mm)",
+      "bIndex": 3,
+      "orientation": "+Y",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C10(shell)",
+      "bIndex": 1,
+      "orientation": "-X",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C10(shell)",
+      "bIndex": 2,
+      "orientation": "-Y",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C10(shell)",
+      "bIndex": 3,
+      "orientation": "+X",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C10(shell)",
+      "bIndex": 4,
+      "orientation": "+Y",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": true,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C10(shell)",
+      "bIndex": 5,
+      "orientation": "-Z",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": false,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C12(fillet,edge2)",
+      "bIndex": 2,
+      "orientation": "+X",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": false,
+      "tokenChanged": false
+    },
+    {
+      "pair": "C12(fillet,edge2)",
+      "bIndex": 3,
+      "orientation": "+Y",
+      "identical": true,
+      "directlyModified": false,
+      "realAdjacentToChangedOrAdded": false,
+      "tokenChanged": false
+    }
+  ],
+  "crossTabulation": {
+    "unmodified_adjacent": {
+      "total": 12,
+      "changed": 0,
+      "examples": [
+        "C03(fillet):B0(-X)",
+        "C03(fillet):B1(-Y)",
+        "C09(chamfer):B0(-X)",
+        "C09(chamfer):B1(-Y)",
+        "C04(hole5mm):B0(-X)",
+        "C04(hole5mm):B1(-Y)",
+        "C04(hole5mm):B2(+X)",
+        "C04(hole5mm):B3(+Y)",
+        "C10(shell):B1(-X)",
+        "C10(shell):B2(-Y)",
+        "C10(shell):B3(+X)",
+        "C10(shell):B4(+Y)"
+      ]
+    },
+    "unmodified_notAdjacent_control": {
+      "total": 3,
+      "changed": 0,
+      "examples": [
+        "C10(shell):B5(-Z)",
+        "C12(fillet,edge2):B2(+X)",
+        "C12(fillet,edge2):B3(+Y)"
+      ]
+    }
+  }
+}

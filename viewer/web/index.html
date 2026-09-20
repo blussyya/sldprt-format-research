@@ -1,0 +1,595 @@
+<title>DisplayLists Inspector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#eceff4; --panel:#ffffff; --panel-2:#f5f7fa;
+  --ink:#11161d; --muted:#646f7e; --rule:#d3dae3;
+  --accent:#a8690c; --accent-soft:#f3e2c4; --on-accent:#ffffff;
+  --viewport:#e4e8ee; --edge:#11161d;
+  --shadow:0 1px 2px rgba(17,22,29,.06),0 8px 24px rgba(17,22,29,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0d1117; --panel:#161d26; --panel-2:#1b232e;
+    --ink:#e3e9f1; --muted:#8b95a3; --rule:#252d38;
+    --accent:#e8a33d; --accent-soft:#3a2c14; --on-accent:#14100a;
+    --viewport:#11171f; --edge:#0a0d12;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1117; --panel:#161d26; --panel-2:#1b232e;
+  --ink:#e3e9f1; --muted:#8b95a3; --rule:#252d38;
+  --accent:#e8a33d; --accent-soft:#3a2c14; --on-accent:#14100a;
+  --viewport:#11171f; --edge:#0a0d12;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px; margin:0 auto; padding-inline:16px; padding-block:28px 40px}
+header{display:flex; flex-wrap:wrap; gap:14px 24px; align-items:flex-end; justify-content:space-between; margin-bottom:22px}
+h1{font-size:clamp(22px,3.4vw,30px); line-height:1.15; margin:0 0 6px; font-weight:700; letter-spacing:-.018em; text-wrap:balance}
+.sub{margin:0; color:var(--muted); max-width:62ch; font-size:14.5px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 10px}
+.rail{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px}
+.chip{appearance:none; cursor:pointer; border:1px solid var(--rule); background:var(--panel);
+  color:var(--ink); border-radius:7px; padding:7px 12px; font:inherit; font-size:13.5px;
+  font-weight:500; transition:border-color .12s,background .12s,color .12s}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent);
+  color:var(--on-accent); font-weight:600}
+.chip:focus-visible,.tog:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.stage{display:grid; grid-template-columns:1fr 250px; gap:16px; align-items:start}
+@media (max-width:820px){.stage{grid-template-columns:1fr}}
+.viewport{position:relative; background:var(--viewport); border:1px solid var(--rule);
+  border-radius:10px; overflow:hidden; box-shadow:var(--shadow); aspect-ratio:4/3; max-width:100%}
+@media (max-width:820px){.viewport{aspect-ratio:1/1}}
+canvas{display:block; width:100%; height:100%; touch-action:none; cursor:grab}
+canvas:active{cursor:grabbing}
+.hint{position:absolute; left:10px; bottom:9px; font-family:"IBM Plex Mono",monospace;
+  font-size:10.5px; letter-spacing:.06em; color:var(--muted); pointer-events:none;
+  text-transform:uppercase; opacity:.85}
+.side{display:flex; flex-direction:column; gap:14px}
+.card{background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:14px 15px}
+.card h2{font-size:11px; font-family:"IBM Plex Mono",monospace; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 11px}
+.readout{display:grid; grid-template-columns:auto 1fr; gap:6px 14px; font-family:"IBM Plex Mono",monospace; font-size:12.5px}
+.readout dt{color:var(--muted)}
+.readout dd{margin:0; text-align:right; font-variant-numeric:tabular-nums; font-weight:500}
+.togs{display:flex; flex-direction:column; gap:7px}
+.tog{display:flex; align-items:center; justify-content:space-between; gap:10px; cursor:pointer;
+  appearance:none; border:1px solid var(--rule); background:var(--panel-2); color:var(--ink);
+  border-radius:7px; padding:8px 11px; font:inherit; font-size:13.5px; text-align:left; width:100%}
+.tog:hover{border-color:var(--accent)}
+.tog .state{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted)}
+.tog[aria-pressed="true"]{border-color:var(--accent); background:var(--accent-soft)}
+.tog[aria-pressed="true"] .state{color:var(--accent); font-weight:600}
+.note{color:var(--muted); font-size:13px; margin:0}
+footer{margin-top:26px; padding-top:18px; border-top:1px solid var(--rule); color:var(--muted); font-size:13px}
+footer p{margin:0 0 8px; max-width:78ch}
+footer strong{color:var(--ink); font-weight:600}
+code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--panel-2);
+  border:1px solid var(--rule); border-radius:4px; padding:1px 5px}
+.drop{position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+  background:color-mix(in srgb, var(--accent) 16%, var(--viewport));
+  border:2px dashed var(--accent); border-radius:9px; pointer-events:none; z-index:2}
+.drop.on{display:flex}
+.drop span{font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--accent); font-weight:600}
+.status{margin-top:10px; font-family:"IBM Plex Mono",monospace; font-size:12.5px;
+  color:var(--muted); min-height:1.5em; overflow-wrap:anywhere}
+.status.err{color:#b3261e}
+:root[data-theme="dark"] .status.err{color:#ff8a7a}
+.status.ok{color:var(--accent)}
+.filerow{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:12px}
+.sheetout{margin-top:18px}
+.sheetout img{width:100%; border:1px solid var(--rule); border-radius:9px; display:block}
+.sheetout p{margin:0 0 9px; font-size:13px; color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">Contents/DisplayLists &middot; parser/v0.2</p>
+      <h1>DisplayLists Inspector</h1>
+      <p class="sub">The triangle strips and boundary-edge annotations read straight out of a SolidWorks
+      part file. Nothing is welded, re-ordered or repaired &mdash; this is what the parser emits.</p>
+    </div>
+  </header>
+
+  <p class="eyebrow">Model</p>
+  <div class="rail" id="rail" role="group" aria-label="Model"></div>
+
+  <div class="stage">
+    <div class="viewport">
+      <canvas id="gl" aria-label="Interactive 3D view of the parsed mesh"></canvas>
+      <div class="hint">Drag to orbit &middot; scroll to zoom</div>
+      <div class="drop" id="drop"><span>Drop .SLDPRT to parse</span></div>
+    </div>
+    <div class="side">
+      <div class="card">
+        <h2>Readout</h2>
+        <dl class="readout">
+          <dt>Faces</dt><dd id="r-faces">&mdash;</dd>
+          <dt>Triangles</dt><dd id="r-tris">&mdash;</dd>
+          <dt>Strip edges</dt><dd id="r-edges">&mdash;</dd>
+          <dt>Extent X</dt><dd id="r-x">&mdash;</dd>
+          <dt>Extent Y</dt><dd id="r-y">&mdash;</dd>
+          <dt>Extent Z</dt><dd id="r-z">&mdash;</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <h2>Display</h2>
+        <div class="togs">
+          <button class="tog" id="t-edges" aria-pressed="true">Boundary edges <span class="state">On</span></button>
+          <button class="tog" id="t-color" aria-pressed="true">Colour by face <span class="state">On</span></button>
+          <button class="tog" id="t-spin" aria-pressed="false">Auto-rotate <span class="state">Off</span></button>
+          <button class="tog" id="t-reset" aria-pressed="false">Reset view <span class="state">&#8635;</span></button>
+          <button class="tog" id="t-sheet" aria-pressed="false">Export 6-view sheet <span class="state">PNG</span></button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>About this model</h2>
+        <p class="note" id="r-note">&mdash;</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="filerow">
+    <button class="chip" type="button" id="pick">Load a .SLDPRT&hellip;</button>
+    <input type="file" id="file" accept=".sldprt,.SLDPRT" hidden>
+    <span class="note" style="font-size:13px">or drop one onto the view &mdash; it is parsed here in your browser and never uploaded.</span>
+  </div>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <div class="sheetout" id="sheetout" hidden>
+    <p><strong id="sheet-title">Sheet</strong> &mdash; right-click the image and choose
+    &ldquo;Save image as&hellip;&rdquo; to keep it. (This page cannot start a download itself.)</p>
+    <img id="sheet-img" alt="Six-view contact sheet of the current model">
+  </div>
+
+  <footer>
+    <p><strong>Black lines are Block1 annotations, not a wireframe.</strong> They are exactly the strip
+    edges whose stored token is nonzero &mdash; INV-021's face-boundary edges. A wrong edge classification
+    would decorate face interiors rather than their outlines.</p>
+    <p><strong>Scope.</strong> This is the display mesh, not the CAD surfaces. Curved faces show the
+    tessellation SolidWorks stored for its own viewport, so facet banding on a cylinder is the data, not
+    a defect. Coordinates are float32, so a 10&nbsp;mm cube measures 9.9999998&nbsp;mm. Extents above are
+    the real bounding box in millimetres.</p>
+    <p>Geometry generated by <code>viewer/export-mesh-data.js</code> from <code>parser/v0.2</code>.
+    Rendered with hand-written WebGL and no external library, matching the project's own no-dependency rule.</p>
+  </footer>
+</div>
+
+<script src="mesh-data.js"></script>
+<script src="inflate.js"></script>
+<script src="parser-v01.js"></script>
+<script src="parser-v02.js"></script>
+<script>
+(function(){
+ "use strict";
+ var DATA = (window.MESH_DATA && window.MESH_DATA.models) || [];
+ var canvas = document.getElementById('gl');
+ var gl = canvas.getContext('webgl', {antialias:true, alpha:false, preserveDrawingBuffer:true});
+ if(!gl){
+   canvas.parentNode.innerHTML = '<div style="padding:24px;font:14px \'IBM Plex Sans\',sans-serif">'+
+     'WebGL is unavailable in this browser, so the mesh cannot be drawn here. '+
+     'The same geometry is rendered to PNG contact sheets in the repository.</div>';
+   return;
+ }
+
+ function b64(s, Type){
+   var bin = atob(s), n = bin.length, u8 = new Uint8Array(n);
+   for(var i=0;i<n;i++) u8[i] = bin.charCodeAt(i);
+   return new Type(u8.buffer, 0, n / Type.BYTES_PER_ELEMENT);
+ }
+ // Same per-face hue walk the EXP-051 rasteriser uses, so stills and this view agree.
+ function faceColor(i){
+   var h = (i * 0.61803398875) % 1, s = 0.42, v = 0.97;
+   var k = Math.floor(h*6), f = h*6-k, p = v*(1-s), q = v*(1-f*s), t = v*(1-(1-f)*s);
+   return [[v,t,p],[q,v,p],[p,v,t],[p,q,v],[t,p,v],[v,p,q]][k%6];
+ }
+
+ function compile(type, src){
+   var sh = gl.createShader(type); gl.shaderSource(sh, src); gl.compileShader(sh); return sh;
+ }
+ function program(vs, fs){
+   var p = gl.createProgram();
+   gl.attachShader(p, compile(gl.VERTEX_SHADER, vs));
+   gl.attachShader(p, compile(gl.FRAGMENT_SHADER, fs));
+   gl.linkProgram(p); return p;
+ }
+ var meshProg = program(
+   'attribute vec3 aPos; attribute vec3 aNrm; attribute vec3 aCol;'+
+   'uniform mat4 uMVP; varying vec3 vN; varying vec3 vC;'+
+   'void main(){ vN=aNrm; vC=aCol; gl_Position=uMVP*vec4(aPos,1.0); }',
+   'precision mediump float; varying vec3 vN; varying vec3 vC;'+
+   'uniform vec3 uLight; uniform float uFlat; uniform vec3 uPlain;'+
+   'void main(){ float d=abs(dot(normalize(vN),normalize(uLight)));'+
+   ' float lam=0.30+0.70*d; vec3 base=mix(vC,uPlain,uFlat);'+
+   ' gl_FragColor=vec4(base*lam,1.0); }');
+ var lineProg = program(
+   'attribute vec3 aPos; uniform mat4 uMVP;'+
+   'void main(){ gl_Position=uMVP*vec4(aPos,1.0); }',
+   'precision mediump float; uniform vec3 uCol;'+
+   'void main(){ gl_FragColor=vec4(uCol,1.0); }');
+
+ var mA = {pos:gl.getAttribLocation(meshProg,'aPos'), nrm:gl.getAttribLocation(meshProg,'aNrm'),
+           col:gl.getAttribLocation(meshProg,'aCol'), mvp:gl.getUniformLocation(meshProg,'uMVP'),
+           light:gl.getUniformLocation(meshProg,'uLight'), flat:gl.getUniformLocation(meshProg,'uFlat'),
+           plain:gl.getUniformLocation(meshProg,'uPlain')};
+ var lA = {pos:gl.getAttribLocation(lineProg,'aPos'), mvp:gl.getUniformLocation(lineProg,'uMVP'),
+           col:gl.getUniformLocation(lineProg,'uCol')};
+
+ function mul(a,b){
+   var o = new Float32Array(16);
+   for(var i=0;i<4;i++) for(var j=0;j<4;j++){
+     var s=0; for(var k=0;k<4;k++) s += a[k*4+j]*b[i*4+k];
+     o[i*4+j]=s;
+   }
+   return o;
+ }
+ function perspective(fovy, asp, n, f){
+   var t = 1/Math.tan(fovy/2), o = new Float32Array(16);
+   o[0]=t/asp; o[5]=t; o[10]=(f+n)/(n-f); o[11]=-1; o[14]=2*f*n/(n-f);
+   return o;
+ }
+ function lookAt(e, c, up){
+   var z=[e[0]-c[0],e[1]-c[1],e[2]-c[2]];
+   var zl=Math.hypot(z[0],z[1],z[2]); z=[z[0]/zl,z[1]/zl,z[2]/zl];
+   var x=[up[1]*z[2]-up[2]*z[1], up[2]*z[0]-up[0]*z[2], up[0]*z[1]-up[1]*z[0]];
+   var xl=Math.hypot(x[0],x[1],x[2])||1; x=[x[0]/xl,x[1]/xl,x[2]/xl];
+   var y=[z[1]*x[2]-z[2]*x[1], z[2]*x[0]-z[0]*x[2], z[0]*x[1]-z[1]*x[0]];
+   return new Float32Array([
+     x[0],y[0],z[0],0, x[1],y[1],z[1],0, x[2],y[2],z[2],0,
+     -(x[0]*e[0]+x[1]*e[1]+x[2]*e[2]),
+     -(y[0]*e[0]+y[1]*e[1]+y[2]*e[2]),
+     -(z[0]*e[0]+z[1]*e[1]+z[2]*e[2]), 1]);
+ }
+
+ var cache = {};
+ function buildGPU(m){
+   if(cache[m.id]) return cache[m.id];
+   var IdxType = m.indexBits === 16 ? Uint16Array : Uint32Array;
+   var A = m._arr || {pos:b64(m.pos, Float32Array), idx:b64(m.idx, IdxType),
+                      face:b64(m.face, Uint16Array), edge:b64(m.edge, IdxType)};
+   var pos = A.pos, idx = A.idx, fot = A.face, edg = A.edge;
+   var nT = idx.length/3;
+   var P = new Float32Array(nT*9), N = new Float32Array(nT*9), C = new Float32Array(nT*9);
+   for(var t=0;t<nT;t++){
+     var i0=idx[t*3]*3, i1=idx[t*3+1]*3, i2=idx[t*3+2]*3;
+     var ax=pos[i0],ay=pos[i0+1],az=pos[i0+2];
+     var bx=pos[i1],by=pos[i1+1],bz=pos[i1+2];
+     var cx=pos[i2],cy=pos[i2+1],cz=pos[i2+2];
+     var ux=bx-ax,uy=by-ay,uz=bz-az, vx=cx-ax,vy=cy-ay,vz=cz-az;
+     var nx=uy*vz-uz*vy, ny=uz*vx-ux*vz, nz=ux*vy-uy*vx;
+     var nl=Math.hypot(nx,ny,nz)||1; nx/=nl; ny/=nl; nz/=nl;
+     var col = faceColor(fot[t]);
+     var o = t*9;
+     P[o]=ax;P[o+1]=ay;P[o+2]=az; P[o+3]=bx;P[o+4]=by;P[o+5]=bz; P[o+6]=cx;P[o+7]=cy;P[o+8]=cz;
+     for(var v=0;v<3;v++){
+       N[o+v*3]=nx; N[o+v*3+1]=ny; N[o+v*3+2]=nz;
+       C[o+v*3]=col[0]; C[o+v*3+1]=col[1]; C[o+v*3+2]=col[2];
+     }
+   }
+   var E = new Float32Array(edg.length*3);
+   for(var e=0;e<edg.length;e++){
+     var s=edg[e]*3; E[e*3]=pos[s]; E[e*3+1]=pos[s+1]; E[e*3+2]=pos[s+2];
+   }
+   function buf(arr){
+     var b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
+     gl.bufferData(gl.ARRAY_BUFFER, arr, gl.STATIC_DRAW); return b;
+   }
+   var maxR = 0;
+   for(var i=0;i<pos.length;i+=3){
+     var r = Math.hypot(pos[i],pos[i+1],pos[i+2]); if(r>maxR) maxR = r;
+   }
+   cache[m.id] = {p:buf(P), n:buf(N), c:buf(C), e:buf(E),
+                  nVerts:nT*3, nEdge:edg.length, maxR:maxR||0.6};
+   return cache[m.id];
+ }
+
+ var FOV = 0.72;
+ // Distance that fits a model of radius r in the vertical field of view, with margin.
+ function fitDist(r){ return Math.max(1.1, r / Math.tan(FOV/2) * 1.12); }
+ var az = 0.85, el = 0.62, dist = 2.6, homeDist = 2.6;
+ var spin = false, showEdges = true, showColor = true;
+ var current = DATA[0];
+ var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+ function resize(){
+   var dpr = Math.min(window.devicePixelRatio||1, 2);
+   var w = Math.max(1, Math.round(canvas.clientWidth*dpr));
+   var h = Math.max(1, Math.round(canvas.clientHeight*dpr));
+   if(canvas.width!==w || canvas.height!==h){ canvas.width=w; canvas.height=h; }
+ }
+ function themeColor(name){
+   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+ }
+ function hexToRGB(h){
+   h = h.replace('#','');
+   if(h.length===3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+   var n = parseInt(h,16);
+   return [((n>>16)&255)/255, ((n>>8)&255)/255, (n&255)/255];
+ }
+
+ function draw(skipResize){
+   if(!skipResize) resize();
+   var g = buildGPU(current);
+   gl.viewport(0,0,canvas.width,canvas.height);
+   var bg = hexToRGB(themeColor('--viewport') || '#e4e8ee');
+   gl.clearColor(bg[0],bg[1],bg[2],1);
+   gl.enable(gl.DEPTH_TEST);
+   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+   var ce = Math.cos(el), se = Math.sin(el);
+   var eye = [dist*ce*Math.cos(az), dist*ce*Math.sin(az), dist*se];
+   var view = lookAt(eye, [0,0,0], [0,0,1]);
+   var proj = perspective(FOV, canvas.width/canvas.height, 0.02, 60);
+   var mvp = mul(proj, view);
+
+   gl.useProgram(meshProg);
+   gl.uniformMatrix4fv(mA.mvp, false, mvp);
+   gl.uniform3f(mA.light, eye[0], eye[1], eye[2]);
+   gl.uniform1f(mA.flat, showColor ? 0 : 1);
+   gl.uniform3f(mA.plain, 0.80, 0.82, 0.85);
+   gl.enable(gl.POLYGON_OFFSET_FILL);
+   gl.polygonOffset(1.0, 1.0);
+   function bind(loc, b){
+     gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.enableVertexAttribArray(loc);
+     gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
+   }
+   bind(mA.pos, g.p); bind(mA.nrm, g.n); bind(mA.col, g.c);
+   gl.drawArrays(gl.TRIANGLES, 0, g.nVerts);
+   gl.disable(gl.POLYGON_OFFSET_FILL);
+
+   if(showEdges && g.nEdge){
+     gl.useProgram(lineProg);
+     gl.uniformMatrix4fv(lA.mvp, false, mvp);
+     var ec = hexToRGB(themeColor('--edge') || '#11161d');
+     gl.uniform3f(lA.col, ec[0], ec[1], ec[2]);
+     gl.bindBuffer(gl.ARRAY_BUFFER, g.e); gl.enableVertexAttribArray(lA.pos);
+     gl.vertexAttribPointer(lA.pos, 3, gl.FLOAT, false, 0, 0);
+     gl.drawArrays(gl.LINES, 0, g.nEdge);
+   }
+ }
+
+ var raf = null;
+ function loop(){
+   if(spin){ az += 0.0045; }
+   draw();
+   raf = requestAnimationFrame(loop);
+ }
+
+ function setModel(m){
+   current = m;
+   homeDist = fitDist(buildGPU(m).maxR);
+   dist = homeDist;
+   document.getElementById('r-faces').textContent = m.faceCount.toLocaleString();
+   document.getElementById('r-tris').textContent  = m.triangleCount.toLocaleString();
+   document.getElementById('r-edges').textContent = m.edgeCount.toLocaleString();
+   document.getElementById('r-x').textContent = m.sizeMm[0].toFixed(2)+' mm';
+   document.getElementById('r-y').textContent = m.sizeMm[1].toFixed(2)+' mm';
+   document.getElementById('r-z').textContent = m.sizeMm[2].toFixed(2)+' mm';
+   document.getElementById('r-note').textContent = m.note;
+   Array.prototype.forEach.call(document.querySelectorAll('#rail .chip'), function(b){
+     b.setAttribute('aria-pressed', String(b.dataset.id === m.id));
+   });
+ }
+
+ var rail = document.getElementById('rail');
+ DATA.forEach(function(m){
+   var b = document.createElement('button');
+   b.className = 'chip'; b.type = 'button'; b.dataset.id = m.id;
+   b.textContent = m.label; b.setAttribute('aria-pressed','false');
+   b.addEventListener('click', function(){ setModel(m); });
+   rail.appendChild(b);
+ });
+
+ function toggle(id, get, set){
+   var el = document.getElementById(id);
+   el.addEventListener('click', function(){
+     set(!get());
+     el.setAttribute('aria-pressed', String(get()));
+     el.querySelector('.state').textContent = get() ? 'On' : 'Off';
+   });
+ }
+ toggle('t-edges', function(){return showEdges;}, function(v){showEdges=v;});
+ toggle('t-color', function(){return showColor;}, function(v){showColor=v;});
+ toggle('t-spin',  function(){return spin;},      function(v){spin=v;});
+ document.getElementById('t-reset').addEventListener('click', function(){
+   az = 0.85; el = 0.62; dist = homeDist;
+ });
+
+ var pointers = {}, lastPinch = 0;
+ canvas.addEventListener('pointerdown', function(e){
+   canvas.setPointerCapture(e.pointerId);
+   pointers[e.pointerId] = {x:e.clientX, y:e.clientY};
+ });
+ canvas.addEventListener('pointermove', function(e){
+   var p = pointers[e.pointerId]; if(!p) return;
+   var ids = Object.keys(pointers);
+   if(ids.length === 1){
+     az -= (e.clientX - p.x) * 0.008;
+     el += (e.clientY - p.y) * 0.008;
+     el = Math.max(-1.53, Math.min(1.53, el));
+   }
+   p.x = e.clientX; p.y = e.clientY;
+   if(ids.length === 2){
+     var a = pointers[ids[0]], b = pointers[ids[1]];
+     var d = Math.hypot(a.x-b.x, a.y-b.y);
+     if(lastPinch) dist = Math.max(homeDist*0.28, Math.min(homeDist*3.5, dist * (lastPinch/d)));
+     lastPinch = d;
+   }
+ });
+ function release(e){ delete pointers[e.pointerId]; lastPinch = 0; }
+ canvas.addEventListener('pointerup', release);
+ canvas.addEventListener('pointercancel', release);
+ canvas.addEventListener('wheel', function(e){
+   e.preventDefault();
+   dist = Math.max(homeDist*0.28, Math.min(homeDist*3.5, dist * (1 + (e.deltaY > 0 ? 0.11 : -0.11))));
+ }, {passive:false});
+
+ // ---- parsing a dropped file, in the browser ----------------------------------
+ var statusEl = document.getElementById('status');
+ function say(msg, kind){
+   statusEl.textContent = msg;
+   statusEl.className = 'status' + (kind ? ' ' + kind : '');
+ }
+
+ // Same construction as viewer/export-mesh-data.js, but keeping typed arrays in memory.
+ function arraysFromParsed(parsed, label){
+   var verts = [], tris = [], faceOfTri = [], edges = [], base = 0;
+   parsed.faces.forEach(function(f, fi){
+     for(var i=0;i<f.vertexCount;i++)
+       verts.push(f.vertices[i*3], f.vertices[i*3+1], f.vertices[i*3+2]);
+     for(var t=0;t<f.triangleIndices.length;t+=3){
+       tris.push(base+f.triangleIndices[t], base+f.triangleIndices[t+1], base+f.triangleIndices[t+2]);
+       faceOfTri.push(fi);
+     }
+     if(f.edgeAnnotations) f.edgeAnnotations.forEach(function(e){
+       if(e && e.id !== 0 && e.vertices) edges.push(base+e.vertices[0], base+e.vertices[1]);
+     });
+     base += f.vertexCount;
+   });
+   var n = verts.length/3;
+   if(!n || !tris.length) throw new Error('parsed, but no drawable geometry');
+   var lo = [1e30,1e30,1e30], hi = [-1e30,-1e30,-1e30];
+   for(var i=0;i<n;i++) for(var k=0;k<3;k++){
+     var v = verts[i*3+k]; if(v<lo[k]) lo[k]=v; if(v>hi[k]) hi[k]=v;
+   }
+   var ctr = [0,1,2].map(function(k){ return (lo[k]+hi[k])/2; });
+   var extent = Math.max(hi[0]-lo[0], hi[1]-lo[1], hi[2]-lo[2]) || 1;
+   var pos = new Float32Array(n*3);
+   for(i=0;i<n;i++) for(k=0;k<3;k++) pos[i*3+k] = (verts[i*3+k]-ctr[k])/extent;
+   var IdxType = n < 65536 ? Uint16Array : Uint32Array;
+   return {
+     id:'drop-'+(Date.now().toString(36)), label:label, note:'Parsed in your browser from '+label+'.',
+     faceCount:parsed.faces.length, triangleCount:tris.length/3, edgeCount:edges.length/2,
+     indexBits: n<65536 ? 16 : 32,
+     sizeMm: [0,1,2].map(function(k){ return +((hi[k]-lo[k])*1000).toFixed(3); }),
+     _arr: {pos:pos, idx:new IdxType(tris), face:new Uint16Array(faceOfTri), edge:new IdxType(edges)}
+   };
+ }
+
+ function addChip(m){
+   var b = document.createElement('button');
+   b.className = 'chip'; b.type = 'button'; b.dataset.id = m.id;
+   b.textContent = m.label; b.setAttribute('aria-pressed','false');
+   b.addEventListener('click', function(){ setModel(m); });
+   rail.appendChild(b);
+ }
+
+ function handleFile(file){
+   if(!file) return;
+   if(!window.SLDPRTParserV2 || !window.SLDPRTInflate){
+     say('Parser did not load, so dropped files cannot be read.', 'err'); return;
+   }
+   say('Parsing ' + file.name + '\u2026');
+   var fr = new FileReader();
+   fr.onerror = function(){ say('Could not read ' + file.name, 'err'); };
+   fr.onload = function(){
+     var t0 = performance.now();
+     try{
+       var bytes = new Uint8Array(fr.result);
+       var parsed = window.SLDPRTParserV2.parseSLDPRT(
+         bytes, window.SLDPRTInflate.inflateRaw, window.SLDPRTInflate.inflate);
+       if(!parsed.faces || !parsed.faces.length){
+         say((parsed.errors && parsed.errors.length ? parsed.errors.join('; ')
+              : 'no faces found') + ' \u2014 ' + file.name, 'err');
+         return;
+       }
+       var m = arraysFromParsed(parsed, file.name);
+       DATA.push(m); addChip(m); setModel(m);
+       var ms = Math.round(performance.now() - t0);
+       var warn = (parsed.errors && parsed.errors.length)
+         ? '  \u2502  ' + parsed.errors.length + ' face error(s)' : '';
+       say(m.faceCount + ' faces  \u2502  ' + m.triangleCount.toLocaleString() + ' triangles  \u2502  '
+           + m.edgeCount.toLocaleString() + ' boundary edges  \u2502  ' + ms + ' ms' + warn,
+           warn ? 'err' : 'ok');
+     }catch(err){
+       say('Parse failed: ' + (err && err.message ? err.message : String(err)), 'err');
+     }
+   };
+   fr.readAsArrayBuffer(file);
+ }
+
+ var dropEl = document.getElementById('drop');
+ var depth = 0;
+ ['dragenter','dragover'].forEach(function(ev){
+   window.addEventListener(ev, function(e){
+     e.preventDefault();
+     if(ev === 'dragenter') depth++;
+     dropEl.classList.add('on');
+   });
+ });
+ ['dragleave','drop'].forEach(function(ev){
+   window.addEventListener(ev, function(e){
+     e.preventDefault();
+     if(ev === 'dragleave'){ depth = Math.max(0, depth-1); if(depth) return; }
+     depth = 0; dropEl.classList.remove('on');
+     if(ev === 'drop' && e.dataTransfer && e.dataTransfer.files.length)
+       handleFile(e.dataTransfer.files[0]);
+   });
+ });
+ var fileInput = document.getElementById('file');
+ document.getElementById('pick').addEventListener('click', function(){ fileInput.click(); });
+ fileInput.addEventListener('change', function(){ handleFile(fileInput.files[0]); fileInput.value=''; });
+
+ // ---- six-view contact sheet, same angles as EXP-051 -------------------------
+ var D = Math.PI/180;
+ var VIEWS = [
+   {name:'ISO FRONT', az: 45*D, el: 35.264*D},
+   {name:'ISO BACK',  az:225*D, el: 35.264*D},
+   {name:'ISO LEFT',  az:135*D, el: 35.264*D},
+   {name:'ISO UNDER', az: 45*D, el:-35.264*D},
+   {name:'TOP',       az: 45*D, el: 89.9*D},
+   {name:'BOTTOM',    az: 45*D, el:-89.9*D}
+ ];
+ function exportSheet(){
+   var P = 520, gap = 6, cols = 3, rows = 2;
+   var W = cols*P + (cols+1)*gap, H = rows*P + (rows+1)*gap;
+   var sheet = document.createElement('canvas');
+   sheet.width = W; sheet.height = H;
+   var ctx = sheet.getContext('2d');
+   ctx.fillStyle = themeColor('--ground') || '#eceff4';
+   ctx.fillRect(0,0,W,H);
+   var sw = canvas.width, sh = canvas.height, sa = az, se = el;
+   canvas.width = P; canvas.height = P;
+   for(var i=0;i<VIEWS.length;i++){
+     az = VIEWS[i].az; el = VIEWS[i].el;
+     draw(true);
+     var x = gap + (i%cols)*(P+gap), y = gap + Math.floor(i/cols)*(P+gap);
+     ctx.drawImage(canvas, x, y);
+     ctx.font = '600 13px "IBM Plex Mono", monospace';
+     ctx.fillStyle = themeColor('--muted') || '#646f7e';
+     ctx.fillText(VIEWS[i].name, x + 10, y + 22);
+   }
+   canvas.width = sw; canvas.height = sh; az = sa; el = se;
+   draw();
+   document.getElementById('sheet-title').textContent =
+     current.label + ' \u2014 six views';
+   document.getElementById('sheet-img').src = sheet.toDataURL('image/png');
+   document.getElementById('sheetout').hidden = false;
+   document.getElementById('sheetout').scrollIntoView({behavior:'smooth', block:'nearest'});
+ }
+ document.getElementById('t-sheet').addEventListener('click', exportSheet);
+
+ if(DATA.length){
+   setModel(DATA[0]);
+   if(reduced){ spin = false; }
+   loop();
+   window.addEventListener('resize', function(){ if(!raf) draw(); });
+ }
+})();
+</script>

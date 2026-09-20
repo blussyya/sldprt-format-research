@@ -1,0 +1,95 @@
+{
+  "C00_cube_10mm": {
+    "sldprt": {
+      "faceCount": 6,
+      "vertexCount": 24
+    },
+    "step": {
+      "vertexCount": 27,
+      "vertexPointCount": 8
+    },
+    "stl": {
+      "triangleCount": 12,
+      "uniqueVertexCount": 8
+    },
+    "correspondence": {
+      "sldprtStep": {
+        "exactMatches": 3,
+        "maxDistance": 0.017320507688545247,
+        "meanDistance": 0.01121836411761022
+      },
+      "sldprtStl": {
+        "exactMatches": 3,
+        "maxDistance": 0.017320507688545247,
+        "meanDistance": 0.01121836411761022
+      },
+      "stepStl": {
+        "exactMatches": 27,
+        "maxDistance": 0,
+        "meanDistance": 0
+      }
+    }
+  },
+  "C04_cube_hole_5mm": {
+    "sldprt": {
+      "faceCount": 7,
+      "vertexCount": 212
+    },
+    "step": {
+      "vertexCount": 39,
+      "vertexPointCount": 12
+    },
+    "stl": {
+      "triangleCount": 172,
+      "uniqueVertexCount": 86
+    },
+    "correspondence": {
+      "sldprtStep": {
+        "exactMatches": 6,
+        "maxDistance": 0.017320507688545247,
+        "meanDistance": 0.010190268714429455
+      },
+      "sldprtStl": {
+        "exactMatches": 6,
+        "maxDistance": 0.017320507688545247,
+        "meanDistance": 0.010190268714429455
+      },
+      "stepStl": {
+        "exactMatches": 30,
+        "maxDistance": 2.4999996209656894,
+        "meanDistance": 0.4001022056159718
+      }
+    }
+  },
+  "C03_cube_fillet_1mm": {
+    "sldprt": {
+      "faceCount": 7,
+      "vertexCount": 60
+    },
+    "step": {
+      "vertexCount": 33,
+      "vertexPointCount": 10
+    },
+    "stl": {
+      "triangleCount": 50,
+      "uniqueVertexCount": 28
+    },
+    "correspondence": {
+      "sldprtStep": {
+        "exactMatches": 4,
+        "maxDistance": 0.016983988231591727,
+        "meanDistance": 0.013223788070033438
+      },
+      "sldprtStl": {
+        "exactMatches": 4,
+        "maxDistance": 0.016983988231591727,
+        "meanDistance": 0.013223788070033438
+      },
+      "stepStl": {
+        "exactMatches": 30,
+        "maxDistance": 0.9999998661446511,
+        "meanDistance": 0.09090907874042316
+      }
+    }
+  }
+}

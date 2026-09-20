@@ -1,0 +1,83 @@
+{
+  "C00_cube_10mm_vs_C01_cube_20mm": {
+    "dlSizeA": 12050,
+    "dlSizeB": 12050,
+    "facesA": 6,
+    "facesB": 6,
+    "changedRanges": 182,
+    "totalChangedBytes": 355,
+    "percentChanged": "2.95"
+  },
+  "C00_cube_10mm_vs_C02_cube_translated": {
+    "dlSizeA": 12050,
+    "dlSizeB": 12050,
+    "facesA": 6,
+    "facesB": 6,
+    "changedRanges": 158,
+    "totalChangedBytes": 1141,
+    "percentChanged": "9.47"
+  },
+  "C04_cube_hole_5mm_vs_C05_cube_hole_3mm": {
+    "dlSizeA": 19036,
+    "dlSizeB": 17688,
+    "facesA": 7,
+    "facesB": 7,
+    "changedRanges": 1219,
+    "totalChangedBytes": 6853,
+    "percentChanged": "36.00"
+  },
+  "C04_cube_hole_5mm_vs_C06_cube_hole_moved": {
+    "dlSizeA": 19036,
+    "dlSizeB": 19102,
+    "facesA": 7,
+    "facesB": 7,
+    "changedRanges": 1527,
+    "totalChangedBytes": 6075,
+    "percentChanged": "31.80"
+  },
+  "C00_cube_10mm_vs_C03_cube_fillet_1mm": {
+    "dlSizeA": 12050,
+    "dlSizeB": 14350,
+    "facesA": 6,
+    "facesB": 7,
+    "changedRanges": 1623,
+    "totalChangedBytes": 7477,
+    "percentChanged": "52.10"
+  },
+  "C00_cube_10mm_vs_C04_cube_hole_5mm": {
+    "dlSizeA": 12050,
+    "dlSizeB": 19036,
+    "facesA": 6,
+    "facesB": 7,
+    "changedRanges": 2448,
+    "totalChangedBytes": 14218,
+    "percentChanged": "74.69"
+  },
+  "C07_cube_two_holes_vs_C08_cube_second_hole_modified": {
+    "dlSizeA": 25968,
+    "dlSizeB": 24884,
+    "facesA": 8,
+    "facesB": 8,
+    "changedRanges": 1927,
+    "totalChangedBytes": 9682,
+    "percentChanged": "37.28"
+  },
+  "C00_cube_10mm_vs_C09_cube_chamfer_1mm": {
+    "dlSizeA": 12050,
+    "dlSizeB": 13342,
+    "facesA": 6,
+    "facesB": 7,
+    "changedRanges": 1665,
+    "totalChangedBytes": 6444,
+    "percentChanged": "48.30"
+  },
+  "C00_cube_10mm_vs_C10_cube_shell_1mm": {
+    "dlSizeA": 12050,
+    "dlSizeB": 17280,
+    "facesA": 6,
+    "facesB": 11,
+    "changedRanges": 1367,
+    "totalChangedBytes": 9413,
+    "percentChanged": "54.47"
+  }
+}

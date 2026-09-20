@@ -1,0 +1,493 @@
+{
+  "experiment": "EXP-049",
+  "date": "2026-09-15",
+  "parts": {
+    "part1_replication": {
+      "note": "Face discovery via parser/v0.1 gap-marker scan — a different strategy from v0.4.8 forward precursor scan.",
+      "modernFilesDecoded": 21,
+      "unsupported": [
+        {
+          "file": "test files original/SW2000-s01.SLDPRT",
+          "reason": "no faces (legacy OLE2 / unsupported)"
+        },
+        {
+          "file": "test files original/chainwheel.sldprt",
+          "reason": "no faces (legacy OLE2 / unsupported)"
+        },
+        {
+          "file": "test files original/plate4.sldprt",
+          "reason": "no faces (legacy OLE2 / unsupported)"
+        }
+      ],
+      "faces": 1272,
+      "strips": 10095,
+      "serializedVertices": 71166,
+      "stripTriangles": 50976,
+      "trianglesAgreeingWithStoredNormal": 50976,
+      "perFile": [
+        {
+          "file": "test files original/Dekor.SLDPRT",
+          "sha256": "865142829c7d91aa85f65771d2a6e60dad4f58d0093422cb56c94ce6c8959c89",
+          "faces": 375,
+          "strips": 3260,
+          "tris": 15282,
+          "normalAgree": 15282,
+          "tokens": 33824,
+          "nzBoundary": 15366,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 18458,
+          "b3Bytes": 37084,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/Helical Bevel Gear.SLDPRT",
+          "sha256": "d694ebd12683ffd1b6b225f465fd358005b6015388b1cc4fc1867cb38c371a92",
+          "faces": 113,
+          "strips": 1214,
+          "tris": 6042,
+          "normalAgree": 6042,
+          "tokens": 13298,
+          "nzBoundary": 3366,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 9932,
+          "b3Bytes": 14512,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/PTC GE8080-8.SLDPRT",
+          "sha256": "162e6293b95508072f65d39b4d933553d2f3fa6c77863e29e6135afd026c8f94",
+          "faces": 126,
+          "strips": 290,
+          "tris": 1192,
+          "normalAgree": 1192,
+          "tokens": 2674,
+          "nzBoundary": 1364,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 1310,
+          "b3Bytes": 2964,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/Pocket Wheel.SLDPRT",
+          "sha256": "678a73af7c6eca8b5e6df60905a96f437bd5d1f85a2eed19277332c25629bb8c",
+          "faces": 400,
+          "strips": 3564,
+          "tris": 17078,
+          "normalAgree": 17078,
+          "tokens": 37720,
+          "nzBoundary": 11718,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 26002,
+          "b3Bytes": 41284,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C00_cube_10mm/model.SLDPRT",
+          "sha256": "89ad8d93148d853dc07bd2a2a8b3e6b3be27cd10dbae212d42da11eb2b215877",
+          "faces": 6,
+          "strips": 6,
+          "tris": 12,
+          "normalAgree": 12,
+          "tokens": 30,
+          "nzBoundary": 24,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 6,
+          "b3Bytes": 36,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C01_cube_20mm/model.SLDPRT",
+          "sha256": "1da2b075fd3492e49699bd4cf0065e11411b1017e88e1822e1cded9ee51f9af0",
+          "faces": 6,
+          "strips": 6,
+          "tris": 12,
+          "normalAgree": 12,
+          "tokens": 30,
+          "nzBoundary": 24,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 6,
+          "b3Bytes": 36,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C02_cube_translated/model.SLDPRT",
+          "sha256": "cc73f8cbc0f9e4fce2c4f4cdf8ab3d5fcaaa3bdd593318e2f8f74108d91b50d5",
+          "faces": 6,
+          "strips": 6,
+          "tris": 12,
+          "normalAgree": 12,
+          "tokens": 30,
+          "nzBoundary": 24,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 6,
+          "b3Bytes": 36,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT",
+          "sha256": "a14df0089bbc7cc5bf47e1d0d2cfbe50ba17be21c636cef4540d509164a514d2",
+          "faces": 7,
+          "strips": 12,
+          "tris": 36,
+          "normalAgree": 36,
+          "tokens": 84,
+          "nzBoundary": 50,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 34,
+          "b3Bytes": 96,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C04_cube_hole_5mm/model.SLDPRT",
+          "sha256": "38ff0e82f9f92002e2cb6092345bbd76b19e5a40e3d085f1e36a0d3139f4f8e3",
+          "faces": 7,
+          "strips": 30,
+          "tris": 152,
+          "normalAgree": 152,
+          "tokens": 334,
+          "nzBoundary": 160,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 174,
+          "b3Bytes": 364,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C05_cube_hole_3mm/model.SLDPRT",
+          "sha256": "3dd9eaf83e44f81d769e852b6468bf04de7a565e75cb49fcfc34f3aeaf6cbd96",
+          "faces": 7,
+          "strips": 24,
+          "tris": 124,
+          "normalAgree": 124,
+          "tokens": 272,
+          "nzBoundary": 132,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 140,
+          "b3Bytes": 296,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C06_cube_hole_moved/model.SLDPRT",
+          "sha256": "b4880b5a192c29f52cfc2036563caad3b8ff6384a863c4ea949d3eaa1e3404ed",
+          "faces": 7,
+          "strips": 31,
+          "tris": 152,
+          "normalAgree": 152,
+          "tokens": 335,
+          "nzBoundary": 160,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 175,
+          "b3Bytes": 366,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C07_cube_two_holes/model.SLDPRT",
+          "sha256": "1fca948b6ab1a3ea94eec6f1013cdf60c81dcf9a4fbdb0b2fe100afdd9ba07c9",
+          "faces": 8,
+          "strips": 51,
+          "tris": 292,
+          "normalAgree": 292,
+          "tokens": 635,
+          "nzBoundary": 296,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 339,
+          "b3Bytes": 686,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C08_cube_second_hole_modified/model.SLDPRT",
+          "sha256": "0213ffbcba1f2d95de22445b62d35faaa2ee26d43fc644b03a91cca06159b811",
+          "faces": 8,
+          "strips": 49,
+          "tris": 264,
+          "normalAgree": 264,
+          "tokens": 577,
+          "nzBoundary": 268,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 309,
+          "b3Bytes": 626,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C09_cube_chamfer_1mm/model.SLDPRT",
+          "sha256": "a76902070b7f47e97ee7cb7c76a9064796b8b4ab182f1c25ded41e97e2b61246",
+          "faces": 7,
+          "strips": 7,
+          "tris": 16,
+          "normalAgree": 16,
+          "tokens": 39,
+          "nzBoundary": 30,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 9,
+          "b3Bytes": 46,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C10_cube_shell_1mm/model.SLDPRT",
+          "sha256": "12668ec6b393b765a5d4076a5a2b49378886d08ea8ffef0e2aa8d9c71c911cce",
+          "faces": 11,
+          "strips": 11,
+          "tris": 28,
+          "normalAgree": 28,
+          "tokens": 67,
+          "nzBoundary": 48,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 19,
+          "b3Bytes": 78,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C11_cube_hole_4mm/model.SLDPRT",
+          "sha256": "fb78c483202368cd9d50a340be17b269048c285ae58dc1d5ca2b1f118243fa9e",
+          "faces": 7,
+          "strips": 28,
+          "tris": 140,
+          "normalAgree": 140,
+          "tokens": 308,
+          "nzBoundary": 148,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 160,
+          "b3Bytes": 336,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/controlled/C12_cube_fillet_1mm_edge2/model.SLDPRT",
+          "sha256": "8c835c79e0b30e4ba2ae4a0f6d9aa37ceedf0f6aa181624935f663700475a8e4",
+          "faces": 7,
+          "strips": 12,
+          "tris": 36,
+          "normalAgree": 36,
+          "tokens": 84,
+          "nzBoundary": 50,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 34,
+          "b3Bytes": 96,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/cube.SLDPRT",
+          "sha256": "e002c483df1faab6c635d52dd190311e2b0fd4a36758e54020efdd7512026cb1",
+          "faces": 6,
+          "strips": 6,
+          "tris": 12,
+          "normalAgree": 12,
+          "tokens": 30,
+          "nzBoundary": 24,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 6,
+          "b3Bytes": 36,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/distributor main boss rev a.SLDPRT",
+          "sha256": "72454b269924d6361d3b88a1e7f4ce217751abdf5e413580ac62d23392897711",
+          "faces": 51,
+          "strips": 445,
+          "tris": 3902,
+          "normalAgree": 3902,
+          "tokens": 8249,
+          "nzBoundary": 3400,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 4849,
+          "b3Bytes": 8694,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+          "sha256": "851f385248ed25cf7c9a2677df3169738c139f34120cb8734ae6ef89d26521a1",
+          "faces": 39,
+          "strips": 184,
+          "tris": 1488,
+          "normalAgree": 1488,
+          "tokens": 3160,
+          "nzBoundary": 1516,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 1644,
+          "b3Bytes": 3344,
+          "b3Nonzero": 0
+        },
+        {
+          "file": "test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT",
+          "sha256": "b2928e16b72dd92f085e5d3cb83c101777acf075d2abf1b268563fdd564c14fc",
+          "faces": 68,
+          "strips": 859,
+          "tris": 4704,
+          "normalAgree": 4704,
+          "tokens": 10267,
+          "nzBoundary": 2842,
+          "nzInterior": 0,
+          "zBoundary": 0,
+          "zInterior": 7425,
+          "b3Bytes": 11126,
+          "b3Nonzero": 0
+        }
+      ]
+    },
+    "part2_block1_edge_partition": {
+      "totalEdgeTokens": 112047,
+      "nonzero_on_faceBoundary": 41010,
+      "nonzero_on_faceInterior": 0,
+      "zero_on_faceInterior": 71037,
+      "zero_on_faceBoundary": 0,
+      "exceptions": 0,
+      "ruleHolds": true
+    },
+    "part3_edge_order_control": {
+      "note": "Same tokens, same incidence map, edge order deterministically shuffled within each strip.",
+      "nonzero_on_faceBoundary": 18690,
+      "nonzero_on_faceInterior": 22320,
+      "zero_on_faceInterior": 48717,
+      "zero_on_faceBoundary": 22320,
+      "exceptions": 44640
+    },
+    "part4_block3": {
+      "note": "Offsets derived from parser/v0.1 block2Start + secCount; v0.1 never reads Block3.",
+      "facesWithValidHeader": 1272,
+      "malformedHeaders": 0,
+      "facesWhereN_equals_block1WordCount": 1272,
+      "payloadBytes": 122142,
+      "nonzeroBytes": 0
+    },
+    "part5_stl_completeness": {
+      "note": "A missing axis-aligned facet-normal group means that planar face is absent from the STL export entirely.",
+      "models": [
+        {
+          "model": "C00_cube_10mm",
+          "sha256": "72b5f9d3db16d9a1c52995c06610071246f65ac48e80c96270dc40cb5eabc4bd",
+          "stlTriangles": 12,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C01_cube_20mm",
+          "sha256": "376e10060dd5ead6dd99356509d748c20429b43dcc2dd25cb64c8c1d946b14ba",
+          "stlTriangles": 12,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C02_cube_translated",
+          "sha256": "63a4ebd79e589b16e76974fa07eda034f00ba167dcfca872dc1e48b9d6f33ff9",
+          "stlTriangles": 12,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C03_cube_fillet_1mm",
+          "sha256": "80690758ee30df942ac37769c0607773c2da654da510862bb87bfc9e9bc66cdd",
+          "stlTriangles": 50,
+          "missingAxisAlignedFaceGroups": [
+            "-X"
+          ],
+          "complete": false
+        },
+        {
+          "model": "C04_cube_hole_5mm",
+          "sha256": "f07075ffb768ed451d14f90ff18279c437ac7561e938ecf77a7b0733ef2ee791",
+          "stlTriangles": 172,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C05_cube_hole_3mm",
+          "sha256": "6024dfc6893614e04f5900a4cf1f2755f9628883e39eb0ec1c43170b9bf26be6",
+          "stlTriangles": 164,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C06_cube_hole_moved",
+          "sha256": "f9a3c07691b744b77ec5fb583aa7003d0711b6374616c868c9c0ba561247631c",
+          "stlTriangles": 172,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C07_cube_two_holes",
+          "sha256": "1e3ba235467f2ddca001927d92f93ff38536863b59700ae7c859e88b118634bf",
+          "stlTriangles": 332,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C08_cube_second_hole_modified",
+          "sha256": "475922be45c429284e73b2edb97b819929780b50622ff4fc48a67125c65a90fb",
+          "stlTriangles": 324,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C09_cube_chamfer_1mm",
+          "sha256": "d0a07a9f26fd6a1ec75534eb1ea653d33cf3c5ec833d9f632a499170c30bbd80",
+          "stlTriangles": 14,
+          "missingAxisAlignedFaceGroups": [
+            "-X"
+          ],
+          "complete": false
+        },
+        {
+          "model": "C10_cube_shell_1mm",
+          "sha256": "741fe4b2fb27737f13002e53779ce6857cc151a574310eb89aefef7744b640a7",
+          "stlTriangles": 28,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        },
+        {
+          "model": "C11_cube_hole_4mm",
+          "sha256": "adb46d516a4f87733941935bd9411d9d561ec4e55fce898825122c1864319cc0",
+          "stlTriangles": 162,
+          "missingAxisAlignedFaceGroups": [
+            "-X"
+          ],
+          "complete": false
+        },
+        {
+          "model": "C12_cube_fillet_1mm_edge2",
+          "sha256": "6bcf3e11cdc3150629510cac6aee11f8b9757e66cb99b2d0316767b309fc7417",
+          "stlTriangles": 52,
+          "missingAxisAlignedFaceGroups": [],
+          "complete": true
+        }
+      ],
+      "incomplete": [
+        {
+          "model": "C03_cube_fillet_1mm",
+          "missing": [
+            "-X"
+          ]
+        },
+        {
+          "model": "C09_cube_chamfer_1mm",
+          "missing": [
+            "-X"
+          ]
+        },
+        {
+          "model": "C11_cube_hole_4mm",
+          "missing": [
+            "-X"
+          ]
+        }
+      ]
+    }
+  }
+}

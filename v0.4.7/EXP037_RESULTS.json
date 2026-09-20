@@ -1,0 +1,1550 @@
+{
+  "C00_cube_10mm_vs_C03_cube_fillet_1mm": {
+    "modelAName": "C00_cube_10mm",
+    "modelBName": "C03_cube_fillet_1mm",
+    "faceCountA": 6,
+    "faceCountB": 7,
+    "faceCountDiff": 1,
+    "matched": [
+      {
+        "aIndex": 0,
+        "bIndex": 0,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 1,
+        "bIndex": 1,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 2,
+        "bIndex": 2,
+        "centroidDist": 0.0005000000819563866,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            13,
+            160,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 3,
+        "bIndex": 3,
+        "centroidDist": 0.0005000000819563866,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            139,
+            144,
+            0,
+            79,
+            142
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 4,
+        "bIndex": 4,
+        "centroidDist": 0.00362807063368276,
+        "vertexOverlap": 0.3888888888888889,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            9,
+            0,
+            17,
+            5
+          ],
+          "orientation": "+Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            142,
+            0,
+            5,
+            1,
+            9,
+            0,
+            0,
+            13,
+            0,
+            0,
+            165,
+            1,
+            165,
+            0,
+            0,
+            165,
+            0,
+            165,
+            0,
+            165,
+            165
+          ],
+          "orientation": "+Z",
+          "faceType": "multi_loop"
+        }
+      },
+      {
+        "aIndex": 5,
+        "bIndex": 5,
+        "centroidDist": 0.00362807063368276,
+        "vertexOverlap": 0.3888888888888889,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            54,
+            50,
+            0,
+            58,
+            62
+          ],
+          "orientation": "-Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            54,
+            0,
+            58,
+            1,
+            62,
+            0,
+            0,
+            139,
+            0,
+            0,
+            152,
+            1,
+            152,
+            0,
+            0,
+            152,
+            0,
+            152,
+            0,
+            152,
+            152
+          ],
+          "orientation": "-Z",
+          "faceType": "multi_loop"
+        }
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "bIndex": 6,
+        "edgeCount": 13,
+        "vertexCount": 16,
+        "tokens": {
+          "tokens": [
+            1,
+            160,
+            0,
+            152,
+            1,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            0,
+            152,
+            0,
+            165,
+            144
+          ],
+          "orientation": "NON_AXIS(0.766,0.642,0.000)",
+          "faceType": "multi_loop"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 4,
+            "sharedVertices": 8
+          },
+          {
+            "index": 5,
+            "sharedVertices": 8
+          },
+          {
+            "index": 2,
+            "sharedVertices": 3
+          },
+          {
+            "index": 3,
+            "sharedVertices": 2
+          }
+        ]
+      }
+    ],
+    "ambiguous": []
+  },
+  "C00_cube_10mm_vs_C09_cube_chamfer_1mm": {
+    "modelAName": "C00_cube_10mm",
+    "modelBName": "C09_cube_chamfer_1mm",
+    "faceCountA": 6,
+    "faceCountB": 7,
+    "faceCountDiff": 1,
+    "matched": [
+      {
+        "aIndex": 0,
+        "bIndex": 0,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 1,
+        "bIndex": 1,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 2,
+        "bIndex": 2,
+        "centroidDist": 0.0005000000819563866,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            13,
+            160,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 3,
+        "bIndex": 3,
+        "centroidDist": 0.0005000000819563866,
+        "vertexOverlap": 0.5,
+        "identical": false,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            139,
+            144,
+            0,
+            79,
+            142
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 4,
+        "bIndex": 4,
+        "centroidDist": 0.0011313707719268068,
+        "vertexOverlap": 0.6666666666666666,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": false,
+        "b1LenChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            9,
+            0,
+            17,
+            5
+          ],
+          "orientation": "+Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            142,
+            165,
+            0,
+            5,
+            0,
+            13,
+            9
+          ],
+          "orientation": "+Z",
+          "faceType": "chamfer"
+        }
+      },
+      {
+        "aIndex": 5,
+        "bIndex": 5,
+        "centroidDist": 0.0011313707719268068,
+        "vertexOverlap": 0.6666666666666666,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": false,
+        "b1LenChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            54,
+            50,
+            0,
+            58,
+            62
+          ],
+          "orientation": "-Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            139,
+            62,
+            0,
+            152,
+            0,
+            58,
+            54
+          ],
+          "orientation": "-Z",
+          "faceType": "chamfer"
+        }
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "bIndex": 6,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "tokens": {
+          "tokens": [
+            1,
+            152,
+            160,
+            0,
+            144,
+            165
+          ],
+          "orientation": "NON_AXIS(0.707,0.707,0.000)",
+          "faceType": "planar_cube"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 2,
+            "sharedVertices": 2
+          },
+          {
+            "index": 3,
+            "sharedVertices": 2
+          },
+          {
+            "index": 4,
+            "sharedVertices": 2
+          },
+          {
+            "index": 5,
+            "sharedVertices": 2
+          }
+        ]
+      }
+    ],
+    "ambiguous": []
+  },
+  "C00_cube_10mm_vs_C04_cube_hole_5mm": {
+    "modelAName": "C00_cube_10mm",
+    "modelBName": "C04_cube_hole_5mm",
+    "faceCountA": 6,
+    "faceCountB": 7,
+    "faceCountDiff": 1,
+    "matched": [
+      {
+        "aIndex": 0,
+        "bIndex": 0,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 1,
+        "bIndex": 1,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 2,
+        "bIndex": 2,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 3,
+        "bIndex": 3,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        }
+      },
+      {
+        "aIndex": 4,
+        "bIndex": 4,
+        "centroidDist": 0.000013723228515304499,
+        "vertexOverlap": 0.30303030303030304,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            9,
+            0,
+            17,
+            5
+          ],
+          "orientation": "+Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            153,
+            0,
+            0,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            13,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            0,
+            153,
+            0,
+            9,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            0,
+            0,
+            153,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            5,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            0,
+            153,
+            1,
+            153,
+            0,
+            0,
+            153,
+            0,
+            17,
+            0,
+            153,
+            0,
+            0,
+            153
+          ],
+          "orientation": "+Z",
+          "faceType": "multi_loop"
+        }
+      },
+      {
+        "aIndex": 5,
+        "bIndex": 5,
+        "centroidDist": 0.0001412449244102196,
+        "vertexOverlap": 0.3088235294117647,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": true,
+        "b1LenChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            54,
+            50,
+            0,
+            58,
+            62
+          ],
+          "orientation": "-Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": [
+            1,
+            150,
+            0,
+            0,
+            1,
+            150,
+            0,
+            0,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            0,
+            150,
+            1,
+            0,
+            0,
+            150,
+            1,
+            150,
+            0,
+            0,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            0,
+            150,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            50,
+            0,
+            150,
+            0,
+            0,
+            150,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            0,
+            150,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            58,
+            0,
+            150,
+            0,
+            0,
+            150,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            54,
+            0,
+            150,
+            0,
+            0,
+            150,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            0,
+            150,
+            1,
+            150,
+            0,
+            0,
+            150,
+            0,
+            62,
+            0,
+            150,
+            0,
+            0,
+            150
+          ],
+          "orientation": "-Z",
+          "faceType": "multi_loop"
+        }
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "bIndex": 6,
+        "edgeCount": 70,
+        "vertexCount": 70,
+        "tokens": {
+          "tokens": [
+            1,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0,
+            150,
+            0,
+            153,
+            0
+          ],
+          "orientation": "-X",
+          "faceType": "cylindrical"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 4,
+            "sharedVertices": 35
+          },
+          {
+            "index": 5,
+            "sharedVertices": 35
+          }
+        ]
+      }
+    ],
+    "ambiguous": []
+  },
+  "C00_cube_10mm_vs_C10_cube_shell_1mm": {
+    "modelAName": "C00_cube_10mm",
+    "modelBName": "C10_cube_shell_1mm",
+    "faceCountA": 6,
+    "faceCountB": 11,
+    "faceCountDiff": 5,
+    "matched": [
+      {
+        "aIndex": 0,
+        "bIndex": 1,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            5,
+            82,
+            0,
+            79,
+            62
+          ],
+          "orientation": "-X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": null,
+          "orientation": "-X",
+          "identicalToC00": true
+        }
+      },
+      {
+        "aIndex": 1,
+        "bIndex": 2,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            9,
+            81,
+            0,
+            82,
+            58
+          ],
+          "orientation": "-Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": null,
+          "orientation": "-Y",
+          "identicalToC00": true
+        }
+      },
+      {
+        "aIndex": 2,
+        "bIndex": 3,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            80,
+            0,
+            81,
+            54
+          ],
+          "orientation": "+X",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": null,
+          "orientation": "+X",
+          "identicalToC00": true
+        }
+      },
+      {
+        "aIndex": 3,
+        "bIndex": 4,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            17,
+            79,
+            0,
+            80,
+            50
+          ],
+          "orientation": "+Y",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": null,
+          "orientation": "+Y",
+          "identicalToC00": true
+        }
+      },
+      {
+        "aIndex": 5,
+        "bIndex": 5,
+        "centroidDist": 0,
+        "vertexOverlap": 1,
+        "identical": true,
+        "ecChanged": false,
+        "vcChanged": false,
+        "secCountChanged": false,
+        "b1LenChanged": false,
+        "tokensA": {
+          "tokens": [
+            1,
+            54,
+            50,
+            0,
+            58,
+            62
+          ],
+          "orientation": "-Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": {
+          "tokens": null,
+          "orientation": "-Z",
+          "identicalToC00": true
+        }
+      },
+      {
+        "aIndex": 4,
+        "bIndex": 0,
+        "centroidDist": 0.0012727922007357208,
+        "vertexOverlap": 0.6428571428571429,
+        "identical": false,
+        "ecChanged": true,
+        "vcChanged": true,
+        "secCountChanged": false,
+        "b1LenChanged": true,
+        "tokensA": {
+          "tokens": [
+            1,
+            13,
+            9,
+            0,
+            17,
+            5
+          ],
+          "orientation": "+Z",
+          "faceType": "planar_cube"
+        },
+        "tokensB": null
+      }
+    ],
+    "removed": [],
+    "added": [
+      {
+        "bIndex": 6,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "tokens": {
+          "tokens": [
+            1,
+            167,
+            160,
+            0,
+            162,
+            159
+          ],
+          "orientation": "+X"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 0,
+            "sharedVertices": 2
+          },
+          {
+            "index": 7,
+            "sharedVertices": 2
+          },
+          {
+            "index": 9,
+            "sharedVertices": 2
+          },
+          {
+            "index": 10,
+            "sharedVertices": 2
+          }
+        ]
+      },
+      {
+        "bIndex": 7,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "tokens": {
+          "tokens": [
+            1,
+            168,
+            162,
+            0,
+            164,
+            161
+          ],
+          "orientation": "+Y"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 0,
+            "sharedVertices": 2
+          },
+          {
+            "index": 6,
+            "sharedVertices": 2
+          },
+          {
+            "index": 8,
+            "sharedVertices": 2
+          },
+          {
+            "index": 10,
+            "sharedVertices": 2
+          }
+        ]
+      },
+      {
+        "bIndex": 8,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "tokens": {
+          "tokens": [
+            1,
+            169,
+            164,
+            0,
+            166,
+            163
+          ],
+          "orientation": "-X"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 0,
+            "sharedVertices": 2
+          },
+          {
+            "index": 7,
+            "sharedVertices": 2
+          },
+          {
+            "index": 9,
+            "sharedVertices": 2
+          },
+          {
+            "index": 10,
+            "sharedVertices": 2
+          }
+        ]
+      },
+      {
+        "bIndex": 9,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "tokens": {
+          "tokens": [
+            1,
+            170,
+            166,
+            0,
+            160,
+            165
+          ],
+          "orientation": "-Y"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 0,
+            "sharedVertices": 2
+          },
+          {
+            "index": 6,
+            "sharedVertices": 2
+          },
+          {
+            "index": 8,
+            "sharedVertices": 2
+          },
+          {
+            "index": 10,
+            "sharedVertices": 2
+          }
+        ]
+      },
+      {
+        "bIndex": 10,
+        "edgeCount": 4,
+        "vertexCount": 4,
+        "tokens": {
+          "tokens": [
+            1,
+            163,
+            161,
+            0,
+            165,
+            159
+          ],
+          "orientation": "+Z"
+        },
+        "adjacentToOriginalFaces": [],
+        "adjacentToModelFaces": [
+          {
+            "index": 6,
+            "sharedVertices": 2
+          },
+          {
+            "index": 7,
+            "sharedVertices": 2
+          },
+          {
+            "index": 8,
+            "sharedVertices": 2
+          },
+          {
+            "index": 9,
+            "sharedVertices": 2
+          }
+        ]
+      }
+    ],
+    "ambiguous": []
+  },
+  "_crossCheck": {
+    "C03_cube_fillet_1mm": {
+      "newFaceIndex": 6,
+      "adjacentC00Indices": [
+        4,
+        5,
+        2,
+        3
+      ],
+      "changedTokenFaces": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "unchangedTokenFaces": [
+        0,
+        1
+      ],
+      "changedSetEqualsAdjacentSet": true
+    },
+    "C09_cube_chamfer_1mm": {
+      "newFaceIndex": 6,
+      "adjacentC00Indices": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "changedTokenFaces": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "unchangedTokenFaces": [
+        0,
+        1
+      ],
+      "changedSetEqualsAdjacentSet": true
+    }
+  },
+  "_nq028Status": {
+    "answered": false,
+    "reason": "Controlled corpus (and the underlying SLDPRT files, which are absent from this repository snapshot) contains only one edge-feature location. C03 (fillet) and C09 (chamfer) both modify the edge shared by the +X and +Y faces. No second-edge model exists anywhere in the archived v0.4.7 JSON outputs or on disk.",
+    "newModelRequired": true
+  }
+}

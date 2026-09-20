@@ -1,0 +1,22 @@
+{"models":21,"faces":1272,"counts":{"boundary":41010,"interior":55959,"other":0,"nonzeroBoundary":41010,"zeroBoundary":0,"nonzeroInterior":0,"zeroInterior":71037,"annotationsWithoutTriangle":0},"labelMismatches":0,"edgeIncidence":{"1":7048,"2":72940},"orientationErrors":0}
+test files original/controlled/C00_cube_10mm/model.SLDPRT {"edges":{"2":18},"labelMismatches":0,"orientationErrors":0,"tokenIDs":12,"volume":9.99999932944776e-7,"fanEdges":{"1":14,"2":8,"3":2}}
+test files original/controlled/C01_cube_20mm/model.SLDPRT {"edges":{"2":18},"labelMismatches":0,"orientationErrors":0,"tokenIDs":12,"volume":0.000007999999463558208,"fanEdges":{"1":14,"2":8,"3":2}}
+test files original/controlled/C02_cube_translated/model.SLDPRT {"edges":{"2":18},"labelMismatches":0,"orientationErrors":0,"tokenIDs":12,"volume":9.999995604157956e-7,"fanEdges":{"1":14,"2":8,"3":2}}
+test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT {"edges":{"2":54},"labelMismatches":0,"orientationErrors":0,"tokenIDs":15,"volume":9.977645063556151e-7,"fanEdges":{"0":6,"1":39,"2":27,"3":5}}
+test files original/controlled/C04_cube_hole_5mm/model.SLDPRT {"edges":{"2":228},"labelMismatches":0,"orientationErrors":0,"tokenIDs":14,"volume":8.047660761894987e-7,"fanEdges":{"0":25,"1":199,"2":110,"3":11,"4":1}}
+test files original/controlled/C05_cube_hole_3mm/model.SLDPRT {"edges":{"2":186},"labelMismatches":0,"orientationErrors":0,"tokenIDs":14,"volume":9.299503656247857e-7,"fanEdges":{"0":23,"1":159,"2":88,"3":11,"4":1}}
+test files original/controlled/C06_cube_hole_moved/model.SLDPRT {"edges":{"2":228},"labelMismatches":0,"orientationErrors":0,"tokenIDs":14,"volume":8.04766071009025e-7,"fanEdges":{"0":24,"1":196,"2":116,"3":8,"4":1}}
+test files original/controlled/C07_cube_two_holes/model.SLDPRT {"edges":{"2":438},"labelMismatches":0,"orientationErrors":0,"tokenIDs":16,"volume":6.095322134607355e-7,"fanEdges":{"0":62,"1":362,"2":229,"3":16,"4":2}}
+test files original/controlled/C08_cube_second_hole_modified/model.SLDPRT {"edges":{"2":396},"labelMismatches":0,"orientationErrors":0,"tokenIDs":16,"volume":7.347165016205429e-7,"fanEdges":{"0":53,"1":332,"2":198,"3":20,"4":1}}
+test files original/controlled/C09_cube_chamfer_1mm/model.SLDPRT {"edges":{"2":24},"labelMismatches":0,"orientationErrors":0,"tokenIDs":15,"volume":9.94999931417407e-7,"fanEdges":{"0":1,"1":20,"2":9,"3":2,"4":1}}
+test files original/controlled/C10_cube_shell_1mm/model.SLDPRT {"edges":{"2":42},"labelMismatches":0,"orientationErrors":0,"tokenIDs":24,"volume":4.240000129193045e-7,"fanEdges":{"1":34,"2":16,"3":6}}
+test files original/controlled/C11_cube_hole_4mm/model.SLDPRT {"edges":{"2":210},"labelMismatches":0,"orientationErrors":0,"tokenIDs":14,"volume":8.751948535359937e-7,"fanEdges":{"0":21,"1":184,"2":104,"3":8,"4":1}}
+test files original/controlled/C12_cube_fillet_1mm_edge2/model.SLDPRT {"edges":{"2":54},"labelMismatches":0,"orientationErrors":0,"tokenIDs":15,"volume":9.977645042989126e-7,"fanEdges":{"0":4,"1":44,"2":23,"3":6}}
+test files original/cube.SLDPRT {"edges":{"2":18},"labelMismatches":0,"orientationErrors":0,"tokenIDs":12,"volume":0.00006400000092387194}
+test files original/Dekor.SLDPRT {"edges":{"1":6216,"2":19815},"labelMismatches":0,"orientationErrors":0,"tokenIDs":1087,"volume":0.0009071544184672011}
+test files original/distributor main boss rev a.SLDPRT {"edges":{"1":552,"2":5577},"labelMismatches":0,"orientationErrors":0,"tokenIDs":76,"volume":0.000026175002734372278}
+test files original/Helical Bevel Gear.SLDPRT {"edges":{"1":168,"2":8979},"labelMismatches":0,"orientationErrors":0,"tokenIDs":283,"volume":0.0013075377887433175}
+test files original/Pocket Wheel.SLDPRT {"edges":{"1":56,"2":25589},"labelMismatches":0,"orientationErrors":0,"tokenIDs":1082,"volume":0.0034565303039384393}
+test files original/PTC GE8080-8.SLDPRT {"edges":{"1":32,"2":1772},"labelMismatches":0,"orientationErrors":0,"tokenIDs":314,"volume":0.00008167958182027536}
+test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT {"edges":{"1":24,"2":2220},"labelMismatches":0,"orientationErrors":0,"tokenIDs":80,"volume":0.000006967338599647268}
+test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT {"edges":{"2":7056},"labelMismatches":0,"orientationErrors":0,"tokenIDs":151,"volume":0.000011702665241308311}

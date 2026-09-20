@@ -1,0 +1,8 @@
+{
+  "name": "sldprt-strip-parser",
+  "version": "0.2.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/parser-core.js",
+  "scripts": {"test": "node test/validate.js"}
+}

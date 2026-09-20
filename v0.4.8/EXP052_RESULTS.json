@@ -1,0 +1,2347 @@
+{
+  "commit": "b529ade6e97e0bf14a1d473c29f2171719cce4d7",
+  "width": 360,
+  "height": 360,
+  "units": "metres internally; reported depths mm",
+  "depthFlagMm": 0.01,
+  "method": "Shared union bounds, identical orthographic camera/material, STL mm to m; USB-only fixed translation recorded per reference (no rotation or scale fitting). Eight views; double sided, no boundary overlays. Pixel metrics are resolution-dependent and not a Hausdorff or watertightness test.",
+  "results": [
+    {
+      "name": "C00",
+      "parser": {
+        "source": "test files original/controlled/C00_cube_10mm/model.SLDPRT",
+        "sha256": "89ad8d93148d853dc07bd2a2a8b3e6b3be27cd10dbae212d42da11eb2b215877",
+        "faces": 6,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 12,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C00_cube_10mm/model.STL",
+        "sha256": "72b5f9d3db16d9a1c52995c06610071246f65ac48e80c96270dc40cb5eabc4bd",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 12,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 3.87143524388079e-7,
+          "depthP95Mm": 3.871436064523809e-7,
+          "depthMaxMm": 3.871436097049874e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 6.731019020002663e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 3.469446951953614e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 3.3828168403814475e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181107869e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.2726031634379414e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C01",
+      "parser": {
+        "source": "test files original/controlled/C01_cube_20mm/model.SLDPRT",
+        "sha256": "1da2b075fd3492e49699bd4cf0065e11411b1017e88e1822e1cded9ee51f9af0",
+        "faces": 6,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 12,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.019999999552965164,
+            0.019999999552965164,
+            0.019999999552965164
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C01_cube_20mm/model.STL",
+        "sha256": "376e10060dd5ead6dd99356509d748c20429b43dcc2dd25cb64c8c1d946b14ba",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.02,
+            0.02,
+            0.02
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 12,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.02,
+            0.02,
+            0.02
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 7.74287048776158e-7,
+          "depthP95Mm": 7.742872129047618e-7,
+          "depthMaxMm": 7.742872194099748e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 1.3462038040005325e-15,
+          "depthP95Mm": 3.469446951953614e-15,
+          "depthMaxMm": 6.938893903907228e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.4703483621414943e-7,
+          "depthP95Mm": 4.470348379664868e-7,
+          "depthMaxMm": 4.470348397012103e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 6.765633680762895e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 3.469446951953614e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.470348362174828e-7,
+          "depthP95Mm": 4.470348379664868e-7,
+          "depthMaxMm": 4.470348397012103e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 8.642556299215397e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 3.469446951953614e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.470348362215738e-7,
+          "depthP95Mm": 4.470348379664868e-7,
+          "depthMaxMm": 4.470348397012103e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 8.545206326875883e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 3.469446951953614e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C02",
+      "parser": {
+        "source": "test files original/controlled/C02_cube_translated/model.SLDPRT",
+        "sha256": "cc73f8cbc0f9e4fce2c4f4cdf8ab3d5fcaaa3bdd593318e2f8f74108d91b50d5",
+        "faces": 6,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 12,
+        "bounds": [
+          [
+            0.05000000074505806,
+            0.05000000074505806,
+            0
+          ],
+          [
+            0.05999999865889549,
+            0.05999999865889549,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C02_cube_translated/model.STL",
+        "sha256": "63a4ebd79e589b16e76974fa07eda034f00ba167dcfca872dc1e48b9d6f33ff9",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0.05,
+            0.05,
+            0
+          ],
+          [
+            0.06,
+            0.06,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 12,
+        "bounds": [
+          [
+            0.05,
+            0.05,
+            0
+          ],
+          [
+            0.06,
+            0.06,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0000016779984812852912,
+          "depthP95Mm": 0.000002322861620066008,
+          "depthMaxMm": 0.000002322861623535455,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 8.605699712501022e-7,
+          "depthP95Mm": 0.0000012904786774771415,
+          "depthMaxMm": 0.0000012904786805129076,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 0.0000013411045052162974,
+          "depthP95Mm": 0.0000013411045060932048,
+          "depthMaxMm": 0.0000013411045069605665,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 7.450580568884347e-7,
+          "depthP95Mm": 7.45058057784187e-7,
+          "depthMaxMm": 7.450580586515487e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 0.0000013411045052164678,
+          "depthP95Mm": 0.0000013411045060932048,
+          "depthMaxMm": 0.0000013411045069605665,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 7.450580569095335e-7,
+          "depthP95Mm": 7.45058057784187e-7,
+          "depthMaxMm": 7.450580586515487e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741809756698e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.2898382752723687e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C03",
+      "parser": {
+        "source": "test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT",
+        "sha256": "a14df0089bbc7cc5bf47e1d0d2cfbe50ba17be21c636cef4540d509164a514d2",
+        "faces": 7,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 36,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C03_cube_fillet_1mm/model.STL",
+        "sha256": "80690758ee30df942ac37769c0607773c2da654da510862bb87bfc9e9bc66cdd",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 50,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78822,
+          "depthMeanMm": 0.00037926388980401104,
+          "depthP95Mm": 0.0029140380276215447,
+          "depthMaxMm": 0.01232998393019269,
+          "commonDepthOver10umPixels": 348
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78822,
+          "depthMeanMm": 1.9242575639995956,
+          "depthP95Mm": 10.603550105994438,
+          "depthMaxMm": 16.782242600950617,
+          "commonDepthOver10umPixels": 26286
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 0.0007107302554627393,
+          "depthP95Mm": 0.005923767309384993,
+          "depthMaxMm": 0.03993347518063076,
+          "commonDepthOver10umPixels": 856
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 9.976780773089112,
+          "depthP95Mm": 10.000000000000002,
+          "depthMaxMm": 10.000000000000002,
+          "commonDepthOver10umPixels": 45796
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 0.000710730255462689,
+          "depthP95Mm": 0.005923767309384993,
+          "depthMaxMm": 0.03993347518062556,
+          "commonDepthOver10umPixels": 856
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9999562181213196,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 2,
+          "commonPixels": 45679,
+          "depthMeanMm": 2.2351741811109664e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9999562181213196,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 2,
+          "commonPixels": 45679,
+          "depthMeanMm": 4.381336006117565e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C04",
+      "parser": {
+        "source": "test files original/controlled/C04_cube_hole_5mm/model.SLDPRT",
+        "sha256": "38ff0e82f9f92002e2cb6092345bbd76b19e5a40e3d085f1e36a0d3139f4f8e3",
+        "faces": 7,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 152,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C04_cube_hole_5mm/model.STL",
+        "sha256": "f07075ffb768ed451d14f90ff18279c437ac7561e938ecf77a7b0733ef2ee791",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 172,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0008158759770472839,
+          "depthP95Mm": 0.002515478851795481,
+          "depthMaxMm": 6.082181313993462,
+          "commonDepthOver10umPixels": 822
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.001000464303297879,
+          "depthP95Mm": 0.001890288693946892,
+          "depthMaxMm": 6.083953020505414,
+          "commonDepthOver10umPixels": 616
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 3.3828168403814475e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9992955838526145,
+          "parserOnlyPixels": 20,
+          "referenceOnlyPixels": 6,
+          "commonPixels": 36884,
+          "depthMeanMm": 2.2351741810478214e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9992955838526145,
+          "parserOnlyPixels": 20,
+          "referenceOnlyPixels": 6,
+          "commonPixels": 36884,
+          "depthMeanMm": 4.3718474327465596e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C05",
+      "parser": {
+        "source": "test files original/controlled/C05_cube_hole_3mm/model.SLDPRT",
+        "sha256": "3dd9eaf83e44f81d769e852b6468bf04de7a565e75cb49fcfc34f3aeaf6cbd96",
+        "faces": 7,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 124,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C05_cube_hole_3mm/model.STL",
+        "sha256": "6024dfc6893614e04f5900a4cf1f2755f9628883e39eb0ec1c43170b9bf26be6",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 164,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.00021934698915533228,
+          "depthP95Mm": 3.871436066692213e-7,
+          "depthMaxMm": 2.7060438098906903,
+          "commonDepthOver10umPixels": 222
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.00029775754267317105,
+          "depthP95Mm": 2.168404344971009e-15,
+          "depthMaxMm": 3.500075763760921,
+          "commonDepthOver10umPixels": 242
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 3.3828168403814475e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9995775242923531,
+          "parserOnlyPixels": 14,
+          "referenceOnlyPixels": 4,
+          "commonPixels": 42588,
+          "depthMeanMm": 2.2351741811665558e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9995775242923531,
+          "parserOnlyPixels": 14,
+          "referenceOnlyPixels": 4,
+          "commonPixels": 42588,
+          "depthMeanMm": 4.3545274067648294e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C06",
+      "parser": {
+        "source": "test files original/controlled/C06_cube_hole_moved/model.SLDPRT",
+        "sha256": "b4880b5a192c29f52cfc2036563caad3b8ff6384a863c4ea949d3eaa1e3404ed",
+        "faces": 7,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 152,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C06_cube_hole_moved/model.STL",
+        "sha256": "f9a3c07691b744b77ec5fb583aa7003d0711b6374616c868c9c0ba561247631c",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 172,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0004534172152359363,
+          "depthP95Mm": 0.00200614451079475,
+          "depthMaxMm": 5.593647195855385,
+          "commonDepthOver10umPixels": 748
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0005309270841086052,
+          "depthP95Mm": 0.002401404541539122,
+          "depthMaxMm": 5.365799213680551,
+          "commonDepthOver10umPixels": 507
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 3.3828168403814475e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9992417677642981,
+          "parserOnlyPixels": 20,
+          "referenceOnlyPixels": 8,
+          "commonPixels": 36900,
+          "depthMeanMm": 2.2351741811296694e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9992417677642981,
+          "parserOnlyPixels": 20,
+          "referenceOnlyPixels": 8,
+          "commonPixels": 36900,
+          "depthMeanMm": 4.3692466085984947e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C07",
+      "parser": {
+        "source": "test files original/controlled/C07_cube_two_holes/model.SLDPRT",
+        "sha256": "1fca948b6ab1a3ea94eec6f1013cdf60c81dcf9a4fbdb0b2fe100afdd9ba07c9",
+        "faces": 8,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 292,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C07_cube_two_holes/model.STL",
+        "sha256": "1e3ba235467f2ddca001927d92f93ff38536863b59700ae7c859e88b118634bf",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 332,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0016491267502422343,
+          "depthP95Mm": 0.006714141545652915,
+          "depthMaxMm": 6.112542396734938,
+          "commonDepthOver10umPixels": 1644
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0012847583763425,
+          "depthP95Mm": 0.005664250144182554,
+          "depthMaxMm": 6.10367791663218,
+          "commonDepthOver10umPixels": 1220
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 3.3828168403814475e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9980387961774354,
+          "parserOnlyPixels": 45,
+          "referenceOnlyPixels": 10,
+          "commonPixels": 27989,
+          "depthMeanMm": 2.235174181186397e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9980387961774354,
+          "parserOnlyPixels": 45,
+          "referenceOnlyPixels": 10,
+          "commonPixels": 27989,
+          "depthMeanMm": 4.4311713499932766e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C08",
+      "parser": {
+        "source": "test files original/controlled/C08_cube_second_hole_modified/model.SLDPRT",
+        "sha256": "0213ffbcba1f2d95de22445b62d35faaa2ee26d43fc644b03a91cca06159b811",
+        "faces": 8,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 264,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C08_cube_second_hole_modified/model.STL",
+        "sha256": "475922be45c429284e73b2edb97b819929780b50622ff4fc48a67125c65a90fb",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 324,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.001009862276505516,
+          "depthP95Mm": 0.003954986830870082,
+          "depthMaxMm": 6.049730608051887,
+          "commonDepthOver10umPixels": 1046
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0010635572017920795,
+          "depthP95Mm": 0.0041135495278427515,
+          "depthMaxMm": 6.10367791663218,
+          "commonDepthOver10umPixels": 853
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 3.3828168403814475e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9985475456485653,
+          "parserOnlyPixels": 43,
+          "referenceOnlyPixels": 6,
+          "commonPixels": 33687,
+          "depthMeanMm": 2.235174181104489e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9985475456485653,
+          "parserOnlyPixels": 43,
+          "referenceOnlyPixels": 6,
+          "commonPixels": 33687,
+          "depthMeanMm": 4.376588839115054e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C09",
+      "parser": {
+        "source": "test files original/controlled/C09_cube_chamfer_1mm/model.SLDPRT",
+        "sha256": "a76902070b7f47e97ee7cb7c76a9064796b8b4ab182f1c25ded41e97e2b61246",
+        "faces": 7,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 16,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C09_cube_chamfer_1mm/model.STL",
+        "sha256": "d0a07a9f26fd6a1ec75534eb1ea653d33cf3c5ec833d9f632a499170c30bbd80",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 14,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78734,
+          "depthMeanMm": 3.9655486982991046e-7,
+          "depthP95Mm": 5.290962598603066e-7,
+          "depthMaxMm": 5.290962633297536e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78734,
+          "depthMeanMm": 1.9259148344417083,
+          "depthP95Mm": 10.603550105994438,
+          "depthMaxMm": 16.425781097711504,
+          "commonDepthOver10umPixels": 26286
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.6334669030425397e-7,
+          "depthP95Mm": 6.109476110779943e-7,
+          "depthMaxMm": 6.109476136800795e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 9.94859813083586,
+          "depthP95Mm": 10.000000000000002,
+          "depthMaxMm": 10.000000000000002,
+          "commonDepthOver10umPixels": 45796
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.6334669015288807e-7,
+          "depthP95Mm": 6.109476102106326e-7,
+          "depthMaxMm": 6.109476119453561e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9995171732689564,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 22,
+          "commonPixels": 45543,
+          "depthMeanMm": 2.235174181054641e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9995171732689564,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 22,
+          "commonPixels": 45543,
+          "depthMeanMm": 4.255391755837975e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C10",
+      "parser": {
+        "source": "test files original/controlled/C10_cube_shell_1mm/model.SLDPRT",
+        "sha256": "12668ec6b393b765a5d4076a5a2b49378886d08ea8ffef0e2aa8d9c71c911cce",
+        "faces": 11,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 28,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C10_cube_shell_1mm/model.STL",
+        "sha256": "741fe4b2fb27737f13002e53779ce6857cc151a574310eb89aefef7744b640a7",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 28,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 3.221488000496369e-7,
+          "depthP95Mm": 3.871436064523809e-7,
+          "depthMaxMm": 3.871436097049874e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 6.731019020002663e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 3.469446951953614e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 3.3828168403814475e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 1.1243834918480978e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.2726031634379414e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C11",
+      "parser": {
+        "source": "test files original/controlled/C11_cube_hole_4mm/model.SLDPRT",
+        "sha256": "fb78c483202368cd9d50a340be17b269048c285ae58dc1d5ca2b1f118243fa9e",
+        "faces": 7,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 140,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C11_cube_hole_4mm/model.STL",
+        "sha256": "adb46d516a4f87733941935bd9411d9d561ec4e55fce898825122c1864319cc0",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 162,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 0.0005801137047635617,
+          "depthP95Mm": 3.871436071029022e-7,
+          "depthMaxMm": 4.885333344192375,
+          "commonDepthOver10umPixels": 511
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78880,
+          "depthMeanMm": 1.564384049485762,
+          "depthP95Mm": 7.733053722344739,
+          "depthMaxMm": 12.32584793618426,
+          "commonDepthOver10umPixels": 26800
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 7.367876536606262,
+          "depthP95Mm": 10.000000000000002,
+          "depthMaxMm": 10.000000000000002,
+          "commonDepthOver10umPixels": 45796
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 4.3212781496076983e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9990530774981311,
+          "parserOnlyPixels": 28,
+          "referenceOnlyPixels": 10,
+          "commonPixels": 40092,
+          "depthMeanMm": 2.2351741811330718e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9990530774981311,
+          "parserOnlyPixels": 28,
+          "referenceOnlyPixels": 10,
+          "commonPixels": 40092,
+          "depthMeanMm": 4.3279386332580097e-16,
+          "depthP95Mm": 8.673617379884035e-16,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "C12",
+      "parser": {
+        "source": "test files original/controlled/C12_cube_fillet_1mm_edge2/model.SLDPRT",
+        "sha256": "8c835c79e0b30e4ba2ae4a0f6d9aa37ceedf0f6aa181624935f663700475a8e4",
+        "faces": 7,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 36,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.009999999776482582,
+            0.009999999776482582,
+            0.009999999776482582
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/controlled/C12_cube_fillet_1mm_edge2/model.STL",
+        "sha256": "6bcf3e11cdc3150629510cac6aee11f8b9757e66cb99b2d0316767b309fc7417",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ],
+        "translationMetres": [
+          0,
+          0,
+          0
+        ],
+        "triangles": 52,
+        "bounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.01,
+            0.01,
+            0.01
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78822,
+          "depthMeanMm": 3.8714352465468943e-7,
+          "depthP95Mm": 3.871436064523809e-7,
+          "depthMaxMm": 3.871436097049874e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 78822,
+          "depthMeanMm": 0.00037887535493221565,
+          "depthP95Mm": 0.002913337993236051,
+          "depthMaxMm": 0.012328345168521188,
+          "commonDepthOver10umPixels": 348
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.2351741810707472e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 0.0007104566621396387,
+          "depthP95Mm": 0.005923359582431231,
+          "depthMaxMm": 0.03992540355585682,
+          "commonDepthOver10umPixels": 856
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 2.235174181087414e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 45796,
+          "depthMeanMm": 0.0007104566621397409,
+          "depthP95Mm": 0.005923359582431231,
+          "depthMaxMm": 0.03992540355586202,
+          "commonDepthOver10umPixels": 856
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 0.9999562181213196,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 2,
+          "commonPixels": 45679,
+          "depthMeanMm": 2.2351741810334946e-7,
+          "depthP95Mm": 2.235174189832434e-7,
+          "depthMaxMm": 2.2351741985060514e-7,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 0.9999562181213196,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 2,
+          "commonPixels": 45679,
+          "depthMeanMm": 4.280508693157158e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 1.734723475976807e-15,
+          "commonDepthOver10umPixels": 0
+        }
+      ]
+    },
+    {
+      "name": "USB_TOP",
+      "parser": {
+        "source": "test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT",
+        "sha256": "b2928e16b72dd92f085e5d3cb83c101777acf075d2abf1b268563fdd564c14fc",
+        "faces": 68,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 4704,
+        "bounds": [
+          [
+            -0.03350000083446503,
+            0,
+            -0.020500000566244125
+          ],
+          [
+            0.03350000083446503,
+            0.019999999552965164,
+            0.020500000566244125
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/usb hub case (ultimate test)/USB hub case TOP ORIGINAL.STL",
+        "sha256": "d28b142417508c0527150088df8f89779db6ed505876ea449f2c2efea35233c1",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.067,
+            0.02,
+            0.041
+          ]
+        ],
+        "translationMetres": [
+          -0.0335,
+          0,
+          -0.0205
+        ],
+        "triangles": 7534,
+        "bounds": [
+          [
+            -0.0335,
+            0,
+            -0.0205
+          ],
+          [
+            0.0335,
+            0.02,
+            0.0205
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 26033,
+          "depthMeanMm": 0.003968853558375775,
+          "depthP95Mm": 0.009001180080299431,
+          "depthMaxMm": 25.16485873070405,
+          "commonDepthOver10umPixels": 1188
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 26033,
+          "depthMeanMm": 0.0008778126698016758,
+          "depthP95Mm": 0.000001445336128558239,
+          "depthMaxMm": 10.34879965792249,
+          "commonDepthOver10umPixels": 512
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 6942,
+          "depthMeanMm": 0.001197198354823274,
+          "depthP95Mm": 0.00988881042379014,
+          "depthMaxMm": 0.04451399418305135,
+          "commonDepthOver10umPixels": 318
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 6942,
+          "depthMeanMm": 0.003380135902372236,
+          "depthP95Mm": 0.013492228845640719,
+          "depthMaxMm": 0.12162604595739555,
+          "commonDepthOver10umPixels": 817
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 0.9997808299240211,
+          "parserOnlyPixels": 2,
+          "referenceOnlyPixels": 4,
+          "commonPixels": 27370,
+          "depthMeanMm": 0.0026701689099436956,
+          "depthP95Mm": 0.006770328777565629,
+          "depthMaxMm": 16.035510832170196,
+          "commonDepthOver10umPixels": 929
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 0.9997808299240211,
+          "parserOnlyPixels": 2,
+          "referenceOnlyPixels": 4,
+          "commonPixels": 27370,
+          "depthMeanMm": 6.658752224556937e-16,
+          "depthP95Mm": 1.734723475976807e-15,
+          "depthMaxMm": 5.204170427930421e-15,
+          "commonDepthOver10umPixels": 0
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 13696,
+          "depthMeanMm": 0.0009910703905698294,
+          "depthP95Mm": 0.008214744379096,
+          "depthMaxMm": 0.03306865991254944,
+          "commonDepthOver10umPixels": 453
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 13696,
+          "depthMeanMm": 0.0008527185276529664,
+          "depthP95Mm": 0.005582789026792323,
+          "depthMaxMm": 0.030761344837954008,
+          "commonDepthOver10umPixels": 384
+        }
+      ]
+    },
+    {
+      "name": "USB_BOTTOM",
+      "parser": {
+        "source": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+        "sha256": "851f385248ed25cf7c9a2677df3169738c139f34120cb8734ae6ef89d26521a1",
+        "faces": 39,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 1488,
+        "bounds": [
+          [
+            -0.03350000083446503,
+            0,
+            -0.020500000566244125
+          ],
+          [
+            0.03350000083446503,
+            0.006500000134110451,
+            0.020500000566244125
+          ]
+        ]
+      },
+      "reference": {
+        "source": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM ORIGINAL.STL",
+        "sha256": "3a25a4d852b769000d7c814614f254164ee3b37092ed65b0c078de7aacc846cd",
+        "scaleToMetres": 0.001,
+        "originalBounds": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0.067,
+            0.006500000000000001,
+            0.041
+          ]
+        ],
+        "translationMetres": [
+          -0.0335,
+          0,
+          -0.0205
+        ],
+        "triangles": 2486,
+        "bounds": [
+          [
+            -0.0335,
+            0,
+            -0.0205
+          ],
+          [
+            0.0335,
+            0.006500000000000001,
+            0.0205
+          ]
+        ]
+      },
+      "views": [
+        {
+          "name": "iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 20130,
+          "depthMeanMm": 0.0011652689481172205,
+          "depthP95Mm": 0.000001445336125088792,
+          "depthMaxMm": 5.049739597404604,
+          "commonDepthOver10umPixels": 584
+        },
+        {
+          "name": "reverse_iso",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 20130,
+          "depthMeanMm": 0.00212115637088411,
+          "depthP95Mm": 0.009947302545785033,
+          "depthMaxMm": 7.153585481493387,
+          "commonDepthOver10umPixels": 1000
+        },
+        {
+          "name": "+X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 2600,
+          "depthMeanMm": 0.0007991709586107962,
+          "depthP95Mm": 0.009056894822091766,
+          "depthMaxMm": 0.013492213178409318,
+          "commonDepthOver10umPixels": 80
+        },
+        {
+          "name": "-X",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 2600,
+          "depthMeanMm": 0.0007990794235097561,
+          "depthP95Mm": 0.009054312030826184,
+          "depthMaxMm": 0.013492228845654597,
+          "commonDepthOver10umPixels": 80
+        },
+        {
+          "name": "+Y",
+          "silhouetteIoU": 0.9997818023128955,
+          "parserOnlyPixels": 2,
+          "referenceOnlyPixels": 4,
+          "commonPixels": 27492,
+          "depthMeanMm": 0.001121092193912714,
+          "depthP95Mm": 0.0029188230653595486,
+          "depthMaxMm": 1.0184399872181191,
+          "commonDepthOver10umPixels": 951
+        },
+        {
+          "name": "-Y",
+          "silhouetteIoU": 0.9997818023128955,
+          "parserOnlyPixels": 2,
+          "referenceOnlyPixels": 4,
+          "commonPixels": 27492,
+          "depthMeanMm": 0.0010751400206776228,
+          "depthP95Mm": 0.010588812413917459,
+          "depthMaxMm": 0.03505588376910389,
+          "commonDepthOver10umPixels": 1427
+        },
+        {
+          "name": "+Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 4280,
+          "depthMeanMm": 0.0008527936527223409,
+          "depthP95Mm": 0.005582163661629891,
+          "depthMaxMm": 0.030763116863393586,
+          "commonDepthOver10umPixels": 120
+        },
+        {
+          "name": "-Z",
+          "silhouetteIoU": 1,
+          "parserOnlyPixels": 0,
+          "referenceOnlyPixels": 0,
+          "commonPixels": 4280,
+          "depthMeanMm": 0.0008527185276530582,
+          "depthP95Mm": 0.0055827890267957925,
+          "depthMaxMm": 0.030761344837954008,
+          "commonDepthOver10umPixels": 120
+        }
+      ]
+    },
+    {
+      "name": "Pocket",
+      "parser": {
+        "source": "test files original/Pocket Wheel.SLDPRT",
+        "sha256": "678a73af7c6eca8b5e6df60905a96f437bd5d1f85a2eed19277332c25629bb8c",
+        "faces": 400,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 17078,
+        "bounds": [
+          [
+            -0.1473076343536377,
+            -0.05299999937415123,
+            -0.1473076343536377
+          ],
+          [
+            0.1473076343536377,
+            0.05299999937415123,
+            0.1473076343536377
+          ]
+        ]
+      },
+      "reference": null,
+      "views": [
+        {
+          "name": "iso"
+        },
+        {
+          "name": "reverse_iso"
+        },
+        {
+          "name": "+X"
+        },
+        {
+          "name": "-X"
+        },
+        {
+          "name": "+Y"
+        },
+        {
+          "name": "-Y"
+        },
+        {
+          "name": "+Z"
+        },
+        {
+          "name": "-Z"
+        }
+      ]
+    },
+    {
+      "name": "Dekor",
+      "parser": {
+        "source": "test files original/Dekor.SLDPRT",
+        "sha256": "865142829c7d91aa85f65771d2a6e60dad4f58d0093422cb56c94ce6c8959c89",
+        "faces": 375,
+        "errors": [],
+        "rejected": [],
+        "warnings": [],
+        "triangles": 15282,
+        "bounds": [
+          [
+            -0.550000011920929,
+            -0.6000000238418579,
+            -0.019999999552965164
+          ],
+          [
+            0.550000011920929,
+            0.6000000238418579,
+            6.938893903907228e-18
+          ]
+        ]
+      },
+      "reference": null,
+      "views": [
+        {
+          "name": "iso"
+        },
+        {
+          "name": "reverse_iso"
+        },
+        {
+          "name": "+X"
+        },
+        {
+          "name": "-X"
+        },
+        {
+          "name": "+Y"
+        },
+        {
+          "name": "-Y"
+        },
+        {
+          "name": "+Z"
+        },
+        {
+          "name": "-Z"
+        }
+      ]
+    }
+  ]
+}

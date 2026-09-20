@@ -1,0 +1,4000 @@
+{
+  "experiment": "EXP-041",
+  "date": "2026-09-13",
+  "title": "Controlled corpus unblocked: from-source verification of the v0.4.7 record and extension to five previously-unanalyzed models",
+  "corpusCommit": "d0c6c54 (added controlled shapes made in solidworks)",
+  "method": {
+    "parser": "parser/v0.1/src/parser-core.js (read-only, unmodified)",
+    "adjacency": "computeAdjacency from exp037_edge_location_and_adjacency.js (>=2 shared vertices)",
+    "correspondence": "matchFaces from exp038_nq028_c12_second_edge.js (bounding-box center, threshold 0.002m)",
+    "modificationCriterion": "facesIdentical: full per-vertex coordinate comparison (tolerance 1e-6)"
+  },
+  "part1_provenance": {
+    "rows": [
+      {
+        "model": "C00_cube_10mm",
+        "archivedFaceCount": 6,
+        "parsedFaceCount": 6,
+        "archivedDlLength": 12050,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C01_cube_20mm",
+        "archivedFaceCount": 6,
+        "parsedFaceCount": 6,
+        "archivedDlLength": 12050,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C02_cube_translated",
+        "archivedFaceCount": 6,
+        "parsedFaceCount": 6,
+        "archivedDlLength": 12050,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C03_cube_fillet_1mm",
+        "archivedFaceCount": 7,
+        "parsedFaceCount": 7,
+        "archivedDlLength": 14350,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C04_cube_hole_5mm",
+        "archivedFaceCount": 7,
+        "parsedFaceCount": 7,
+        "archivedDlLength": 19036,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C05_cube_hole_3mm",
+        "archivedFaceCount": 7,
+        "parsedFaceCount": 7,
+        "archivedDlLength": 17688,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C06_cube_hole_moved",
+        "archivedFaceCount": 7,
+        "parsedFaceCount": 7,
+        "archivedDlLength": 19102,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C07_cube_two_holes",
+        "archivedFaceCount": 8,
+        "parsedFaceCount": 8,
+        "archivedDlLength": 25968,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C08_cube_second_hole_modified",
+        "archivedFaceCount": 8,
+        "parsedFaceCount": 8,
+        "archivedDlLength": 24884,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C09_cube_chamfer_1mm",
+        "archivedFaceCount": 7,
+        "parsedFaceCount": 7,
+        "archivedDlLength": 13342,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      },
+      {
+        "model": "C10_cube_shell_1mm",
+        "archivedFaceCount": 11,
+        "parsedFaceCount": 11,
+        "archivedDlLength": 17280,
+        "mismatches": {
+          "faceCount": 0,
+          "offsets": 0,
+          "structure": 0,
+          "sections": 0,
+          "loops": 0,
+          "b2": 0,
+          "vertices": 0,
+          "normals": 0,
+          "tokens": 0
+        },
+        "status": "EXACT_MATCH"
+      }
+    ],
+    "exactMatches": 11,
+    "total": 11
+  },
+  "part2_invariants": {
+    "rows": [
+      {
+        "model": "C00_cube_10mm",
+        "faces": 6,
+        "inv016": "6/6",
+        "inv017": "6/6",
+        "inv018": "6/6",
+        "pass": true
+      },
+      {
+        "model": "C01_cube_20mm",
+        "faces": 6,
+        "inv016": "6/6",
+        "inv017": "6/6",
+        "inv018": "6/6",
+        "pass": true
+      },
+      {
+        "model": "C02_cube_translated",
+        "faces": 6,
+        "inv016": "6/6",
+        "inv017": "6/6",
+        "inv018": "6/6",
+        "pass": true
+      },
+      {
+        "model": "C03_cube_fillet_1mm",
+        "faces": 7,
+        "inv016": "7/7",
+        "inv017": "12/12",
+        "inv018": "7/7",
+        "pass": true
+      },
+      {
+        "model": "C04_cube_hole_5mm",
+        "faces": 7,
+        "inv016": "7/7",
+        "inv017": "30/30",
+        "inv018": "7/7",
+        "pass": true
+      },
+      {
+        "model": "C05_cube_hole_3mm",
+        "faces": 7,
+        "inv016": "7/7",
+        "inv017": "24/24",
+        "inv018": "7/7",
+        "pass": true
+      },
+      {
+        "model": "C06_cube_hole_moved",
+        "faces": 7,
+        "inv016": "7/7",
+        "inv017": "31/31",
+        "inv018": "7/7",
+        "pass": true
+      },
+      {
+        "model": "C07_cube_two_holes",
+        "faces": 8,
+        "inv016": "8/8",
+        "inv017": "51/51",
+        "inv018": "8/8",
+        "pass": true
+      },
+      {
+        "model": "C08_cube_second_hole_modified",
+        "faces": 8,
+        "inv016": "8/8",
+        "inv017": "49/49",
+        "inv018": "8/8",
+        "pass": true
+      },
+      {
+        "model": "C09_cube_chamfer_1mm",
+        "faces": 7,
+        "inv016": "7/7",
+        "inv017": "7/7",
+        "inv018": "7/7",
+        "pass": true
+      },
+      {
+        "model": "C10_cube_shell_1mm",
+        "faces": 11,
+        "inv016": "11/11",
+        "inv017": "11/11",
+        "inv018": "11/11",
+        "pass": true
+      },
+      {
+        "model": "C11_cube_hole_4mm",
+        "faces": 7,
+        "inv016": "7/7",
+        "inv017": "28/28",
+        "inv018": "7/7",
+        "pass": true
+      },
+      {
+        "model": "C12_cube_fillet_1mm_edge2",
+        "faces": 7,
+        "inv016": "7/7",
+        "inv017": "12/12",
+        "inv018": "7/7",
+        "pass": true
+      }
+    ],
+    "totals": {
+      "faces": 94,
+      "inv016": 94,
+      "inv018": 94,
+      "sections": 273,
+      "inv017": 273
+    }
+  },
+  "part3_crossTabulation": [
+    {
+      "modelA": "C00_cube_10mm",
+      "modelB": "C01_cube_20mm",
+      "label": "uniform scale x2",
+      "faceCountA": 6,
+      "faceCountB": 6,
+      "matched": 0,
+      "added": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "removed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ambiguous": [],
+      "rows": []
+    },
+    {
+      "modelA": "C00_cube_10mm",
+      "modelB": "C02_cube_translated",
+      "label": "translation",
+      "faceCountA": 6,
+      "faceCountB": 6,
+      "matched": 0,
+      "added": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "removed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ambiguous": [],
+      "rows": []
+    },
+    {
+      "modelA": "C00_cube_10mm",
+      "modelB": "C03_cube_fillet_1mm",
+      "label": "fillet, edge 1",
+      "faceCountA": 6,
+      "faceCountB": 7,
+      "matched": 6,
+      "added": [
+        6
+      ],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            2
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            10
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            4
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            10
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            4,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "modelA": "C00_cube_10mm",
+      "modelB": "C09_cube_chamfer_1mm",
+      "label": "chamfer, edge 1",
+      "faceCountA": 6,
+      "faceCountB": 7,
+      "matched": 6,
+      "added": [
+        6
+      ],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            2
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 5,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 8,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 5,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 8,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "modelA": "C00_cube_10mm",
+      "modelB": "C12_cube_fillet_1mm_edge2",
+      "label": "fillet, edge 2",
+      "faceCountA": 6,
+      "faceCountB": 7,
+      "matched": 6,
+      "added": [
+        6
+      ],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            1
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            10
+          ],
+          "adjacentToModified": [
+            0,
+            1
+          ],
+          "adjacentToModifiedSharedVertices": [
+            3,
+            4
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            11
+          ],
+          "adjacentToModified": [
+            0,
+            1
+          ],
+          "adjacentToModifiedSharedVertices": [
+            3,
+            3
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0.0005000000237487257,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0.0005000000237487257,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "modelA": "C00_cube_10mm",
+      "modelB": "C04_cube_hole_5mm",
+      "label": "through-hole added",
+      "faceCountA": 6,
+      "faceCountB": 7,
+      "matched": 6,
+      "added": [
+        6
+      ],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 62,
+          "secCountA": 1,
+          "secCountB": 12,
+          "b1LenA": 6,
+          "b1LenB": 100,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            46
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 64,
+          "secCountA": 1,
+          "secCountB": 13,
+          "b1LenA": 6,
+          "b1LenB": 102,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            47
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        }
+      ]
+    },
+    {
+      "modelA": "C00_cube_10mm",
+      "modelB": "C10_cube_shell_1mm",
+      "label": "shell",
+      "faceCountA": 6,
+      "faceCountB": 11,
+      "matched": 6,
+      "added": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 0,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 1,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 2,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 3,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 4,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 10,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 18,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "adjacentToNewSharedVertices": [
+            3,
+            3,
+            2,
+            2
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        }
+      ]
+    },
+    {
+      "modelA": "C04_cube_hole_5mm",
+      "modelB": "C05_cube_hole_3mm",
+      "label": "hole diameter 5->3",
+      "faceCountA": 7,
+      "faceCountB": 7,
+      "matched": 7,
+      "added": [],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 51,
+          "secCountA": 12,
+          "secCountB": 10,
+          "b1LenA": 100,
+          "b1LenB": 82,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            37
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 49,
+          "secCountA": 13,
+          "secCountB": 9,
+          "b1LenA": 102,
+          "b1LenB": 80,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            36
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0.000005071400666082933,
+          "vcA": 70,
+          "vcB": 56,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 110,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            28,
+            28
+          ]
+        }
+      ]
+    },
+    {
+      "modelA": "C04_cube_hole_5mm",
+      "modelB": "C11_cube_hole_4mm",
+      "label": "hole diameter 5->4 (NEW)",
+      "faceCountA": 7,
+      "faceCountB": 7,
+      "matched": 7,
+      "added": [],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 59,
+          "secCountA": 12,
+          "secCountB": 12,
+          "b1LenA": 100,
+          "b1LenB": 94,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            43
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 57,
+          "secCountA": 13,
+          "secCountB": 11,
+          "b1LenA": 102,
+          "b1LenB": 92,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            42
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0.000005130888895521005,
+          "vcA": 70,
+          "vcB": 64,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 126,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            32,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "modelA": "C04_cube_hole_5mm",
+      "modelB": "C06_cube_hole_moved",
+      "label": "hole position only (NEW)",
+      "faceCountA": 7,
+      "faceCountB": 7,
+      "matched": 7,
+      "added": [],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 66,
+          "secCountA": 12,
+          "secCountB": 14,
+          "b1LenA": 100,
+          "b1LenB": 104,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            48
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 62,
+          "secCountA": 13,
+          "secCountB": 12,
+          "b1LenA": 102,
+          "b1LenB": 100,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            46
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0.001999999862164259,
+          "vcA": 70,
+          "vcB": 70,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 138,
+          "directlyModified": true,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            35,
+            35
+          ]
+        }
+      ]
+    },
+    {
+      "modelA": "C04_cube_hole_5mm",
+      "modelB": "C07_cube_two_holes",
+      "label": "one hole -> two holes (NEW)",
+      "faceCountA": 7,
+      "faceCountB": 8,
+      "matched": 6,
+      "added": [
+        6,
+        7
+      ],
+      "removed": [
+        6
+      ],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 122,
+          "secCountA": 12,
+          "secCountB": 24,
+          "b1LenA": 100,
+          "b1LenB": 196,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6,
+            7
+          ],
+          "adjacentToNewSharedVertices": [
+            50,
+            48
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 116,
+          "secCountA": 13,
+          "secCountB": 21,
+          "b1LenA": 102,
+          "b1LenB": 190,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6,
+            7
+          ],
+          "adjacentToNewSharedVertices": [
+            46,
+            47
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        }
+      ]
+    },
+    {
+      "modelA": "C07_cube_two_holes",
+      "modelB": "C08_cube_second_hole_modified",
+      "label": "second hole only 5->3 (NEW)",
+      "faceCountA": 8,
+      "faceCountB": 8,
+      "matched": 8,
+      "added": [],
+      "removed": [],
+      "ambiguous": [],
+      "rows": [
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 122,
+          "vcB": 109,
+          "secCountA": 24,
+          "secCountB": 21,
+          "b1LenA": 196,
+          "b1LenB": 176,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            7
+          ],
+          "adjacentToModifiedSharedVertices": [
+            40
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 116,
+          "vcB": 111,
+          "secCountA": 21,
+          "secCountB": 22,
+          "b1LenA": 190,
+          "b1LenB": 178,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            7
+          ],
+          "adjacentToModifiedSharedVertices": [
+            40
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0,
+          "vcA": 70,
+          "vcB": 70,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 138,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            35,
+            35
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 7,
+          "bIndex": 7,
+          "centroidDist": 0.000005071749932089522,
+          "vcA": 70,
+          "vcB": 56,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 110,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            28,
+            28
+          ]
+        }
+      ]
+    }
+  ],
+  "part4_cells": {
+    "modifiedAdjacentToNew": {
+      "count": 17,
+      "tokenChanged": 17,
+      "rows": [
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            10
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            4
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            10
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            4,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 5,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 8,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 5,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 8,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            2,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0.0005000000819563866,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            10
+          ],
+          "adjacentToModified": [
+            0,
+            1
+          ],
+          "adjacentToModifiedSharedVertices": [
+            3,
+            4
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 14,
+          "secCountA": 1,
+          "secCountB": 3,
+          "b1LenA": 6,
+          "b1LenB": 22,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            11
+          ],
+          "adjacentToModified": [
+            0,
+            1
+          ],
+          "adjacentToModifiedSharedVertices": [
+            3,
+            3
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0.0005000000237487257,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0.0005000000237487257,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": false,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            2
+          ],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 62,
+          "secCountA": 1,
+          "secCountB": 12,
+          "b1LenA": 6,
+          "b1LenB": 100,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            46
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 64,
+          "secCountA": 1,
+          "secCountB": 13,
+          "b1LenA": 6,
+          "b1LenB": 102,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6
+          ],
+          "adjacentToNewSharedVertices": [
+            47
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 4,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 10,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 18,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "adjacentToNewSharedVertices": [
+            3,
+            3,
+            2,
+            2
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 122,
+          "secCountA": 12,
+          "secCountB": 24,
+          "b1LenA": 100,
+          "b1LenB": 196,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6,
+            7
+          ],
+          "adjacentToNewSharedVertices": [
+            50,
+            48
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 116,
+          "secCountA": 13,
+          "secCountB": 21,
+          "b1LenA": 102,
+          "b1LenB": 190,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [
+            6,
+            7
+          ],
+          "adjacentToNewSharedVertices": [
+            46,
+            47
+          ],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        }
+      ]
+    },
+    "modifiedNotAdjacent": {
+      "count": 12,
+      "tokenChanged": 11,
+      "rows": [
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 51,
+          "secCountA": 12,
+          "secCountB": 10,
+          "b1LenA": 100,
+          "b1LenB": 82,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            37
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 49,
+          "secCountA": 13,
+          "secCountB": 9,
+          "b1LenA": 102,
+          "b1LenB": 80,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            36
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0.000005071400666082933,
+          "vcA": 70,
+          "vcB": 56,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 110,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            28,
+            28
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 59,
+          "secCountA": 12,
+          "secCountB": 12,
+          "b1LenA": 100,
+          "b1LenB": 94,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            43
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 57,
+          "secCountA": 13,
+          "secCountB": 11,
+          "b1LenA": 102,
+          "b1LenB": 92,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            42
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0.000005130888895521005,
+          "vcA": 70,
+          "vcB": 64,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 126,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            32,
+            32
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 62,
+          "vcB": 66,
+          "secCountA": 12,
+          "secCountB": 14,
+          "b1LenA": 100,
+          "b1LenB": 104,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            48
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 64,
+          "vcB": 62,
+          "secCountA": 13,
+          "secCountB": 12,
+          "b1LenA": 102,
+          "b1LenB": 100,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            6
+          ],
+          "adjacentToModifiedSharedVertices": [
+            46
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0.001999999862164259,
+          "vcA": 70,
+          "vcB": 70,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 138,
+          "directlyModified": true,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            35,
+            35
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 4,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 122,
+          "vcB": 109,
+          "secCountA": 24,
+          "secCountB": 21,
+          "b1LenA": 196,
+          "b1LenB": 176,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            7
+          ],
+          "adjacentToModifiedSharedVertices": [
+            40
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 116,
+          "vcB": 111,
+          "secCountA": 21,
+          "secCountB": 22,
+          "b1LenA": 190,
+          "b1LenB": 178,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            7
+          ],
+          "adjacentToModifiedSharedVertices": [
+            40
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 7,
+          "bIndex": 7,
+          "centroidDist": 0.000005071749932089522,
+          "vcA": 70,
+          "vcB": 56,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 110,
+          "directlyModified": true,
+          "tokensChanged": true,
+          "tokenLengthForced": true,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            28,
+            28
+          ]
+        }
+      ]
+    },
+    "unmodifiedAdjacentToNew": {
+      "count": 0,
+      "tokenChanged": 0,
+      "rows": []
+    },
+    "unmodifiedNotAdjacent": {
+      "count": 36,
+      "tokenChanged": 0,
+      "rows": [
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C03_cube_fillet_1mm",
+          "label": "fillet, edge 1",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            2
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            3
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C09_cube_chamfer_1mm",
+          "label": "chamfer, edge 1",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            2
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            1
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C12_cube_fillet_1mm_edge2",
+          "label": "fillet, edge 2",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5,
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C04_cube_hole_5mm",
+          "label": "through-hole added",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 0,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 1,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 2,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 3,
+          "bIndex": 4,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            0
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2
+          ]
+        },
+        {
+          "pair": "C00_cube_10mm -> C10_cube_shell_1mm",
+          "label": "shell",
+          "aIndex": 5,
+          "bIndex": 5,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [],
+          "adjacentToModifiedSharedVertices": []
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C05_cube_hole_3mm",
+          "label": "hole diameter 5->3",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C11_cube_hole_4mm",
+          "label": "hole diameter 5->4 (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C06_cube_hole_moved",
+          "label": "hole position only (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C04_cube_hole_5mm -> C07_cube_two_holes",
+          "label": "one hole -> two holes (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 0,
+          "bIndex": 0,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 1,
+          "bIndex": 1,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 2,
+          "bIndex": 2,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 3,
+          "bIndex": 3,
+          "centroidDist": 0,
+          "vcA": 4,
+          "vcB": 4,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 6,
+          "b1LenB": 6,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            2,
+            2
+          ]
+        },
+        {
+          "pair": "C07_cube_two_holes -> C08_cube_second_hole_modified",
+          "label": "second hole only 5->3 (NEW)",
+          "aIndex": 6,
+          "bIndex": 6,
+          "centroidDist": 0,
+          "vcA": 70,
+          "vcB": 70,
+          "secCountA": 1,
+          "secCountB": 1,
+          "b1LenA": 138,
+          "b1LenB": 138,
+          "directlyModified": false,
+          "tokensChanged": false,
+          "tokenLengthForced": false,
+          "adjacentToNew": [],
+          "adjacentToNewSharedVertices": [],
+          "adjacentToModified": [
+            4,
+            5
+          ],
+          "adjacentToModifiedSharedVertices": [
+            35,
+            35
+          ]
+        }
+      ]
+    },
+    "emptyCellStillEmpty": true
+  }
+}

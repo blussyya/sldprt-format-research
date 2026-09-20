@@ -1,0 +1,932 @@
+{
+  "timestamp": "2026-08-14T01:02:40.599Z",
+  "experiment": "EXP-034",
+  "description": "Controlled Transformation Invariance of Block1/Block2",
+  "models": [
+    "C00_cube_10mm",
+    "C01_cube_20mm",
+    "C02_cube_translated"
+  ],
+  "modelStats": {
+    "C00_cube_10mm": {
+      "faces": 6,
+      "displayListsLength": 12050,
+      "stats": {
+        "totalCandidates": 24,
+        "validFaces": 6,
+        "rejectedCandidates": 18,
+        "rejectByCategory": {
+          "INVALID_EC": 12,
+          "INVALID_VC": 6
+        }
+      }
+    },
+    "C01_cube_20mm": {
+      "faces": 6,
+      "displayListsLength": 12050,
+      "stats": {
+        "totalCandidates": 24,
+        "validFaces": 6,
+        "rejectedCandidates": 18,
+        "rejectByCategory": {
+          "INVALID_EC": 12,
+          "INVALID_VC": 6
+        }
+      }
+    },
+    "C02_cube_translated": {
+      "faces": 6,
+      "displayListsLength": 12050,
+      "stats": {
+        "totalCandidates": 24,
+        "validFaces": 6,
+        "rejectedCandidates": 18,
+        "rejectByCategory": {
+          "INVALID_EC": 12,
+          "INVALID_VC": 6
+        }
+      }
+    }
+  },
+  "structuralInvariance": {
+    "allSame": true,
+    "byFace": [
+      {
+        "faceIndex": 0,
+        "orientation": "-X",
+        "sameEc": true,
+        "sameVc": true,
+        "sameSec": true,
+        "sameB1Len": true,
+        "allSame": true
+      },
+      {
+        "faceIndex": 1,
+        "orientation": "-Y",
+        "sameEc": true,
+        "sameVc": true,
+        "sameSec": true,
+        "sameB1Len": true,
+        "allSame": true
+      },
+      {
+        "faceIndex": 2,
+        "orientation": "+X",
+        "sameEc": true,
+        "sameVc": true,
+        "sameSec": true,
+        "sameB1Len": true,
+        "allSame": true
+      },
+      {
+        "faceIndex": 3,
+        "orientation": "+Y",
+        "sameEc": true,
+        "sameVc": true,
+        "sameSec": true,
+        "sameB1Len": true,
+        "allSame": true
+      },
+      {
+        "faceIndex": 4,
+        "orientation": "+Z",
+        "sameEc": true,
+        "sameVc": true,
+        "sameSec": true,
+        "sameB1Len": true,
+        "allSame": true
+      },
+      {
+        "faceIndex": 5,
+        "orientation": "-Z",
+        "sameEc": true,
+        "sameVc": true,
+        "sameSec": true,
+        "sameB1Len": true,
+        "allSame": true
+      }
+    ]
+  },
+  "block1Invariance": {
+    "headers": true,
+    "bodiesC00vsC01": true,
+    "bodiesC00vsC02": true,
+    "bodyDetails": [
+      {
+        "faceIndex": 0,
+        "orientation": "-X",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 0",
+          "identical": true,
+          "count": 6
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 0",
+          "identical": true,
+          "count": 6
+        }
+      },
+      {
+        "faceIndex": 1,
+        "orientation": "-Y",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 1",
+          "identical": true,
+          "count": 6
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 1",
+          "identical": true,
+          "count": 6
+        }
+      },
+      {
+        "faceIndex": 2,
+        "orientation": "+X",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 2",
+          "identical": true,
+          "count": 6
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 2",
+          "identical": true,
+          "count": 6
+        }
+      },
+      {
+        "faceIndex": 3,
+        "orientation": "+Y",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 3",
+          "identical": true,
+          "count": 6
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 3",
+          "identical": true,
+          "count": 6
+        }
+      },
+      {
+        "faceIndex": 4,
+        "orientation": "+Z",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 4",
+          "identical": true,
+          "count": 6
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 4",
+          "identical": true,
+          "count": 6
+        }
+      },
+      {
+        "faceIndex": 5,
+        "orientation": "-Z",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 5",
+          "identical": true,
+          "count": 6
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 5",
+          "identical": true,
+          "count": 6
+        }
+      }
+    ]
+  },
+  "block2Invariance": {
+    "headers": true,
+    "bodiesC00vsC01": true,
+    "bodiesC00vsC02": true,
+    "bodyDetails": [
+      {
+        "faceIndex": 0,
+        "orientation": "-X",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 0",
+          "identical": true
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 0",
+          "identical": true
+        }
+      },
+      {
+        "faceIndex": 1,
+        "orientation": "-Y",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 1",
+          "identical": true
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 1",
+          "identical": true
+        }
+      },
+      {
+        "faceIndex": 2,
+        "orientation": "+X",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 2",
+          "identical": true
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 2",
+          "identical": true
+        }
+      },
+      {
+        "faceIndex": 3,
+        "orientation": "+Y",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 3",
+          "identical": true
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 3",
+          "identical": true
+        }
+      },
+      {
+        "faceIndex": 4,
+        "orientation": "+Z",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 4",
+          "identical": true
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 4",
+          "identical": true
+        }
+      },
+      {
+        "faceIndex": 5,
+        "orientation": "-Z",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 5",
+          "identical": true
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 5",
+          "identical": true
+        }
+      }
+    ]
+  },
+  "vertexInvariance": {
+    "scaleC00vsC01": false,
+    "translateC00vsC02": false,
+    "details": [
+      {
+        "faceIndex": 0,
+        "orientation": "-X",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 0",
+          "identical": false,
+          "reason": "4 values differ",
+          "diffs": [
+            {
+              "index": 2,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 4,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 5,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 10,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            }
+          ],
+          "maxDiff": 0.009999999776482582
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 0",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 1,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 3,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 4,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 6,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 7,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 9,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 10,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            }
+          ],
+          "maxDiff": 0.05000000074505806
+        }
+      },
+      {
+        "faceIndex": 1,
+        "orientation": "-Y",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 1",
+          "identical": false,
+          "reason": "4 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 2,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 5,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 6,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            }
+          ],
+          "maxDiff": 0.009999999776482582
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 1",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 1,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 3,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 4,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 6,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 7,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 9,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 10,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            }
+          ],
+          "maxDiff": 0.05000000074505806
+        }
+      },
+      {
+        "faceIndex": 2,
+        "orientation": "+X",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 2",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 1,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 2,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 5,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 6,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 7,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 9,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            }
+          ],
+          "maxDiff": 0.009999999776482582
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 2",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 1,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 4,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 6,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 7,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 9,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 10,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            }
+          ],
+          "maxDiff": 0.05000000074505806
+        }
+      },
+      {
+        "faceIndex": 3,
+        "orientation": "+Y",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 3",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 1,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 2,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 4,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 5,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 7,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 9,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 10,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            }
+          ],
+          "maxDiff": 0.009999999776482582
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 3",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 1,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 4,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 6,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 7,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 9,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 10,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            }
+          ],
+          "maxDiff": 0.05000000074505806
+        }
+      },
+      {
+        "faceIndex": 4,
+        "orientation": "+Z",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 4",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 2,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 4,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 5,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 8,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 10,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 11,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            }
+          ],
+          "maxDiff": 0.009999999776482582
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 4",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 1,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 4,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 6,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 7,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 9,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 10,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            }
+          ],
+          "maxDiff": 0.05000000074505806
+        }
+      },
+      {
+        "faceIndex": 5,
+        "orientation": "-Z",
+        "c00vsC01": {
+          "label": "C00 vs C01 face 5",
+          "identical": false,
+          "reason": "4 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 1,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            },
+            {
+              "index": 7,
+              "a": 0.009999999776482582,
+              "b": 0.019999999552965164,
+              "diff": 0.009999999776482582
+            }
+          ],
+          "maxDiff": 0.009999999776482582
+        },
+        "c00vsC02": {
+          "label": "C00 vs C02 face 5",
+          "identical": false,
+          "reason": "8 values differ",
+          "diffs": [
+            {
+              "index": 0,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 1,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 3,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 4,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 6,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 7,
+              "a": 0.009999999776482582,
+              "b": 0.05999999865889549,
+              "diff": 0.04999999888241291
+            },
+            {
+              "index": 9,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            },
+            {
+              "index": 10,
+              "a": 0,
+              "b": 0.05000000074505806,
+              "diff": 0.05000000074505806
+            }
+          ],
+          "maxDiff": 0.05000000074505806
+        }
+      }
+    ]
+  },
+  "otherInvariance": {
+    "gapMarkers": true,
+    "loopSizes": true,
+    "sectionLens": true
+  },
+  "invariantChecks": {
+    "INV005": true,
+    "INV006": true,
+    "INV008": true,
+    "INV009": true,
+    "INV016": true,
+    "INV017": true,
+    "INV018": true
+  },
+  "hypothesisTests": {
+    "H1_block1_invariant_scale": true,
+    "H2_block1_invariant_translate": true,
+    "H3_block2_invariant_scale": true,
+    "H4_block2_invariant_translate": true,
+    "H5_structural_invariant": true,
+    "H6_vertices_encode_geometry": true
+  }
+}

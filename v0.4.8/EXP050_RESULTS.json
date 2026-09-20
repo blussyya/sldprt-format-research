@@ -1,0 +1,1372 @@
+{
+  "experiment": "EXP-050",
+  "date": "2026-09-15",
+  "question": "Localize the off-cone display samples left open by EXP-047/048.",
+  "method": "Per-vertex cone residual distribution; deviation sign; distance to a chord between two on-cone vertices of the same face; independent least-squares cone refit; co-owning surface tags. Tolerance held at EXP-047 1e-7 m; no failure rescued.",
+  "toleranceMetres": 1e-7,
+  "scriptSha256": "0c0201b000fd4c4660074c426c4fd3698b406eed003d5d475e6fc89bb175a1b4",
+  "dependencies": [
+    {
+      "path": "research-common.js",
+      "sha256": "7ad4431c168e247de3e5d66df2268b348a68173c369aef30df77a95d35851e15"
+    },
+    {
+      "path": "exp045_forward_metadata.js",
+      "sha256": "aeaf320004c177b16db052bd879789832450c86ba601efb14b29ac2bab0af37d"
+    }
+  ],
+  "totals": {
+    "coneFaces": 47,
+    "passingFaces": 27,
+    "failingFaces": 20,
+    "failingVertices": 250,
+    "deviationInside": 250,
+    "deviationOutside": 0,
+    "failingOnChord": 250,
+    "worstChordDistance": 7.596242859344091e-9,
+    "refitRescuedFaces": 0,
+    "failingByCoOwnerTag": {
+      "4001": 3,
+      "4002": 247
+    },
+    "perModelFailingFaces": {
+      "test files original/Pocket Wheel.SLDPRT": 19,
+      "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT": 1
+    }
+  },
+  "models": [
+    {
+      "file": "test files original/distributor main boss rev a.SLDPRT",
+      "sha256": "72454b269924d6361d3b88a1e7f4ce217751abdf5e413580ac62d23392897711",
+      "faces": [
+        {
+          "faceIndex": 15,
+          "vertices": 64,
+          "passed": true,
+          "coneMinus": 1.912763336608947e-9,
+          "storedRadius": 0.009334499999999999,
+          "storedAngleRad": 0.785398163397479,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.0600975514085675e-9,
+            "median": 1.4908434244065294e-9,
+            "p90": 1.6985975490740879e-9,
+            "max": 1.912763336608947e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.009334498465477216,
+            "fittedAngleRad": 0.7853952631476855,
+            "maxResidual": 3.7823179657725525e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 16,
+          "vertices": 84,
+          "passed": true,
+          "coneMinus": 1.165021561860824e-9,
+          "storedRadius": 0.0172212,
+          "storedAngleRad": 0.7853981633974892,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.1839179770166695e-11,
+            "median": 4.342321710537611e-10,
+            "p90": 9.351487882669485e-10,
+            "max": 1.165021561860824e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.01722119966165064,
+            "fittedAngleRad": 0.785396786777043,
+            "maxResidual": 9.766244167541682e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 17,
+          "vertices": 114,
+          "passed": true,
+          "coneMinus": 8.669182351150884e-10,
+          "storedRadius": 0.0169672,
+          "storedAngleRad": 0.7853981633974552,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 9.479465823414301e-13,
+            "median": 3.493244478403046e-10,
+            "p90": 8.220022683358419e-10,
+            "max": 8.669182351150884e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.016967200256033807,
+            "fittedAngleRad": 0.7853975439041009,
+            "maxResidual": 1.0780360736040162e-9
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 18,
+          "vertices": 82,
+          "passed": true,
+          "coneMinus": 1.4997812332329108e-9,
+          "storedRadius": 0.015875,
+          "storedAngleRad": 0.7853981633974483,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.2079742067738763e-10,
+            "median": 8.194536056660429e-10,
+            "p90": 1.2884139935498418e-9,
+            "max": 1.4997812332329108e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.01587500119977337,
+            "fittedAngleRad": 0.7853995529672858,
+            "maxResidual": 3.730724149747511e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 19,
+          "vertices": 82,
+          "passed": true,
+          "coneMinus": 1.187333471125429e-9,
+          "storedRadius": 0.01562100000000001,
+          "storedAngleRad": 0.7853981633974756,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 5.015935583552178e-12,
+            "median": 6.113587969203138e-10,
+            "p90": 8.507523730633126e-10,
+            "max": 1.187333471125429e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.015621000861746245,
+            "fittedAngleRad": 0.785395886350824,
+            "maxResidual": 3.7307238895389894e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 21,
+          "vertices": 72,
+          "passed": true,
+          "coneMinus": 1.1183294635393887e-9,
+          "storedRadius": 0.0013525499999999977,
+          "storedAngleRad": 1.0297442586766532,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.6555131791422548e-11,
+            "median": 3.0058799112969714e-10,
+            "p90": 7.736874216377615e-10,
+            "max": 1.1183294635393887e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0013525495348341776,
+            "fittedAngleRad": 1.029743977928514,
+            "maxResidual": 6.531634020538052e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 23,
+          "vertices": 54,
+          "passed": true,
+          "coneMinus": 8.233435764767871e-10,
+          "storedRadius": 0.0019049999999999998,
+          "storedAngleRad": 0.7853981633974491,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.8208253915047434e-12,
+            "median": 2.366992517786881e-10,
+            "p90": 7.229885503213379e-10,
+            "max": 8.233435764767871e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0019050000505489537,
+            "fittedAngleRad": 0.7853983045006583,
+            "maxResidual": 8.246325363010787e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 24,
+          "vertices": 72,
+          "passed": true,
+          "coneMinus": 1.1183290341953284e-9,
+          "storedRadius": 0.0013525499999999975,
+          "storedAngleRad": 1.0297442586766532,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.655579770839689e-11,
+            "median": 3.0058787685478816e-10,
+            "p90": 7.736872579232335e-10,
+            "max": 1.1183290341953284e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0013525495348341771,
+            "fittedAngleRad": 1.0297439779282964,
+            "maxResidual": 6.531629724929044e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 26,
+          "vertices": 54,
+          "passed": true,
+          "coneMinus": 8.233444332133438e-10,
+          "storedRadius": 0.0019050000000000004,
+          "storedAngleRad": 0.7853981633974491,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.820199156329916e-12,
+            "median": 2.366981964162934e-10,
+            "p90": 7.229876933679408e-10,
+            "max": 8.233444332133438e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0019050000505490368,
+            "fittedAngleRad": 0.7853983045006935,
+            "maxResidual": 8.246324562869584e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 27,
+          "vertices": 72,
+          "passed": true,
+          "coneMinus": 1.1183281768082504e-9,
+          "storedRadius": 0.0013525499999999977,
+          "storedAngleRad": 1.0297442586766532,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.65564640590521e-11,
+            "median": 3.005889330845446e-10,
+            "p90": 7.736862676129691e-10,
+            "max": 1.1183281768082504e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0013525495348341776,
+            "fittedAngleRad": 1.0297439779280793,
+            "maxResidual": 6.531621153226669e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 29,
+          "vertices": 54,
+          "passed": true,
+          "coneMinus": 8.233448651594893e-10,
+          "storedRadius": 0.0019049999999999998,
+          "storedAngleRad": 0.7853981633974491,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.8211703846360283e-12,
+            "median": 2.3669830787227675e-10,
+            "p90": 7.229872631565187e-10,
+            "max": 8.233448651594893e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0019050000505491421,
+            "fittedAngleRad": 0.7853983045007353,
+            "maxResidual": 8.246315694095813e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 30,
+          "vertices": 72,
+          "passed": true,
+          "coneMinus": 1.1183289773831345e-9,
+          "storedRadius": 0.0013525499999999975,
+          "storedAngleRad": 1.0297442586766532,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.6555795973673413e-11,
+            "median": 3.0058803514830534e-10,
+            "p90": 7.73687146900931e-10,
+            "max": 1.1183289773831345e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0013525495348341763,
+            "fittedAngleRad": 1.0297439779282969,
+            "maxResidual": 6.531629148133489e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 32,
+          "vertices": 54,
+          "passed": true,
+          "coneMinus": 8.233443724980222e-10,
+          "storedRadius": 0.0019050000000000004,
+          "storedAngleRad": 0.7853981633974506,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.820415129402675e-12,
+            "median": 2.366983577455767e-10,
+            "p90": 7.229877516980177e-10,
+            "max": 8.233443724980222e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0019050000505490521,
+            "fittedAngleRad": 0.7853983045006958,
+            "maxResidual": 8.246323608771672e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 34,
+          "vertices": 24,
+          "passed": true,
+          "coneMinus": 4.885038259322405e-10,
+          "storedRadius": 0.004762500000000002,
+          "storedAngleRad": 0.7853981633974773,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 3.111494655677616e-11,
+            "median": 2.8255744098648616e-10,
+            "p90": 4.241894301093563e-10,
+            "max": 4.885038259322405e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.004762499932150084,
+            "fittedAngleRad": 0.7853985807242537,
+            "maxResidual": 6.326559987696045e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 37,
+          "vertices": 26,
+          "passed": true,
+          "coneMinus": 6.948550294177958e-10,
+          "storedRadius": 0.004762500000000002,
+          "storedAngleRad": 0.7853981633974705,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 4.025764097081996e-12,
+            "median": 2.1783800804864306e-10,
+            "p90": 5.426025176044624e-10,
+            "max": 6.948550294177958e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.004762500255726645,
+            "fittedAngleRad": 0.7853976323693607,
+            "maxResidual": 6.808193167215371e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 41,
+          "vertices": 114,
+          "passed": true,
+          "coneMinus": 4.1251132544550817e-10,
+          "storedRadius": 0.008445499999999951,
+          "storedAngleRad": 0.7853981633974483,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.4590141594883477e-11,
+            "median": 8.894874420350973e-11,
+            "p90": 2.613218565150621e-10,
+            "max": 4.1251132544550817e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.008445500090221809,
+            "fittedAngleRad": 0.7853982469708912,
+            "maxResidual": 3.222894642135321e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 46,
+          "vertices": 70,
+          "passed": true,
+          "coneMinus": 1.1518081263067748e-9,
+          "storedRadius": 0.011112499999999999,
+          "storedAngleRad": 0.7853981633974688,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.1688924961571487e-11,
+            "median": 7.305720108735647e-10,
+            "p90": 1.1122705083355111e-9,
+            "max": 1.1518081263067748e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.011112499153498318,
+            "fittedAngleRad": 0.785398756786613,
+            "maxResidual": 5.233704320622978e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        }
+      ]
+    },
+    {
+      "file": "test files original/Helical Bevel Gear.SLDPRT",
+      "sha256": "d694ebd12683ffd1b6b225f465fd358005b6015388b1cc4fc1867cb38c371a92",
+      "faces": [
+        {
+          "faceIndex": 111,
+          "vertices": 50,
+          "passed": true,
+          "coneMinus": 3.144243618941056e-9,
+          "storedRadius": 0.017500000000000005,
+          "storedAngleRad": 0.7853981633974536,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.0985183729615997e-10,
+            "median": 7.236533455801109e-10,
+            "p90": 3.144243612002162e-9,
+            "max": 3.144243618941056e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.017499999646316627,
+            "fittedAngleRad": 0.785396918716203,
+            "maxResidual": 5.780725065296366e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 112,
+          "vertices": 50,
+          "passed": true,
+          "coneMinus": 2.1309646026923534e-9,
+          "storedRadius": 0.017500000000000005,
+          "storedAngleRad": 0.7853981633974813,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.8962572964919e-10,
+            "median": 8.034272344636939e-10,
+            "p90": 2.1309645992229065e-9,
+            "max": 2.1309646026923534e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.017500000659593166,
+            "fittedAngleRad": 0.7853969187162109,
+            "maxResidual": 5.780724995907427e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        }
+      ]
+    },
+    {
+      "file": "test files original/Pocket Wheel.SLDPRT",
+      "sha256": "678a73af7c6eca8b5e6df60905a96f437bd5d1f85a2eed19277332c25629bb8c",
+      "faces": [
+        {
+          "faceIndex": 1,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.00011995331740483062,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 5.491284094105708e-10,
+            "median": 3.263572329048614e-9,
+            "p90": 6.553351195037749e-9,
+            "max": 0.00011995331740483062
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15300133839876848,
+            "fittedAngleRad": 0.7811862533207444,
+            "maxResidual": 0.00010870890931172217
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 2,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.0001199533174052747,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 3.3802791121750886e-10,
+            "median": 3.263572828648975e-9,
+            "p90": 6.07737449254131e-9,
+            "max": 0.0001199533174052747
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.1530013383604603,
+            "fittedAngleRad": 0.7811857595744085,
+            "maxResidual": 0.00010870740213900221
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 3,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.0001199533174055245,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 5.491276877656048e-10,
+            "median": 3.26357305069358e-9,
+            "p90": 6.553350473392783e-9,
+            "max": 0.0001199533174055245
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.1530013383987678,
+            "fittedAngleRad": 0.7811862533207449,
+            "maxResidual": 0.00010870890931177768
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 4,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.0001199533174055245,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 3.3802755039502586e-10,
+            "median": 3.26357305069358e-9,
+            "p90": 6.553350473392783e-9,
+            "max": 0.0001199533174055245
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.153000891736412,
+            "fittedAngleRad": 0.7815741499684803,
+            "maxResidual": 0.00010941666026803576
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 5,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.0001199533174052747,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 5.491279375657854e-10,
+            "median": 3.263572828648975e-9,
+            "p90": 7.313673944242538e-9,
+            "max": 0.0001199533174052747
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15300089123377572,
+            "fittedAngleRad": 0.7815751042687238,
+            "maxResidual": 0.00010941899880573258
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 6,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.00011995331740483062,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 3.3802824428441625e-10,
+            "median": 3.263572329048614e-9,
+            "p90": 6.553351195037749e-9,
+            "max": 0.00011995331740483062
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15300089173641268,
+            "fittedAngleRad": 0.7815741499684611,
+            "maxResidual": 0.00010941666026795249
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 7,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.00011995331740458082,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 5.491286592107514e-10,
+            "median": 3.263572107004009e-9,
+            "p90": 7.313674665887504e-9,
+            "max": 0.00011995331740458082
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15300089123377636,
+            "fittedAngleRad": 0.7815751042687805,
+            "maxResidual": 0.0001094189988058436
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 8,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.00011995331740458082,
+          "storedRadius": 0.153,
+          "storedAngleRad": 0.7853981633977258,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 3.3802857735132363e-10,
+            "median": 3.263572107004009e-9,
+            "p90": 6.0773751864307e-9,
+            "max": 0.00011995331740458082
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15300133836046104,
+            "fittedAngleRad": 0.7811857595743855,
+            "maxResidual": 0.00010870740213900221
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 64,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.00011995331740927151,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 3.380233315475323e-10,
+            "median": 3.2635776581191323e-9,
+            "p90": 6.553346559856621e-9,
+            "max": 0.00011995331740927151
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448946334274527,
+            "fittedAngleRad": 0.781574149968499,
+            "maxResidual": 0.00010941666026806351
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 65,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.0001199533174097156,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 5.491234966736869e-10,
+            "median": 3.2635781299639177e-9,
+            "p90": 7.313669447839288e-9,
+            "max": 0.0001199533174097156
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448946568128244,
+            "fittedAngleRad": 0.7815751042686663,
+            "maxResidual": 0.00010941899880564931
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 66,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.00011995331741002091,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 3.3802260990256627e-10,
+            "median": 3.2635784352752495e-9,
+            "p90": 6.553345782700504e-9,
+            "max": 0.00011995331741002091
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448946334274447,
+            "fittedAngleRad": 0.7815741499684801,
+            "maxResidual": 0.00010941666026798025
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 67,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.00011995331741002091,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 5.491231913623551e-10,
+            "median": 3.2635784352752495e-9,
+            "p90": 6.553345782700504e-9,
+            "max": 0.00011995331741002091
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448875559177697,
+            "fittedAngleRad": 0.7811862533208596,
+            "maxResidual": 0.00010870890931197197
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 68,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.0001199533174097156,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 3.380229984806249e-10,
+            "median": 3.2635781299639177e-9,
+            "p90": 6.077370051649211e-9,
+            "max": 0.0001199533174097156
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448875408460422,
+            "fittedAngleRad": 0.7811857595743398,
+            "maxResidual": 0.0001087074021389467
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 69,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.00011995331740927151,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 5.491239685184723e-10,
+            "median": 3.2635776581191323e-9,
+            "p90": 6.553346559856621e-9,
+            "max": 0.00011995331740927151
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448875559177758,
+            "fittedAngleRad": 0.7811862533207908,
+            "maxResidual": 0.00010870890931183319
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 70,
+          "vertices": 27,
+          "passed": false,
+          "coneMinus": 0.0001199533174089662,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 2,
+          "failingFraction": 0.0741,
+          "absResidualStats": {
+            "min": 3.380237201255909e-10,
+            "median": 3.263577380563376e-9,
+            "p90": 6.077370801049753e-9,
+            "max": 0.0001199533174089662
+          },
+          "deviationInside": 2,
+          "deviationOutside": 0,
+          "failingOnChord": 2,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448875408460502,
+            "fittedAngleRad": 0.7811857595743861,
+            "maxResidual": 0.00010870740213900221
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 2
+          }
+        },
+        {
+          "faceIndex": 71,
+          "vertices": 29,
+          "passed": false,
+          "coneMinus": 0.0001199533174089662,
+          "storedRadius": 0.1545,
+          "storedAngleRad": 0.7853981633974298,
+          "failingVertices": 3,
+          "failingFraction": 0.1034,
+          "absResidualStats": {
+            "min": 5.491242738298041e-10,
+            "median": 3.263577380563376e-9,
+            "p90": 7.3136702249954055e-9,
+            "max": 0.0001199533174089662
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 7.596242859344091e-9,
+          "refit": {
+            "fittedRadius": 0.15448946568128313,
+            "fittedAngleRad": 0.7815751042686474,
+            "maxResidual": 0.0001094189988055938
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 3
+          }
+        },
+        {
+          "faceIndex": 75,
+          "vertices": 296,
+          "passed": false,
+          "coneMinus": 0.000119336463780359,
+          "storedRadius": 0.08999999999999242,
+          "storedAngleRad": 0.7853981633974483,
+          "failingVertices": 101,
+          "failingFraction": 0.3412,
+          "absResidualStats": {
+            "min": 1.2094195089851212e-10,
+            "median": 2.6226141397467373e-9,
+            "p90": 0.00011933468976328687,
+            "max": 0.000119336463780359
+          },
+          "deviationInside": 101,
+          "deviationOutside": 0,
+          "failingOnChord": 101,
+          "worstChordDistance": 4.163634667092662e-9,
+          "refit": {
+            "fittedRadius": 0.08993228817056172,
+            "fittedAngleRad": 0.7681807036875454,
+            "maxResidual": 0.00006771448433177951
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 101
+          }
+        },
+        {
+          "faceIndex": 77,
+          "vertices": 186,
+          "passed": false,
+          "coneMinus": 0.00011676291678648643,
+          "storedRadius": 0.040999999999999384,
+          "storedAngleRad": 0.7853981633977085,
+          "failingVertices": 53,
+          "failingFraction": 0.2849,
+          "absResidualStats": {
+            "min": 1.1205918137857651e-11,
+            "median": 1.2955122183355705e-9,
+            "p90": 0.00011374499902135071,
+            "max": 0.00011676291678648643
+          },
+          "deviationInside": 53,
+          "deviationOutside": 0,
+          "failingOnChord": 53,
+          "worstChordDistance": 2.0976935493835746e-9,
+          "refit": {
+            "fittedRadius": 0.04100000063393576,
+            "fittedAngleRad": 0.8107286146954865,
+            "maxResidual": 0.00006477468124198305
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 53
+          }
+        },
+        {
+          "faceIndex": 79,
+          "vertices": 186,
+          "passed": false,
+          "coneMinus": 0.00011676291678469619,
+          "storedRadius": 0.039999999999998516,
+          "storedAngleRad": 0.785398163397653,
+          "failingVertices": 53,
+          "failingFraction": 0.2849,
+          "absResidualStats": {
+            "min": 1.1204009942034077e-11,
+            "median": 1.295514133470288e-9,
+            "p90": 0.00011374499901953966,
+            "max": 0.00011676291678469619
+          },
+          "deviationInside": 53,
+          "deviationOutside": 0,
+          "failingOnChord": 53,
+          "worstChordDistance": 2.0976935493835746e-9,
+          "refit": {
+            "fittedRadius": 0.03994801170867751,
+            "fittedAngleRad": 0.8107286146955736,
+            "maxResidual": 0.00006477468124187202
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4002": 53
+          }
+        },
+        {
+          "faceIndex": 81,
+          "vertices": 124,
+          "passed": true,
+          "coneMinus": 4.260741162664949e-9,
+          "storedRadius": 0.08799999999999485,
+          "storedAngleRad": 0.7853981633974483,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 1.209403271973386e-10,
+            "median": 1.6290755827652603e-9,
+            "p90": 3.4289473344051302e-9,
+            "max": 4.260741162664949e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.08799999885431704,
+            "fittedAngleRad": 0.7853982884780951,
+            "maxResidual": 4.036321138434218e-9
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        }
+      ]
+    },
+    {
+      "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+      "sha256": "851f385248ed25cf7c9a2677df3169738c139f34120cb8734ae6ef89d26521a1",
+      "faces": [
+        {
+          "faceIndex": 31,
+          "vertices": 50,
+          "passed": true,
+          "coneMinus": 1.5139579806824899e-9,
+          "storedRadius": 0.004499999999999997,
+          "storedAngleRad": 0.7853981633974467,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.5236219364233037e-12,
+            "median": 3.847384849944846e-10,
+            "p90": 1.146799907857446e-9,
+            "max": 1.5139579806824899e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.004500000022712931,
+            "fittedAngleRad": 0.7853981712080818,
+            "maxResidual": 1.4912450467183258e-9
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 32,
+          "vertices": 50,
+          "passed": true,
+          "coneMinus": 7.428228802463382e-10,
+          "storedRadius": 0.004499999999999997,
+          "storedAngleRad": 0.7853981633974468,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 3.725295896414571e-12,
+            "median": 2.7716159142071595e-10,
+            "p90": 5.255632587117254e-10,
+            "max": 7.428228802463382e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0045000000787761806,
+            "fittedAngleRad": 0.7853981862074488,
+            "maxResidual": 6.90294043280415e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 33,
+          "vertices": 50,
+          "passed": true,
+          "coneMinus": 1.5139579806824899e-9,
+          "storedRadius": 0.004499999999999997,
+          "storedAngleRad": 0.7853981633974467,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 2.5236219364233037e-12,
+            "median": 3.8710303408920343e-10,
+            "p90": 1.146799907857446e-9,
+            "max": 1.5139579806824899e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0045000000522482245,
+            "fittedAngleRad": 0.7853981772053387,
+            "maxResidual": 1.5021959579031297e-9
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 34,
+          "vertices": 50,
+          "passed": true,
+          "coneMinus": 7.428228793789765e-10,
+          "storedRadius": 0.004499999999999994,
+          "storedAngleRad": 0.7853981633974464,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 3.725295029052833e-12,
+            "median": 2.824637268875052e-10,
+            "p90": 5.255632621811723e-10,
+            "max": 7.428228793789765e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.004500000108311471,
+            "fittedAngleRad": 0.7853981922047053,
+            "maxResidual": 7.198293341600936e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 35,
+          "vertices": 104,
+          "passed": false,
+          "coneMinus": 0.000015959264417973046,
+          "storedRadius": 0.002999999999999994,
+          "storedAngleRad": 0.7853981633974432,
+          "failingVertices": 3,
+          "failingFraction": 0.0288,
+          "absResidualStats": {
+            "min": 3.461271373683683e-11,
+            "median": 5.863859610551192e-10,
+            "p90": 1.444653703955301e-9,
+            "max": 0.000015959264417973046
+          },
+          "deviationInside": 3,
+          "deviationOutside": 0,
+          "failingOnChord": 3,
+          "worstChordDistance": 1.373040856314981e-10,
+          "refit": {
+            "fittedRadius": 0.0030000116582337656,
+            "fittedAngleRad": 0.7851780847328673,
+            "maxResidual": 0.000015451605191790438
+          },
+          "refitRescues": false,
+          "failingCoOwnerTags": {
+            "4001": 3
+          }
+        },
+        {
+          "faceIndex": 36,
+          "vertices": 70,
+          "passed": true,
+          "coneMinus": 8.795662028576734e-10,
+          "storedRadius": 0.003,
+          "storedAngleRad": 0.7853981633974434,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 3.792949461456363e-12,
+            "median": 3.7066382602146675e-10,
+            "p90": 6.293887841457568e-10,
+            "max": 8.795662028576734e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.0029999999476950164,
+            "fittedAngleRad": 0.7853981270759745,
+            "maxResidual": 9.318711726748197e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 37,
+          "vertices": 103,
+          "passed": true,
+          "coneMinus": 1.64778805877841e-9,
+          "storedRadius": 0.002999999999999994,
+          "storedAngleRad": 0.785398163397444,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 6.668272965054678e-11,
+            "median": 5.90386613295163e-10,
+            "p90": 1.39321738694409e-9,
+            "max": 1.64778805877841e-9
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.002999999982556076,
+            "fittedAngleRad": 0.7853981646621733,
+            "maxResidual": 1.6628897443055068e-9
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        },
+        {
+          "faceIndex": 38,
+          "vertices": 70,
+          "passed": true,
+          "coneMinus": 8.795662084955247e-10,
+          "storedRadius": 0.0030000000000000014,
+          "storedAngleRad": 0.7853981633974417,
+          "failingVertices": 0,
+          "failingFraction": 0,
+          "absResidualStats": {
+            "min": 3.792937318392031e-12,
+            "median": 3.5918384672789516e-10,
+            "p90": 6.418441160505051e-10,
+            "max": 8.795662084955247e-10
+          },
+          "deviationInside": 0,
+          "deviationOutside": 0,
+          "failingOnChord": 0,
+          "worstChordDistance": 0,
+          "refit": {
+            "fittedRadius": 0.002999999948345025,
+            "fittedAngleRad": 0.785398129412543,
+            "maxResidual": 9.312211717883712e-10
+          },
+          "refitRescues": true,
+          "failingCoOwnerTags": {}
+        }
+      ]
+    }
+  ]
+}

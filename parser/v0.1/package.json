@@ -1,0 +1,17 @@
+{
+  "name": "sldprt-parser-viewer",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "description": "Read-only SLDPRT geometry parser and browser visualizer, built on the v0.4.5/v0.4.6 validated research state.",
+  "main": "src/parser-core.js",
+  "bin": {
+    "sldprt-parse": "src/node-cli.js"
+  },
+  "scripts": {
+    "parse": "node src/node-cli.js",
+    "test": "node test/run-corpus-tests.js && node test/compare-with-reference.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

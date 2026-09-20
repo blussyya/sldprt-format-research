@@ -1,0 +1,22 @@
+{"faces":1272,"uniqueCandidates":1271,"noCandidates":0,"ambiguousCandidates":1,"exactLabelSets":1271,"surfaceTags":{"4001":528,"4002":275,"4003":47,"4005":35,"4006":42,"4007":33,"4009":311},"edgeTypes":{"3001":1742,"3002":404,"3004":98,"3005":1314,"3006":54,"48015":580,"48016":411,"48017":606,"48031":48,"48032":466,"48033":172,"48048":64,"48049":128,"48064":460},"surfaceOffsetHistogram":{"228":873,"324":34,"340":44,"356":22,"372":19,"388":20,"404":21,"420":15,"436":11,"452":12,"468":3,"484":4,"516":9,"532":2,"548":15,"564":9,"580":9,"596":11,"612":7,"628":13,"644":4,"660":10,"676":3,"692":1,"708":3,"732":1,"740":3,"748":2,"756":2,"772":1,"780":2,"804":4,"812":2,"820":2,"828":3,"836":5,"844":1,"852":1,"876":1,"884":1,"916":1,"932":2,"940":1,"964":2,"1060":1,"1076":1,"1108":1,"1156":1,"1220":1,"1316":1,"1508":12,"1548":5,"1588":12,"1612":4,"1636":1,"1700":2,"1716":1,"1732":1,"1748":1,"1756":1,"1772":2,"1844":1,"1852":1,"1972":1,"1988":1,"2068":1,"2404":1,"2444":1,"2548":1,"2644":1,"2668":1,"2828":1,"2836":1}}
+test files original/controlled/C00_cube_10mm/model.SLDPRT {"faces":6,"unique":6,"matched":6}
+test files original/controlled/C01_cube_20mm/model.SLDPRT {"faces":6,"unique":6,"matched":6}
+test files original/controlled/C02_cube_translated/model.SLDPRT {"faces":6,"unique":6,"matched":6}
+test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT {"faces":7,"unique":7,"matched":7}
+test files original/controlled/C04_cube_hole_5mm/model.SLDPRT {"faces":7,"unique":7,"matched":7}
+test files original/controlled/C05_cube_hole_3mm/model.SLDPRT {"faces":7,"unique":7,"matched":7}
+test files original/controlled/C06_cube_hole_moved/model.SLDPRT {"faces":7,"unique":7,"matched":7}
+test files original/controlled/C07_cube_two_holes/model.SLDPRT {"faces":8,"unique":8,"matched":8}
+test files original/controlled/C08_cube_second_hole_modified/model.SLDPRT {"faces":8,"unique":8,"matched":8}
+test files original/controlled/C09_cube_chamfer_1mm/model.SLDPRT {"faces":7,"unique":7,"matched":7}
+test files original/controlled/C10_cube_shell_1mm/model.SLDPRT {"faces":11,"unique":11,"matched":11}
+test files original/controlled/C11_cube_hole_4mm/model.SLDPRT {"faces":7,"unique":7,"matched":7}
+test files original/controlled/C12_cube_fillet_1mm_edge2/model.SLDPRT {"faces":7,"unique":7,"matched":7}
+test files original/cube.SLDPRT {"faces":6,"unique":6,"matched":6}
+test files original/Dekor.SLDPRT {"faces":375,"unique":375,"matched":375}
+test files original/distributor main boss rev a.SLDPRT {"faces":51,"unique":51,"matched":51}
+test files original/Helical Bevel Gear.SLDPRT {"faces":113,"unique":113,"matched":113}
+test files original/Pocket Wheel.SLDPRT {"faces":400,"unique":399,"matched":399}
+test files original/PTC GE8080-8.SLDPRT {"faces":126,"unique":126,"matched":126}
+test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT {"faces":39,"unique":39,"matched":39}
+test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT {"faces":68,"unique":68,"matched":68}

@@ -1,0 +1,279 @@
+{
+  "fullTable": {
+    "C00_cube_10mm_vs_C03_cube_fillet_1mm": {
+      "feature": "fillet",
+      "rows": [
+        {
+          "aIndex": 0,
+          "bIndex": 0,
+          "orientation": "-X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 1,
+          "bIndex": 1,
+          "orientation": "-Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 2,
+          "bIndex": 2,
+          "orientation": "+X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        },
+        {
+          "aIndex": 3,
+          "bIndex": 3,
+          "orientation": "+Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        },
+        {
+          "aIndex": 4,
+          "bIndex": 4,
+          "orientation": "+Z",
+          "structurallyModified": true,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        },
+        {
+          "aIndex": 5,
+          "bIndex": 5,
+          "orientation": "-Z",
+          "structurallyModified": true,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        }
+      ],
+      "faceCountA": 6,
+      "faceCountB": 7
+    },
+    "C00_cube_10mm_vs_C09_cube_chamfer_1mm": {
+      "feature": "chamfer",
+      "rows": [
+        {
+          "aIndex": 0,
+          "bIndex": 0,
+          "orientation": "-X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 1,
+          "bIndex": 1,
+          "orientation": "-Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 2,
+          "bIndex": 2,
+          "orientation": "+X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        },
+        {
+          "aIndex": 3,
+          "bIndex": 3,
+          "orientation": "+Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        },
+        {
+          "aIndex": 4,
+          "bIndex": 4,
+          "orientation": "+Z",
+          "structurallyModified": true,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        },
+        {
+          "aIndex": 5,
+          "bIndex": 5,
+          "orientation": "-Z",
+          "structurallyModified": true,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        }
+      ],
+      "faceCountA": 6,
+      "faceCountB": 7
+    },
+    "C00_cube_10mm_vs_C04_cube_hole_5mm": {
+      "feature": "hole",
+      "rows": [
+        {
+          "aIndex": 0,
+          "bIndex": 0,
+          "orientation": "-X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 1,
+          "bIndex": 1,
+          "orientation": "-Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 2,
+          "bIndex": 2,
+          "orientation": "+X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 3,
+          "bIndex": 3,
+          "orientation": "+Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 4,
+          "bIndex": 4,
+          "orientation": "+Z",
+          "structurallyModified": true,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        },
+        {
+          "aIndex": 5,
+          "bIndex": 5,
+          "orientation": "-Z",
+          "structurallyModified": true,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": true
+        }
+      ],
+      "faceCountA": 6,
+      "faceCountB": 7
+    },
+    "C00_cube_10mm_vs_C10_cube_shell_1mm": {
+      "feature": "shell",
+      "rows": [
+        {
+          "aIndex": 0,
+          "bIndex": 1,
+          "orientation": "-X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 1,
+          "bIndex": 2,
+          "orientation": "-Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 2,
+          "bIndex": 3,
+          "orientation": "+X",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 3,
+          "bIndex": 4,
+          "orientation": "+Y",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 5,
+          "bIndex": 5,
+          "orientation": "-Z",
+          "structurallyModified": false,
+          "isAdjacentToNewFace": false,
+          "tokenChanged": false
+        },
+        {
+          "aIndex": 4,
+          "bIndex": 0,
+          "orientation": "+Z",
+          "structurallyModified": true,
+          "isAdjacentToNewFace": true,
+          "tokenChanged": null
+        }
+      ],
+      "faceCountA": 6,
+      "faceCountB": 11
+    }
+  },
+  "tally": {
+    "adjacentChanged": 10,
+    "adjacentUnchanged": 0,
+    "nonAdjacentChanged": 0,
+    "nonAdjacentUnchanged": 13,
+    "unknown": 1
+  },
+  "shellCorrection": {
+    "claimInEXP037": "C10 new inner-wall faces are adjacent to several unmodified outer walls (named indices 7, 9)",
+    "claimStatus": "ERROR -- indices 7 and 9 are new inner-wall faces themselves, not outer walls",
+    "independentRecheck": {
+      "added_6": {
+        "outer_1": 0,
+        "outer_2": 0,
+        "outer_3": 0,
+        "outer_4": 0,
+        "outer_5": 0,
+        "opening_0": 2
+      },
+      "added_7": {
+        "outer_1": 0,
+        "outer_2": 0,
+        "outer_3": 0,
+        "outer_4": 0,
+        "outer_5": 0,
+        "opening_0": 2
+      },
+      "added_8": {
+        "outer_1": 0,
+        "outer_2": 0,
+        "outer_3": 0,
+        "outer_4": 0,
+        "outer_5": 0,
+        "opening_0": 2
+      },
+      "added_9": {
+        "outer_1": 0,
+        "outer_2": 0,
+        "outer_3": 0,
+        "outer_4": 0,
+        "outer_5": 0,
+        "opening_0": 2
+      },
+      "added_10": {
+        "outer_1": 0,
+        "outer_2": 0,
+        "outer_3": 0,
+        "outer_4": 0,
+        "outer_5": 0,
+        "opening_0": 0
+      }
+    },
+    "anyAddedFaceAdjacentToUnmodifiedOuterWall": false,
+    "correctedConclusion": "C10 shell contributes ZERO adjacent-but-unchanged data points. Its new inner-wall faces are real-adjacent only to the already-directly-modified opening face and to each other. The 5 unmodified, token-identical outer walls are not real-adjacent to any new geometry at all. Shell is therefore fully CONSISTENT with (not a counterexample to) \"real adjacency to new geometry correlates with a token change\" -- though this does not prove the rule universal, since shell no longer supplies any adjacent-but-unchanged OR adjacent-and-changed test case either way."
+  }
+}

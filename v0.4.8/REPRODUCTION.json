@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-14",
+  "baseCommit": "43facad381eb52d67fb7dbcee8bc51210f9ede81",
+  "branch": "staging",
+  "runs": [
+    {
+      "command": [
+        "node",
+        "v0.4.8/exp042_strip_layout.js"
+      ],
+      "exitCode": 0,
+      "output": "v0.4.8/EXP042_RESULTS.json",
+      "sha256": "cd723a8827bc0cc7d71b9c3cdfe654d156d5031f009d1b6bd2ae51bd17210eb2",
+      "identicalToFirstRun": true
+    },
+    {
+      "command": [
+        "node",
+        "v0.4.8/exp043_edge_tokens.js"
+      ],
+      "exitCode": 0,
+      "output": "v0.4.8/EXP043_RESULTS.json",
+      "sha256": "ef6a7db486cec21dac0c56a2f015b0bdf295c152bccc1b8af2e63ce492df7e4f",
+      "identicalToFirstRun": true
+    },
+    {
+      "command": [
+        "node",
+        "v0.4.8/exp044_metadata_bridge.js"
+      ],
+      "exitCode": 0,
+      "output": "v0.4.8/EXP044_RESULTS.json",
+      "sha256": "dbd5ae668f4301cfab7774d81f1ddbe182ed2b84e82ae504149674d694e1e3eb",
+      "identicalToFirstRun": true
+    },
+    {
+      "command": [
+        "node",
+        "v0.4.8/exp045_forward_metadata.js"
+      ],
+      "exitCode": 0,
+      "output": "v0.4.8/EXP045_RESULTS.json",
+      "sha256": "7422e23e03a46e440c87fa7d50f2925eff62adf5bc778884d49f0d7e014ef206",
+      "identicalToFirstRun": true
+    },
+    {
+      "command": [
+        "node",
+        "v0.4.8/exp046_boundary_cycles.js"
+      ],
+      "exitCode": 0,
+      "output": "v0.4.8/EXP046_RESULTS.json",
+      "sha256": "b57e2ae8f871eb223530a3c42038bbaa34f4a9ff4f7215b405b0e41366503e04",
+      "identicalToFirstRun": true
+    },
+    {
+      "command": [
+        "node",
+        "parser/v0.2/test/validate.js"
+      ],
+      "exitCode": 0,
+      "output": "v0.4.8/PARSER_V02_VALIDATION.json",
+      "sha256": "1caa0952214af784f21e59919788d663eb4a6c6ac36f995439ca547b238df052"
+    }
+  ],
+  "sourceSha256": {
+    "parser/v0.2/src/node-cli.js": "26d5473d4e09c47ea6c84456d0d2b9fa21d8a3a1cb62ff1e26f8eab657591045",
+    "parser/v0.2/src/parser-core.js": "904a820d478aea583575b1c06c8d8e5f6420fe1dc5301b6f6825df71b7706b78",
+    "parser/v0.2/test/validate.js": "43cc37d1f3fd0884521afc947ac906121e2e567aa31e356eb594b6e8be4a90db",
+    "v0.4.8/exp042_strip_layout.js": "9ad989dcffecddc7b30e623f27a97c27f365a0e5a5a66685cdf68ca6c087ebed",
+    "v0.4.8/exp043_edge_tokens.js": "1563892c24e0e739938d8214a5da6b48fd4c892a831196811cb24fcfc8396249",
+    "v0.4.8/exp044_metadata_bridge.js": "b7cf614959c5120a82c614a8edaa01d98fb2a53dfaf46cca7aa93b56ff4160e1",
+    "v0.4.8/exp045_forward_metadata.js": "aeaf320004c177b16db052bd879789832450c86ba601efb14b29ac2bab0af37d",
+    "v0.4.8/exp046_boundary_cycles.js": "f477229f150720b7f5bbfd2069b78920066e7af1f082d63c61f2a76965dffd27",
+    "v0.4.8/research-common.js": "7ad4431c168e247de3e5d66df2268b348a68173c369aef30df77a95d35851e15"
+  }
+}

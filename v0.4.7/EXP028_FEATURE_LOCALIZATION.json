@@ -1,0 +1,51 @@
+{
+  "C00_cube_10mm_vs_C03_cube_fillet_1mm": {
+    "purpose": "fillet",
+    "dlSizeA": 12050,
+    "dlSizeB": 14350,
+    "facesA": 6,
+    "facesB": 7,
+    "changedBytes": 7477,
+    "classifications": {
+      "global_serialization": 5,
+      "inter_face_metadata": 5172,
+      "size_difference": 2300
+    }
+  },
+  "C00_cube_10mm_vs_C04_cube_hole_5mm": {
+    "purpose": "hole",
+    "dlSizeA": 12050,
+    "dlSizeB": 19036,
+    "facesA": 6,
+    "facesB": 7,
+    "changedBytes": 14218,
+    "classifications": {
+      "inter_face_metadata": 7232,
+      "size_difference": 6986
+    }
+  },
+  "C00_cube_10mm_vs_C09_cube_chamfer_1mm": {
+    "purpose": "chamfer",
+    "dlSizeA": 12050,
+    "dlSizeB": 13342,
+    "facesA": 6,
+    "facesB": 7,
+    "changedBytes": 6444,
+    "classifications": {
+      "inter_face_metadata": 5152,
+      "size_difference": 1292
+    }
+  },
+  "C00_cube_10mm_vs_C10_cube_shell_1mm": {
+    "purpose": "shell",
+    "dlSizeA": 12050,
+    "dlSizeB": 17280,
+    "facesA": 6,
+    "facesB": 11,
+    "changedBytes": 9413,
+    "classifications": {
+      "inter_face_metadata": 4183,
+      "size_difference": 5230
+    }
+  }
+}

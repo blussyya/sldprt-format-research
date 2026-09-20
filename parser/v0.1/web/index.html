@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLDPRT Geometry Parser &amp; Viewer (v0.1, prototype)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='14'%3E%F0%9F%94%B7%3C/text%3E%3C/svg%3E">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #14141f; color: #e4e4ec; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; height: 100vh; font-size: 13px; }
+  #container { display: flex; height: 100vh; }
+  #sidebar { width: 380px; background: #1b1b2c; padding: 16px; overflow-y: auto; border-right: 1px solid #2c2c40; flex-shrink: 0; z-index: 10; }
+  #viewer { flex: 1; position: relative; background: #0e0e18; overflow: hidden; }
+  h1 { font-size: 17px; color: #ff8a5c; margin-bottom: 4px; }
+  .subtitle { font-size: 11px; color: #888; margin-bottom: 14px; line-height: 1.5; }
+  .subtitle b { color: #ffb37a; }
+  h2 { font-size: 12px; color: #7dd3fc; text-transform: uppercase; letter-spacing: 0.05em; margin: 16px 0 8px; border-bottom: 1px solid #2c2c40; padding-bottom: 4px; }
+  h2:first-of-type { margin-top: 0; }
+  #drop-zone { border: 2px dashed #444; border-radius: 8px; padding: 24px 14px; text-align: center; cursor: pointer; transition: all 0.15s; margin-bottom: 8px; user-select: none; }
+  #drop-zone:hover { border-color: #ff8a5c; background: rgba(255,138,92,0.05); }
+  #drop-zone.dragover { border-color: #ff8a5c; background: rgba(255,138,92,0.15); border-style: solid; }
+  #drop-zone p { font-size: 12px; color: #999; margin: 3px 0; }
+  #drop-zone input { display: none; }
+  .info-row { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12px; gap: 8px; }
+  .info-row .label { color: #888; flex-shrink: 0; }
+  .info-row .value { color: #e4e4ec; text-align: right; word-break: break-all; font-family: 'Consolas', monospace; }
+  .btn { display: inline-block; padding: 6px 10px; margin: 2px 4px 2px 0; border: 1px solid #3a3a50; border-radius: 5px; font-size: 11px; cursor: pointer; font-weight: 600; background: #23233a; color: #ccc; }
+  .btn:hover { border-color: #ff8a5c; color: #fff; }
+  .toggle-row { display: flex; align-items: center; gap: 6px; padding: 4px 0; font-size: 12px; cursor: pointer; }
+  .toggle-row input { accent-color: #ff8a5c; }
+  #error-box { background: rgba(255,90,90,0.12); border-left: 3px solid #ff5a5a; padding: 8px; margin-bottom: 8px; font-size: 12px; border-radius: 0 4px 4px 0; display: none; }
+  #error-box.show { display: block; }
+  #error-box .err-line { margin-bottom: 4px; }
+  .warning-line { background: rgba(255,190,80,0.1); border-left: 3px solid #ffbe50; padding: 6px 8px; margin-bottom: 6px; font-size: 11px; border-radius: 0 4px 4px 0; }
+  #status { font-size: 11px; color: #888; margin-top: 6px; min-height: 16px; }
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+  .badge-verified { background: rgba(90,200,120,0.18); color: #6de88a; }
+  .badge-hypothesis { background: rgba(255,190,80,0.18); color: #ffbe50; }
+  .badge-unknown { background: rgba(150,150,170,0.18); color: #a8a8c0; }
+  #hypothesis-note { font-size: 10.5px; color: #ffbe50; background: rgba(255,190,80,0.08); border-radius: 4px; padding: 6px 8px; margin: 6px 0; line-height: 1.5; }
+  #panel-content { display: none; }
+  #face-meta { display: none; }
+  #face-meta .info-row .value { font-family: 'Consolas', monospace; }
+  #face-list, #rejected-list { max-height: 160px; overflow-y: auto; border: 1px solid #2c2c40; border-radius: 5px; }
+  .list-item { padding: 4px 8px; font-size: 11px; font-family: 'Consolas', monospace; cursor: pointer; border-bottom: 1px solid #22222f; }
+  .list-item:hover { background: #23233a; }
+  .list-item.selected { background: rgba(255,138,92,0.18); color: #ffb37a; }
+  .list-item.rejected { cursor: default; color: #c98; }
+  .reject-cat-row { display: flex; justify-content: space-between; padding: 2px 0; font-size: 11px; }
+  .reject-cat-row .cat { font-family: 'Consolas', monospace; color: #d99; }
+  #viewer-overlay { display: none; position: absolute; inset: 0; background: rgba(255,138,92,0.10); border: 3px dashed #ff8a5c; z-index: 50; pointer-events: none; border-radius: 8px; }
+  #viewer-overlay.active { display: block; }
+  #viewer-hud { position: absolute; bottom: 10px; left: 10px; font-size: 11px; color: #888; background: rgba(0,0,0,0.35); padding: 4px 8px; border-radius: 4px; pointer-events: none; }
+  #controls-row { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="sidebar">
+    <h1>SLDPRT Geometry Parser</h1>
+    <div class="subtitle">
+      v0.1 read-only prototype &mdash; extraction logic reused verbatim from the
+      v0.4.5/v0.4.6 validated pipeline. <b>Not a full-format parser.</b>
+      Legend: <span class="badge badge-verified">verified</span>
+      <span class="badge badge-hypothesis">hypothesis</span>
+      <span class="badge badge-unknown">unknown</span>
+    </div>
+
+    <div id="drop-zone">
+      <p><b>Drop .sldprt file here</b></p>
+      <p style="font-size:11px;color:#666">or click to browse</p>
+      <input type="file" id="file-input" accept=".sldprt,.SLDPRT">
+    </div>
+    <div id="status"></div>
+    <div id="error-box"></div>
+
+    <div id="panel-content">
+      <h2>Extraction Statistics</h2>
+      <div class="info-row"><span class="label">File</span><span class="value" id="stat-file"></span></div>
+      <div class="info-row"><span class="label">Format</span><span class="value" id="stat-format"></span></div>
+      <div class="info-row"><span class="label">DisplayLists size</span><span class="value" id="stat-dl-size"></span></div>
+      <div class="info-row"><span class="label">Total candidates</span><span class="value" id="stat-total"></span></div>
+      <div class="info-row"><span class="label">Valid faces</span><span class="value" id="stat-valid"></span></div>
+      <div class="info-row"><span class="label">Rejected candidates</span><span class="value" id="stat-rejected"></span></div>
+      <div class="info-row"><span class="label">Triangles rendered</span><span class="value" id="stat-tris"></span></div>
+      <div class="info-row"><span class="label">Unrenderable loops</span><span class="value" id="stat-unrenderable"></span></div>
+      <div id="warnings"></div>
+
+      <h2>View <span class="badge badge-verified">verified data</span></h2>
+      <div id="controls-row">
+        <label class="toggle-row"><input type="checkbox" id="chk-solid" checked> Shaded mesh</label>
+        <label class="toggle-row"><input type="checkbox" id="chk-wireframe"> Wireframe</label>
+        <label class="toggle-row"><input type="checkbox" id="chk-vertices"> Vertices</label>
+        <label class="toggle-row"><input type="checkbox" id="chk-normals"> Normals</label>
+        <label class="toggle-row"><input type="checkbox" id="chk-auto-rotate"> Auto-rotate</label>
+      </div>
+      <div id="hypothesis-note">
+        <span class="badge badge-hypothesis">hypothesis</span>
+        Triangle surfaces use a <b>sequential loop-segmentation</b> assumption
+        (vertices grouped in Block2 order) to turn each face's vertex list into
+        renderable triangles. INV-007 only proves loop sizes <i>sum</i> to the
+        face's vertex count &mdash; it does not establish which vertices belong to
+        which loop. Positions/normals themselves are verified (INV-002/003);
+        only the surface tessellation shown here is a rendering hypothesis.
+        See OQ-019.
+      </div>
+
+      <h2>Faces (<span id="face-count-label">0</span>)</h2>
+      <div id="face-list"></div>
+
+      <h2>Selected Face <span class="badge badge-verified">verified metadata</span></h2>
+      <div id="face-meta">
+        <div class="info-row"><span class="label">Marker offset</span><span class="value" id="fm-marker"></span></div>
+        <div class="info-row"><span class="label">Edge count</span><span class="value" id="fm-ec"></span></div>
+        <div class="info-row"><span class="label">Vertex count</span><span class="value" id="fm-vc"></span></div>
+        <div class="info-row"><span class="label">Vertices start</span><span class="value" id="fm-verts-off"></span></div>
+        <div class="info-row"><span class="label">Gap start</span><span class="value" id="fm-gap-off"></span></div>
+        <div class="info-row"><span class="label">Normals start</span><span class="value" id="fm-normals-off"></span></div>
+        <div class="info-row"><span class="label">Block1 start</span><span class="value" id="fm-b1-off"></span></div>
+        <div class="info-row"><span class="label">Block1 body length (N)</span><span class="value" id="fm-b1-len"></span></div>
+        <div class="info-row"><span class="label">Block2 start</span><span class="value" id="fm-b2-off"></span></div>
+        <div class="info-row"><span class="label">Section count (M)</span><span class="value" id="fm-sec-count"></span></div>
+        <div class="info-row"><span class="label">Loop sizes <span class="badge badge-hypothesis" style="font-size:9px;">hyp.</span></span><span class="value" id="fm-loop-sizes"></span></div>
+        <div class="info-row"><span class="label">Triangles rendered</span><span class="value" id="fm-tri-count"></span></div>
+      </div>
+
+      <h2>Rejected Candidates (<span id="reject-count-label">0</span>)</h2>
+      <div id="reject-breakdown"></div>
+      <div id="reject-list" style="margin-top:6px;"></div>
+    </div>
+  </div>
+  <div id="viewer">
+    <div id="viewer-overlay"></div>
+    <div id="viewer-hud">Drop or select a .sldprt file to begin</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="../src/parser-core.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>

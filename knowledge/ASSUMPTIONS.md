@@ -40,11 +40,11 @@ These are working assumptions only. They must be moved to `FAILED_HYPOTHESES.md`
 
 **Status**: Hypothesis
 
-**Evidence**: ONE count equals Block 2 entry count for 595/595 faces (EXP-007). Additionally, INV-017 (Verified Structural Invariant) demonstrates that each section body length equals `Block2[i] − 1` across 593/593 validated faces. The structural pairing is verified; semantic correspondence remains unproven.
+**Evidence**: ONE count equals Block 2 entry count for 595/595 faces (EXP-007). Additionally, INV-017 (Verified Structural Invariant) demonstrates that each section body length equals `Block2[i] − 1` across 8,763/8,763 sections (8 files) verified by EXP-013 and independently reproduced by EXP-016. The structural pairing is verified; semantic correspondence remains unproven.
 
-**Files tested**: BOTTOM, TOP, GEAR, DEKOR
+**Files tested**: BOTTOM, TOP, GEAR, DEKOR, HEADPHONE, DISTRIBUTOR, POCKET, PTC
 
-**Faces/models tested**: 595 faces across 4 models (593 validated by v0.4.0 parser; 2-face discrepancy under investigation).
+**Faces/models tested**: 1,234 faces across 8 files (1,234 validated by v0.4.2a parser; 2-face discrepancy from v0.4.0 resolved — faces are genuine).
 
 **Confidence**: High for structural pairing (count + length equality), medium-low for semantic correspondence.
 
@@ -76,9 +76,9 @@ These are working assumptions only. They must be moved to `FAILED_HYPOTHESES.md`
 
 **Evidence**: Repeated `[1,1]` structures exist and appear to partition DisplayLists. Their exact role is unknown.
 
-**Files tested**: BOTTOM, GEAR
+**Files tested**: BOTTOM, GEAR, HEADPHONE, DISTRIBUTOR, POCKET, PTC
 
-**Faces/models tested**: 2 models, 152 parsed faces in section audit.
+**Faces/models tested**: 6 models (BOTTOM 39, GEAR 113 in initial audit; HEADPHONE, DISTRIBUTOR, POCKET, PTC confirmed to start with [1,1] but section maps not completed).
 
 **Confidence**: Medium for delimiter behavior, low for semantics.
 
