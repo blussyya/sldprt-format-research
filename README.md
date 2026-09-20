@@ -1,5 +1,5 @@
 # SLDPRT Reverse-Engineering Research
-**Latest, 2026-09-16:** [v0.4.8 / EXP-042–051](v0.4.8/README.md) decodes the triangle-strip layout, Block1 edge-ID annotations, Block2 section lengths and the downstream metadata relationship on the modern corpus, then validates that decode three independent ways — against externally exported STEP, through a second face-discovery path with a falsification control, and visually. [parser/](parser/README.md) implements the validated read-only path. This supersedes the old “loop size” interpretation; full exact B-rep and several metadata semantics remain open. All work goes to `staging`; the user merges to `main`.
+**Latest, 2026-09-16:** [v0.4.8 / EXP-042–051](v0.4.8/README.md) decodes the triangle-strip layout, Block1 edge-ID annotations, Block2 section lengths and the downstream metadata relationship on the modern corpus, then validates that decode three independent ways - against externally exported STEP, through a second face-discovery path with a falsification control, and visually. [parser/](parser/README.md) implements the validated read-only path. This supersedes the old “loop size” interpretation; full exact B-rep and several metadata semantics remain open. All work goes to `staging`; the user merges to `main`.
 
 
 This is a research project to recover the serialization grammar of the SolidWorks SLDPRT binary format.
@@ -16,12 +16,12 @@ link between them is explicit:
 - **A precursor array** `[4,8,2,S]` immediately before the positions stores the **triangle-strip
   vertex counts** directly, one entry per strip, summing to the face's vertex count (INV-020).
   This is what `parser/v0.2` reads as `stripLengths`.
-- **Block2** is the **Block1 section-length table**, one entry per strip, storing `2·L − 2` — the
-  strip's leading control word plus its `2L − 3` edge tokens — and summing to Block1's word count
+- **Block2** is the **Block1 section-length table**, one entry per strip, storing `2·L − 2` - the
+  strip's leading control word plus its `2L − 3` edge tokens - and summing to Block1's word count
   (INV-018). A strip length is recoverable from it as `(Block2[i] + 2) / 2`, which is INV-007's
   decode and what `parser/v0.1` used; what that decode yields is strip vertex counts, not the CAD
   boundary-loop sizes the old `loopSizes` name implied. **Block2's stored words are not strip
-  lengths** — every stored word exceeds its strip length (`2L − 2` against `L`, for the observed
+  lengths** - every stored word exceeds its strip length (`2L − 2` against `L`, for the observed
   `L ≥ 3`), so reading them as lengths produces invalid triangle indices.
 - **Block1** is a **per-edge annotation array** over those strips: one control word per strip,
   then one token per strip edge. Zero marks a face-interior edge, nonzero a face-boundary edge,
@@ -32,7 +32,7 @@ link between them is explicit:
   record and edge table (INV-023) are documented but not fully decoded.
 
 Still open: exact B-rep, feature history, `Config-0-Partition`, Block3 semantics, the optional
-scalar arrays, and surface tags 4005/4006/4007/4009 — the controlled corpus covers only planes
+scalar arrays, and surface tags 4005/4006/4007/4009 - the controlled corpus covers only planes
 and cylinders, recorded as NQ-030. Legacy OLE2 containers remain unsupported.
 
 ## Knowledge Base
@@ -58,10 +58,10 @@ The project-wide knowledge base is maintained under `knowledge/`:
 | Version | Description |
 |---------|-------------|
 | v0.4.6 | EXP-026 counterexample hunt for the secCount/alternative-header correlation. 0 counterexamples in 1,172 faces; recorded as INV-019 (correlation, not causal). |
-| v0.4.7 | Block1/Block2 token-semantics investigation on the controlled corpus (EXP-027–EXP-041). Includes the 2026-08-14 archivist audit, EXP-038's NQ-028 answer via C12, the EXP-039/EXP-040 corrections, and EXP-041 — the first from-source verification of the whole v0.4.7 record after the C00–C11 binaries were added. |
+| v0.4.7 | Block1/Block2 token-semantics investigation on the controlled corpus (EXP-027–EXP-041). Includes the 2026-08-14 archivist audit, EXP-038's NQ-028 answer via C12, the EXP-039/EXP-040 corrections, and EXP-041 - the first from-source verification of the whole v0.4.7 record after the C00–C11 binaries were added. |
 | v0.4.8 | Triangle-strip and edge-ID decode (EXP-042–046), cone metadata validated against externally exported STEP (EXP-047/048), independent replication with a falsification control (EXP-049), resolution of the off-cone residuals (EXP-050), and visual validation of parser output (EXP-051). Promotes INV-020–024, supersedes the “loop size” interpretation, and corrects the interpretive layer of INV-002/007/019 and EXP-031–036. |
 
-> **Note:** The `v0.5` slot was an implementation (a parser), not a research version. It now lives under `parser/v0.1/` — see below.
+> **Note:** The `v0.5` slot was an implementation (a parser), not a research version. It now lives under `parser/v0.1/` - see below.
 
 ## Parser
 
@@ -91,7 +91,7 @@ across the opening.
 
 ![C10 shell, six views](v0.4.8/EXP051_renders/C10.png)
 
-**USB hub case TOP** — 68 faces, 4,704 triangles: enclosure walls, cutout, screw bosses,
+**USB hub case TOP** - 68 faces, 4,704 triangles: enclosure walls, cutout, screw bosses,
 counterbored holes and lip, coherent from every angle.
 
 ![USB hub case top, six views](v0.4.8/EXP051_renders/usbtop.png)
@@ -102,8 +102,8 @@ All eleven sheets are in [`v0.4.8/EXP051_renders/`](v0.4.8/EXP051_renders), all 
 |---|---|
 | [C03 fillet](v0.4.8/EXP051_renders/C03.png) · [C04 hole](v0.4.8/EXP051_renders/C04.png) · [C07 two holes](v0.4.8/EXP051_renders/C07.png) · [C10 shell](v0.4.8/EXP051_renders/C10.png) | [USB hub TOP](v0.4.8/EXP051_renders/usbtop.png) · [USB hub BOTTOM](v0.4.8/EXP051_renders/usbbottom.png) · [Pocket Wheel](v0.4.8/EXP051_renders/pocket.png) · [Dekor](v0.4.8/EXP051_renders/dekor.png) · [Helical Bevel Gear](v0.4.8/EXP051_renders/gear.png) · [distributor](v0.4.8/EXP051_renders/distributor.png) · [PTC GE8080-8](v0.4.8/EXP051_renders/ptc.png) |
 
-Regenerate with `node v0.4.8/exp051_render_validation.js --all`. Scope and limits — this
-validates the display mesh, not the CAD surfaces, and asserts no tolerance — are recorded in
+Regenerate with `node v0.4.8/exp051_render_validation.js --all`. Scope and limits - this
+validates the display mesh, not the CAD surfaces, and asserts no tolerance - are recorded in
 [the EXP-051 evidence file](knowledge/evidence/2026-09-16_v0.4.8-EXP051.md).
 
 ## Project Structure
@@ -132,8 +132,8 @@ sldprt-format-research/
 │   │   ├── README.md
 │   │   ├── SUMMARY.md
 │   │   └── package.json
-│   ├── src/                         # parser-core.js (isomorphic) + node-cli.js
-│   ├── test/                        # validate.js
+│   ├── src/                             # parser-core.js (isomorphic) + node-cli.js
+│   ├── test/                            # validate.js
 │   ├── README.md
 │   └── package.json
 │
@@ -161,7 +161,7 @@ sldprt-format-research/
 
 ## Using the tools
 
-Node.js only. **No dependencies to install** — no npm install, no build step, nothing fetched at
+Node.js only. **No dependencies to install** - no npm install, no build step, nothing fetched at
 runtime. Everything below runs from a fresh clone. Legacy OLE2 parts are unsupported throughout
 and report `No readable modern DisplayLists stream`.
 
@@ -171,7 +171,7 @@ and report `No readable modern DisplayLists stream`.
 node parser/src/node-cli.js "test files original/controlled/C04_cube_hole_5mm/model.SLDPRT" > parsed.json
 ```
 
-Prints the whole decode as JSON — one object per face carrying `stripLengths`, `vertices`,
+Prints the whole decode as JSON - one object per face carrying `stripLengths`, `vertices`,
 `normals`, `triangleIndices`, `edgeAnnotations` (the INV-021 per-edge tokens), `block1/2/3`,
 `boundaryCycles` and the forward `metadata` with its surface tag and parameters. Byte `offsets`
 are included per face so any claim can be checked against the file itself. Exits nonzero if any
@@ -185,7 +185,7 @@ node parser/test/validate.js           # per-face strip/edge/metadata report
 
 ### 2. Render contact sheets (PNG)
 
-Six viewpoints per model — ISO front/back/left, ISO under, top, bottom — written as one 3×2 sheet.
+Six viewpoints per model - ISO front/back/left, ISO under, top, bottom - written as one 3×2 sheet.
 
 ```bash
 node v0.4.8/exp051_render_validation.js --sheet "path/to/YourPart.SLDPRT"   # one model
@@ -204,7 +204,7 @@ node viewer/cli-viewer.js "test files original/controlled/C10_cube_shell_1mm/mod
 ![CLI viewer showing the USB hub case](viewer/renders/cli-usbtop.png)
 
 That is the actual terminal output. Rendering uses ANSI truecolor and the half-block character
-`▀` — the foreground paints the upper pixel, the background the lower — so one character row is
+`▀` - the foreground paints the upper pixel, the background the lower - so one character row is
 two pixels tall and the raster is `columns × rows×2`. Needs a truecolor terminal (Windows
 Terminal, iTerm2, most Linux terminals); it adapts to the window size and redraws on resize.
 
@@ -217,7 +217,7 @@ Terminal, iTerm2, most Linux terminals); it adapts to the window size and redraw
 | `r` | reset view |
 | `q` | quit |
 
-Flags: `--still` (one frame, no input — works when piped), `--dark`, `--edges` / `--no-edges`.
+Flags: `--still` (one frame, no input - works when piped), `--dark`, `--edges` / `--no-edges`.
 The edge overlay defaults on only in windows tall enough to resolve it; see
 [`viewer/README.md`](viewer/README.md) for why.
 
