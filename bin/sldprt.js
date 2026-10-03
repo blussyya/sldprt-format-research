@@ -66,6 +66,7 @@ const commands={
   const base=file.replace(/\.[^.\/\\]*$/,''),name=path.basename(base);
   const wantStl=has(a,'--stl')||!has(a,'--step'),wantStep=has(a,'--step')||!has(a,'--stl');
   const scale=Number(opt(a,'--scale',String(C.SCALE)));
+  if(!Number.isFinite(scale)||scale<=0){console.error('--scale must be a positive number, got '+JSON.stringify(opt(a,'--scale','')));return 2;}
   const parsed=S.parse(file);
   if(!parsed.faces||!parsed.faces.length){console.error('cannot convert: '+(parsed.errors.length?parsed.errors.join('; '):'no faces'));return 1;}
   const m=C.loadModel(parsed),out={input:file,faces:m.faceCount,triangles:m.triangleCount};

@@ -51,7 +51,7 @@ function openBrowser(target){
 }
 
 /* start({port=8080, host='127.0.0.1', open=false}) -> Promise<{server, url}>.
- * If the port is busy it tries the next eleven. */
+ * If the port is busy it tries the next eleven. Port 0 binds any free port. */
 function start(opts){
  opts=opts||{};
  const host=opts.host||'127.0.0.1';
@@ -59,16 +59,19 @@ function start(opts){
  return new Promise(function(resolve,reject){
   function listen(port,attempt){
    server.once('error',function(e){
-    if(e.code==='EADDRINUSE'&&attempt<12)return listen(port+1,attempt+1);
+    if(e.code==='EADDRINUSE'&&port!==0&&attempt<12)return listen(port+1,attempt+1);
     reject(e);
    });
    server.listen(port,host,function(){
-    const link='http://'+(host==='0.0.0.0'?'localhost':host)+':'+port+ENTRY;
+    // port 0 asks the OS for a free port: report the one actually bound
+    const link='http://'+(host==='0.0.0.0'?'localhost':host)+':'+server.address().port+ENTRY;
     if(opts.open)openBrowser(link);
     resolve({server,url:link});
    });
   }
-  listen(Number(opts.port||8080),0);
+  const port=opts.port===undefined||opts.port===null||opts.port===''?8080:Number(opts.port);
+  if(!Number.isInteger(port)||port<0||port>65535)return Promise.reject(Error('invalid port '+opts.port));
+  listen(port,0);
  });
 }
 

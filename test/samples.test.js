@@ -86,6 +86,14 @@ test('STL and STEP export',()=>{
   }
 });
 
+test('STEP names with apostrophes are escaped',()=>{
+  const step=require('../src/step/read');
+  const {text}=S.toSTEP(file('sw2022/C00_cube_10mm.SLDPRT'),{name:"O'Brien"});
+  const E=step.parse(text),prod=[...E.values()].find(e=>e.type==='PRODUCT');
+  assert.equal(prod.args[0].str,"O'Brien");
+  assert.equal(step.readBrep(text).faces.length,6);
+});
+
 test('corruption is reported, not parsed',()=>{
   const cube=fs.readFileSync(file('sw2022/C00_cube_10mm.SLDPRT'));
   // flip one bit of the DisplayLists stream's stored CRC-32
@@ -113,5 +121,9 @@ test('CLI: every command runs on a sample',()=>{
   run('render',c04,path.join(tmp,'a.png'));assert(fs.readFileSync(path.join(tmp,'a.png')).subarray(1,4).toString()==='PNG');
   assert(run('view',c04,'--still').length>1000);
   assert.match(run('help'),/usage: sldprt/);
+  for(const bad of ['garbage','0','-1']){
+    const out=path.join(tmp,'bad.stl'),r=spawnSync(process.execPath,[bin,'convert',c04,'--stl',out,'--scale',bad],{encoding:'utf8'});
+    assert.equal(r.status,2,'--scale '+bad);assert.match(r.stderr,/--scale must be a positive number/);assert(!fs.existsSync(out),'wrote output for --scale '+bad);
+  }
   fs.rmSync(tmp,{recursive:true,force:true});
 });

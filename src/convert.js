@@ -189,7 +189,7 @@ function perp(n){
 function toSTEP(model,opts){
  opts=opts||{};
  const scale=opts.scale===undefined?SCALE:opts.scale;
- const name=opts.name||'sldprt';
+ const name=String(opts.name||'sldprt').replace(/'/g,"''");   // STEP strings double an apostrophe
  const mode=opts.mode||'auto';          // 'auto' = analytic planes where possible, else facets
  const w=new StepWriter(scale);
  const faceIds=[];

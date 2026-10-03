@@ -30,3 +30,13 @@ test('server serves the page, worker, sources, previews and the legacy sample',a
     const root=await fetch(origin+'/',{redirect:'manual'});assert.equal(root.status,302);
   }finally{server.close();}
 });
+
+test('port 0 binds a free port and reports it',async()=>{
+  const {start}=require('../src/serve');
+  const {server,url}=await start({port:0});
+  try{
+    const port=Number(new URL(url).port);
+    assert(port>0,url);assert.equal(port,server.address().port);
+    assert.equal((await fetch(url)).status,200);
+  }finally{server.close();}
+});
