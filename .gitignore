@@ -1,0 +1,5 @@
+node_modules/
+*.converted.stl
+*.converted.step
+*.sheet.png
+.DS_Store

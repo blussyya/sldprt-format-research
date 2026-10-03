@@ -1,0 +1,30 @@
+{
+  "name": "sldprt",
+  "version": "0.5.0",
+  "description": "Read SolidWorks .SLDPRT part files without SolidWorks: display mesh, surface types, native Parasolid B-rep, STL/STEP export. No dependencies.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blussyya/sldprt-format-research.git"
+  },
+  "keywords": ["solidworks", "sldprt", "parasolid", "x_t", "cad", "step", "stl", "reverse-engineering"],
+  "type": "commonjs",
+  "main": "src/index.js",
+  "bin": {
+    "sldprt": "bin/sldprt.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "web/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/run.js",
+    "start": "node bin/sldprt.js serve --open"
+  }
+}

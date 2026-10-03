@@ -1,0 +1,669 @@
+{
+ "note": "sha256 of the canonical JSON of the display parse of every corpus file, produced by parser/v0.3 (dump 94478c8). Any change here is a change in parser output.",
+ "generated": "2026-10-02",
+ "files": [
+  {
+   "file": "test files new/SW2011/C00_cube_10mm/model.SLDPRT",
+   "sha256": "7054cfc0fb771980a2170df80a8fc38718225a2d193213834245334257604bf5",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "e74bad905bc1f4d0889a992c05365d86c8c29505863df9e5ddffd3b68e40e1d3"
+  },
+  {
+   "file": "test files new/SW2011/C01_cube_20mm/model.SLDPRT",
+   "sha256": "1841f3ef52c46512d2a7544d54c2ef7ab817f376c82ad3e3e15e68d2c01d0729",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "ed2c8a15267a27bdec95fbb204186108840b9d14d743fe03c8749ec1f877b3e5"
+  },
+  {
+   "file": "test files new/SW2011/C02_cube_translated/model.SLDPRT",
+   "sha256": "5b088c2eb8bdf4d0709f38d8583ff43b559e9fbdd852b0ca3b0de53ca1214e2e",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "073ca55b5256d26cf46126e6ffc4736a9e986859981c17353ec48512bc134b10"
+  },
+  {
+   "file": "test files new/SW2011/C03_cube_fillet_1mm/model.SLDPRT",
+   "sha256": "456a2c8cef38cbaa7b375a2632ee8f044a2513687935016ba74c2a24730b75b0",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 36,
+   "errors": [],
+   "output": "0821fb675702443962ce1efd4b9448ffbfb08291bb49212db4698bbbcacc9498"
+  },
+  {
+   "file": "test files new/SW2011/C04_cube_hole_5mm/model.SLDPRT",
+   "sha256": "b472a5bb9a1e5bfd6e210042f5d1cc0e52bc8ec5fcc819d1d652e82c7218a55e",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 152,
+   "errors": [],
+   "output": "c9421eb4834b87b58c1935ea12eb7132016c615decb390b1e1095c41e8f64cb0"
+  },
+  {
+   "file": "test files new/SW2011/C05_cube_hole_3mm/model.SLDPRT",
+   "sha256": "b9b08de9eff27b10f790f772a7b97b437133b5ba7d89d9cfd3177ef4ec97908b",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 128,
+   "errors": [],
+   "output": "4361c8da1d1325d1a4df691a60254f694645e3e7087b9f423e95a1327529fd5b"
+  },
+  {
+   "file": "test files new/SW2011/C06_cube_hole_moved/model.SLDPRT",
+   "sha256": "60c71002393a2618fdda2a587bbe925592617bcaf6c4c38d5e17c713431b8ee7",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 152,
+   "errors": [],
+   "output": "b490ee122b96c8ff3b3e6da3499657c16d15e0cc915d3ac900d6d925143027b5"
+  },
+  {
+   "file": "test files new/SW2011/C07_cube_two_holes/model.SLDPRT",
+   "sha256": "ebcb5f13ab28f078ae9f2f8f4b4f68fa8e0bd083a655f65097a3c51b1af22cf0",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 8,
+   "triangles": 292,
+   "errors": [],
+   "output": "519e3aae9f18c4f518e6ee058275a8dd670a5c37307b7e41174640e7f439851e"
+  },
+  {
+   "file": "test files new/SW2011/C08_cube_second_hole_modified/model.SLDPRT",
+   "sha256": "b01658e263595eeee875a9cc1807d615ec5ae0feb4752fac6f85c3292d4a8276",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 8,
+   "triangles": 268,
+   "errors": [],
+   "output": "8fb7515020cf1c3f33ed64925d14f27a76a087fd95a208932853ba25a05031c0"
+  },
+  {
+   "file": "test files new/SW2011/C09_cube_chamfer_1mm/model.SLDPRT",
+   "sha256": "2882ba660e04b907b40724aa92b162dc759db7e6e383fe0daec181e9d8994ce8",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 16,
+   "errors": [],
+   "output": "70d62446a36e6aaee552168192a5e548b153ed0b992e6ca1370edaa7e28dd4bf"
+  },
+  {
+   "file": "test files new/SW2011/C10_cube_shell_1mm/model.SLDPRT",
+   "sha256": "5001239cf49ccc7e2f85d2f6bbf7ee63fdef51d7eb002389b0788071b0f4e15c",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 11,
+   "triangles": 28,
+   "errors": [],
+   "output": "31d9f2ff7f8053339fb5f4aaf493f872a23e32c2bd0568096e6c0b3dad8dd2de"
+  },
+  {
+   "file": "test files new/SW2011/C11_cube_hole_4mm/model.SLDPRT",
+   "sha256": "fd324092ec6e6aa4c1fb138dd027023761420b5765fa2727c3c4cda39cf3e505",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 144,
+   "errors": [],
+   "output": "c515bf5f208957069f04ae080fdf630cb745084aad6c1697e38ef0caa06bfc93"
+  },
+  {
+   "file": "test files new/SW2011/C12_cube_fillet_1mm_edge2/model.SLDPRT",
+   "sha256": "355ac304653d6d236e2eefc5408be78011436e479d6f248bf51520edecbf5999",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 36,
+   "errors": [],
+   "output": "3ad4f1fc8400634d5551c05d35fd5aed68e3579f0a1c9e3531b5e5c18c464e34"
+  },
+  {
+   "file": "test files new/SW2011/C13_cone/model.SLDPRT",
+   "sha256": "e241ae1143bae9d6492436779c305c31aa443151f9bc767ce2edcdd230d712fd",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 2,
+   "triangles": 94,
+   "errors": [],
+   "output": "f45697f64b88f72603bd0988fd446ca886b5503db88c6410c82fef06123b1cd7"
+  },
+  {
+   "file": "test files new/SW2011/C14_sphere/model.SLDPRT",
+   "sha256": "4811427e99a684c8076a502f433c06c6887e1205bbe836d7c9acceb226471ca7",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 1,
+   "triangles": 4488,
+   "errors": [],
+   "output": "3e931b404fd927c05253ae1de1a2baaba0d629274496df5abcc84927c27bcecb"
+  },
+  {
+   "file": "test files new/SW2011/C15_torus/model.SLDPRT",
+   "sha256": "7a8913cb596e547045b6e0c81aea11559b2c49350331334cd3cdcd2c33fa527e",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 1,
+   "triangles": 5920,
+   "errors": [],
+   "output": "8537c73b72a412d92af4065b4262beb52e4233d96fd9eef922fbe9ea8bdbb5b1"
+  },
+  {
+   "file": "test files new/SW2011/C16_loft_spline/model.SLDPRT",
+   "sha256": "3f7e6dc3be2bb6a584f277f0a4ab455013cdab9d551ee5d038c698e35d46f031",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 6,
+   "triangles": 1796,
+   "errors": [],
+   "output": "96dca57b8b58790db2884b526b562da2db96666252a7a77dc1693fbe3a7f4e1b"
+  },
+  {
+   "file": "test files new/SW2011/C17_torus_quarter/model.SLDPRT",
+   "sha256": "c81ff69b02e1c71f004f6667f56053a2c6f3b525075a4954dd612cba5ad8f2dc",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 3,
+   "triangles": 2970,
+   "errors": [],
+   "output": "2070066697b0ae6f51486df32f1ae9bf845d9fbef30863746fd8b6a338d3924b"
+  },
+  {
+   "file": "test files new/SW2011/C18_cube_split_line/model.SLDPRT",
+   "sha256": "68faf7994a15211583554edb8e46ba30258c20e803380fbd1d8a8683e8f0d583",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 16,
+   "errors": [],
+   "output": "8efd0095b20edd71421337219242b4f24575864414769fabff5c0ac955b779b5"
+  },
+  {
+   "file": "test files new/SW2011/C19_half_cylinder/model.SLDPRT",
+   "sha256": "9d2882cf496006b302ebe6a2978f08703e8ec56b86d47bf7c5bb40b2e6795c3d",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 4,
+   "triangles": 104,
+   "errors": [],
+   "output": "5f0a12a5e4a170ea86c184ff5ee0981abe8e27633f8c1736d7714ad5c5096310"
+  },
+  {
+   "file": "test files new/SW2011/C20_cylinders_crossed/model.SLDPRT",
+   "sha256": "1c9e2d957e8c974502f441921288dc3ab68cf108958359acfbe01d1e0998bca5",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 8,
+   "triangles": 686,
+   "errors": [],
+   "output": "c7206f6bc3886ff459f693103dffc0c6e170e23620d786d59e7c63cae61f9435"
+  },
+  {
+   "file": "test files new/SW2011/C21_cylinder_fillet/model.SLDPRT",
+   "sha256": "138bb3ea7fcd29ea2fe8d0a572e921143aa6ef114768a19a5fe58f8195ec68dc",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 4,
+   "triangles": 1404,
+   "errors": [],
+   "output": "906bebf605565cbb2c94ebe8f717f02b206c7df78eea90909ef3c8ff7906264d"
+  },
+  {
+   "file": "test files new/SW2011/C22_cube_sw2011_native/model.SLDPRT",
+   "sha256": "c14e9fd4de73865aad4c9b0134382f263295cf441ac65df987f3c05e5c884886",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "03d25233c36a8d4442bba40b4b47cb885375c7223c8da5153b926b16c5ea6014"
+  },
+  {
+   "file": "test files new/SW2011/C25_cone_sw2011_native/model.SLDPRT",
+   "sha256": "093c84118ec7c9d0e3f66212aef46e27bf2350192a1def920ae461dc10e5305f",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 2,
+   "triangles": 94,
+   "errors": [],
+   "output": "5086faf3823dfe0cf43ad7f523761cfaf463d2b17e788aeafca84b86082d0ea9"
+  },
+  {
+   "file": "test files new/SW2011/C26_cube_hole_sw2011_native/model.SLDPRT",
+   "sha256": "3312824fd9748bd24e5c5c87a228825e097c6f55ea88c896703e2cdb43d45df2",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 7,
+   "triangles": 152,
+   "errors": [],
+   "output": "d50a4c1fd5529968546a3afd6c47519a94b9ef16c3710062307360de6563b38f"
+  },
+  {
+   "file": "test files new/SW2022/C00_cube_10mm/model.SLDPRT",
+   "sha256": "ecef0ce6fbcfb101dfd6000ce32b7cf56ff560bc8f200ac33dc52b7cac1fa4d5",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "775064f6e1f953346e385bad87cfa5ce024ed75f08b809d465b5534604078319"
+  },
+  {
+   "file": "test files new/SW2022/C01_cube_20mm/model.SLDPRT",
+   "sha256": "894f71955d59a990456467ec8abcaed5188025542e9660760b93f2236c0bae5e",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "e7d15ad750d6e55958a5303efe5316d714a74bce413b7854983f8fc43c0bf3a5"
+  },
+  {
+   "file": "test files new/SW2022/C02_cube_translated/model.SLDPRT",
+   "sha256": "ec86dbb80a83125d0b428bb739006c45a8e8537f32825d11e03037f3e403880e",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "ff7fca5023b356d7fad207a1b22bc63513871a053c48f9abf4fe3837c1dee1c3"
+  },
+  {
+   "file": "test files new/SW2022/C03_cube_fillet_1mm/model.SLDPRT",
+   "sha256": "66d392854ce50a7e0595376a5bdc1d9bc26fac88a8e53cfb6b94769f9752a792",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 36,
+   "errors": [],
+   "output": "19fd21034e2996ff319b8903f3ddd5af247610c6c765960315935c165039fb54"
+  },
+  {
+   "file": "test files new/SW2022/C04_cube_hole_5mm/model.SLDPRT",
+   "sha256": "992519fdcf8c213d04c6226d19fb20a1e3ed4db3f8a86f8043c2f268b4799066",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 152,
+   "errors": [],
+   "output": "cdf792ef4dd857e7e4c44146f4d9a552fb4f171d16d5ef2c2b82502e32c20da2"
+  },
+  {
+   "file": "test files new/SW2022/C05_cube_hole_3mm/model.SLDPRT",
+   "sha256": "e9e28586f4980b901c0e29af2927c7cf37eaad0ecda6492c045ad03d9e43eee9",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 128,
+   "errors": [],
+   "output": "e3d1348100285c93ac9219cf77e0ffc72bd4699654b422263876d3564eb70d17"
+  },
+  {
+   "file": "test files new/SW2022/C06_cube_hole_moved/model.SLDPRT",
+   "sha256": "a6b03cf80fc1bd6e58a8dcd2cd01c0f10b24f91439a561565b9e09f42519e359",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 152,
+   "errors": [],
+   "output": "13098e331322d46920b49b071f7d81a18414a8471a09ae612a3a0359c1d9dd48"
+  },
+  {
+   "file": "test files new/SW2022/C07_cube_two_holes/model.SLDPRT",
+   "sha256": "79d429ac3fe0858fd93e49a0f36df219e7f7075db1f6f5af4ee39d709cc05afb",
+   "format": "modern DisplayLists",
+   "faces": 8,
+   "triangles": 292,
+   "errors": [],
+   "output": "f4a82d9f34e7484b3f3a8457588ac461a9ab00460b43f0cbf9f9f115c4dc7f3d"
+  },
+  {
+   "file": "test files new/SW2022/C08_cube_second_hole_modified/model.SLDPRT",
+   "sha256": "f839f6afbf6067012b245e65737a5107fd03fd1acade40600c4f519e4c0904e3",
+   "format": "modern DisplayLists",
+   "faces": 8,
+   "triangles": 268,
+   "errors": [],
+   "output": "473324bb7a2c38b68fd8f9048a9ab4e412e06a77403398dfff2ebdfe8caaa31b"
+  },
+  {
+   "file": "test files new/SW2022/C09_cube_chamfer_1mm/model.SLDPRT",
+   "sha256": "aa82e4cc7bfb4cd427dcfa8e581be19ae887eace99a19b4a37d34bbf8419b0d0",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 16,
+   "errors": [],
+   "output": "1440acc241ab7d31164698cb52c6f9ef29349dff9253264d1abf9491cefa95a7"
+  },
+  {
+   "file": "test files new/SW2022/C10_cube_shell_1mm/model.SLDPRT",
+   "sha256": "158442be99857410c04684a08597259bde962c4e91e545633ea6a9c3e5bdfbc8",
+   "format": "modern DisplayLists",
+   "faces": 11,
+   "triangles": 28,
+   "errors": [],
+   "output": "d0d6aba5367450496974c9231404cd37a5bc9463ef318f668bd221289c7cf666"
+  },
+  {
+   "file": "test files new/SW2022/C11_cube_hole_4mm/model.SLDPRT",
+   "sha256": "b836bf47b51ee257321253a6772ad62acb4853133857d58fc6c331dcfb67b47f",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 144,
+   "errors": [],
+   "output": "38b2d62d41f15ec7aa51e0f9242ef88a98ba25d6074b04df06dbc7093121b389"
+  },
+  {
+   "file": "test files new/SW2022/C12_cube_fillet_1mm_edge2/model.SLDPRT",
+   "sha256": "61ea581033dfd7a246ba264fb645e7545fb121e2c7829ce01d58856f436f43c7",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 36,
+   "errors": [],
+   "output": "3f9446a823847ccc15f1f8389ad3a0275dbbb1ade281f81806f11b1db271f685"
+  },
+  {
+   "file": "test files new/SW2022/C13_cone/model.SLDPRT",
+   "sha256": "6c0a13cae5a8df74a463681cc50f3dd550359e463da0935a293fec3865db87b0",
+   "format": "modern DisplayLists",
+   "faces": 2,
+   "triangles": 96,
+   "errors": [],
+   "output": "59019207bb0be08e3e36e0cfdbd1cd5fa986dfe5c678641279477eaaaad59e01"
+  },
+  {
+   "file": "test files new/SW2022/C14_sphere/model.SLDPRT",
+   "sha256": "03b72028c5a3169a2af63cb3da896f5df1546641f6a660f583d27e39431a36a1",
+   "format": "modern DisplayLists",
+   "faces": 1,
+   "triangles": 4488,
+   "errors": [],
+   "output": "76476a70ef16a90bfa18489038df5f64fca9945dd86f196879deba2868ffa270"
+  },
+  {
+   "file": "test files new/SW2022/C15_torus/model.SLDPRT",
+   "sha256": "f2981cb684eb6bb0d3ad697ff223bf061c0dce4ff729d5254473579f0d194cee",
+   "format": "modern DisplayLists",
+   "faces": 1,
+   "triangles": 5920,
+   "errors": [],
+   "output": "2810615a3f73a42928b98bb86071b604f4ba4f9cc9c97fba40130610642da314"
+  },
+  {
+   "file": "test files new/SW2022/C16_loft_spline/model.SLDPRT",
+   "sha256": "3ec02e9bf6446f32040260f5924535892d2961e61fdf11afaf5c0bf8e8758973",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 1604,
+   "errors": [],
+   "output": "3416a98ecc01da915d3b7eb03cb3d5d9f070a36d598aedf54974f6f373904948"
+  },
+  {
+   "file": "test files new/SW2022/C17_torus_quarter/model.SLDPRT",
+   "sha256": "ebb542a67576f19f8831e665e265fc0a970cc4529383b3c8a79c38e2cf784926",
+   "format": "modern DisplayLists",
+   "faces": 3,
+   "triangles": 2974,
+   "errors": [],
+   "output": "c1310cf3ba687b9d6f07aacfa5542b156914baf98b30c5826935a96d43b48b4c"
+  },
+  {
+   "file": "test files new/SW2022/C18_cube_split_line/model.SLDPRT",
+   "sha256": "9fb2105af09af974e38550fc698aca9874a6e9dff775b2d1bdb07ea983567076",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 16,
+   "errors": [],
+   "output": "8e867f93729763eb1b89507044e5af90b2c7eab7e33d97b4634d81a60b04fcb3"
+  },
+  {
+   "file": "test files new/SW2022/C19_half_cylinder/model.SLDPRT",
+   "sha256": "6c850643f2f5c0cc10e21e66823d5ffb886be7b5a12aaf71d1cac953024cf8cf",
+   "format": "modern DisplayLists",
+   "faces": 4,
+   "triangles": 104,
+   "errors": [],
+   "output": "a7aebc43276cb4a9873adb0dadce89057c2161fb66d1a677e045a442e35c7b65"
+  },
+  {
+   "file": "test files new/SW2022/C20_cylinders_crossed/model.SLDPRT",
+   "sha256": "eeb0d04faa29c60272e987b93fce54fc9694e6f335589cc115fb25b760a51a53",
+   "format": "modern DisplayLists",
+   "faces": 8,
+   "triangles": 596,
+   "errors": [],
+   "output": "da128d02d0de736ed195768abe98aaa4d07162f8f5c85f392a6622d6abcdda83"
+  },
+  {
+   "file": "test files new/SW2022/C21_cylinder_fillet/model.SLDPRT",
+   "sha256": "c8a83ed6c000378a72f03ea4f0e36278348a0681a8ce205af936e7310cdcda37",
+   "format": "modern DisplayLists",
+   "faces": 4,
+   "triangles": 1408,
+   "errors": [],
+   "output": "5d9c500da42b9015fe5cd53d8381049a8311ae8ed4a9333b7522ab0da6c7be3a"
+  },
+  {
+   "file": "test files new/SW2022/C23_cube_sw2011_to_2022/model.SLDPRT",
+   "sha256": "d9939775821bdc95399dda59df8625b855106d5d9df25606478b953fa176d4bc",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "1c95445503a48e5687f73206b6fa80e8283fd926a7f3b6895dea4cba16d8410f"
+  },
+  {
+   "file": "test files new/SW2022/C24_cube_sw2022_native/model.SLDPRT",
+   "sha256": "9d50b4a4ccd2bb40bc067bd8d7a175ad79d5b1fc20b24319d0338b19bb98d611",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "69edb624e5c20c83b73b697c2811f6ae0d79070951b09c301f165e739301fefd"
+  },
+  {
+   "file": "test files original/chainwheel.sldprt",
+   "sha256": "77b81e1ca94b266e4c977bb3ec8fbb9cac294f394ff9d5a2b2b208fb401e0f1a",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 0,
+   "triangles": 0,
+   "errors": [
+    "No legacy DisplayLists stream"
+   ],
+   "output": "ef926c5cc1a0cac057dd39efae66d7456c94f6b88a661e1551c8b488c3ee3af3"
+  },
+  {
+   "file": "test files original/controlled/C00_cube_10mm/model.SLDPRT",
+   "sha256": "89ad8d93148d853dc07bd2a2a8b3e6b3be27cd10dbae212d42da11eb2b215877",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "2b8e7f173b646382ed328e20a5fe7e1a4afbe57a2c1a8e247512506bb72545dd"
+  },
+  {
+   "file": "test files original/controlled/C01_cube_20mm/model.SLDPRT",
+   "sha256": "1da2b075fd3492e49699bd4cf0065e11411b1017e88e1822e1cded9ee51f9af0",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "034ec481d0bb38119b3e3a50a3bd2634c7e88e42e268edc14c9e819873efbb66"
+  },
+  {
+   "file": "test files original/controlled/C02_cube_translated/model.SLDPRT",
+   "sha256": "cc73f8cbc0f9e4fce2c4f4cdf8ab3d5fcaaa3bdd593318e2f8f74108d91b50d5",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "d320b4158540f191e42ad47e6b12f2f2bee0ac02f4da38f4327d5c60318a4f02"
+  },
+  {
+   "file": "test files original/controlled/C03_cube_fillet_1mm/model.SLDPRT",
+   "sha256": "a14df0089bbc7cc5bf47e1d0d2cfbe50ba17be21c636cef4540d509164a514d2",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 36,
+   "errors": [],
+   "output": "13a660b39db9a81e96e22cbf5042687498a3ad6db693838d79ef369cfe7b1987"
+  },
+  {
+   "file": "test files original/controlled/C04_cube_hole_5mm/model.SLDPRT",
+   "sha256": "38ff0e82f9f92002e2cb6092345bbd76b19e5a40e3d085f1e36a0d3139f4f8e3",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 152,
+   "errors": [],
+   "output": "f3bfb82bbf4bce80894c698d0a0f1ab496346e76f9c2fd968a4ee36408035f72"
+  },
+  {
+   "file": "test files original/controlled/C05_cube_hole_3mm/model.SLDPRT",
+   "sha256": "3dd9eaf83e44f81d769e852b6468bf04de7a565e75cb49fcfc34f3aeaf6cbd96",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 124,
+   "errors": [],
+   "output": "385d48055dfd9d9ca39c2f29c932d315e73f5842623f51a8db7673f1b1567682"
+  },
+  {
+   "file": "test files original/controlled/C06_cube_hole_moved/model.SLDPRT",
+   "sha256": "b4880b5a192c29f52cfc2036563caad3b8ff6384a863c4ea949d3eaa1e3404ed",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 152,
+   "errors": [],
+   "output": "0a0c863b7f7f30dcb2f854dcd2a762d09ecc93b736b5b4a5fc9229f637551aa5"
+  },
+  {
+   "file": "test files original/controlled/C07_cube_two_holes/model.SLDPRT",
+   "sha256": "1fca948b6ab1a3ea94eec6f1013cdf60c81dcf9a4fbdb0b2fe100afdd9ba07c9",
+   "format": "modern DisplayLists",
+   "faces": 8,
+   "triangles": 292,
+   "errors": [],
+   "output": "41cbc3bc8db5496800638362d1d3e1c55ff58ad9f0aa39e31ff9a9b62c8b411d"
+  },
+  {
+   "file": "test files original/controlled/C08_cube_second_hole_modified/model.SLDPRT",
+   "sha256": "0213ffbcba1f2d95de22445b62d35faaa2ee26d43fc644b03a91cca06159b811",
+   "format": "modern DisplayLists",
+   "faces": 8,
+   "triangles": 264,
+   "errors": [],
+   "output": "92e3de38e383e3a687b2c160476ccb8ce5e045430d4a438a6f8dedbc6b3e72a9"
+  },
+  {
+   "file": "test files original/controlled/C09_cube_chamfer_1mm/model.SLDPRT",
+   "sha256": "a76902070b7f47e97ee7cb7c76a9064796b8b4ab182f1c25ded41e97e2b61246",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 16,
+   "errors": [],
+   "output": "59eb4603eae81bbb657801b7758d79db4a1c472fd62694bd1132d7da243a7158"
+  },
+  {
+   "file": "test files original/controlled/C10_cube_shell_1mm/model.SLDPRT",
+   "sha256": "12668ec6b393b765a5d4076a5a2b49378886d08ea8ffef0e2aa8d9c71c911cce",
+   "format": "modern DisplayLists",
+   "faces": 11,
+   "triangles": 28,
+   "errors": [],
+   "output": "f01f270665590cc798b587b1c214eedab84b534ef9bc1a9c843d2a69318410e7"
+  },
+  {
+   "file": "test files original/controlled/C11_cube_hole_4mm/model.SLDPRT",
+   "sha256": "fb78c483202368cd9d50a340be17b269048c285ae58dc1d5ca2b1f118243fa9e",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 140,
+   "errors": [],
+   "output": "e6ed11d26ad46642f5797f5ccc6708de8b4214ce928585fd1a0ee2d7dcb6ae1a"
+  },
+  {
+   "file": "test files original/controlled/C12_cube_fillet_1mm_edge2/model.SLDPRT",
+   "sha256": "8c835c79e0b30e4ba2ae4a0f6d9aa37ceedf0f6aa181624935f663700475a8e4",
+   "format": "modern DisplayLists",
+   "faces": 7,
+   "triangles": 36,
+   "errors": [],
+   "output": "3510252c1e3cc16aff781ca0be5e9b399de1b86b16135b6511a057dfa9e36580"
+  },
+  {
+   "file": "test files original/cube.SLDPRT",
+   "sha256": "e002c483df1faab6c635d52dd190311e2b0fd4a36758e54020efdd7512026cb1",
+   "format": "modern DisplayLists",
+   "faces": 6,
+   "triangles": 12,
+   "errors": [],
+   "output": "42bdaccc8e6bfc3e7d32acbf2d5ba369b6835cd731fb33ea0155d2a2f6d9895f"
+  },
+  {
+   "file": "test files original/Dekor.SLDPRT",
+   "sha256": "865142829c7d91aa85f65771d2a6e60dad4f58d0093422cb56c94ce6c8959c89",
+   "format": "modern DisplayLists",
+   "faces": 375,
+   "triangles": 15282,
+   "errors": [],
+   "output": "f14717b6906882c031a0e3334d62e2e11cd4ba0a3ec375bd589f8535f80e314c"
+  },
+  {
+   "file": "test files original/distributor main boss rev a.SLDPRT",
+   "sha256": "72454b269924d6361d3b88a1e7f4ce217751abdf5e413580ac62d23392897711",
+   "format": "modern DisplayLists",
+   "faces": 51,
+   "triangles": 3902,
+   "errors": [],
+   "output": "08d2960d0915ef50cd463d091297eab5f53cfce11920f3b03a29bec0d41b8aad"
+  },
+  {
+   "file": "test files original/Helical Bevel Gear.SLDPRT",
+   "sha256": "d694ebd12683ffd1b6b225f465fd358005b6015388b1cc4fc1867cb38c371a92",
+   "format": "modern DisplayLists",
+   "faces": 113,
+   "triangles": 6042,
+   "errors": [],
+   "output": "a105172ef5848da297754744150516cf0cda6520134dea48270afe4835d9214b"
+  },
+  {
+   "file": "test files original/plate4.sldprt",
+   "sha256": "ab35db15d337f808f9ce9ee8fc72cc243c2fb2d78d033cf8514ef96e0f65d399",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 0,
+   "triangles": 0,
+   "errors": [
+    "No supported face records found"
+   ],
+   "output": "a1c9596aba7050df0bb5f91d3c17b66330198c384ea116c8f48c7298c698383b"
+  },
+  {
+   "file": "test files original/Pocket Wheel.SLDPRT",
+   "sha256": "678a73af7c6eca8b5e6df60905a96f437bd5d1f85a2eed19277332c25629bb8c",
+   "format": "modern DisplayLists",
+   "faces": 400,
+   "triangles": 17078,
+   "errors": [],
+   "output": "f102b38a46d838755aa815e66b334506c2f3c7939d0bbd0fcffa34f7d31b363e"
+  },
+  {
+   "file": "test files original/PTC GE8080-8.SLDPRT",
+   "sha256": "162e6293b95508072f65d39b4d933553d2f3fa6c77863e29e6135afd026c8f94",
+   "format": "modern DisplayLists",
+   "faces": 126,
+   "triangles": 1192,
+   "errors": [],
+   "output": "5f0a3bc78de1652c34845c03d7179cb452f9f9f0e64e34fe4fa6f1b1a61f8604"
+  },
+  {
+   "file": "test files original/SW2000-s01.SLDPRT",
+   "sha256": "3a1007ea37bc19bec8a2398b83db204bc36db0c1687fba264160e898335c1ab2",
+   "format": "legacy OLE2 DisplayLists",
+   "faces": 0,
+   "triangles": 0,
+   "errors": [
+    "No legacy DisplayLists stream"
+   ],
+   "output": "ef926c5cc1a0cac057dd39efae66d7456c94f6b88a661e1551c8b488c3ee3af3"
+  },
+  {
+   "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",
+   "sha256": "851f385248ed25cf7c9a2677df3169738c139f34120cb8734ae6ef89d26521a1",
+   "format": "modern DisplayLists",
+   "faces": 39,
+   "triangles": 1488,
+   "errors": [],
+   "output": "690157a06d7d7036607df3f6424d268a09b5727fd72bb7acec92b7e110a5e251"
+  },
+  {
+   "file": "test files original/usb hub case (ultimate test)/USB hub case TOP.SLDPRT",
+   "sha256": "b2928e16b72dd92f085e5d3cb83c101777acf075d2abf1b268563fdd564c14fc",
+   "format": "modern DisplayLists",
+   "faces": 68,
+   "triangles": 4704,
+   "errors": [],
+   "output": "675791c0309ded34b9cabcb9bc929a60a1fd9d07e27163fef047ad6177b3e307"
+  }
+ ]
+}
