@@ -7,11 +7,13 @@ in the dump.
 
 ## Toward exact conversion
 
-**Does the decoded body match SolidWorks' STEP export face for face?** The native body parses
-completely and passes every graph check, and its surfaces carry the display mesh. What has not
-been measured is a direct comparison with each model's `model.step`: surface parameters,
-vertex positions, edge curve types and enclosed volume, for all 49 controlled models. This is
-the current work. It is the gate for a STEP writer that emits exact geometry instead of facets.
+**Answered: the decoded body matches SolidWorks' STEP export.** It agrees on all 49 controlled
+models to 9e-18 m (EXP-075, [parasolid.md](format/parasolid.md#how-well-it-reads)). The exact
+STEP writer is built on it; its own validation is in progress.
+
+**Production-only geometry.** The production parts use INTERSECTION curves, edges whose curve
+lives on their fins, swept surfaces and rolling-ball blends. None of these occur in a model with a
+STEP export, so they can only be checked against the display mesh.
 
 **Evaluating B-spline, swept and blended surfaces.** Their control points, knots and defining
 data are read, but nothing yet evaluates them, so the mesh cannot be checked against them and a

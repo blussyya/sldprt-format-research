@@ -66,6 +66,8 @@ in progress (see [open questions](open-questions.md)).
 | Face count equals SolidWorks' | 98 / 98 |
 | Text and binary export of the same model differ only in IDs | 49 / 49 pairs |
 | Embedded partitions parsed (controlled) | 49 / 49: 8,209 nodes, 287 faces, 14,262 checks, 0 failures |
+| Embedded body = SolidWorks' STEP export: every vertex, edge and face, within 1e-8 m (worst 9e-18 m) | 49 / 49 |
+| Mutations of 1e-7 m or less, and wrong-model pairings, detected by that comparison | 20 / 20 |
 | Embedded body equals the export graph-to-graph ([EXP-072](https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP072.md)) | 47 / 49 (both lofts differ) |
 | Original modern parts parsed | 21 / 21: 43,158 nodes, 1,272 faces, 0 failures |
 | Native face count equals display face count | 70 / 70 files |

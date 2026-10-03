@@ -211,6 +211,25 @@ sizes with increasing knots. All of this is re-run by `test/parasolid.test.js`.
 exports. Across all 49 pairs they differ only in 24 `BODY.highest_node_id` values and 308
 attribute node IDs, plus floating-point noise up to 1.1e-13. No FACE ID differs.
 
+**Against SolidWorks' STEP export.** On all 49 controlled models, the body decoded from the
+SLDPRT matches the `model.step` SolidWorks exported from the same part, face for face, edge for
+edge and vertex for vertex. The worst deviation is 9e-18 m, which is double-precision rounding of
+the same numbers printed in millimetres. The checks are:
+
+- every native vertex is a STEP vertex;
+- every STEP edge lies on exactly one native edge's curve, inside its extent;
+- the STEP pieces of each native edge add up to its exact length;
+- every STEP face lies on one native face's surface, on the same side;
+- every edge's two faces correspond.
+
+The only differences are seams. STEP splits closed faces (cylinders, cones, spheres, tori) into
+pieces along seam edges: 287 native faces become 331 STEP faces through 90 seams. Even the B-spline
+loft surfaces have identical control points and knots. Twenty mutations, each 1e-7 m or less and
+including four wrong-model pairings, are all detected, so the agreement is not an artifact of a
+loose test
+([EXP-075](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP075.md),
+`test/brep-step.test.js`).
+
 **Native vs exported.** Compared graph-to-graph from the BODY down, the embedded body equals the
 exported one on 47 of 49 models. The two lofts (C16, both eras) differ: native `nom_geom_state` is
 2 against the export's 1, and several curve references and types differ
@@ -257,9 +276,9 @@ IDs connect the two exactly.
 
 ## Not yet established
 
-- A face-by-face comparison of the decoded body with SolidWorks' own STEP export of the same
-  model, covering surface parameters, vertex positions, edge curves and volume, on all 49
-  controlled models. This is the current work.
+- Geometry types that occur only in the production parts, which have no STEP export to compare
+  against: INTERSECTION curves, edges whose curve lives on their fins, SWEPT_SURF and
+  BLENDED_EDGE surfaces.
 - Evaluating B-spline, swept and blended surfaces against the mesh. They are read and counted but
   not evaluated.
 - The role of `(deltas)` sections, ghost partitions and ResolvedFeatures bodies.
