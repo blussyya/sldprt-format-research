@@ -1,32 +1,27 @@
 # SLDPRT format research
 
-Reverse engineering SolidWorks `.SLDPRT` part files, because the format is not documented anywhere
-and that pissed me off.
+I'm reverse engineering SolidWorks `.SLDPRT` files because the format isn't documented anywhere and that pissed me off.
 
-This repository has two parts. **`sldprt`** is a dependency-free Node.js package and CLI that reads
-part files without SolidWorks. **[`docs/`](docs/README.md)** is a written-up description of the
-format as far as it is understood, with every claim checked against a corpus of real files.
+This repo is the code and the write-up. `sldprt` is a Node.js package and command line tool that reads part files without SolidWorks. It has no dependencies and needs Node 18 or newer. [`docs/`](docs/README.md) explains the format as far as we've worked it out, and every number in there was checked against real files.
 
-### [Join the discussion on Discord](https://discord.gg/vC4Jee5Q4n)
+Come talk about it on [Discord](https://discord.gg/vC4Jee5Q4n).
 
 ## What it reads
 
-| layer | status | details |
+| part of the file | status | more |
 |---|---|---|
-| Container, modern (SolidWorks 2015+) | ✅ read, CRC-checked | [container.md](docs/format/container.md) |
-| Container, legacy OLE2 (SolidWorks 2011) | ✅ read | [container.md](docs/format/container.md#legacy-container-ole2) |
-| Display mesh: triangles, normals, boundary edges | ✅ modern and 2011 | [displaylists.md](docs/format/displaylists.md) |
-| Per-face surface type, parameters, analytic bounding box | ✅ modern; box also 2011 | [displaylists.md](docs/format/displaylists.md#surface-record-modern) |
-| Native Parasolid B-rep: topology, analytic and B-spline geometry | ✅ parsed and graph-checked, modern and 2011 | [parasolid.md](docs/format/parasolid.md) |
-| Mesh ↔ B-rep link (face and edge IDs) | ✅ 1,414 / 1,414 faces | [parasolid.md](docs/format/parasolid.md#the-join-with-the-display-mesh) |
-| STL export | ✅ exact copy of the saved mesh | [validation.md](docs/validation.md#stl-and-step-export-display-mesh) |
-| STEP export | ⚠️ planes exact, curved faces faceted. Exact STEP from the B-rep is in progress | [open-questions.md](docs/open-questions.md) |
-| Feature tree, sketches, configurations, assemblies | ❌ not decoded | |
-| Pre-2011 parts | ❌ refused with an explicit error | [container.md](docs/format/container.md#what-is-not-read) |
+| Modern container (SolidWorks 2015+) | reads it, checks every stream's CRC-32 | [container.md](docs/format/container.md) |
+| Legacy OLE2 container (SolidWorks 2011) | reads it | [container.md](docs/format/container.md#legacy-container-ole2) |
+| Display mesh: triangles, normals, which edges are face boundaries | modern and 2011 | [displaylists.md](docs/format/displaylists.md) |
+| Surface type, parameters and bounding box per face | modern; bounding box on 2011 too | [displaylists.md](docs/format/displaylists.md#surface-record-modern) |
+| The real Parasolid B-rep: topology, analytic surfaces, B-splines | modern and 2011, matches SolidWorks' own STEP export | [parasolid.md](docs/format/parasolid.md) |
+| Link between the mesh and the B-rep | face and edge IDs match on 1,414 of 1,414 faces | [parasolid.md](docs/format/parasolid.md#the-join-with-the-display-mesh) |
+| STL export | exact copy of the mesh saved in the file | [validation.md](docs/validation.md#stl-and-step-export-display-mesh) |
+| STEP export | planes are exact, curved faces are still triangles | [open-questions.md](docs/open-questions.md) |
+| Feature tree, sketches, configurations, assemblies | not decoded | |
+| Files older than 2011 | refused with an error | [container.md](docs/format/container.md#what-is-not-read) |
 
-## Quick start
-
-Node 18 or newer. No `npm install` needed: there are no dependencies.
+## Try it
 
 ```sh
 git clone https://github.com/blussyya/sldprt-format-research
@@ -47,109 +42,96 @@ surfaces    plane×6  cylinder×1
 graph checks 367 run, 0 failed
 ```
 
-To get a `sldprt` command, run `npm link` once.
+There's nothing to `npm install`. Run `npm link` once if you want a `sldprt` command.
 
-| command | does |
+| command | what it does |
 |---|---|
-| `sldprt info part.SLDPRT` | what is in the file |
-| `sldprt parse part.SLDPRT > mesh.json` | the display mesh and surface records as JSON |
-| `sldprt convert part.SLDPRT --stl out.stl --step out.step` | export (`--ascii`, `--faceted`, `--scale N`) |
-| `sldprt brep part.SLDPRT` | the native Parasolid body: node census and graph checks (`--json`, `--nodes`) |
-| `sldprt render part.SLDPRT sheet.png` | six-view PNG contact sheet |
-| `sldprt view part.SLDPRT` | interactive viewer in the terminal |
-| `sldprt serve --open` | browser viewer; files are parsed locally and never uploaded |
+| `sldprt info part.SLDPRT` | shows what's in the file |
+| `sldprt parse part.SLDPRT > mesh.json` | dumps the mesh and surface records as JSON |
+| `sldprt convert part.SLDPRT --stl out.stl --step out.step` | exports (also `--ascii`, `--faceted`, `--scale N`) |
+| `sldprt brep part.SLDPRT` | the Parasolid body: node counts and graph checks (`--json`, `--nodes`) |
+| `sldprt render part.SLDPRT sheet.png` | six views of the part in one PNG |
+| `sldprt view part.SLDPRT` | spins the part around in your terminal |
+| `sldprt serve --open` | viewer in the browser; files are parsed on your machine and never uploaded |
 
-`samples/` has four small parts to try: three SolidWorks 2022 and one SolidWorks 2011.
+`samples/` has four small parts to play with, three from SolidWorks 2022 and one from 2011.
 
 ![SolidWorks 2011 shell, six views](docs/images/sw2011-c10-shell.png)
 
-*A SolidWorks 2011 part (1 mm shell), straight from its legacy DisplayLists stream. Black lines are
-the edges Block1 marks as face boundaries.*
+That's a SolidWorks 2011 part, a cube shelled to 1 mm, read straight out of its legacy DisplayLists stream. The black lines are the edges the file marks as face boundaries.
 
 ![Pocket wheel, six views](docs/images/pocket-wheel.png)
 
-*Pocket Wheel: 400 faces, 17,078 triangles. What the parser read, unwelded and unrepaired.*
+Pocket Wheel: 400 faces, 17,078 triangles. That's exactly what the parser read. Nothing welded or patched.
 
 ![Terminal viewer](docs/images/terminal-viewer.png)
-
-*`sldprt view` in a truecolor terminal.*
 
 ### From code
 
 ```js
 const fs = require('fs'), sldprt = require('./src');   // or require('sldprt')
 
-const mesh = sldprt.parse('part.SLDPRT');         // faces: vertices, triangleIndices, edge IDs, surface type…
-const body = sldprt.readBrep('part.SLDPRT');      // native Parasolid nodes + graph checks
+const mesh = sldprt.parse('part.SLDPRT');      // per face: vertices, triangles, edge IDs, surface type
+const body = sldprt.readBrep('part.SLDPRT');   // the Parasolid nodes plus graph checks
 fs.writeFileSync('part.stl', sldprt.toSTL('part.SLDPRT'));
 ```
 
-The display reader also runs in the browser; see [docs/api.md](docs/api.md).
+The mesh reader also runs in a browser. See [docs/api.md](docs/api.md).
 
-## How good is it
+## How do we know it's right
 
-Measured against a corpus of 73 part files. 49 of them were built for this project to dimensions
-fixed in advance, in SolidWorks 2011 and 2022, and each was exported by SolidWorks to STEP, STL,
-X_T and X_B with its per-face surface types recorded. A few highlights from
-[validation.md](docs/validation.md):
+There's a test corpus of 73 part files. 49 of them were built just for this project, in SolidWorks 2011 and 2022, to sizes picked before building them. SolidWorks exported each one to STEP, STL, X_T and X_B and wrote down the surface type of every face. The full numbers are in [validation.md](docs/validation.md). The main ones:
 
-- 73 / 73 files parse exactly as the recorded golden output; 1,559 faces.
-- Face counts equal SolidWorks' own on every controlled model, in both versions.
-- Surface tags equal SolidWorks' reported surface types on 136 / 136 faces.
-- All 98 Parasolid exports and all 70 readable embedded bodies parse to the end with 0 graph-check
-  failures. The decoded C00 cube has its corners exactly at 0 and 10 mm.
-- Exported STL has the exact bounding box of SolidWorks' STL on all 13 controlled cubes, and exact
-  volume on the planar ones. SolidWorks' own STL of three of them is missing a face; this one is
-  not.
+- All 73 files parse to exactly the recorded output (1,559 faces).
+- Face counts match what SolidWorks reports on every controlled model, in both versions.
+- Surface types match SolidWorks on 136 of 136 faces.
+- The Parasolid body we pull out of the file matches the STEP file SolidWorks exports from the same part, on all 49 controlled models. Every vertex, edge and face lines up, and the B-spline control points are identical. The worst difference is 9×10⁻¹⁸ m, which is just floating-point rounding ([EXP-075](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP075.md)).
+- Our STL has the exact same bounding box as SolidWorks' STL on all 13 controlled cubes. SolidWorks' own STL of three of them is missing a whole face. Ours isn't.
 
-Run it yourself:
+To run the tests yourself you need the corpus, which lives in the dump repo:
 
 ```sh
-git clone https://github.com/blussyya/sldprt-research-dump ../sldprt-research-dump   # the corpus
+git clone https://github.com/blussyya/sldprt-research-dump ../sldprt-research-dump
 npm test
 ```
 
-## Limits
+Without it, the tests that need the corpus show up as skipped.
 
-- It reads; it does not write SLDPRT.
-- STEP output of curved faces is faceted until the exact B-rep writer lands.
-- Verified on SolidWorks 2011 and 2022 files and 21 production parts of unrecorded versions. Other
-  versions probably work for the modern container, but that is not demonstrated.
+## What it can't do yet
+
+- STEP export still turns curved faces into triangles. Now that the B-rep decode matches SolidWorks exactly, the exact STEP writer is next.
+- It only reads. It can't write SLDPRT.
+- It's tested on 2011 and 2022 files plus 21 real parts whose version nobody recorded. Other versions probably work, but I haven't proven that.
 - Single parts only. No assemblies, drawings or feature history.
-- Inputs are bounded (128 MiB, 2 million vertices, 50,000 faces) and malformed data is refused, but
-  this has not been security-audited.
+- Files older than 2011 get refused.
+- Input size is capped (128 MiB, 2 million vertices, 50,000 faces) and broken data gets rejected, but nobody has done a security audit.
 
-## Repository layout
+## What's where
 
 ```
-bin/sldprt.js         the CLI
-src/                  the package
-  container/          modern.js (stream scan, CRC), ole.js (CFB reader)
-  display.js          DisplayLists reader (isomorphic)
-  inflate.js          DEFLATE/zlib for the browser
-  parasolid/          partition.js, xt.js (transmit reader), topology.js
+bin/sldprt.js         the command line tool
+src/
+  container/          modern.js (stream scan, CRC), ole.js (legacy reader)
+  display.js          the mesh reader, runs in Node and the browser
+  inflate.js          zlib for the browser
+  parasolid/          partition.js, xt.js (Parasolid reader), topology.js
+  brep/, step/, geom/ B-rep model, STEP reader, NURBS maths
   convert.js          STL / STEP writer
-  render.js           PNG contact sheets
+  render.js           the six-view PNGs
   terminal-viewer.js  sldprt view
   serve.js            sldprt serve
 web/                  browser viewer
 samples/              four small parts
-test/                 node:test suites; fixtures/display-golden.json
-docs/                 the format, validation, history, open questions
+test/                 the tests, plus fixtures/display-golden.json
+docs/                 how the format works, validation, history, open questions
 ```
 
-## Research
+## The research
 
-The raw ledger lives in **[sldprt-research-dump](https://github.com/blussyya/sldprt-research-dump)**:
-every experiment (EXP-001 to EXP-074) with its script, raw output and later corrections, the full
-test corpus, and every earlier parser and converter version. This repository keeps only the
-current code and the cleaned-up result. The superseded `parser/v0.1`, `parser/v0.2`,
-`converter/v0.1`, `parser/v0.3`, `viewer/` and research folders `v0.4.6`–`v0.4.8` are preserved
-there.
+The whole lab notebook is in [sldprt-research-dump](https://github.com/blussyya/sldprt-research-dump). Every experiment from EXP-001 to EXP-075 is there with its script, raw output and later corrections, along with the test corpus and every old parser and converter. This repo keeps only the current code and the cleaned-up results.
 
-[docs/history.md](docs/history.md) tells the story in a page, including the parts that went wrong.
+If you want the story in one page, including all the stuff we got wrong along the way, read [docs/history.md](docs/history.md).
 
 ## License
 
-MIT. The Parasolid layer follows the published *Parasolid XT Format Reference* (2006). No
-SolidWorks or Parasolid source code, binaries or SDK files are used.
+MIT. The Parasolid part follows the public *Parasolid XT Format Reference* (2006). No SolidWorks or Parasolid source code, binaries or SDK files are used.
