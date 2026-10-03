@@ -135,12 +135,19 @@ function surfaceDistance(s,p){
   }
   throw Error('surfaceDistance: '+s.type);
 }
-function bsplineProject(s,p){
+/* Closest point on a B-spline surface. `guess` ({u,v}, e.g. the previous point along a curve)
+ * skips the coarse grid search; if Newton from it doesn't land on the surface the grid is used. */
+function bsplineProject(s,p,guess){
+  if(guess){const r=bsplineProject1(s,p,guess.u,guess.v);if(r.d<1e-7)return r;}
   const nu=s.ctrl.length,nv=s.ctrl[0].length;
   const [u0,u1]=[s.ku[s.du],s.ku[nu]],[v0,v1]=[s.kv[s.dv],s.kv[nv]];
   const G=Math.max(24,nu*4),H=Math.max(24,nv*4);let best={u:u0,v:v0,d:Infinity};
   for(let i=0;i<=G;i++)for(let j=0;j<=H;j++){const u=u0+(u1-u0)*i/G,v=v0+(v1-v0)*j/H,d=dist(p,bsplineSurface(s,u,v).p);if(d<best.d)best={u,v,d};}
-  let {u,v}=best;
+  return bsplineProject1(s,p,best.u,best.v);
+}
+function bsplineProject1(s,p,u,v){
+  const nu=s.ctrl.length,nv=s.ctrl[0].length;
+  const [u0,u1]=[s.ku[s.du],s.ku[nu]],[v0,v1]=[s.kv[s.dv],s.kv[nv]];
   for(let it=0;it<60;it++){ // Gauss–Newton on the tangent plane
     const e=bsplineSurface(s,u,v),r=sub(p,e.p),a=dot(e.du,e.du),b=dot(e.du,e.dv),c=dot(e.dv,e.dv),det=a*c-b*b;if(!det)break;
     const x=dot(r,e.du),y=dot(r,e.dv),du=(c*x-b*y)/det,dv=(a*y-b*x)/det;

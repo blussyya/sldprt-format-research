@@ -75,14 +75,37 @@ test('display face IDs and edge IDs are native Parasolid node IDs',()=>{
   }
 });
 
-test('STL and STEP export',()=>{
+test('STL and STEP export, mesh and exact',()=>{
+  const {compare}=require('../src/brep/compare'),native=require('../src/brep/native');
   for(const rel of Object.keys(EXPECT)){
     const stl=S.toSTL(file(rel));
     assert.equal(stl.length,84+50*stl.readUInt32LE(80),rel);
-    const {text,report}=S.toSTEP(file(rel));
-    const ents=parseSTEP(text),ids=new Set(Object.keys(ents).map(Number));
-    for(const body of Object.values(ents))for(const m of body.matchAll(/#(\d+)/g))assert(ids.has(+m[1]),rel+': dangling #'+m[1]);
-    assert.equal(report.body,'MANIFOLD_SOLID_BREP',rel);
+    for(const source of ['mesh','brep']){
+      const {text,report}=S.toSTEP(file(rel),{source});
+      assert.equal(report.source,source,rel);
+      const ents=parseSTEP(text),ids=new Set(Object.keys(ents).map(Number));
+      for(const body of Object.values(ents))for(const m of body.matchAll(/#(\d+)/g))assert(ids.has(+m[1]),rel+': dangling #'+m[1]);
+      if(source==='brep'){   // read our own STEP back: it must be the native body
+        const r=compare(native.build(S.readBrep(file(rel)).parsed),S.step.read(text));
+        assert(r.pass,rel+': '+r.problems.slice(0,3).join('; '));
+      }
+    }
+    assert.equal(S.toSTEP(file(rel)).report.source,'brep',rel+': auto should pick the B-rep');
+  }
+});
+
+test('exact volumes of the samples',()=>{
+  const exact={
+    'sw2022/C00_cube_10mm.SLDPRT':1000,
+    'sw2022/C04_cube_hole_5mm.SLDPRT':1000-Math.PI*6.25*10,     // 5 mm through hole in a 10 mm cube
+    'sw2022/C15_torus.SLDPRT':2*Math.PI*Math.PI*5*2*2,           // R 5, r 2
+    'sw2011/C10_cube_shell_1mm.SLDPRT':424,
+  };
+  for(const [rel,want] of Object.entries(exact)){
+    const v=S.volume(file(rel)).volume*1e9;   // mm³
+    assert(Math.abs(v-want)<1e-9*want,`${rel}: ${v} mm³, expected ${want}`);
+    const back=require('../src/brep/volume').volume(S.step.read(S.toSTEP(file(rel)).text)).volume*1e9;
+    assert(Math.abs(back-want)<1e-9*want,`${rel}: our STEP holds ${back} mm³`);
   }
 });
 
@@ -116,7 +139,7 @@ test('CLI: every command runs on a sample',()=>{
   assert.match(run('info',c04),/7 faces, 152 triangles/);
   assert.equal(JSON.parse(run('parse',c04)).faces.length,7);
   const out=JSON.parse(run('convert',c04,'--stl',path.join(tmp,'a.stl'),'--step',path.join(tmp,'a.step')));
-  assert.equal(out.step.analyticPlanes,6);assert(fs.statSync(path.join(tmp,'a.stl')).size>84);
+  assert.equal(out.step.source,'brep');assert.deepEqual(out.step.surfaces,{plane:6,cylinder:1});assert(fs.statSync(path.join(tmp,'a.stl')).size>84);
   assert.equal(JSON.parse(run('brep',c04,'--json')).census.FACE,7);
   run('render',c04,path.join(tmp,'a.png'));assert(fs.readFileSync(path.join(tmp,'a.png')).subarray(1,4).toString()==='PNG');
   assert(run('view',c04,'--still').length>1000);

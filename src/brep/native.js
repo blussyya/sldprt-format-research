@@ -4,7 +4,7 @@
  *
  *   {vertices: Map id -> {id, p},
  *    edges:    Map id -> {id, v:[start, end] (null for a closed ring edge), curve, sameSense},
- *    faces:    [{id, surface, sameSense, loops:[{coedges:[{edge, sense}]}]}]}
+ *    faces:    [{id, surface, sameSense, loops:[{coedges:[{edge, sense}]} | {coedges:[], vertex}]}]}
  *
  * Conventions established on the corpus (docs/format/parasolid.md):
  *   - EDGE.fin is the edge's positive fin. A fin runs along its edge when its sense is '+'.
@@ -76,9 +76,11 @@ function build(parsed){
   for(const f of parsed.nodes.filter(n=>n.type===14)){
     const sn=node(f.values.surface),loops=[];
     for(let l=f.values.loop;l;l=node(l).values.next){
-      const first=node(l).values.fin,co=[];let x=first,guard=0;
-      do{const fin=node(x);if(fin.values.edge)co.push({edge:node(fin.values.edge).values.node_id,sense:fin.values.sense==='+'});x=fin.values.forward;if(++guard>1e6)throw Error('B-rep: open fin ring');}while(x!==first);
-      loops.push({coedges:co});
+      const first=node(l).values.fin,co=[];let x=first,guard=0,lone=null;
+      do{const fin=node(x);if(fin.values.edge)co.push({edge:node(fin.values.edge).values.node_id,sense:fin.values.sense==='+'});else lone=fin.values.vertex;
+        x=fin.values.forward;if(++guard>1e6)throw Error('B-rep: open fin ring');}while(x!==first);
+      // a loop whose only fin has no edge is a single vertex, e.g. a cone apex
+      loops.push(co.length?{coedges:co}:{coedges:[],vertex:vertex(lone)});
     }
     faces.push({id:f.values.node_id,surface:surface(f.values.surface),sameSense:sgn(sn.values.sense)*sgn(f.values.sense)>0,loops});
   }

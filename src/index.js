@@ -10,14 +10,17 @@
  *                        surface record, bounding record            (docs/format/displaylists.md)
  *   info(file)           container, streams, versions, counts, partition sections
  *   toSTL(file, opts)    Buffer, binary STL (or {ascii:true} -> string)
- *   toSTEP(file, opts)   {text, report}: AP214, planes analytic, everything else faceted
+ *   toSTEP(file, opts)   {text, report}: AP214 with exact geometry from the native B-rep,
+ *                        or from the display mesh when the B-rep can't be used (see below)
  *   readBrep(file, opts) the native Parasolid body: typed nodes + graph checks
+ *   volume(file)         exact enclosed volume of the native body, m³
  *                                                                    (docs/format/parasolid.md)
  */
 const fs=require('fs'),zlib=require('zlib');
 const modern=require('./container/modern'),ole=require('./container/ole');
 const display=require('./display'),convert=require('./convert');
 const xt=require('./parasolid/xt'),partition=require('./parasolid/partition'),graph=require('./parasolid/topology');
+const nativeModel=require('./brep/native'),brepVolume=require('./brep/volume'),stepWriter=require('./step/write'),stepReader=require('./step/read');
 
 const MAX=128*1024*1024;
 const inflateRaw=b=>zlib.inflateRawSync(b,{maxOutputLength:MAX});
@@ -56,7 +59,27 @@ function model(input){
   return convert.loadModel(parsed);
 }
 function toSTL(input,opts){opts=opts||{};const m=model(input);return opts.ascii?convert.toSTLAscii(m,opts):convert.toSTLBinary(m,opts);}
-function toSTEP(input,opts){return convert.toSTEP(model(input),opts||{});}
+/* STEP. source 'auto' (default): exact geometry from the native B-rep when it can be read and
+ * every surface and curve in it is supported, otherwise the display mesh (planes exact, other
+ * faces as facets) with the reason in report.fallback. 'brep' throws instead of falling back;
+ * 'mesh' (or the old mode:'faceted') always uses the mesh. report.source says which was used. */
+function toSTEP(input,opts){
+  opts=opts||{};const source=opts.source||(opts.mode==='faceted'?'mesh':'auto');let fallback=null;
+  if(source!=='mesh'){
+    try{
+      const r=readBrep(input);
+      if(r.graph.errors.length)throw Error('B-rep failed '+r.graph.errors.length+' graph checks');
+      const out=stepWriter.write(nativeModel.build(r.parsed),opts);
+      out.report.brepSource=r.source;return out;
+    }catch(e){if(source==='brep')throw e;fallback=e.message;}
+  }
+  const out=convert.toSTEP(model(input),opts);
+  out.report.source='mesh';if(fallback)out.report.fallback=fallback;
+  return out;
+}
+
+/* Exact enclosed volume (m³) of the native B-rep, from its surfaces and curves. */
+function volume(input){return brepVolume.volume(nativeModel.build(readBrep(input).parsed));}
 
 /* Native B-rep: {source stream, section kind, parsed: xt.parse result, graph: topology checks}. */
 function readBrep(input,opts){
@@ -64,5 +87,6 @@ function readBrep(input,opts){
   return {...r,graph:graph.topology(r.parsed)};
 }
 
-module.exports={parse,info,toSTL,toSTEP,readBrep,inflateRaw,inflateZlib,
+module.exports={parse,info,toSTL,toSTEP,readBrep,volume,inflateRaw,inflateZlib,
+  brep:{model:nativeModel.build,volume:brepVolume.volume},step:{read:stepReader.readBrep,write:stepWriter.write},
   display,convert,container:{modern,ole},parasolid:{xt,partition,topology:graph.topology,census:graph.census}};

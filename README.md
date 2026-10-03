@@ -17,7 +17,8 @@ Come talk about it on [Discord](https://discord.gg/vC4Jee5Q4n).
 | The real Parasolid B-rep: topology, analytic surfaces, B-splines | modern and 2011, matches SolidWorks' own STEP export | [parasolid.md](docs/format/parasolid.md) |
 | Link between the mesh and the B-rep | face and edge IDs match on 1,414 of 1,414 faces | [parasolid.md](docs/format/parasolid.md#the-join-with-the-display-mesh) |
 | STL export | exact copy of the mesh saved in the file | [validation.md](docs/validation.md#stl-and-step-export-display-mesh) |
-| STEP export | planes are exact, curved faces are still triangles | [open-questions.md](docs/open-questions.md) |
+| STEP export | exact, written from the B-rep: the same solid as SolidWorks' own STEP on all 49 test models. Parts with intersection curves fall back to the mesh | [validation.md](docs/validation.md#exact-step-export-b-rep) |
+| Volume | exact, straight from the surfaces, no mesh involved | [parasolid.md](docs/format/parasolid.md#writing-it-back-out-as-step) |
 | Feature tree, sketches, configurations, assemblies | not decoded | |
 | Files older than 2011 | refused with an error | [container.md](docs/format/container.md#what-is-not-read) |
 
@@ -48,8 +49,8 @@ There's nothing to `npm install`. Run `npm link` once if you want a `sldprt` com
 |---|---|
 | `sldprt info part.SLDPRT` | shows what's in the file |
 | `sldprt parse part.SLDPRT > mesh.json` | dumps the mesh and surface records as JSON |
-| `sldprt convert part.SLDPRT --stl out.stl --step out.step` | exports (also `--ascii`, `--faceted`, `--scale N`) |
-| `sldprt brep part.SLDPRT` | the Parasolid body: node counts and graph checks (`--json`, `--nodes`) |
+| `sldprt convert part.SLDPRT --stl out.stl --step out.step` | exports (also `--ascii`, `--scale N`, and `--brep` or `--mesh` to force where the STEP comes from) |
+| `sldprt brep part.SLDPRT` | the Parasolid body: node counts and graph checks (`--json`, `--nodes`, `--volume`) |
 | `sldprt render part.SLDPRT sheet.png` | six views of the part in one PNG |
 | `sldprt view part.SLDPRT` | spins the part around in your terminal |
 | `sldprt serve --open` | viewer in the browser; files are parsed on your machine and never uploaded |
@@ -74,6 +75,8 @@ const fs = require('fs'), sldprt = require('./src');   // or require('sldprt')
 const mesh = sldprt.parse('part.SLDPRT');      // per face: vertices, triangles, edge IDs, surface type
 const body = sldprt.readBrep('part.SLDPRT');   // the Parasolid nodes plus graph checks
 fs.writeFileSync('part.stl', sldprt.toSTL('part.SLDPRT'));
+fs.writeFileSync('part.step', sldprt.toSTEP('part.SLDPRT').text);   // exact when it can be
+sldprt.volume('part.SLDPRT').volume;           // m³
 ```
 
 The mesh reader also runs in a browser. See [docs/api.md](docs/api.md).
@@ -86,6 +89,7 @@ There's a test corpus of 73 part files. 49 of them were built just for this proj
 - Face counts match what SolidWorks reports on every controlled model, in both versions.
 - Surface types match SolidWorks on 136 of 136 faces.
 - The Parasolid body we pull out of the file matches the STEP file SolidWorks exports from the same part, on all 49 controlled models. Every vertex, edge and face lines up, and the B-spline control points are identical. The worst difference is 9×10⁻¹⁸ m, which is just floating-point rounding ([EXP-075](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP075.md)).
+- The STEP we write from that body is the same solid as SolidWorks' STEP on all 49. OpenCascade reads every file as one valid solid, and subtracting one from the other leaves nothing in either direction. Volumes match to 15 decimal places, and match the hand-worked values for the cubes, holes, cone, sphere, torus and crossed cylinders ([EXP-076](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP076.md)).
 - Our STL has the exact same bounding box as SolidWorks' STL on all 13 controlled cubes. SolidWorks' own STL of three of them is missing a whole face. Ours isn't.
 
 To run the tests yourself you need the corpus, which lives in the dump repo:
@@ -99,7 +103,8 @@ Without it, the tests that need the corpus show up as skipped.
 
 ## What it can't do yet
 
-- STEP export still turns curved faces into triangles. Now that the B-rep decode matches SolidWorks exactly, the exact STEP writer is next.
+- Exact STEP only works when every curve in the part is one we can write. Intersection curves and edges that keep their curve somewhere else still aren't handled, and that's 6 of the 8 real parts in the corpus. Those get a mesh STEP instead, and the tool tells you when that happens. That's what I'm working on next.
+- Swept and rolling-ball blend surfaces are read but not evaluated yet.
 - It only reads. It can't write SLDPRT.
 - It's tested on 2011 and 2022 files plus 21 real parts whose version nobody recorded. Other versions probably work, but I haven't proven that.
 - Single parts only. No assemblies, drawings or feature history.
@@ -115,8 +120,10 @@ src/
   display.js          the mesh reader, runs in Node and the browser
   inflate.js          zlib for the browser
   parasolid/          partition.js, xt.js (Parasolid reader), topology.js
-  brep/, step/, geom/ B-rep model, STEP reader, NURBS maths
-  convert.js          STL / STEP writer
+  brep/               native.js (the body as vertices, edges, faces), seams.js, volume.js, compare.js
+  step/               read.js, write.js (exact STEP)
+  geom/               curve, surface and NURBS maths
+  convert.js          STL and mesh STEP
   render.js           the six-view PNGs
   terminal-viewer.js  sldprt view
   serve.js            sldprt serve
@@ -128,7 +135,7 @@ docs/                 how the format works, validation, history, open questions
 
 ## The research
 
-The whole lab notebook is in [sldprt-research-dump](https://github.com/blussyya/sldprt-research-dump). Every experiment from EXP-001 to EXP-075 is there with its script, raw output and later corrections, along with the test corpus and every old parser and converter. This repo keeps only the current code and the cleaned-up results.
+The whole lab notebook is in [sldprt-research-dump](https://github.com/blussyya/sldprt-research-dump). Every experiment from EXP-001 to EXP-076 is there with its script, raw output and later corrections, along with the test corpus and every old parser and converter. This repo keeps only the current code and the cleaned-up results.
 
 If you want the story in one page, including all the stuff we got wrong along the way, read [docs/history.md](docs/history.md).
 

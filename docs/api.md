@@ -71,15 +71,31 @@ partition sections, B-rep census and graph-check totals. This is what `sldprt in
 ## Export
 
 ```js
-sldprt.toSTL(file)                   // Buffer, binary STL in millimetres
-sldprt.toSTL(file, { ascii: true })  // string
-sldprt.toSTEP(file)                  // { text, report }  AP214
-sldprt.toSTEP(file, { mode: 'faceted' })
+sldprt.toSTL(file)                       // Buffer, binary STL in millimetres
+sldprt.toSTL(file, { ascii: true })      // string
+sldprt.toSTEP(file)                      // { text, report }  AP214, exact if it can be
+sldprt.toSTEP(file, { source: 'brep' })  // exact or throw
+sldprt.toSTEP(file, { source: 'mesh' })  // from the display mesh (same as mode: 'faceted')
+sldprt.volume(file)                      // { volume (m³), faces, unsupported }
 ```
 
-Both currently export the display mesh. Planes go into STEP as exact planes and other surfaces as
-facets (see [validation](validation.md#stl-and-step-export-display-mesh)). `scale` (default 1000)
-converts metres to the output unit.
+STL is always the display mesh. STEP, by default, is written from the Parasolid body: exact
+surfaces and curves, the same solid as SolidWorks' own export on every controlled model. If the
+body uses something the writer doesn't handle yet (INTERSECTION curves, curveless edges) or fails
+a graph check, `toSTEP` falls back to the mesh and says so: `report.source` is `'brep'` or
+`'mesh'`, and `report.fallback` holds the reason. `scale` (default 1000) converts metres to the
+output unit; `scale: 1` writes metres.
+
+`volume` integrates the exact enclosed volume from the body's surfaces and curves, with no mesh.
+
+The pieces are exposed too, for working with the body directly:
+
+```js
+const model = sldprt.brep.model(sldprt.readBrep(file).parsed);  // vertices, edges, faces
+sldprt.brep.volume(model);
+sldprt.step.write(model, { name, scale });   // { text, report }
+sldprt.step.read(text);                      // a STEP file back into the same model shape
+```
 
 ## Lower-level modules
 

@@ -5,7 +5,7 @@
  *   readBrep(text)     -> neutral B-rep model (see src/brep/model.js), lengths in metres
  *
  * Covers what SolidWorks writes for parts: MANIFOLD_SOLID_BREP / CLOSED_SHELL / ADVANCED_FACE,
- * FACE_(OUTER_)BOUND, EDGE_LOOP, ORIENTED_EDGE, EDGE_CURVE, VERTEX_POINT; PLANE, CYLINDRICAL_,
+ * FACE_(OUTER_)BOUND, EDGE_LOOP, VERTEX_LOOP, ORIENTED_EDGE, EDGE_CURVE, VERTEX_POINT; PLANE, CYLINDRICAL_,
  * CONICAL_, SPHERICAL_, TOROIDAL_SURFACE, B_SPLINE_SURFACE_WITH_KNOTS (plain and rational);
  * LINE, CIRCLE, ELLIPSE, B_SPLINE_CURVE_WITH_KNOTS (plain and rational), SURFACE_CURVE /
  * SEAM_CURVE (their 3D curve). Anything else stops with an error naming the entity.
@@ -117,7 +117,9 @@ function readBrep(text){
     const f=get(fr);if(f.type!=='ADVANCED_FACE'&&f.type!=='FACE_SURFACE')throw Error('STEP: unsupported face '+typeOf(f));
     const loops=[];
     for(const br of f.args[1]){
-      const b=get(br),loop=get(b.args[1]);if(loop.type!=='EDGE_LOOP')throw Error('STEP: unsupported loop '+typeOf(loop));
+      const b=get(br),loop=get(b.args[1]);
+      if(loop.type==='VERTEX_LOOP'){loops.push({outer:b.type==='FACE_OUTER_BOUND',coedges:[],vertex:vertex(loop.args[1])});continue;}
+      if(loop.type!=='EDGE_LOOP')throw Error('STEP: unsupported loop '+typeOf(loop));
       const flip=b.args[2].enum==='F';
       const co=loop.args[1].map(or=>{const o=get(or);if(o.type!=='ORIENTED_EDGE')throw Error('STEP: expected ORIENTED_EDGE');
         return {edge:edge(o.args[3]),sense:o.args[4].enum==='T'};});

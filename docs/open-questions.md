@@ -7,17 +7,20 @@ in the dump.
 
 ## Toward exact conversion
 
-**Answered: the decoded body matches SolidWorks' STEP export.** It agrees on all 49 controlled
-models to 9e-18 m (EXP-075, [parasolid.md](format/parasolid.md#how-well-it-reads)). The exact
-STEP writer is built on it; its own validation is in progress.
+**Answered: the decoded body matches SolidWorks' STEP export, and we can write it.** It agrees on
+all 49 controlled models to 9e-18 m (EXP-075), and the exact STEP writer produces the same solid as
+SolidWorks' export on all 49 (EXP-076, [parasolid.md](format/parasolid.md#writing-it-back-out-as-step)).
 
 **Production-only geometry.** The production parts use INTERSECTION curves, edges whose curve
 lives on their fins, swept surfaces and rolling-ball blends. None of these occur in a model with a
-STEP export, so they can only be checked against the display mesh.
+STEP export, so they can only be checked against the display mesh. The first two are what blocks
+exact STEP on 6 of the 8 real parts with a body (distributor, Helical Bevel Gear, Pocket Wheel and
+USB hub BOTTOM have INTERSECTION curves; Dekor and USB hub TOP have curveless edges). Those parts
+get a mesh STEP for now.
 
-**Evaluating B-spline, swept and blended surfaces.** Their control points, knots and defining
-data are read, but nothing yet evaluates them, so the mesh cannot be checked against them and a
-writer cannot sample them. STEP has B-spline surfaces natively. Swept surfaces and rolling-ball
+**Evaluating swept and blended surfaces.** B-spline surfaces are evaluated and written exactly.
+Swept and rolling-ball blend surfaces are read but nothing evaluates them yet, so the mesh cannot
+be checked against them and the writer cannot sample them. STEP has B-spline surfaces natively. Swept surfaces and rolling-ball
 blends have no direct STEP equivalent and will need either an exact mapping or a stated
 approximation.
 

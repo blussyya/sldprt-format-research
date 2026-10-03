@@ -53,9 +53,25 @@ Against SolidWorks' own exports of the 13 controlled cubes C00–C12:
 SolidWorks' STL exports of C03, C09 and C11 have no −X face at all, and C04's has no top cap. The
 SLDPRT's own mesh has them. Do not use those STL files as watertight ground truth.
 
-The current STEP writer emits planes as exact planes and everything else as facets. A curved
-face in that STEP is therefore an approximation. The exact writer that uses the Parasolid body is
-in progress (see [open questions](open-questions.md)).
+That is the mesh STEP (`--mesh`), which writes planes exactly and everything else as facets. By
+default STEP now comes from the Parasolid body instead (next section); the mesh is the fallback.
+
+## Exact STEP export (B-rep)
+
+Against SolidWorks' own `model.step` of all 49 controlled models
+([EXP-076](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP076.md)):
+
+| check | result |
+|---|---|
+| Our STEP reads back as the native body (EXP-075's comparison, 1e-8 m) | 49 / 49 (first writer: 42 / 49) |
+| OpenCascade reads it as one valid solid | 49 / 49 |
+| OpenCascade boolean difference with SolidWorks' STEP, both directions | 0 on 49 / 49 |
+| Exact volume, ours vs SolidWorks' STEP | worst 5.6e-15 relative |
+| Exact volume vs closed form (cubes, shell, chamfer, holes, cone, sphere, torus, half cylinder, crossed cylinders) | 24 files, worst 4.3e-15 relative |
+| OpenCascade's volume equals ours to 1e-12 | 47 / 49; both misses are C20, where OpenCascade is the one off the closed form |
+| Real parts with a body exported exactly | 2 / 8 (PTC, cube); the other 6 fall back to the mesh |
+
+The OpenCascade checks need Python and run in the dump, not in `npm test`.
 
 ## Parasolid body
 

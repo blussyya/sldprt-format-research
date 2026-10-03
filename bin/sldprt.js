@@ -5,8 +5,8 @@
  *
  *   sldprt info    <model.SLDPRT>                      what is in the file
  *   sldprt parse   <model.SLDPRT>                      display mesh as JSON (stdout)
- *   sldprt convert <model.SLDPRT> [--stl F] [--step F] [--ascii] [--faceted] [--scale N]
- *   sldprt brep    <model.SLDPRT> [--json|--nodes]     native Parasolid body
+ *   sldprt convert <model.SLDPRT> [--stl F] [--step F] [--ascii] [--brep|--mesh] [--scale N]
+ *   sldprt brep    <model.SLDPRT> [--json|--nodes] [--volume]   native Parasolid body
  *   sldprt render  <model.SLDPRT> [out.png]            six-view PNG contact sheet
  *   sldprt view    <model.SLDPRT> [--still] [--dark]   interactive terminal viewer
  *   sldprt serve   [--port N] [--host H] [--open]      browser viewer
@@ -17,11 +17,16 @@ const USAGE=`usage: sldprt <command> [options]
 
   info    <model.SLDPRT>                    container, streams, versions, counts, B-rep census
   parse   <model.SLDPRT>                    display mesh as JSON on stdout
-  convert <model.SLDPRT> [--stl out.stl] [--step out.step] [--ascii] [--faceted] [--scale N]
+  convert <model.SLDPRT> [--stl out.stl] [--step out.step] [--ascii] [--brep | --mesh] [--scale N]
                                             STL and/or STEP; with neither flag both are written
-                                            next to the input
-  brep    <model.SLDPRT> [--json | --nodes] native Parasolid B-rep: node census and graph checks
-                                            (--json: summary as JSON, --nodes: every typed node)
+                                            next to the input. STEP has exact geometry from the
+                                            B-rep, or comes from the mesh when the B-rep uses a
+                                            type not supported yet (--brep: fail instead,
+                                            --mesh: always use the mesh)
+  brep    <model.SLDPRT> [--json | --nodes] [--volume]
+                                            native Parasolid B-rep: node census and graph checks
+                                            (--json: summary as JSON, --nodes: every typed node,
+                                            --volume: exact volume)
   render  <model.SLDPRT> [out.png]          six-view contact sheet of the display mesh
   view    <model.SLDPRT> [--still] [--dark] [--edges|--no-edges]
                                             interactive terminal viewer (truecolor terminal)
@@ -67,15 +72,19 @@ const commands={
   const wantStl=has(a,'--stl')||!has(a,'--step'),wantStep=has(a,'--step')||!has(a,'--stl');
   const scale=Number(opt(a,'--scale',String(C.SCALE)));
   if(!Number.isFinite(scale)||scale<=0){console.error('--scale must be a positive number, got '+JSON.stringify(opt(a,'--scale','')));return 2;}
-  const parsed=S.parse(file);
-  if(!parsed.faces||!parsed.faces.length){console.error('cannot convert: '+(parsed.errors.length?parsed.errors.join('; '):'no faces'));return 1;}
-  const m=C.loadModel(parsed),out={input:file,faces:m.faceCount,triangles:m.triangleCount};
-  if(wantStl){const f=opt(a,'--stl',base+'.converted.stl');
+  if(has(a,'--mesh')&&has(a,'--brep')){console.error('--mesh and --brep are mutually exclusive');return 2;}
+  const source=has(a,'--brep')?'brep':has(a,'--mesh')||has(a,'--faceted')?'mesh':'auto';
+  const out={input:file};
+  if(wantStl){
+   const parsed=S.parse(file);
+   if(!parsed.faces||!parsed.faces.length){console.error('cannot write STL: '+(parsed.errors.length?parsed.errors.join('; '):'no faces'));return 1;}
+   const m=C.loadModel(parsed),f=opt(a,'--stl',base+'.converted.stl');
    const buf=has(a,'--ascii')?Buffer.from(C.toSTLAscii(m,{scale,name}),'ascii'):C.toSTLBinary(m,{scale});
-   fs.writeFileSync(f,buf);out.stl={file:f,bytes:buf.length,format:has(a,'--ascii')?'ascii':'binary'};}
+   fs.writeFileSync(f,buf);out.stl={file:f,bytes:buf.length,format:has(a,'--ascii')?'ascii':'binary',faces:m.faceCount,triangles:m.triangleCount};}
   if(wantStep){const f=opt(a,'--step',base+'.converted.step');
-   const {text,report}=C.toSTEP(m,{scale,name,mode:has(a,'--faceted')?'faceted':'auto'});
-   fs.writeFileSync(f,text);out.step={file:f,bytes:text.length,...report};}
+   let r;try{r=S.toSTEP(file,{scale,name,source});}catch(e){console.error('cannot write STEP: '+e.message);return 1;}
+   fs.writeFileSync(f,r.text);out.step={file:f,bytes:r.text.length,...r.report};
+   if(r.report.fallback)console.error('note: STEP from the display mesh (curved faces as facets): '+r.report.fallback);}
   console.log(JSON.stringify(out,null,2));return 0;
  },
  brep(a){
@@ -87,6 +96,8 @@ const commands={
   console.log(`source   ${sum.source} (${sum.kind})\nschema   ${sum.schema}\nnodes    ${sum.nodes}${sum.error?'  — stopped: '+sum.error:''}`);
   console.log('census   '+Object.entries(sum.census).map(([k,v])=>`${k}×${v}`).join('  '));
   console.log(`graph    ${sum.graphChecks} checks, ${sum.graphErrors.length} failed${sum.graphErrors.length?':\n  '+sum.graphErrors.slice(0,20).join('\n  '):''}`);
+  if(has(a,'--volume')){let v;try{v=S.volume(a[0]);}catch(e){v={error:e.message};}
+   console.log('volume   '+(v.error?'not computed: '+v.error:v.volume===undefined?'not computed: unsupported '+v.unsupported.join(', '):(v.volume*1e9).toFixed(6)+' mm³ (exact, from the B-rep)'));}
   return sum.error||sum.graphErrors.length?1:0;
  },
  render(a){

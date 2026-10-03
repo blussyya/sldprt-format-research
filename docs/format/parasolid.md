@@ -235,6 +235,43 @@ exported one on 47 of 49 models. The two lofts (C16, both eras) differ: native `
 2 against the export's 1, and several curve references and types differ
 ([EXP-072](https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP072.md)).
 
+## Writing it back out as STEP
+
+`src/step/write.js` writes the decoded body as AP214 STEP: planes, cylinders, cones, spheres, tori
+and B-spline surfaces (rational ones too), and lines, circles, ellipses and B-spline curves. Nothing
+is triangulated. Two things in Parasolid have no direct STEP form, and the first version of the
+writer missed both. It only round-tripped 42 of the 49 controlled models:
+
+- **A cone's apex** is a loop with one fin and no edge. It is now kept as a vertex loop and written
+  as `VERTEX_LOOP`. SolidWorks' own export splits the cone in two instead, so the apex becomes an
+  ordinary vertex. Either is valid STEP.
+- **A whole sphere or torus** is one face with no loops at all. STEP needs every face to have a
+  boundary, so `src/brep/seams.js` cuts a sphere into two halves along two meridians and a torus
+  into four quarters, the way SolidWorks does.
+
+A closed edge with no vertex (the circle round a hole) gets one vertex at the start of its curve.
+A hole's cylinder, bounded by a circle at each end, is written as one face with two loops and no
+seam.
+
+With those, the written file reads back as the native body on all 49 models. OpenCascade reads
+every one as a single valid solid, and the boolean difference with SolidWorks' `model.step` is zero
+in both directions on all 49. Volumes, from the exact integrator below, agree with SolidWorks'
+STEP to 6e-15 relative and with closed-form values to 4e-15
+([EXP-076](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP076.md), `test/step-write.test.js`).
+
+**Exact volume.** `src/brep/volume.js` computes the enclosed volume straight from the surfaces and
+curves. The divergence theorem turns it into a sum over faces, and Green's theorem turns each face
+into an integral round its boundary in the surface's own parameters, so there is no mesh anywhere.
+OpenCascade agrees on 47 of 49. On C20 (two crossed cylinders) it returns three different values
+for three ways of cutting up the same solid, all about 1e-4 mm³ off the closed form; ours is 3e-12
+off. The C16 loft's boundary circles are Parasolid tolerant edges (1.9e-8 m off the surface, with
+2.07e-6 m declared), so its volume is only defined to about 0.025 mm³, and SolidWorks, OpenCascade
+and this integrator all fall inside that.
+
+**What still blocks real parts.** INTERSECTION curves and edges that keep their curve on the fins
+are not written yet. They block 6 of the 8 real parts that have a body; those export from the mesh
+instead (see [open questions](../open-questions.md)).
+
 ---
 
 ## The join with the display mesh
