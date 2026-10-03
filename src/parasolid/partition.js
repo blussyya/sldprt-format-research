@@ -20,7 +20,7 @@
  */
 const zlib=require('zlib');
 const modern=require('../container/modern'),OLE=require('../container/ole');
-const {parse}=require('./xt');
+const {parse}=require('./xt'),{blast}=require('../container/blast');
 
 const GUID=Buffer.from('231dd571da8148a2a85898b21b89ef99','hex');
 const MAX=128*1024*1024;
@@ -95,10 +95,30 @@ function survey(raw,all){
   return rows;
 }
 
-/* The saved solid body, parsed. Returns {source, kind, parsed}; throws if no partition exists. */
+/* Pre-2011 files (EXP-077) have no Config-N-Partition. Their body is one of:
+ *   Config-N-Body   u32le compressed length | PKWARE DCL implode   -> neutral binary "PS" transmit
+ *                   (chainwheel: Parasolid 13, schema 13006 itself, no edit scripts)
+ *   <config name>   u32le length | bare binary transmit, little-endian, starting "B"
+ *                   (plate4: stream "Default", Parasolid 9, schema 9008)
+ * A part with no solid (SW2000-s01: planes and origin only) has neither. */
+function legacyBody(all){
+  for(const [k,b] of Object.entries(all)){
+    if(b.length<8||b.readUInt32LE(0)!==b.length-4)continue;
+    if(/^Config-\d+-Body$/.test(k)){const inner=blast(b.subarray(4),{maxOutput:MAX}).data;if(inner.subarray(0,4).toString('latin1')==='PS\0\0')return {name:k,inner,kind:'body (PKWARE implode)'};}
+    else if(b[4]===66&&/^: TRANSMIT FILE/.test(b.subarray(9,24).toString('latin1')))return {name:k,inner:b.subarray(4),kind:'body (bare binary)'};
+  }
+  return null;
+}
+
+/* The saved solid body, parsed. Returns {source, kind, parsed}; throws if no body exists. */
 function readBody(raw,options={}){
   raw=asBuffer(raw);
   const all=streams(raw);
+  if(modern.isOLE2(raw)&&!('Config-0-Partition' in all)){
+    const l=legacyBody(all);
+    if(!l)throw Error('No Parasolid body: no Config-0-Partition, Config-N-Body or transmit stream (a part with no solid has none)');
+    return {source:l.name,kind:l.kind,parsed:parse(l.inner,true,options)};
+  }
   const primary=extractPrimary(raw,modern.isOLE2(raw)?null:all);
   let parsed=parse(primary.inner,true,options),source=primary.name,kind='partition';
   if(!parsed.error&&!parsed.nodes.some(n=>n.type===14)){
@@ -114,4 +134,4 @@ function readBody(raw,options={}){
   return {source,kind,parsed};
 }
 
-module.exports={GUID,streams,sections,extractPrimary,survey,readBody};
+module.exports={GUID,streams,sections,extractPrimary,survey,legacyBody,readBody};

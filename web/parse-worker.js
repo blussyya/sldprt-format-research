@@ -1,5 +1,5 @@
 /* Parse untrusted local files away from the UI thread. Parent can terminate us. */
-importScripts('../src/container/modern.js','../src/container/ole.js','../src/display.js','../src/inflate.js');
+importScripts('../src/container/modern.js','../src/container/blast.js','../src/container/ole.js','../src/display.js','../src/inflate.js');
 onmessage=function(event){
   try{
     const parsed=SLDPRTDisplay.parseSLDPRT(new Uint8Array(event.data),SLDPRTInflate.inflateRaw,SLDPRTInflate.inflate);

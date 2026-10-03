@@ -6,7 +6,8 @@ A SolidWorks part file, read from the outside in. Each layer links to its full d
 .SLDPRT
 ├── container ─────────────────────────────── container.md
 │   ├── modern (2015+): ZIP-like stream headers, rotated names, raw DEFLATE, CRC-32
-│   └── legacy (2011): OLE2 compound document, framed zlib streams
+│   ├── legacy (2011): OLE2 compound document, framed zlib streams
+│   └── pre-2011 (Parasolid 9–13 era): OLE2, PKWARE DCL "implode" streams
 │
 ├── DisplayLists ──────────────────────────── displaylists.md
 │   │   the mesh SolidWorks draws, one record per B-rep face
@@ -18,7 +19,9 @@ A SolidWorks part file, read from the outside in. Each layer links to its full d
 │
 ├── Config-0-Partition ────────────────────── parasolid.md
 │   │   framed zlib sections: (partition) + (deltas)
-│   └── Parasolid XT neutral binary, schema 13006
+│   │   (pre-2011: Config-0-Body, PKWARE-compressed, or a bare little-endian
+│   │    transmit stream named after the configuration)
+│   └── Parasolid XT neutral binary, schema 13006 (pre-2011 also schema 9008)
 │       WORLD → BODY → REGION/SHELL → FACE → LOOP → FIN → EDGE / VERTEX
 │       surfaces: plane, cylinder, cone, sphere, torus, B-spline, swept, blend
 │       curves:   line, circle, ellipse, B-spline, intersection, trimmed, SP-curve
@@ -36,6 +39,7 @@ A SolidWorks part file, read from the outside in. Each layer links to its full d
 | curved faces | facets; boundary points sit on chords | exact |
 | use it for | STL, viewing, a fallback when no body can be read | exact STEP, measurement |
 | SW2011 | mesh and bounding boxes; no surface record | full body |
+| pre-2011 | mesh and bounding boxes, from `DisplayLists__Zip` or plain `DisplayLists` | full body, from `Config-0-Body` or the configuration stream |
 | link between them | face and edge IDs are the same numbers in both | |
 
 The project read the display mesh first, because it carried no published specification and the

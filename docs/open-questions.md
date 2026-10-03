@@ -11,12 +11,14 @@ in the dump.
 all 49 controlled models to 9e-18 m (EXP-075), and the exact STEP writer produces the same solid as
 SolidWorks' export on all 49 (EXP-076, [parasolid.md](format/parasolid.md#writing-it-back-out-as-step)).
 
-**Production-only geometry.** The production parts use INTERSECTION curves, edges whose curve
-lives on their fins, swept surfaces and rolling-ball blends. None of these occur in a model with a
-STEP export, so they can only be checked against the display mesh. The first two are what blocks
-exact STEP on 6 of the 8 real parts with a body (distributor, Helical Bevel Gear, Pocket Wheel and
-USB hub BOTTOM have INTERSECTION curves; Dekor and USB hub TOP have curveless edges). Those parts
-get a mesh STEP for now.
+**Writing the production-only curves.** Where they're stored is now established (EXP-077,
+[parasolid.md](format/parasolid.md#where-the-curves-the-writer-cant-use-yet-are-stored)):
+INTERSECTION curves are two surfaces plus a chart of exact points, and tolerant edges keep a 2D
+curve on each of their two faces. What's left is writing them: march each intersection from its
+chart to a stated tolerance, and write tolerant edges as STEP surface curves. INTERSECTION curves
+block 7 real parts (distributor, Helical Bevel Gear, Pocket Wheel, USB hub BOTTOM and TOP, Dekor,
+chainwheel); tolerant edges also appear in Dekor and USB hub TOP. Those parts get a mesh STEP for
+now.
 
 **Evaluating swept and blended surfaces.** B-spline surfaces are evaluated and written exactly.
 Swept and rolling-ball blend surfaces are read but nothing evaluates them yet, so the mesh cannot
@@ -24,9 +26,6 @@ be checked against them and the writer cannot sample them. STEP has B-spline sur
 blends have no direct STEP equivalent and will need either an exact mapping or a stated
 approximation.
 
-**Procedural curves.** INTERSECTION and SP_CURVE edges are stored as defining data rather than
-explicit curves. Exact STEP output needs either their STEP equivalents (`SURFACE_CURVE`,
-`PCURVE`) or a fitted B-spline with a stated tolerance.
 
 **The two lofts.** In C16, both eras, the embedded body differs from the exported one in
 `nom_geom_state` and in several curve references. Which one SolidWorks treats as the part is
@@ -60,8 +59,19 @@ chord between on-surface samples. Everything else off-surface is explained.
 
 - The modern container's directory: the reader finds streams by signature scan.
 - The per-file value at stream header +0.
-- Pre-2011 files: `DisplayLists__Zip`, the `plate4` array layout, and their B-rep (`Config-0-Body`
-  in chainwheel).
+- Pre-2011 files are read (EXP-077). Open: what strip control 0 means beyond "single triangle",
+  the two empty arrays in chainwheel's face records, and 57 chainwheel mesh vertices off the
+  surfaces.
 - SolidWorks versions other than 2011 and 2022 are covered only by the production parts, whose
   versions are not recorded.
 - Assemblies and drawings are out of scope so far.
+
+## Feature tree
+
+The history (features, sketches, dimensions, configurations, materials) is in MFC `CArchive`
+streams: `Config-0`, `Header`, `CMgr`, `Biography`, `History`, `Definition`, and in modern files
+their counterparts inside the container. Class names are plain text (`moPart_c`,
+`moRefPlane_c`, `moOriginProfileFeature_c`, `sgSketch`, …), so the stream is readable as a tree of
+objects, but no object's fields are decoded. Rebuilding a part from its history would need every
+feature type SolidWorks has. That is a much larger job than the geometry, and nothing in exact
+STEP or STL depends on it.

@@ -96,6 +96,32 @@ Every file in the corpus uses base schema **13006**, under five modeller version
 
 The reader refuses any other base schema.
 
+### Older transmit files
+
+Two older forms occur in the pre-2011 parts ([EXP-077]({X})):
+
+**Written in schema 13006 itself** (chainwheel, `SCH_1300242_13006`, Parasolid 13.0). The schema
+name has two numbers instead of three, the node-type count is absent from the header, and no type
+carries schema data before its first node: every layout is the base one. One difference shows up:
+LIST has twelve fields here, the nine that later edit scripts copy plus `current_block` (pointer),
+`current_position` (int) and `finished` (logical). The names follow the XT reference; the layout
+is confirmed by the file parsing to its last byte.
+
+**Bare binary, Parasolid 9** (plate4, `SCH_900203_9008`). `B` instead of `PS 00 00`, the
+description length as an int32, and every number little-endian. Schema 9008 differs from 13006 in
+five node types:
+
+| type | difference from 13006 |
+|---|---|
+| BODY | no `nom_geom_state` |
+| FIN | no `attributes_groups` field at the front |
+| ATTRIB_DEF | no `field_names` pointer; 13 legal-owner flags instead of 14 |
+| LIST | the twelve-field layout above |
+| KEY (102) | a variable-length string, not in the 13006 table |
+
+Both files parse to the terminator with every byte consumed and no graph-check failures (13,527
+checks for chainwheel, 900 for plate4).
+
 ### Schema edits
 
 The file does not repeat the field layout of every node type. The first time a node type
@@ -235,6 +261,46 @@ exported one on 47 of 49 models. The two lofts (C16, both eras) differ: native `
 2 against the export's 1, and several curve references and types differ
 ([EXP-072](https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP072.md)).
 
+## Where the curves the writer can't use yet are stored
+
+Two kinds of edge in the real parts don't have a simple curve on the EDGE node. Both are now
+located and checked ([EXP-077]({X})).
+
+**INTERSECTION curves** (node type 38). The curve where two surfaces meet. The node holds:
+
+- `surface[2]`: the two surfaces;
+- `chart`: a CHART node (type 40) with `chart_count` points (`hvec[]`, 3 doubles each) along the
+  curve, and the errors they were made to: `chordal_error`, `angular_error`, `parameter_error[2]`;
+- `start`, `end`: LIMIT nodes (type 41) that fix where the curve is cut off.
+
+The seven parts that have them hold 394 intersection curves. On the 392 whose two surfaces we can
+evaluate (the other two touch a blend surface), all 2,170 chart points lie on **both** surfaces to
+3e-15 m. So the chart is a list of exact points on the true curve, between 2 and 20 of them, and
+`chordal_error` says how far the straight chords between them stray from it (up to 2.5 mm, in
+Helical Bevel Gear). The exact curve is the surface-surface
+intersection itself; the chart is where to start marching it. Charts are not accurate enough to
+write on their own.
+
+**Tolerant edges** (20 in Dekor, 7 in USB hub TOP). The EDGE has `curve` null and a nonzero
+`tolerance` (5e-7 m in Dekor, 1e-5 m in USB TOP). Each of its two FINs carries its own curve
+instead:
+
+```
+FIN.curve → TRIMMED_CURVE (point_1, point_2, parm_1, parm_2)
+          → SP_CURVE (surface, b_curve)
+          → B_CURVE → NURBS_CURVE, 2D (u,v) control points in that surface's parameters
+```
+
+So the edge exists twice: once drawn on each face it separates. Evaluated through its surface,
+each fin curve hits the stored trim points to 1e-16 m (54 of 54). The two copies stay within the
+edge's tolerance of each other (27 of 27 edges; 0.21 µm apart at worst in Dekor, 1.76 µm in USB
+TOP). This also confirms that Parasolid's (u,v) parametrisation of planes, cylinders, tori and
+B-spline surfaces is the one `src/brep/volume.js` uses.
+
+What's left for exact STEP is therefore writing, not finding: march INTERSECTION curves from their
+charts to a stated tolerance, write tolerant edges as STEP surface curves with their 2D
+parameter curves, and evaluate the two surface types still unread (SWEPT_SURF, BLENDED_EDGE).
+
 ## Writing it back out as STEP
 
 `src/step/write.js` writes the decoded body as AP214 STEP: planes, cylinders, cones, spheres, tori
@@ -268,9 +334,10 @@ off. The C16 loft's boundary circles are Parasolid tolerant edges (1.9e-8 m off 
 2.07e-6 m declared), so its volume is only defined to about 0.025 mm³, and SolidWorks, OpenCascade
 and this integrator all fall inside that.
 
-**What still blocks real parts.** INTERSECTION curves and edges that keep their curve on the fins
-are not written yet. They block 6 of the 8 real parts that have a body; those export from the mesh
-instead (see [open questions](../open-questions.md)).
+**What still blocks real parts.** INTERSECTION curves and tolerant edges are not written yet
+(where they're stored is [above](#where-the-curves-the-writer-cant-use-yet-are-stored)). They block 7
+of the 10 real parts that have a body; those export from the mesh instead. plate4, a Parasolid 9
+body, exports exactly: 14 planes, 38,400,000 mm³, and OpenCascade agrees on both.
 
 ---
 
@@ -313,11 +380,9 @@ IDs connect the two exactly.
 
 ## Not yet established
 
-- Geometry types that occur only in the production parts, which have no STEP export to compare
-  against: INTERSECTION curves, edges whose curve lives on their fins, SWEPT_SURF and
-  BLENDED_EDGE surfaces.
-- Evaluating B-spline, swept and blended surfaces against the mesh. They are read and counted but
-  not evaluated.
+- Writing INTERSECTION curves and tolerant edges to STEP. Where they are stored is established
+  (above); the writer doesn't handle them yet.
+- Evaluating SWEPT_SURF and BLENDED_EDGE surfaces.
 - The role of `(deltas)` sections, ghost partitions and ResolvedFeatures bodies.
 - The 64-byte LocalBodies prefix.
 - Attribute meanings beyond their structure, and enum values beyond those observed.

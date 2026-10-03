@@ -54,6 +54,16 @@ test('production parts: exact where every type is supported, mesh fallback other
   assert.equal(got['PTC GE8080-8.SLDPRT'],'brep');
   assert.equal(got['Pocket Wheel.SLDPRT'],'mesh');
   assert.equal(got['cube.SLDPRT'],'brep');
-  assert.deepEqual([count('brep'),count('mesh'),count('none')],[2,6,3]);
-  t.diagnostic(`exact B-rep STEP ${count('brep')}, mesh fallback ${count('mesh')}, no geometry ${count('none')} (pre-2011)`);
+  assert.equal(got['plate4.sldprt'],'brep');        // Parasolid 9 body, all planes
+  assert.equal(got['chainwheel.sldprt'],'mesh');    // INTERSECTION curves; mesh from DisplayLists__Zip
+  assert.equal(got['SW2000-s01.SLDPRT'],'none');    // no solid in the part
+  assert.deepEqual([count('brep'),count('mesh'),count('none')],[3,7,1]);
+  t.diagnostic(`exact B-rep STEP ${count('brep')}, mesh fallback ${count('mesh')}, nothing to export ${count('none')}`);
+});
+
+test('plate4 (Parasolid 9): exact STEP, volume equals its own display mesh',needsCorpus,()=>{
+  const f=path.join(CORPUS,'test files original','plate4.sldprt');
+  const out=S.toSTEP(f,{source:'brep'});assert.deepEqual(out.report.surfaces,{plane:14});
+  assert(compare(native.build(S.readBrep(f).parsed),S.step.read(out.text)).pass);
+  const v=S.volume(f).volume*1e9;assert(Math.abs(v-38400000)<1e-6,String(v));
 });

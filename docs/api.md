@@ -47,7 +47,7 @@ A face:
 
 ```js
 {
-  source: 'Contents/Config-0-Partition',   // or the LocalBodies stream
+  source: 'Contents/Config-0-Partition',   // or LocalBodies; pre-2011: 'Config-0-Body' or the configuration stream
   kind: 'partition',
   parsed: {
     header: { schema, description, maxTypes, userfields },
@@ -61,7 +61,9 @@ A face:
 ```
 
 `values` holds the fields by name. Pointers are node indices; resolve them with
-`new Map(parsed.nodes.map(n => [n.index, n]))`. Throws if the file has no `Config-0-Partition`.
+`new Map(parsed.nodes.map(n => [n.index, n]))`. Throws if the file has no body at all (a part with
+no solid). `parsed.header` says which form was read: `schema`, `isBase` (written in schema 13006 or
+9008 itself, no edit scripts) and `littleEndian` (Parasolid 9 bare binary).
 
 ## `info(file)` → summary
 
@@ -103,6 +105,7 @@ sldprt.step.read(text);                      // a STEP file back into the same m
 sldprt.display                // parseSLDPRT(bytes, inflateRaw, inflateZlib), extractDisplayLists(bytes, legacy)
 sldprt.container.modern       // decompressOpenSX, findDisplayLists, displayListsVersion, crc32, isOLE2
 sldprt.container.ole          // read(bytes) -> {entries, stream(entry)}, displayLists(bytes, inflate)
+sldprt.container.blast        // blast(bytes) -> {data, consumed}: PKWARE DCL implode (pre-2011 streams)
 sldprt.parasolid.xt           // parse(bytes, binary, {maxNodes}) — also for standalone .x_t / .x_b
 sldprt.parasolid.partition    // streams, sections, extractPrimary, survey, readBody
 sldprt.parasolid.topology     // graph checks
@@ -111,12 +114,15 @@ sldprt.convert                // loadModel(parsed), toSTLBinary, toSTLAscii, toS
 
 ## In the browser
 
-`src/inflate.js`, `src/container/modern.js`, `src/container/ole.js` and `src/display.js` load as
-plain scripts and define `SLDPRTInflate`, `SLDPRTModern`, `SLDPRTOLE` and `SLDPRTDisplay`:
+`src/inflate.js`, `src/container/modern.js`, `src/container/blast.js`, `src/container/ole.js` and
+`src/display.js` load as plain scripts and define `SLDPRTInflate`, `SLDPRTModern`, `SLDPRTBlast`,
+`SLDPRTOLE` and `SLDPRTDisplay`. `blast.js` is only needed for pre-2011 files and must load
+before `ole.js`:
 
 ```html
 <script src="src/inflate.js"></script>
 <script src="src/container/modern.js"></script>
+<script src="src/container/blast.js"></script>
 <script src="src/container/ole.js"></script>
 <script src="src/display.js"></script>
 <script>

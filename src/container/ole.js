@@ -43,10 +43,17 @@
     return {entries,stream};
   }
   function displayLists(input,inflate){
-    const ole=read(input),entries=ole.entries.filter(e=>e.type===2&&/^DisplayLists(?:__ZLB)?$/.test(e.name));
+    const ole=read(input),entries=ole.entries.filter(e=>e.type===2&&/^DisplayLists(?:__ZLB|__Zip)?$/.test(e.name));
     if(entries.length!==1)throw Error(entries.length?'Multiple legacy DisplayLists streams are unsupported':'No legacy DisplayLists stream');
     const e=entries[0],raw=ole.stream(e);
     if(e.name==='DisplayLists')return {bytes:raw,stream:e.name,compressed:false};
+    // Pre-2011: PKWARE DCL implode, no frame (EXP-077)
+    if(e.name==='DisplayLists__Zip'){
+      const B=typeof SLDPRTBlast!=='undefined'?SLDPRTBlast:typeof require==='function'?require('./blast'):null;
+      if(!B)throw Error('DisplayLists__Zip needs src/container/blast.js loaded');
+      const z=B.blast(raw,{maxOutput:MAX});if(z.consumed!==raw.length)throw Error('DisplayLists__Zip: trailing bytes after the compressed stream');
+      return {bytes:new Uint8Array(z.data.buffer,z.data.byteOffset,z.data.length),stream:e.name,compressed:true};
+    }
     const magic=[35,29,213,113,218,129,72,162,168,88,152,178,27,137,239,153];
     if(raw.length<30||!magic.every((x,i)=>raw[i]===x))throw Error('Unsupported legacy DisplayLists wrapper');
     const d=new DataView(raw.buffer,raw.byteOffset,raw.byteLength),size=d.getUint32(16,true),packed=d.getUint32(20,true);

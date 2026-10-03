@@ -130,13 +130,33 @@ That is the same frame as a Parasolid partition section ([parasolid.md](parasoli
 without the leading size word: same GUID, same length fields, same eight trailing zeros. The
 reader rejects any other wrapper and checks the inflated length.
 
+## Pre-2011 files
+
+Three production parts predate the `Config-N-Partition` layout. They are still OLE2 files, but the
+streams that matter are compressed with **PKWARE DCL "implode"** (the old PKWARE Data Compression
+Library format, the one zlib's `contrib/blast` reads), not zlib. `src/container/blast.js` decodes
+it; on all three streams below it consumes every input byte exactly
+([EXP-077](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP077.md)).
+
+| file | what it is | display mesh | Parasolid body |
+|---|---|---|---|
+| `chainwheel.sldprt` | sprocket, 189 faces | `DisplayLists__Zip`: implode, no frame, 79,857 → 212,677 bytes | `Config-0-Body`: u32le compressed length, then implode, 93,387 → 158,309 bytes of neutral binary (`PS`, Parasolid 13.0) |
+| `plate4.sldprt` | block with a tab, 14 faces | `DisplayLists`, uncompressed | stream `Default` (the configuration's name): u32le length, then a bare little-endian transmit file (Parasolid 9.0) |
+| `SW2000-s01.SLDPRT` | an empty part | `DisplayLists__Zip` decodes to 1,697 bytes with no face records | none |
+
+SW2000-s01 really has no geometry: its feature tree (`Config-0`) holds only the three default
+planes, the origin and the lights, and the stored preview bitmap shows nothing but the origin
+triad. There is nothing in it to read.
+
+The implode format: byte 0 is 0 or 1 (literals stored raw or Huffman coded), byte 1 is 4, 5 or
+6 (a 1, 2 or 4 KB dictionary), then a bit stream read least significant bit first. Each item is a
+flag bit, then either a literal or a length/distance pair from fixed Huffman tables; Huffman codes
+are stored bit-inverted; length 519 ends the stream. All three streams here use `01 06`.
+
+How the body and mesh inside are laid out is in [parasolid.md](parasolid.md#older-transmit-files)
+and [displaylists.md](displaylists.md#pre-2011).
+
 ### What is not read
 
-The three oldest parts in the corpus use different layouts and are refused with an explicit
-error:
-
-| file | streams of interest | result |
-|---|---|---|
-| `SW2000-s01.SLDPRT` | `DisplayLists__Zip`, no partition | `No legacy DisplayLists stream` |
-| `chainwheel.sldprt` | `DisplayLists__Zip`, `Config-0-Body`, no partition | `No legacy DisplayLists stream` |
-| `plate4.sldprt` | uncompressed `DisplayLists` with a different array layout, no partition | `No supported face records found` |
+The feature tree and every other MFC-serialised stream (`Config-0`, `Header`, `CMgr`,
+`Biography`, `History`, `Definition`) in every era. See [open questions](../open-questions.md).

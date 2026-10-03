@@ -17,7 +17,7 @@
  *                                                                    (docs/format/parasolid.md)
  */
 const fs=require('fs'),zlib=require('zlib');
-const modern=require('./container/modern'),ole=require('./container/ole');
+const modern=require('./container/modern'),ole=require('./container/ole'),blast=require('./container/blast');
 const display=require('./display'),convert=require('./convert');
 const xt=require('./parasolid/xt'),partition=require('./parasolid/partition'),graph=require('./parasolid/topology');
 const nativeModel=require('./brep/native'),brepVolume=require('./brep/volume'),stepWriter=require('./step/write'),stepReader=require('./step/read');
@@ -89,4 +89,4 @@ function readBrep(input,opts){
 
 module.exports={parse,info,toSTL,toSTEP,readBrep,volume,inflateRaw,inflateZlib,
   brep:{model:nativeModel.build,volume:brepVolume.volume},step:{read:stepReader.readBrep,write:stepWriter.write},
-  display,convert,container:{modern,ole},parasolid:{xt,partition,topology:graph.topology,census:graph.census}};
+  display,convert,container:{modern,ole,blast},parasolid:{xt,partition,topology:graph.topology,census:graph.census}};

@@ -10,7 +10,7 @@ an experiment says otherwise.
 |---|---|---|
 | `test files new/SW2022` | 24 | Purpose-built, one feature per model, dimensions fixed in advance. Each ships `model.SLDPRT`, `model.step`, `model.STL`, `model.x_t`, `model.x_b`, and the build log records the face count and SolidWorks' own surface type for every face. |
 | `test files new/SW2011` | 25 | The same models built in SolidWorks 2011 (legacy container), geometry-matched to the 2022 set. |
-| `test files original` | 24 | Production parts (gear, sprocket, enclosures, an ornamental panel, an imported STEP body), the first controlled cubes C00–C12, and three pre-2011 parts. |
+| `test files original` | 24 | Production parts (gear, sprocket, enclosures, an ornamental panel, an imported STEP body), the first controlled cubes C00–C12, and three pre-2011 parts (one of them an empty part with no solid). |
 
 That is 73 SLDPRT files in all. The corpus is in the
 [dump repository](https://github.com/blussyya/sldprt-research-dump), not this one.
@@ -30,7 +30,8 @@ That is 73 SLDPRT files in all. The corpus is in the
 | Boundary annotations nonzero / interior annotations zero | 41,010 / 41,010 and 71,037 / 71,037 |
 | Legacy mesh box equals the dimensions fixed before building ([EXP-066](https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-22_v0.5-EXP066.md)) | 7 / 7 |
 | Legacy mesh box equals the geometry-matched 2022 model's (within 2e-5 m) | 22 / 22 |
-| Pre-2011 files refused with an explicit error | 3 / 3 |
+| Pre-2011 meshes read; face count equals the native body's ([EXP-077](https://github.com/blussyya/sldprt-research-dump/blob/staging/knowledge/evidence/2026-10-03_v0.5-EXP077.md)) | chainwheel 189 / 189, plate4 14 / 14; SW2000-s01 has no solid and no faces |
+| PKWARE implode streams decoded with every input byte consumed | 3 / 3 |
 
 Corruption controls: a flipped CRC bit, a truncated OLE header, truncated OLE sectors, an invalid
 sector shift, a cyclic directory chain, a bad zlib Adler-32, truncated zlib data, and an edge table
@@ -69,7 +70,7 @@ Against SolidWorks' own `model.step` of all 49 controlled models
 | Exact volume, ours vs SolidWorks' STEP | worst 5.6e-15 relative |
 | Exact volume vs closed form (cubes, shell, chamfer, holes, cone, sphere, torus, half cylinder, crossed cylinders) | 24 files, worst 4.3e-15 relative |
 | OpenCascade's volume equals ours to 1e-12 | 47 / 49; both misses are C20, where OpenCascade is the one off the closed form |
-| Real parts with a body exported exactly | 2 / 8 (PTC, cube); the other 6 fall back to the mesh |
+| Real parts with a body exported exactly | 3 / 10 (PTC, cube, plate4); the other 7 fall back to the mesh |
 
 The OpenCascade checks need Python and run in the dump, not in `npm test`.
 
@@ -85,6 +86,9 @@ The OpenCascade checks need Python and run in the dump, not in `npm test`.
 | Embedded body = SolidWorks' STEP export: every vertex, edge and face, within 1e-8 m (worst 9e-18 m) | 49 / 49 |
 | Mutations of 1e-7 m or less, and wrong-model pairings, detected by that comparison | 20 / 20 |
 | Embedded body equals the export graph-to-graph ([EXP-072](https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP072.md)) | 47 / 49 (both lofts differ) |
+| Pre-2011 bodies parsed to the terminator, every byte consumed, 0 graph failures | chainwheel (Parasolid 13, 4,279 nodes, 13,527 checks), plate4 (Parasolid 9, 277 nodes, 900 checks) |
+| INTERSECTION chart points on both of their surfaces | 392 / 394 curves checkable (2 touch a blend), 2,170 points, worst 3e-15 m |
+| Tolerant edges: fin curves hit their stored trim points / the two fin curves within the edge tolerance | 54 / 54 (1e-16 m) and 27 / 27 |
 | Original modern parts parsed | 21 / 21: 43,158 nodes, 1,272 faces, 0 failures |
 | Native face count equals display face count | 70 / 70 files |
 | C00 decoded exactly: corners at 0 and 0.01 m, volume 1e-6 m³, Euler characteristic 2 | both eras |
@@ -103,5 +107,6 @@ exercised synthetically.
   in the suite.
 - Hostile input in general. The readers are bounded (128 MiB, 2 million vertices, 50,000 faces)
   and strict, but this is not a security audit.
+- The 57 interior chainwheel mesh vertices that sit up to 36 µm off every B-rep surface.
 - Any file unlike the corpus: other SolidWorks versions, assemblies, drawings, multi-body parts
   with several bodies, sheet metal, weldments.

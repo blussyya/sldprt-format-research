@@ -72,7 +72,7 @@ test('21 modern originals: the body parses; PTC GE8080-8 is found in LocalBodies
   let files=0,faces=0,nodes=0;
   for(const f of walk(path.join(CORPUS,'test files original'))){
     const raw=fs.readFileSync(f);
-    if(['SW2000-s01.SLDPRT','chainwheel.sldprt','plate4.sldprt'].includes(path.basename(f))){assert.throws(()=>P.readBody(raw),/Config-0-Partition/);continue;}
+    if(['SW2000-s01.SLDPRT','chainwheel.sldprt','plate4.sldprt'].includes(path.basename(f)))continue;   // next test
     const b=P.readBody(raw),r=b.parsed;
     assert.equal(r.error,null,f);assert.deepEqual(topology(r).errors,[],f);
     const d=display.parseSLDPRT(raw,iR,iZ),nf=r.nodes.filter(n=>n.type===14).length;
@@ -82,6 +82,19 @@ test('21 modern originals: the body parses; PTC GE8080-8 is found in LocalBodies
     files++;faces+=nf;nodes+=r.nodes.length;
   }
   assert.equal(files,21);assert.equal(faces,1272);t.diagnostic(`${files} files, ${nodes} nodes, ${faces} faces`);
+});
+
+test('pre-2011 bodies: Config-0-Body (PKWARE, schema 13006) and bare binary (Parasolid 9) (EXP-077)',needsCorpus,()=>{
+  const read=name=>P.readBody(fs.readFileSync(path.join(CORPUS,'test files original',name)));
+  let b=read('chainwheel.sldprt'),r=b.parsed;
+  assert.equal(b.source,'Config-0-Body');assert.equal(r.header.schema,'SCH_1300242_13006');assert.equal(r.error,null);assert(r.terminated);
+  assert.equal(r.consumed,r.total);assert.equal(r.nodes.length,4279);assert.equal(r.nodes.filter(n=>n.type===14).length,189);
+  let g=topology(r);assert.deepEqual(g.errors,[]);assert.equal(g.checks,13527);
+  b=read('plate4.sldprt');r=b.parsed;
+  assert.equal(b.source,'Default');assert.equal(r.header.schema,'SCH_900203_9008');assert(r.header.littleEndian);assert.equal(r.error,null);
+  assert.equal(r.consumed,r.total);assert.equal(r.nodes.length,277);assert.equal(r.nodes.filter(n=>n.type===14).length,14);
+  g=topology(r);assert.deepEqual(g.errors,[]);
+  assert.throws(()=>read('SW2000-s01.SLDPRT'),/No Parasolid body/);
 });
 
 test('display layer joins the native body: IDs, surface types, and the mesh lies on the surfaces',needsCorpus,t=>{

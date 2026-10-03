@@ -42,11 +42,20 @@ test('modern: 45 files, 1,414 faces, every one with a surface record',needsCorpu
   assert.equal(n,45);assert.equal(faces,1414);assert.equal(meta,1414);t.diagnostic(`${n} files, ${faces} faces, ${meta} surface records`);
 });
 
-test('the three oldest originals are refused explicitly',needsCorpus,()=>{
-  for(const name of ['SW2000-s01.SLDPRT','chainwheel.sldprt','plate4.sldprt']){
-    const r=display.parseSLDPRT(fs.readFileSync(path.join(CORPUS,'test files original',name)),iR,iZ);
-    assert(r.errors.length,name);assert.equal(r.faces.length,0,name);
-  }
+test('pre-2011 originals: DisplayLists__Zip and the Parasolid-9 layout (EXP-077)',needsCorpus,()=>{
+  const read=name=>display.parseSLDPRT(fs.readFileSync(path.join(CORPUS,'test files original',name)),iR,iZ);
+  // chainwheel: PKWARE-compressed, SW2011 layout plus two empty arrays before the bounding record
+  let r=read('chainwheel.sldprt');
+  assert.deepEqual(r.errors,[]);assert.deepEqual(r.rejected,[]);assert.equal(r.faces.length,189);assert.equal(r.stats.triangles,2924);
+  assert(r.faces.every(f=>f.bounds&&f.extraArrays&&f.extraArrays.vec3===0&&f.extraArrays.pairs===0));
+  const controls=r.faces.flatMap(f=>f.stripControls.map((c,i)=>[c,f.stripLengths[i]]));
+  assert.equal(controls.filter(([c])=>c===0).length,276);assert(controls.every(([c,n])=>c===1||n===3),'control 0 only on single triangles');
+  // plate4: uncompressed, no Block1-3, bounding record straight after the normals
+  r=read('plate4.sldprt');
+  assert.deepEqual(r.errors,[]);assert.deepEqual(r.rejected,[]);assert.equal(r.faces.length,14);
+  assert(r.faces.every(f=>f.noEdgeTable&&f.bounds&&f.edgeAnnotations.length===0));
+  // SW2000-s01: a part with no solid; its display list holds no faces
+  r=read('SW2000-s01.SLDPRT');assert.equal(r.faces.length,0);assert.match(r.errors[0],/No supported face records/);
 });
 
 test('browser inflater reproduces Node zlib on every file',needsCorpus,t=>{

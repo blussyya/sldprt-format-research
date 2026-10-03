@@ -58,15 +58,27 @@ const bases={
   137:spec(geometry+' surface:p b_curve:p original:p tolerance_to_original:f'),
   141:spec('owner:p next:p previous:p shared_geometry:p')
 };
+// Files written in schema 13006 itself (pre-2011 SolidWorks) carry these types with more fields
+// than the edit scripts in later files consume. Candidate names, layouts verified by traversal.
+const baseFile={
+  70:spec('node_id:d owner:p next:p previous:p list_type:d list_length:d block_length:d size_of_entry:d list_block:p current_block:p current_position:d finished:l'),
+};
+// Schema 9008 (Parasolid 9, written by SolidWorks before 2001), where it differs from the above.
+const v9={
+  12:spec('highest_node_id:d attributes_groups:p attribute_chains:p surface:p curve:p point:p key:p res_size:f res_linear:f ref_instance:p next:p previous:p state:u owner:p body_type:u shell:p boundary_surface:p boundary_curve:p boundary_point:p region:p edge:p vertex:p'),
+  17:spec('loop:p forward:p backward:p vertex:p other:p edge:p curve:p next_at_vx:p sense:c'),
+  80:spec('next:p identifier:p type_id:d actions:u:8 legal_owners:l:13 fields:u:*'),
+  102:spec('string:c:*'),
+};
 const names={12:'BODY',13:'SHELL',14:'FACE',15:'LOOP',16:'EDGE',17:'FIN',18:'VERTEX',19:'REGION',29:'POINT',30:'LINE',50:'PLANE',70:'LIST',74:'POINTER_LIS_BLOCK',79:'ATT_DEF_ID',80:'ATTRIB_DEF',81:'ATTRIBUTE',82:'INT_VALUES',83:'REAL_VALUES',84:'CHAR_VALUES'};
 Object.assign(names,{31:'CIRCLE',32:'ELLIPSE',51:'CYLINDER',52:'CONE',53:'SPHERE',54:'TORUS',124:'B_SURFACE',134:'B_CURVE',137:'SP_CURVE'});
 Object.assign(names,{45:'BSPLINE_VERTICES',125:'SURFACE_DATA',126:'NURBS_SURF',127:'KNOT_MULT',128:'KNOT_SET',133:'TRIMMED_CURVE',135:'CURVE_DATA',136:'NURBS_CURVE'});
 names[141]='GEOMETRIC_OWNER';
-names[101]='WORLD';
+names[101]='WORLD';names[102]='KEY';
 Object.assign(names,{38:'INTERSECTION',40:'CHART',41:'LIMIT',67:'SWEPT_SURF'});
 Object.assign(names,{56:'BLENDED_EDGE',59:'BLEND_BOUND',98:'UNICODE_VALUES'});
 class Reader {
-  constructor(raw,binary){this.raw=raw;this.binary=binary;this.s=raw.toString('latin1').replace(/[\r\n]/g,'');this.p=0;this.spans=[];}
+  constructor(raw,binary){this.raw=raw;this.binary=binary;this.le=false;this.s=raw.toString('latin1').replace(/[\r\n]/g,'');this.p=0;this.spans=[];}
   need(n){if(this.p+n>(this.binary?this.raw.length:this.s.length))throw Error('truncated at '+this.p);}
   byte(){this.need(1);return this.binary?this.raw[this.p++]:this.s.charCodeAt(this.p++);}
   chr(){return String.fromCharCode(this.byte());}
@@ -80,10 +92,11 @@ class Reader {
       const v=Number(m[0]);if(!Number.isFinite(v)||(kind!=='f'&&!Number.isSafeInteger(v)))throw Error('numeric range');return v;
     }
     const n={u:1,l:1,n:2,w:2,d:4,f:8}[kind];if(!n)throw Error('unknown numeric type '+kind);this.need(n);
-    let v=kind==='f'?this.raw.readDoubleBE(this.p):n===1?this.raw[this.p]:n===2?this.raw.readInt16BE(this.p):this.raw.readInt32BE(this.p);this.p+=n;
+    const R=this.raw,le=this.le;let v=kind==='f'?(le?R.readDoubleLE(this.p):R.readDoubleBE(this.p)):n===1?R[this.p]:n===2?(le?R.readInt16LE(this.p):R.readInt16BE(this.p)):(le?R.readInt32LE(this.p):R.readInt32BE(this.p));this.p+=n;
     return v===(kind==='f'?-3.14158e13:-32764)?null:v;
   }
-  ptr(){if(!this.binary)return this.num('d');this.need(2);const r=this.raw.readInt16BE(this.p);this.p+=2;if(r===0)throw Error('invalid pointer code');if(r>0)return r-1;this.need(2);const q=this.raw.readInt16BE(this.p);this.p+=2;if(q<=0)throw Error('invalid long pointer');return q*32767-r-1;}
+  i16(){const v=this.le?this.raw.readInt16LE(this.p):this.raw.readInt16BE(this.p);this.p+=2;return v;}
+  ptr(){if(!this.binary)return this.num('d');this.need(2);const r=this.i16();if(r===0)throw Error('invalid pointer code');if(r>0)return r-1;this.need(2);const q=this.i16();if(q<=0)throw Error('invalid long pointer');return q*32767-r-1;}
   str(n){if(!Number.isInteger(n)||n<0||n>1000000)throw Error('string length');let out='';while(out.length<n){let c=this.chr();if(!this.binary&&c==='\\'){c=this.chr();const escapes={'0':'\0','n':'\r','r':'\n','\\':'\\','9':'         '};if(!(c in escapes))throw Error('unknown escape');out+=escapes[c];}else out+=c;}if(out.length!==n)throw Error('escape crosses string boundary');return out;}
   shortstr(){return this.str(this.num(this.binary?'u':'d'));}
   value(kind){if(kind==='p')return this.ptr();if(kind==='c')return this.chr();if(kind==='l'){const v=this.binary?this.num('u'):this.chr();if(![0,1,'F','T'].includes(v))throw Error('logical value');return v===1||v==='T';}
@@ -91,14 +104,24 @@ class Reader {
   mark(start,label,value,extra={}){this.spans.push({start,end:this.p,label,value,...extra});}
   scalar(kind,label){const start=this.p,v=this.value(kind);this.mark(start,label,v);return v;}
   header(){
-    const marker='**END_OF_HEADER',at=this.raw.indexOf(marker);if(at<0&&!(this.binary&&this.raw.subarray(0,4).equals(Buffer.from([80,83,0,0]))))throw Error('missing banner');
+    const marker='**END_OF_HEADER',at=this.raw.indexOf(marker);
+    // Bare binary (Parasolid 9, plate4): 'B', then everything little-endian, description length as int32.
+    if(this.binary&&at<0&&this.raw[0]===66){this.le=true;this.p=1;this.mark(0,'bare_binary_magic','B');const dl=this.scalar('d','description_length');const start=this.p;const description=this.str(dl);this.mark(start,'description',description);return this.schema(description);}
+    if(at<0&&!(this.binary&&this.raw.subarray(0,4).equals(Buffer.from([80,83,0,0]))))throw Error('missing banner');
     if(this.binary){this.p=at<0?0:this.raw.indexOf(10,at)+1;if(at>=0&&!this.p)throw Error('unterminated banner');const start=this.p;if(this.str(4)!=='PS\0\0')throw Error('neutral binary magic');this.mark(start,'neutral_binary_magic','PS0000');}
     else {this.p=this.s.indexOf(marker)+marker.length;while(this.s[this.p]==='*')this.p++;if(this.chr()!=='T')throw Error('text magic');}
-    const dl=this.scalar(this.binary?'n':'d','description_length');let start=this.p;const description=this.str(dl);this.mark(start,'description',description);
+    const dl=this.scalar(this.binary?'n':'d','description_length');const start=this.p;const description=this.str(dl);this.mark(start,'description',description);
+    return this.schema(description);
+  }
+  schema(description){let start;
     const sl=this.scalar('d','schema_name_length');start=this.p;const schema=this.str(sl);this.mark(start,'schema_name',schema);
-    if(!/^SCH_\d+_\d+_13006$/.test(schema))throw Error('unsupported schema base '+schema);
-    const maxTypes=this.scalar('n','max_node_types'),userfields=this.scalar('d','userfield_size');if(userfields!==0)throw Error('nonzero userfield size unsupported');
-    return {schema,description,maxTypes,userfields};
+    // SCH_<modeller>_<schema>_13006: written in a later schema, with edit scripts against 13006.
+    // SCH_<modeller>_13006: written in the base schema itself (Parasolid 13, pre-2011 SolidWorks):
+    // no node-type count and no schema data before each type's first node.
+    const isBase=/^SCH_\d+_(13006|9008)$/.test(schema),version=Number(schema.split('_').pop());
+    if(!isBase&&!/^SCH_\d+_\d+_13006$/.test(schema))throw Error('unsupported schema base '+schema);
+    const maxTypes=isBase?null:this.scalar('n','max_node_types'),userfields=this.scalar('d','userfield_size');if(userfields!==0)throw Error('nonzero userfield size unsupported');
+    return {schema,description,maxTypes,userfields,isBase,version:isBase?version:13006,littleEndian:this.le};
   }
   field(){const name=this.shortstr(),ptrClass=this.num('n'),n=this.ptr();if(!/^[a-zA-Z_][a-zA-Z_0-9]*$/.test(name)||!Number.isInteger(n)||n<0)throw Error('invalid field descriptor');let kind='p';if(!ptrClass)kind=this.shortstr();if(!'uc lnwdpfivbh'.replaceAll(' ','').includes(kind)||kind.length!==1)throw Error('field kind '+kind);let transmit=true;if(n===1)transmit=this.value('l');return {name,kind,count:n===0?1:n===1?'*':n,ptrClass,transmit};}
 }
@@ -108,9 +131,9 @@ function parse(raw,binary,options={}){
     const start=r.p,type=r.scalar('n','node_type');
     if(type===1){const index=r.scalar('p','terminator_index');if(index!==0)throw Error('nonzero terminator');terminated=true;break;}
     if(!schemas[type]){
-      const ss=r.p,declared=r.num('u'),base=bases[type];let fields=[],cursor=0,ops='',description=null;
+      const ss=r.p,base=bases[type]||(header.version===9008&&v9[type]);if(header.isBase&&!base&&!(header.version===9008&&v9[type]))throw Error('node type '+type+' is not in base schema 13006 at '+start);const declared=header.isBase?255:r.num('u');const fromBase=header.version===9008&&v9[type]?v9[type]:header.isBase&&baseFile[type]?baseFile[type]:base;let fields=[],cursor=0,ops='',description=null;
       if(!base){if(declared===255)throw Error('missing base schema for node type '+type+' at '+start);const name=r.shortstr();description=r.shortstr();if(!/^[A-Z][A-Z_0-9]*$/.test(name)||!/^[\x20-\x7e]+$/.test(description))throw Error('unsupported base or malformed new-type declaration '+type+' at '+start);names[type]=name;ops='NEW';for(let i=0;i<declared;i++)fields.push(r.field());}
-      else if(declared===255)fields=base.map(x=>({...x}));else{while(true){const op=r.chr();ops+=op;if(op==='Z')break;if(op==='C'||op==='D'){if(cursor>=base.length)throw Error('base exhausted type '+type);if(op==='C')fields.push({...base[cursor]});cursor++;}else if(op==='I'||op==='A')fields.push(r.field());else throw Error('unknown edit '+op+' type '+type);}
+      else if(declared===255)fields=fromBase.map(x=>({...x}));else{while(true){const op=r.chr();ops+=op;if(op==='Z')break;if(op==='C'||op==='D'){if(cursor>=base.length)throw Error('base exhausted type '+type);if(op==='C')fields.push({...base[cursor]});cursor++;}else if(op==='I'||op==='A')fields.push(r.field());else throw Error('unknown edit '+op+' type '+type);}
         if(cursor!==base.length||fields.length!==declared)throw Error('schema count type '+type+': base '+cursor+'/'+base.length+' output '+fields.length+'/'+declared);}
       schemas[type]=fields;edits.push({type,name:names[type],description,start:ss,end:r.p,declared,ops,fields});r.mark(ss,'schema_edit',{type,declared,ops});
     }

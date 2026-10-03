@@ -235,3 +235,24 @@ geometry-matched 2022 models (22/22 boxes) and against their own bounding record
 What follows the bounding record has a different grammar that is not decoded. The reader returns
 those bytes raw (`legacyTail`), and legacy faces have no surface record, so they have no face ID or
 surface tag. The native body in the same file still has both.
+
+## Pre-2011
+
+Two older variants of the same face record, both read now ([EXP-077]({X})):
+
+- **chainwheel** (`DisplayLists__Zip`, PKWARE-compressed). The SW2011 record, plus two arrays
+  between Block3 and the bounding record: one with a 12-byte stride and kind 100, one with an
+  8-byte stride and kind 8, both empty on all 189 faces. The reader skips them and reports their
+  counts as `extraArrays`. 276 strips have **control 0** instead of 1. Every one of them is a
+  3-vertex strip, a single triangle, so the geometry is the same either way; what else the value
+  means is open.
+- **plate4** (uncompressed `DisplayLists`, Parasolid 9 era). Strip lengths, positions and normals,
+  then straight into the bounding record: no Block1, Block2 or Block3, so no edge IDs. The record
+  starts with the u32 values 0, 1, 1 and has the box and sphere at the usual offsets (12, 36, 60,
+  84). Faces from this layout carry `noEdgeTable: true`.
+
+Checks: face counts equal the native body's (189/189, 14/14); every bounding record validates;
+plate4's mesh has the body's exact box and its volume to float32 rounding. On chainwheel, 3,768
+of 4,658 vertices lie on a B-rep surface within 1 µm; 833 of the other 890 sit on boundary edges,
+the chord points already seen in modern files. 57 interior vertices up to 36 µm off are not
+explained yet.

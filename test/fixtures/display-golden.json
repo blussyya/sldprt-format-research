@@ -1,5 +1,5 @@
 {
- "note": "sha256 of the canonical JSON of the display parse of every corpus file, produced by parser/v0.3 (dump 94478c8). Any change here is a change in parser output.",
+ "note": "sha256 of the canonical JSON of the display parse of every corpus file, produced by parser/v0.3 (dump 94478c8). Any change here is a change in parser output. Regenerated 2026-10-03 for the three pre-2011 originals only (EXP-077: DisplayLists__Zip and the Parasolid-9 layout are now read); the other 70 outputs are unchanged.",
  "generated": "2026-10-02",
  "files": [
   {
@@ -447,12 +447,10 @@
    "file": "test files original/chainwheel.sldprt",
    "sha256": "77b81e1ca94b266e4c977bb3ec8fbb9cac294f394ff9d5a2b2b208fb401e0f1a",
    "format": "legacy OLE2 DisplayLists",
-   "faces": 0,
-   "triangles": 0,
-   "errors": [
-    "No legacy DisplayLists stream"
-   ],
-   "output": "ef926c5cc1a0cac057dd39efae66d7456c94f6b88a661e1551c8b488c3ee3af3"
+   "faces": 189,
+   "triangles": 2924,
+   "errors": [],
+   "output": "dd4888978c4e059eb13a4b4280ea01420f8e3d08fe8068e636aa01ce184e707c"
   },
   {
    "file": "test files original/controlled/C00_cube_10mm/model.SLDPRT",
@@ -611,12 +609,10 @@
    "file": "test files original/plate4.sldprt",
    "sha256": "ab35db15d337f808f9ce9ee8fc72cc243c2fb2d78d033cf8514ef96e0f65d399",
    "format": "legacy OLE2 DisplayLists",
-   "faces": 0,
-   "triangles": 0,
-   "errors": [
-    "No supported face records found"
-   ],
-   "output": "a1c9596aba7050df0bb5f91d3c17b66330198c384ea116c8f48c7298c698383b"
+   "faces": 14,
+   "triangles": 44,
+   "errors": [],
+   "output": "ee2d9c614e29f717610f60629943c964d8ab6a7155babe5eb198158d98878f77"
   },
   {
    "file": "test files original/Pocket Wheel.SLDPRT",
@@ -643,9 +639,9 @@
    "faces": 0,
    "triangles": 0,
    "errors": [
-    "No legacy DisplayLists stream"
+    "No supported face records found"
    ],
-   "output": "ef926c5cc1a0cac057dd39efae66d7456c94f6b88a661e1551c8b488c3ee3af3"
+   "output": "315250cae7243fd04de2c0e9f4a19421b204d097a8e2ed32261cb55dcf69d5d1"
   },
   {
    "file": "test files original/usb hub case (ultimate test)/USB hub case BOTTOM.SLDPRT",

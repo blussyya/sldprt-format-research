@@ -49,19 +49,28 @@
       let pre,pos;
       try{pre=r.arr(off,4,8);pos=r.arr(pre.end,12,100);}catch(e){continue;}
       try{
-        const normals=r.arr(pos.end,12,100),b1=r.arr(normals.end,4,8),b2=r.arr(b1.end,4,8),b3=r.arr(b2.end,1,8);
+        const normals=r.arr(pos.end,12,100);
+        // Parasolid-9-era legacy files (plate4) have no Block1/2/3: the face's bounding record follows
+        // the normals directly, starting with u32 0, 1, 1. There are then no edge annotations.
+        const bare=legacy&&normals.end+12<=r.b.length&&r.u(normals.end)===0&&r.u(normals.end+4)===1&&r.u(normals.end+8)===1;
+        const empty=o=>({offset:o,header:[0,0,0,0],end:o});
+        const b1=bare?empty(normals.end):r.arr(normals.end,4,8),b2=bare?empty(normals.end):r.arr(b1.end,4,8),b3=bare?empty(normals.end):r.arr(b2.end,1,8);
         const stripLengths=r.words(pre),tokens=r.words(b1),lengths=r.words(b2),vc=pos.header[3];
         if(!stripLengths.length||stripLengths.some(n=>n<3)||stripLengths.reduce((a,b)=>a+b,0)!==vc)throw Error('Invalid strip-length partition');
-        if(normals.header[3]!==vc||lengths.length!==stripLengths.length)throw Error('Array count mismatch');
-        if(stripLengths.some((n,i)=>lengths[i]!==2*n-2)||lengths.reduce((a,b)=>a+b,0)!==tokens.length)throw Error('Invalid Block1/Block2 lengths');
-        if(b3.header[3]!==tokens.length)throw Error('Block3 count mismatch');
+        if(normals.header[3]!==vc)throw Error('Array count mismatch');
+        if(!bare&&lengths.length!==stripLengths.length)throw Error('Array count mismatch');
+        if(!bare&&(stripLengths.some((n,i)=>lengths[i]!==2*n-2)||lengths.reduce((a,b)=>a+b,0)!==tokens.length))throw Error('Invalid Block1/Block2 lengths');
+        if(!bare&&b3.header[3]!==tokens.length)throw Error('Block3 count mismatch');
         if(totalVertices+vc>2000000||faces.length>=50000)throw Error('Geometry resource limit exceeded');
         totalVertices+=vc;
         const vertices=r.floats(pos),ns=r.floats(normals);
         for(let i=0;i<ns.length;i+=3)if(Math.abs(Math.hypot(ns[i],ns[i+1],ns[i+2])-1)>0.001)throw Error('Invalid normal');
         const indices=[],edgeAnnotations=[],controls=[];let v=0,t=0;
         stripLengths.forEach((n,s)=>{
-          const control=tokens[t++];if(control!==1)throw Error('Unsupported strip control');controls.push(control);
+          if(bare){for(let i=2;i<n;i++)indices.push(...(i%2===0?[v+i-2,v+i-1,v+i]:[v+i-1,v+i-2,v+i]));v+=n;return;}
+          // Control 1 on every modern and SW2011 strip. Control 0 appears in chainwheel (pre-2011), only on
+          // 3-vertex strips, i.e. single triangles; its meaning beyond that is not established.
+          const control=tokens[t++];if(control!==1&&!(control===0&&n===3))throw Error('Unsupported strip control');controls.push(control);
           const add=(a,b)=>edgeAnnotations.push({strip:s,vertices:[a,b],tokenOffset:b1.offset+16+4*t,id:tokens[t++]});
           add(v,v+1);
           for(let i=2;i<n;i++){
@@ -75,20 +84,23 @@
         faces.push({offset:off,geometryEnd:b3.end,offsets:{stripLengths:pre.offset,positions:pos.offset,normals:normals.offset,block1:b1.offset,block2:b2.offset,block3:b3.offset},
           vertexCount:vc,stripLengths,vertices,normals:ns,triangleIndices:new Uint32Array(indices),stripControls:controls,
           edgeAnnotations,block1:new Uint32Array(tokens),block2:new Uint32Array(lengths),block3:bytes,
-          boundaryCycles:null,boundaryError:null,metadata:null,metadataError:null});
+          boundaryCycles:null,boundaryError:bare?'No edge table in this layout':null,metadata:null,metadataError:null,...(bare?{noEdgeTable:true}:{})});
       }catch(e){rejected.push({offset:off,reason:e.message});}
     }
     for(let i=0;i<faces.length;i++){
       const f=faces[i];
-      try{f.boundaryCycles=boundaryCycles(f);}catch(e){f.boundaryError=e.message;warnings.push({offset:f.offset,message:e.message});}
+      if(!f.noEdgeTable)try{f.boundaryCycles=boundaryCycles(f);}catch(e){f.boundaryError=e.message;warnings.push({offset:f.offset,message:e.message});}
       const end=faces[i+1]?.offset||r.b.length;
       try{
-        r.bound(f.geometryEnd,132);
-        const at=f.geometryEnd,min=[60,68,76].map(k=>r.f64(at+k)),max=[36,44,52].map(k=>r.f64(at+k)),center=[12,20,28].map(k=>r.f64(at+k)),radius=r.f64(at+84);
+        // chainwheel (pre-2011): two arrays, 12-byte and 8-byte stride, sit between Block3 and the record.
+        let at=f.geometryEnd;
+        if(legacy&&!f.noEdgeTable)try{const a=r.arr(at,12,100),c=r.arr(a.end,8,8);f.extraArrays={vec3:a.header[3],pairs:c.header[3],offset:at};at=c.end;}catch(_){}
+        r.bound(at,f.noEdgeTable?Math.min(132,end-at):132);
+        const min=[60,68,76].map(k=>r.f64(at+k)),max=[36,44,52].map(k=>r.f64(at+k)),center=[12,20,28].map(k=>r.f64(at+k)),radius=r.f64(at+84);
         if(![...min,...max,...center,radius].every(Number.isFinite)||radius<0||min.some((x,k)=>x>max[k])||center.some((x,k)=>Math.abs(x-(min[k]+max[k])/2)>1e-12)||Math.abs(radius-Math.hypot(...max.map((x,k)=>x-center[k])))>1e-12)throw Error('Invalid stored bounds');
-        f.bounds={min,max,center,radius,raw:r.b.slice(at,at+132)};
+        f.bounds={min,max,center,radius,raw:r.b.slice(at,Math.min(at+132,end))};
       }catch(e){f.bounds=null;warnings.push({offset:f.geometryEnd,message:e.message});}
-      if(legacy){f.metadataError='Legacy metadata grammar is not decoded';f.metadataRawRange=[Math.min(f.geometryEnd+132,end),end];f.legacyTail=r.b.slice(...f.metadataRawRange);continue;}
+      if(legacy){const rec=f.extraArrays?f.extraArrays.offset+32:f.geometryEnd;f.metadataError='Legacy metadata grammar is not decoded';f.metadataRawRange=[Math.min(rec+132,end),end];f.legacyTail=r.b.slice(...f.metadataRawRange);continue;}
       try{
         const meta=metadata(r,f.geometryEnd,faces[i+1]?.offset||r.b.length);
         const labels=[...new Set(f.edgeAnnotations.map(e=>e.id).filter(x=>x!==0))].sort((a,b)=>a-b);

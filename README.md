@@ -20,7 +20,7 @@ Come talk about it on [Discord](https://discord.gg/vC4Jee5Q4n).
 | STEP export | exact, written from the B-rep: the same solid as SolidWorks' own STEP on all 49 test models. Parts with intersection curves fall back to the mesh | [validation.md](docs/validation.md#exact-step-export-b-rep) |
 | Volume | exact, straight from the surfaces, no mesh involved | [parasolid.md](docs/format/parasolid.md#writing-it-back-out-as-step) |
 | Feature tree, sketches, configurations, assemblies | not decoded | |
-| Files older than 2011 | refused with an error | [container.md](docs/format/container.md#what-is-not-read) |
+| Files older than 2011 | mesh and B-rep both read, including Parasolid 9 bodies from around 2000 | [container.md](docs/format/container.md#pre-2011-files) |
 
 ## Try it
 
@@ -103,12 +103,11 @@ Without it, the tests that need the corpus show up as skipped.
 
 ## What it can't do yet
 
-- Exact STEP only works when every curve in the part is one we can write. Intersection curves and edges that keep their curve somewhere else still aren't handled, and that's 6 of the 8 real parts in the corpus. Those get a mesh STEP instead, and the tool tells you when that happens. That's what I'm working on next.
+- Exact STEP only works when every curve in the part is one we can write. Intersection curves and tolerant edges (where each face keeps its own copy of the edge) aren't written yet, and that's 7 of the 10 real parts in the corpus. We know exactly where both are stored now, so it's writing them that's left. Until then those parts get a mesh STEP, and the tool tells you when that happens.
 - Swept and rolling-ball blend surfaces are read but not evaluated yet.
 - It only reads. It can't write SLDPRT.
 - It's tested on 2011 and 2022 files plus 21 real parts whose version nobody recorded. Other versions probably work, but I haven't proven that.
-- Single parts only. No assemblies, drawings or feature history.
-- Files older than 2011 get refused.
+- Single parts only. No assemblies, drawings or feature history. The history is stored as serialised objects whose class names you can read, but none of their fields are decoded.
 - Input size is capped (128 MiB, 2 million vertices, 50,000 faces) and broken data gets rejected, but nobody has done a security audit.
 
 ## What's where
