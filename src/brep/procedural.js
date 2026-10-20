@@ -16,7 +16,8 @@
  *              exact points; rolling-ball blends: rational B-spline surfaces whose u-sections are
  *              the exact circular arcs. See src/brep/fit.js.
  * report.maxError is the largest distance found between a fitted curve or surface and the exact
- * geometry, in metres, measured at points between the interpolation points.
+ * geometry, in metres, measured at points between the interpolation points. report.maxEdgeGap is
+ * the largest distance from a tolerant edge's curve to the faces it bounds (the model's own gap).
  *
  * Isomorphic: loads in Node and as a plain browser script (global SLDPRTProcedural).
  */
@@ -67,6 +68,15 @@ function resolve(N,opts){
     if(e.tolerant)report.tolerantEdges++;
     edges.set(e.id,{id:e.id,v:e.v,curve:out.curve,t0:out.t0,t1:out.t1,sameSense:out.t1>out.t0,pcurves,fit:out.fit,tolerance:e.tolerance});
   }
+  // A tolerant edge has a curve per face and no 3D curve; we use the first face's. Parasolid
+  // lets the faces miss each other by the edge's tolerance, so measure how far the curve is
+  // from the other face: the file's uncertainty has to cover it.
+  const facesOf=new Map();
+  for(const f of faces)for(const l of f.loops)for(const co of l.coedges){if(!facesOf.has(co.edge))facesOf.set(co.edge,[]);facesOf.get(co.edge).push(f);}
+  for(const e of N.edges.values()){if(!e.tolerant)continue;const r=edges.get(e.id);let gap=0;
+    for(let k=0;k<=16;k++){const X=G.curvePoint(r.curve,r.t0+(r.t1-r.t0)*k/16);
+      for(const f of facesOf.get(e.id)||[])gap=Math.max(gap,Math.abs(G.surfaceDistance(f.surface,X).d));}
+    r.gap=gap;report.maxEdgeGap=Math.max(report.maxEdgeGap,gap);}
   // a fitted blend's parametrisation is ours, so its face sense is too: the blend meets its
   // supports tangentially, so take the neighbour whose normal is most nearly parallel and agree
   for(const f of faces){if(!f.surface.fitted)continue;

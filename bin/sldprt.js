@@ -5,7 +5,7 @@
  *
  *   sldprt info    <model.SLDPRT>                      what is in the file
  *   sldprt parse   <model.SLDPRT>                      display mesh as JSON (stdout)
- *   sldprt convert <model.SLDPRT> [--stl F] [--step F] [--ascii] [--faceted] [--scale N]
+ *   sldprt convert <model.SLDPRT> [--stl F] [--step F] [--ascii] [--mesh|--faceted] [--scale N]
  *   sldprt brep    <model.SLDPRT> [--json|--nodes]     native Parasolid body
  *   sldprt render  <model.SLDPRT> [out.png]            six-view PNG contact sheet
  *   sldprt view    <model.SLDPRT> [--still] [--dark]   interactive terminal viewer
@@ -17,9 +17,12 @@ const USAGE=`usage: sldprt <command> [options]
 
   info    <model.SLDPRT>                    container, streams, versions, counts, B-rep census
   parse   <model.SLDPRT>                    display mesh as JSON on stdout
-  convert <model.SLDPRT> [--stl out.stl] [--step out.step] [--ascii] [--faceted] [--scale N]
+  convert <model.SLDPRT> [--stl out.stl] [--step out.step] [--ascii] [--mesh|--faceted] [--scale N]
                                             STL and/or STEP; with neither flag both are written
-                                            next to the input
+                                            next to the input. STEP is exact, from the B-rep;
+                                            --mesh writes it from the display mesh (planes exact,
+                                            the rest triangles), --faceted all triangles. --scale
+                                            applies to STL and mesh STEP (exact STEP is in mm)
   brep    <model.SLDPRT> [--json | --nodes] native Parasolid B-rep: node census and graph checks
                                             (--json: summary as JSON, --nodes: every typed node)
   render  <model.SLDPRT> [out.png]          six-view contact sheet of the display mesh
@@ -67,15 +70,20 @@ const commands={
   const wantStl=has(a,'--stl')||!has(a,'--step'),wantStep=has(a,'--step')||!has(a,'--stl');
   const scale=Number(opt(a,'--scale',String(C.SCALE)));
   if(!Number.isFinite(scale)||scale<=0){console.error('--scale must be a positive number, got '+JSON.stringify(opt(a,'--scale','')));return 2;}
-  const parsed=S.parse(file);
-  if(!parsed.faces||!parsed.faces.length){console.error('cannot convert: '+(parsed.errors.length?parsed.errors.join('; '):'no faces'));return 1;}
-  const m=C.loadModel(parsed),out={input:file,faces:m.faceCount,triangles:m.triangleCount};
+  const mode=has(a,'--faceted')?'faceted':has(a,'--mesh')?'mesh':'exact';
+  const out={input:file};let m=null;
+  const mesh=()=>{if(m)return m;const parsed=S.parse(file);
+   if(!parsed.faces||!parsed.faces.length)throw Error('cannot convert: '+(parsed.errors.length?parsed.errors.join('; '):'no faces'));
+   m=C.loadModel(parsed);out.faces=m.faceCount;out.triangles=m.triangleCount;return m;};
   if(wantStl){const f=opt(a,'--stl',base+'.converted.stl');
-   const buf=has(a,'--ascii')?Buffer.from(C.toSTLAscii(m,{scale,name}),'ascii'):C.toSTLBinary(m,{scale});
+   const buf=has(a,'--ascii')?Buffer.from(C.toSTLAscii(mesh(),{scale,name}),'ascii'):C.toSTLBinary(mesh(),{scale});
    fs.writeFileSync(f,buf);out.stl={file:f,bytes:buf.length,format:has(a,'--ascii')?'ascii':'binary'};}
-  if(wantStep){const f=opt(a,'--step',base+'.converted.step');
-   const {text,report}=C.toSTEP(m,{scale,name,mode:has(a,'--faceted')?'faceted':'auto'});
-   fs.writeFileSync(f,text);out.step={file:f,bytes:text.length,...report};}
+  if(wantStep){const f=opt(a,'--step',base+'.converted.step');let r;
+   if(mode==='exact'){
+    try{r=S.toSTEP(file,{name});}
+    catch(e){console.log(JSON.stringify(out,null,2));console.error('exact STEP failed: '+e.message+'\n--mesh or --faceted writes STEP from the display mesh instead');return 1;}
+   }else{const x=C.toSTEP(mesh(),{scale,name,mode:mode==='faceted'?'faceted':'auto'});r={text:x.text,report:{mode,...x.report}};}
+   fs.writeFileSync(f,r.text);out.step={file:f,bytes:r.text.length,...r.report};}
   console.log(JSON.stringify(out,null,2));return 0;
  },
  brep(a){

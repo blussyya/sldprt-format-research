@@ -11,7 +11,8 @@
  *   - EDGE.fin is the edge's positive fin. A fin runs along its edge when its sense is '+'.
  *   - FIN.vertex is the vertex at the END of the fin, so an edge runs from
  *     other(fin).vertex to fin.vertex (432 line edges and 24 trimmed curves agree).
- *   - The edge runs along its curve when the curve's sense is '+'.
+ *   - The edge runs along its curve when the curve's sense is '+'. A TRIMMED_CURVE runs the way its
+ *     basis curve does, so a basis with sense '-' turns it round.
  *   - A face's outward normal is the surface's natural normal, reversed once for a '-' surface
  *     sense and once for a '-' face sense.
  *   - An SP_CURVE's 2D B-curve is in the (u, v) of its surface with the parameterisations listed
@@ -68,7 +69,7 @@ function build(parsed){
       case 'CIRCLE':out={type:'circle',c:v.centre,n:G.unit(v.normal),x:G.unit(v.x_axis),r:v.radius};break;
       case 'ELLIPSE':out={type:'ellipse',c:v.centre,n:G.unit(v.normal),x:G.unit(v.x_axis),r1:v.major_radius,r2:v.minor_radius};break;
       case 'B_CURVE':out=nurbsCurve(node(v.nurbs));if(out.dim!==3)throw Error('B-rep: 2D B_CURVE used as a 3D curve (node '+i+')');break;
-      case 'TRIMMED_CURVE':out={type:'trimmed',basis:curve(v.basis_curve),t0:v.parm_1,t1:v.parm_2,p0:v.point_1,p1:v.point_2};break;
+      case 'TRIMMED_CURVE':out={type:'trimmed',basis:curve(v.basis_curve),basisSense:sgn(node(v.basis_curve).values.sense),t0:v.parm_1,t1:v.parm_2,p0:v.point_1,p1:v.point_2};break;
       case 'SP_CURVE':{const c2=nurbsCurve(node(node(v.b_curve).values.nurbs));if(c2.dim!==2)throw Error('B-rep: SP_CURVE with a 3D B-curve (node '+i+')');
         out={type:'spcurve',surface:surface(v.surface),c2,tolerance:v.tolerance_to_original};break;}
       case 'INTERSECTION':{const ch=node(v.chart).values;
@@ -113,7 +114,8 @@ function build(parsed){
       pcurves.push({face:faceId(k),curve:curve(fin.values.curve),sameSense:sgn(cn.values.sense)*sgn(fin.values.sense)>0});
     }
     let cn=e.values.curve?node(e.values.curve):null,c,same;
-    if(cn){c=curve(e.values.curve);same=sgn(cn.values.sense)>0;}
+    // a trimmed curve runs the way its basis does, so a '-' basis turns it round (1 of 80 in the corpus)
+    if(cn){c=curve(e.values.curve);same=sgn(cn.values.sense)*(c.basisSense||1)>0;}
     else if(pcurves.length){c=pcurves[0].curve;same=pcurves[0].sameSense;}   // tolerant edge: its geometry lives on the fins
     else throw Error('B-rep: edge '+e.values.node_id+' has no curve');
     edges.set(e.values.node_id,{id:e.values.node_id,v:start===null&&end===null?null:[start,end],curve:c,sameSense:same,tolerance:e.values.tolerance,pcurves,tolerant:!cn});

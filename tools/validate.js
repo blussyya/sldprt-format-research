@@ -41,6 +41,10 @@ function reference(f){
 /* Interior display-mesh vertices per native face (mm), and the mesh's signed volume (mm³). */
 function meshPoints(f,max){
   const d=S.parse(f),faces={};let vol=0,n=0;
+  // a vertex at the same place in two faces' meshes is on an edge, annotated or not; SolidWorks'
+  // edge vertices can sit up to ~0.1 mm off the faces, so only interior vertices are compared
+  const key=(df,i)=>[0,1,2].map(j=>Math.round(df.vertices[3*i+j]*1e7)).join(','),seen=new Map();
+  for(const df of d.faces)for(let i=0;i<df.vertexCount;i++){const k=key(df,i);seen.set(k,seen.has(k)&&seen.get(k)!==df?null:df);}
   for(const df of d.faces){
     const V=i=>[df.vertices[3*i]*1000,df.vertices[3*i+1]*1000,df.vertices[3*i+2]*1000];
     const t=df.triangleIndices;
@@ -48,7 +52,7 @@ function meshPoints(f,max){
       vol+=(a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]))/6;}
     if(!df.metadata)continue;
     const bnd=new Set();for(const e of df.edgeAnnotations||[])if(e.id)for(const v of e.vertices)bnd.add(v);
-    const pts=[];for(let i=0;i<df.vertexCount;i++)if(!bnd.has(i))pts.push(V(i));
+    const pts=[];for(let i=0;i<df.vertexCount;i++)if(!bnd.has(i)&&seen.get(key(df,i))===df)pts.push(V(i));
     if(pts.length){(faces['F'+df.metadata.rawId]=faces['F'+df.metadata.rawId]||[]).push(...pts);n+=pts.length;}
   }
   const keep=Math.min(1,max/Math.max(1,n));
@@ -106,6 +110,7 @@ function judge(row,r){
       if(!(row.dArea<=lim))fails.push('area differs by '+row.dArea.toExponential(2));
     }else if(r.mesh){
       row.dVolume=Math.abs(o.volume-row.meshVolume)/o.volume;row.meshDeviationMM=r.mesh.maxDeviationMM;
+      row.meshP999MM=r.mesh.p999DeviationMM;row.meshPoints=r.mesh.points;row.meshOver1um=r.mesh.over1um;
       if(r.mesh.nMissing)fails.push(r.mesh.nMissing+' mesh faces without a STEP face');
     }
   }
@@ -118,8 +123,8 @@ function table(rows){
   const lines=[];
   for(const r of rows){
     const rp=r.report;
-    const extra=r.ref?`dV ${fmt(r.dVolume)} dA ${fmt(r.dArea)}`:r.meshDeviationMM!==undefined?`mesh dV ${fmt(r.dVolume)} dev ${fmt(r.meshDeviationMM)} mm`:'';
-    lines.push(`${r.status.padEnd(18)} ${r.part.padEnd(70)} ${rp?String(rp.nativeFaces).padStart(4)+' -> '+String(rp.faces).padEnd(4):''.padEnd(12)} ${extra} ${rp&&rp.maxError?'fit '+fmt(rp.maxError*1000)+' mm':''} ${r.reason?'| '+r.reason:''}${r.note?'| '+r.note:''}`);
+    const extra=r.ref?`dV ${fmt(r.dVolume)} dA ${fmt(r.dArea)}`:r.meshDeviationMM!==undefined?`mesh dV ${fmt(r.dVolume)} dev max ${fmt(r.meshDeviationMM)} p99.9 ${fmt(r.meshP999MM)} mm (${r.meshOver1um}/${r.meshPoints} > 1e-3)`:'';
+    lines.push(`${r.status.padEnd(18)} ${r.part.padEnd(70)} ${rp?String(rp.nativeFaces).padStart(4)+' -> '+String(rp.faces).padEnd(4):''.padEnd(12)} ${extra} ${rp&&rp.maxError?'fit '+fmt(rp.maxError*1000)+' mm':''}${rp&&rp.uncertaintyMM>1e-5?' uncertainty '+fmt(rp.uncertaintyMM)+' mm':''} ${r.reason?'| '+r.reason:''}${r.note?'| '+r.note:''}`);
   }
   return lines.join('\n');
 }

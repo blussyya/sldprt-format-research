@@ -79,10 +79,14 @@ test('STL and STEP export',()=>{
   for(const rel of Object.keys(EXPECT)){
     const stl=S.toSTL(file(rel));
     assert.equal(stl.length,84+50*stl.readUInt32LE(80),rel);
-    const {text,report}=S.toSTEP(file(rel));
-    const ents=parseSTEP(text),ids=new Set(Object.keys(ents).map(Number));
-    for(const body of Object.values(ents))for(const m of body.matchAll(/#(\d+)/g))assert(ids.has(+m[1]),rel+': dangling #'+m[1]);
-    assert.equal(report.body,'MANIFOLD_SOLID_BREP',rel);
+    for(const mode of ['exact','mesh','faceted']){
+      const {text,report}=S.toSTEP(file(rel),{mode});
+      const ents=parseSTEP(text),ids=new Set(Object.keys(ents).map(Number));
+      for(const body of Object.values(ents))for(const m of body.matchAll(/#(\d+)/g))assert(ids.has(+m[1]),rel+' '+mode+': dangling #'+m[1]);
+      assert.equal(report.mode,mode);
+      if(mode==='exact'){assert.equal(report.bodies,1,rel);assert.equal(Object.values(ents).filter(e=>/^MANIFOLD_SOLID_BREP\(/.test(e)).length,1,rel);}
+      else assert.equal(report.body,'MANIFOLD_SOLID_BREP',rel);
+    }
   }
 });
 
@@ -116,7 +120,9 @@ test('CLI: every command runs on a sample',()=>{
   assert.match(run('info',c04),/7 faces, 152 triangles/);
   assert.equal(JSON.parse(run('parse',c04)).faces.length,7);
   const out=JSON.parse(run('convert',c04,'--stl',path.join(tmp,'a.stl'),'--step',path.join(tmp,'a.step')));
-  assert.equal(out.step.analyticPlanes,6);assert(fs.statSync(path.join(tmp,'a.stl')).size>84);
+  assert.equal(out.step.mode,'exact');assert.deepEqual(out.step.surfaces,{plane:6,cylinder:2});assert(fs.statSync(path.join(tmp,'a.stl')).size>84);
+  assert.equal(JSON.parse(run('convert',c04,'--step',path.join(tmp,'b.step'),'--mesh')).step.analyticPlanes,6);
+  assert.equal(JSON.parse(run('convert',c04,'--step',path.join(tmp,'c.step'),'--faceted')).step.analyticPlanes,0);
   assert.equal(JSON.parse(run('brep',c04,'--json')).census.FACE,7);
   run('render',c04,path.join(tmp,'a.png'));assert(fs.readFileSync(path.join(tmp,'a.png')).subarray(1,4).toString()==='PNG');
   assert(run('view',c04,'--still').length>1000);

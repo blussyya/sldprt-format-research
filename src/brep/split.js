@@ -91,7 +91,13 @@ function split(R,opts){
   // 2. sub-edges
   const pieces=new Map();   // native edge id -> [sub-edge ids] in edge direction
   for(const e of R.edges.values()){
-    const xs=(cuts.get(e.id)||[]).slice().sort((a,b)=>a-b);
+    // one crossing can be found twice: near both ends of a closed edge, or by two faces
+    const xs=[];
+    for(const x of (cuts.get(e.id)||[]).slice().sort((a,b)=>a-b)){const p=edgePoint(e,x);
+      if(xs.some(y=>G.dist(edgePoint(e,y),p)<1e-9))continue;
+      if(e.v&&(G.dist(p,vertices.get(e.v[0]).p)<1e-9||G.dist(p,vertices.get(e.v[1]).p)<1e-9))continue;
+      if(!e.v&&!closedCurve(e.curve)&&G.dist(p,edgePoint(e,0))<1e-9)continue;   // the ring's own start
+      xs.push(x);}
     const mk=(f0,f1,a,b)=>{const id=xs.length?newId():e.id;
       edges.set(id,{id,source:e.id,v:[a,b],curve:e.curve,t0:e.t0+(e.t1-e.t0)*f0,t1:e.t0+(e.t1-e.t0)*f1,sameSense:e.t1>e.t0,pcurves:e.pcurves,fit:e.fit});return id;};
     const vx=xs.map(x=>{const id=newId();vertices.set(id,{id,p:edgePoint(e,x),split:true});return id;});

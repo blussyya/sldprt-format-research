@@ -106,27 +106,28 @@ def edge_deviation(shape, n=16):
 
 
 def mesh_deviation(named, mesh_path):
+    """Distances from display-mesh points to the surface of the STEP face named after their face.
+
+    Returns the largest, the 99.9th percentile and the count above 1e-3 mm: SolidWorks' display
+    mesh has a few vertices that sit off the face they are filed under (see docs/validation.md).
+    """
     with open(mesh_path) as fh:
         mesh = json.load(fh)
-    worst, n, missing = 0.0, 0, []
+    ds, missing = [], []
     for name, pts in mesh['faces'].items():
         shapes = named.get(name)
         if not shapes:
             missing.append(name)
             continue
-        surfs = [BRep_Tool.Surface_s(TopoDS.Face(s)) for s in shapes]
+        srf = BRep_Tool.Surface_s(TopoDS.Face(shapes[0]))   # pieces of one native face share the surface
         for q in pts:
-            P = gp_Pnt(*q)
-            best = None
-            for srf in surfs[:1]:   # pieces of one native face share the surface
-                pr = GeomAPI_ProjectPointOnSurf(P, srf)
-                if pr.NbPoints():
-                    d = pr.LowerDistance()
-                    best = d if best is None else min(best, d)
-            if best is not None:
-                worst = max(worst, best)
-                n += 1
-    return {'points': n, 'maxDeviationMM': worst, 'facesMissing': missing[:10], 'nMissing': len(missing)}
+            pr = GeomAPI_ProjectPointOnSurf(gp_Pnt(*q), srf)
+            if pr.NbPoints():
+                ds.append(pr.LowerDistance())
+    ds.sort()
+    pick = lambda f: ds[min(len(ds) - 1, int(f * len(ds)))] if ds else 0.0
+    return {'points': len(ds), 'maxDeviationMM': ds[-1] if ds else 0.0, 'p999DeviationMM': pick(0.999),
+            'over1um': sum(1 for d in ds if d > 1e-3), 'facesMissing': missing[:10], 'nMissing': len(missing)}
 
 
 def main():

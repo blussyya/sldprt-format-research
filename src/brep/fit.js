@@ -108,11 +108,16 @@ function corrector(S1,S2,g,T,cache){
   }
   return X;
 }
+/* The surfaces touch at X: their normals are parallel and the curve's direction is undefined. */
+function singular(S1,S2,X,cache){const a=footOn(S1,X,cache),b=footOn(S2,X,cache);return Math.max(Math.abs(a.d),Math.abs(b.d))<1e-9&&norm(cross(a.n,b.n))<1e-6;}
 function tangentAt(S1,S2,X,cache){const a=footOn(S1,X,cache),b=footOn(S2,X,cache);return unit(cross(a.n,b.n));}
 /* March along S1 ∩ S2 from A towards B (or once round, when ring). dir0 orients the start. */
 function march(S1,S2,A,B,dir0,scale,ring){
   const cache=new Map();
-  let X=corrector(S1,S2,A,unit(dir0),cache),T=tangentAt(S1,S2,X,cache);if(dot(T,dir0)<0)T=mul(T,-1);
+  let X,T;
+  // a curve can start where the surfaces touch (a 'T' limit); the vertex is the point there
+  if(singular(S1,S2,A,cache)){X=A;T=unit(dir0);}
+  else{X=corrector(S1,S2,A,unit(dir0),cache);T=tangentAt(S1,S2,X,cache);if(dot(T,dir0)<0)T=mul(T,-1);}
   const pts=[X];let h=scale/16,travelled=0;
   for(let k=0;k<100000;k++){
     if(!ring&&dot(sub(B,X),T)<=h*1.2){pts.push(B);return pts;}
@@ -158,7 +163,12 @@ function intersectionEdge(e,c,p0,p1,tol){
   dir=e.sameSense?cd:mul(cd,-1);
   let scale=0;for(let i=1;i<chart.length;i++)scale+=dist(chart[i],chart[i-1]);
   if(!ring)scale=Math.max(Math.min(scale,4*dist(A,B)),dist(A,B));
-  const poly=march(S1,S2,A,B,dir,scale||1e-3,ring);
+  let poly;
+  if(!ring&&singular(S1,S2,A,new Map())&&!singular(S1,S2,B,new Map())){
+    // march away from the touching point, where the direction is well defined, and turn round
+    const ib=near(B),cb=ib>0?sub(chart[ib],chart[ib-1]):sub(chart[ib+1],chart[ib]);
+    poly=march(S1,S2,B,A,e.sameSense?mul(cb,-1):cb,scale||1e-3,false).reverse();
+  }else poly=march(S1,S2,A,B,dir,scale||1e-3,ring);
   if(ring){/* the start is a point of the curve: make it the edge's vertex */}
   const {ss,fn}=polyFn(S1,S2,poly);
   const r=fitPoints(fn,ss,tol,{fixed:poly});

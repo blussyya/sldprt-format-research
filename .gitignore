@@ -3,3 +3,4 @@ node_modules/
 *.converted.step
 *.sheet.png
 .DS_Store
+__pycache__/

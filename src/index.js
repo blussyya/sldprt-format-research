@@ -10,7 +10,9 @@
  *                        surface record, bounding record            (docs/format/displaylists.md)
  *   info(file)           container, streams, versions, counts, partition sections
  *   toSTL(file, opts)    Buffer, binary STL (or {ascii:true} -> string)
- *   toSTEP(file, opts)   {text, report}: AP214, planes analytic, everything else faceted
+ *   toSTEP(file, opts)   {text, report}: AP214 from the native B-rep, exact (docs/step.md);
+ *                        {mode:'mesh'}: from the display mesh, planes analytic, the rest
+ *                        faceted; {mode:'faceted'}: every face as triangles
  *   readBrep(file, opts) the native Parasolid body: typed nodes + graph checks
  *                                                                    (docs/format/parasolid.md)
  */
@@ -18,6 +20,7 @@ const fs=require('fs'),zlib=require('zlib');
 const modern=require('./container/modern'),ole=require('./container/ole');
 const display=require('./display'),convert=require('./convert');
 const xt=require('./parasolid/xt'),partition=require('./parasolid/partition'),graph=require('./parasolid/topology');
+const stepExport=require('./step/export');
 
 const MAX=128*1024*1024;
 const inflateRaw=b=>zlib.inflateRawSync(b,{maxOutputLength:MAX});
@@ -56,7 +59,13 @@ function model(input){
   return convert.loadModel(parsed);
 }
 function toSTL(input,opts){opts=opts||{};const m=model(input);return opts.ascii?convert.toSTLAscii(m,opts):convert.toSTLBinary(m,opts);}
-function toSTEP(input,opts){return convert.toSTEP(model(input),opts||{});}
+function toSTEP(input,opts){
+  opts=opts||{};const mode=opts.mode||'exact';
+  if(mode==='exact'){const r=stepExport.toSTEP(readBrep(input).parsed,opts);return {text:r.text,report:{mode,...r.report}};}
+  if(mode!=='mesh'&&mode!=='auto'&&mode!=='faceted')throw Error('toSTEP: mode is exact, mesh or faceted, not '+mode);
+  const r=convert.toSTEP(model(input),{...opts,mode:mode==='faceted'?'faceted':'auto'});
+  return {text:r.text,report:{mode:mode==='auto'?'mesh':mode,...r.report}};
+}
 
 /* Native B-rep: {source stream, section kind, parsed: xt.parse result, graph: topology checks}. */
 function readBrep(input,opts){
