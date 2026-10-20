@@ -17,7 +17,7 @@ Come talk about it on [Discord](https://discord.gg/vC4Jee5Q4n).
 | The real Parasolid B-rep: topology, analytic surfaces, B-splines | modern and 2011, matches SolidWorks' own STEP export | [parasolid.md](docs/format/parasolid.md) |
 | Link between the mesh and the B-rep | face and edge IDs match on 1,414 of 1,414 faces | [parasolid.md](docs/format/parasolid.md#the-join-with-the-display-mesh) |
 | STL export | exact copy of the mesh saved in the file | [validation.md](docs/validation.md#stl-and-step-export-display-mesh) |
-| STEP export | planes are exact, curved faces are still triangles | [open-questions.md](docs/open-questions.md) |
+| STEP export | the real B-rep, exact where STEP can hold it, fitted to 1e-5 mm where it can't; 64 / 64 match SolidWorks' own export | [step.md](docs/step.md) |
 | Feature tree, sketches, configurations, assemblies | not decoded | |
 | Files older than 2011 | refused with an error | [container.md](docs/format/container.md#what-is-not-read) |
 

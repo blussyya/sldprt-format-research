@@ -9,21 +9,13 @@ in the dump.
 
 **Answered: the decoded body matches SolidWorks' STEP export.** It agrees on all 49 controlled
 models to 9e-18 m (EXP-075, [parasolid.md](format/parasolid.md#how-well-it-reads)). The exact
-STEP writer is built on it; its own validation is in progress.
+STEP writer is built on it and is validated ([validation.md](validation.md#exact-step-export)).
 
-**Production-only geometry.** The production parts use INTERSECTION curves, edges whose curve
-lives on their fins, swept surfaces and rolling-ball blends. None of these occur in a model with a
-STEP export, so they can only be checked against the display mesh.
-
-**Evaluating B-spline, swept and blended surfaces.** Their control points, knots and defining
-data are read, but nothing yet evaluates them, so the mesh cannot be checked against them and a
-writer cannot sample them. STEP has B-spline surfaces natively. Swept surfaces and rolling-ball
-blends have no direct STEP equivalent and will need either an exact mapping or a stated
-approximation.
-
-**Procedural curves.** INTERSECTION and SP_CURVE edges are stored as defining data rather than
-explicit curves. Exact STEP output needs either their STEP equivalents (`SURFACE_CURVE`,
-`PCURVE`) or a fitted B-spline with a stated tolerance.
+**Answered: production-only geometry.** INTERSECTION curves, SP_CURVE edges, swept surfaces and
+constant-radius rolling-ball blends are all evaluated from their defining data now. STEP gets
+exact entities where it has them and B-splines fitted to 1e-5 mm where it doesn't
+([step.md](step.md)). Still open: variable-radius blends, chamfer blends, and the XT field layouts
+of SPUN_SURF and OFFSET_SURF, which no corpus file uses.
 
 **The two lofts.** In C16, both eras, the embedded body differs from the exported one in
 `nom_geom_state` and in several curve references. Which one SolidWorks treats as the part is

@@ -53,9 +53,29 @@ Against SolidWorks' own exports of the 13 controlled cubes C00–C12:
 SolidWorks' STL exports of C03, C09 and C11 have no −X face at all, and C04's has no top cap. The
 SLDPRT's own mesh has them. Do not use those STL files as watertight ground truth.
 
-The current STEP writer emits planes as exact planes and everything else as facets. A curved
-face in that STEP is therefore an approximation. The exact writer that uses the Parasolid body is
-in progress (see [open questions](open-questions.md)).
+That mesh STEP is still there behind `--mesh` and `--faceted`. The default STEP now comes from
+the Parasolid body; see [Exact STEP export](#exact-step-export).
+
+## Exact STEP export
+
+`node tools/validate.js` writes the exact STEP ([step.md](step.md)) for all 73 corpus files and
+loads each one in OpenCascade:
+
+| result | files |
+|---|---|
+| Valid solid, volume and area equal to SolidWorks' own STEP export | 64 |
+| Valid solid, no SolidWorks export to compare with; volume within 0.4% of the display mesh | 6 |
+| Refused: older than 2011, no partition | 3 |
+
+On the 64 with a SolidWorks export, the volume and area differences are at rounding level
+(under 3e-16 relative) for every part with only exact geometry. Parts with fitted curves or blends
+differ by at most 2.6e-6 (USB hub case BOTTOM). There SolidWorks' own edges sit up to 7.1e-4 mm
+off its surfaces while ours sit 3.4e-6 mm off, so the difference is mostly theirs. The worst fit
+error anywhere is 9.9e-6 mm. Face counts go up where periodic faces are cut at seams, for example
+1 -> 4 on the torus.
+
+Four hand-built models cover what the corpus doesn't have (a void, two bodies, an offset face, a
+spun face). All four load as valid solids with the right volume to 1e-9.
 
 ## Parasolid body
 
