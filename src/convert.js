@@ -1,4 +1,3 @@
-'use strict';
 /**
  * SLDPRT display geometry -> STL / STEP (formerly converter/v0.1, validated in EXP-053).
  *
@@ -14,7 +13,15 @@
  *         recovery of it.
  *
  * Units: DisplayList coordinates are metres, STL and STEP here are millimetres (x1000).
+ *
+ * Isomorphic: loads in Node and as a plain browser script (global SLDPRTConvert). Binary STL is a
+ * Buffer in Node and a Uint8Array in the browser.
  */
+(function(root,factory){
+  if(typeof module==='object'&&module.exports)module.exports=factory();
+  else root.SLDPRTConvert=factory();
+})(typeof self!=='undefined'?self:this,function(){
+'use strict';
 const SCALE = 1000;               // metres -> millimetres
 const KEY = 1e9;                  // coordinate dedup precision (1e-9 m = 1 nm)
 
@@ -55,23 +62,24 @@ function toSTLBinary(model,opts){
   if(!a||!b||!c)continue;
   tris.push([a,b,c]);
  }
- const buf=Buffer.alloc(84+50*tris.length);
- buf.write('Converted from SLDPRT display mesh by converter/v0.1','ascii');
- buf.writeUInt32LE(tris.length,80);
+ const buf=new Uint8Array(84+50*tris.length),dv=new DataView(buf.buffer);
+ const head='Converted from SLDPRT display mesh by converter/v0.1';
+ for(let i=0;i<head.length;i++)buf[i]=head.charCodeAt(i);
+ dv.setUint32(80,tris.length,true);
  let o=84;
  for(const [a,b,c] of tris){
   const n=triNormal(a,b,c);
-  buf.writeFloatLE(n[0],o);buf.writeFloatLE(n[1],o+4);buf.writeFloatLE(n[2],o+8);
+  dv.setFloat32(o,n[0],true);dv.setFloat32(o+4,n[1],true);dv.setFloat32(o+8,n[2],true);
   const pts=[a,b,c];
   for(let i=0;i<3;i++){
-   buf.writeFloatLE(pts[i][0]*s,o+12+i*12);
-   buf.writeFloatLE(pts[i][1]*s,o+16+i*12);
-   buf.writeFloatLE(pts[i][2]*s,o+20+i*12);
+   dv.setFloat32(o+12+i*12,pts[i][0]*s,true);
+   dv.setFloat32(o+16+i*12,pts[i][1]*s,true);
+   dv.setFloat32(o+20+i*12,pts[i][2]*s,true);
   }
-  buf.writeUInt16LE(0,o+48);
+  dv.setUint16(o+48,0,true);
   o+=50;
  }
- return buf;
+ return typeof Buffer==='function'?Buffer.from(buf.buffer):buf;
 }
 
 function toSTLAscii(model,opts){
@@ -315,4 +323,5 @@ function assemble(w,bodyId,name,closed){
  return head.join('\n')+'\n'+w.lines.join('\n')+'\nENDSEC;\nEND-ISO-10303-21;\n';
 }
 
-module.exports={loadModel,toSTLBinary,toSTLAscii,toSTEP,SCALE};
+return {loadModel,toSTLBinary,toSTLAscii,toSTEP,SCALE};
+});

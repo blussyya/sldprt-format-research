@@ -1,4 +1,3 @@
-'use strict';
 /* Parasolid XT transmit reader: text (.x_t) and neutral binary (.x_b / inflated partition).
  *
  * Reads the header, the schema-edit scripts against base schema 13006, and every typed node up
@@ -8,9 +7,16 @@
  *
  *   parse(bytes, binary[, {maxNodes}]) -> {header, nodes, edits, spans, terminated, error, unresolved}
  *
- * Node.js only (uses Buffer). Moved verbatim from the EXP-071 research reader.
+ * Isomorphic: takes a Uint8Array (a Node Buffer is one) and loads in Node and as a plain browser
+ * script (global SLDPRTXT). Moved from the EXP-071 research reader.
  */
-const fs=require('fs');
+(function(root,factory){
+  if(typeof module==='object'&&module.exports)module.exports=factory();
+  else root.SLDPRTXT=factory();
+})(typeof self!=='undefined'?self:this,function(){
+'use strict';
+/* bytes -> string, one char per byte */
+function latin1(b){let s='';for(let i=0;i<b.length;i+=8192)s+=String.fromCharCode.apply(null,b.subarray(i,Math.min(b.length,i+8192)));return s;}
 const spec=s=>s.split(' ').map(x=>{const [name,kind,n]=x.split(':');return {name,kind,count:n==='*'?'*':Number(n||1)};});
 const geometry='node_id:d attributes_groups:p owner:p next:p previous:p geometric_owner:p sense:c';
 const bases={
@@ -66,7 +72,10 @@ names[101]='WORLD';
 Object.assign(names,{38:'INTERSECTION',40:'CHART',41:'LIMIT',67:'SWEPT_SURF'});
 Object.assign(names,{56:'BLENDED_EDGE',59:'BLEND_BOUND',98:'UNICODE_VALUES'});
 class Reader {
-  constructor(raw,binary){this.raw=raw;this.binary=binary;this.s=raw.toString('latin1').replace(/[\r\n]/g,'');this.p=0;this.spans=[];}
+  constructor(raw,binary){
+    if(!(raw instanceof Uint8Array))raw=new Uint8Array(raw);
+    this.raw=raw;this.binary=binary;this.dv=new DataView(raw.buffer,raw.byteOffset,raw.byteLength);
+    this.latin1=latin1(raw);this.s=binary?'':this.latin1.replace(/[\r\n]/g,'');this.p=0;this.spans=[];}
   need(n){if(this.p+n>(this.binary?this.raw.length:this.s.length))throw Error('truncated at '+this.p);}
   byte(){this.need(1);return this.binary?this.raw[this.p++]:this.s.charCodeAt(this.p++);}
   chr(){return String.fromCharCode(this.byte());}
@@ -80,10 +89,10 @@ class Reader {
       const v=Number(m[0]);if(!Number.isFinite(v)||(kind!=='f'&&!Number.isSafeInteger(v)))throw Error('numeric range');return v;
     }
     const n={u:1,l:1,n:2,w:2,d:4,f:8}[kind];if(!n)throw Error('unknown numeric type '+kind);this.need(n);
-    let v=kind==='f'?this.raw.readDoubleBE(this.p):n===1?this.raw[this.p]:n===2?this.raw.readInt16BE(this.p):this.raw.readInt32BE(this.p);this.p+=n;
+    let v=kind==='f'?this.dv.getFloat64(this.p):n===1?this.raw[this.p]:n===2?this.dv.getInt16(this.p):this.dv.getInt32(this.p);this.p+=n;
     return v===(kind==='f'?-3.14158e13:-32764)?null:v;
   }
-  ptr(){if(!this.binary)return this.num('d');this.need(2);const r=this.raw.readInt16BE(this.p);this.p+=2;if(r===0)throw Error('invalid pointer code');if(r>0)return r-1;this.need(2);const q=this.raw.readInt16BE(this.p);this.p+=2;if(q<=0)throw Error('invalid long pointer');return q*32767-r-1;}
+  ptr(){if(!this.binary)return this.num('d');this.need(2);const r=this.dv.getInt16(this.p);this.p+=2;if(r===0)throw Error('invalid pointer code');if(r>0)return r-1;this.need(2);const q=this.dv.getInt16(this.p);this.p+=2;if(q<=0)throw Error('invalid long pointer');return q*32767-r-1;}
   str(n){if(!Number.isInteger(n)||n<0||n>1000000)throw Error('string length');let out='';while(out.length<n){let c=this.chr();if(!this.binary&&c==='\\'){c=this.chr();const escapes={'0':'\0','n':'\r','r':'\n','\\':'\\','9':'         '};if(!(c in escapes))throw Error('unknown escape');out+=escapes[c];}else out+=c;}if(out.length!==n)throw Error('escape crosses string boundary');return out;}
   shortstr(){return this.str(this.num(this.binary?'u':'d'));}
   value(kind){if(kind==='p')return this.ptr();if(kind==='c')return this.chr();if(kind==='l'){const v=this.binary?this.num('u'):this.chr();if(![0,1,'F','T'].includes(v))throw Error('logical value');return v===1||v==='T';}
@@ -91,7 +100,7 @@ class Reader {
   mark(start,label,value,extra={}){this.spans.push({start,end:this.p,label,value,...extra});}
   scalar(kind,label){const start=this.p,v=this.value(kind);this.mark(start,label,v);return v;}
   header(){
-    const marker='**END_OF_HEADER',at=this.raw.indexOf(marker);if(at<0&&!(this.binary&&this.raw.subarray(0,4).equals(Buffer.from([80,83,0,0]))))throw Error('missing banner');
+    const marker='**END_OF_HEADER',at=this.latin1.indexOf(marker);if(at<0&&!(this.binary&&this.latin1.startsWith('PS\0\0')))throw Error('missing banner');
     if(this.binary){this.p=at<0?0:this.raw.indexOf(10,at)+1;if(at>=0&&!this.p)throw Error('unterminated banner');const start=this.p;if(this.str(4)!=='PS\0\0')throw Error('neutral binary magic');this.mark(start,'neutral_binary_magic','PS0000');}
     else {this.p=this.s.indexOf(marker)+marker.length;while(this.s[this.p]==='*')this.p++;if(this.chr()!=='T')throw Error('text magic');}
     const dl=this.scalar(this.binary?'n':'d','description_length');let start=this.p;const description=this.str(dl);this.mark(start,'description',description);
@@ -122,10 +131,14 @@ function parse(raw,binary,options={}){
     nodes.push({type,name:names[type],index,start,end:r.p,length,values,pointers});
   }
   if(!terminated)throw Error('node limit reached before terminator');
-  if(r.p!==(binary?raw.length:r.s.length))throw Error('trailing content at '+r.p);
+  if(r.p!==(binary?r.raw.length:r.s.length))throw Error('trailing content at '+r.p);
   }catch(e){error=e.message;}
   const byIndex=new Map(nodes.map(n=>[n.index,n]));const unresolved=nodes.flatMap(n=>n.pointers.filter(p=>!byIndex.has(p.target)).map(p=>({from:n.index,...p})));
-  return {header,binary,nodes,edits,spans:r.spans,consumed:r.p,total:binary?raw.length:r.s.length,terminated,error,unresolved};
+  return {header,binary,nodes,edits,spans:r.spans,consumed:r.p,total:binary?r.raw.length:r.s.length,terminated,error,unresolved};
 }
-if(require.main===module){const file=process.argv[2];const r=parse(fs.readFileSync(file),file.endsWith('.x_b'));console.log(JSON.stringify({header:r.header,nodes:r.nodes.length,counts:r.nodes.reduce((a,n)=>(a[n.name]=(a[n.name]||0)+1,a),{}),consumed:r.consumed,total:r.total,terminated:r.terminated,error:r.error,unresolved:r.unresolved.slice(0,10),last:r.nodes.at(-1)},null,2));}
-module.exports={parse,Reader,bases,names};
+return {parse,Reader,bases,names};
+});
+if(typeof module==='object'&&typeof require==='function'&&require.main===module){
+  const {parse}=module.exports,file=process.argv[2];const r=parse(require('fs').readFileSync(file),file.endsWith('.x_b'));
+  console.log(JSON.stringify({header:r.header,nodes:r.nodes.length,counts:r.nodes.reduce((a,n)=>(a[n.name]=(a[n.name]||0)+1,a),{}),consumed:r.consumed,total:r.total,terminated:r.terminated,error:r.error,unresolved:r.unresolved.slice(0,10),last:r.nodes.at(-1)},null,2));
+}

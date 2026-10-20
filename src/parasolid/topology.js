@@ -1,12 +1,17 @@
-'use strict';
 /* Graph checks over a parsed Parasolid body (output of xt.parse).
  *
  * Checks face/loop ownership, loop fin rings, reciprocal forward/backward fins, two-fin edge
  * rings with opposite senses, vertex -> point references, and B-spline control/knot array sizes
  * and knot order. Returns {checks, errors, rings}; an empty `errors` means every check passed.
  *
- * Moved verbatim from the EXP-071 audit (function `topology`).
+ * Moved verbatim from the EXP-071 audit (function `topology`). Isomorphic: loads in Node and as
+ * a plain browser script (global SLDPRTTopology).
  */
+(function(root,factory){
+  if(typeof module==='object'&&module.exports)module.exports=factory();
+  else root.SLDPRTTopology=factory();
+})(typeof self!=='undefined'?self:this,function(){
+'use strict';
 function topology(r){
   const m=new Map(r.nodes.map(n=>[n.index,n])),errors=[],rings=[];let checks=0;
   const test=(ok,msg)=>{checks++;if(!ok)errors.push(msg);};
@@ -28,4 +33,5 @@ function topology(r){
 /* Counts by node name, e.g. {BODY:1, FACE:6, EDGE:12, ...}. */
 function census(r){return r.nodes.reduce((a,n)=>(a[n.name]=(a[n.name]||0)+1,a),{});}
 
-module.exports={topology,census};
+return {topology,census};
+});

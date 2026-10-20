@@ -151,6 +151,8 @@ code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--pa
     <button class="chip" id="legacy-demo">Try a 2011 shell</button>
     <button class="chip" id="cancel" hidden>Cancel parsing</button>
     <button class="chip" type="button" id="pick">Load a .SLDPRT&hellip;</button>
+    <button class="chip" type="button" id="step-export" hidden>Exact STEP</button>
+    <a class="chip" id="step-download" hidden>Download STEP</a>
     <input type="file" id="file" accept=".sldprt,.SLDPRT" hidden>
     <span class="note" style="font-size:13px">Modern and SW2011 files · or drop one onto the view &mdash; it is parsed here in your browser and never uploaded.</span>
   </div>
@@ -389,6 +391,8 @@ code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--pa
    document.getElementById('r-y').textContent = m.sizeMm[1].toFixed(2)+' mm';
    document.getElementById('r-z').textContent = m.sizeMm[2].toFixed(2)+' mm';
    document.getElementById('r-note').textContent = m.note;
+   document.getElementById('step-export').hidden=!m.file;
+   document.getElementById('step-download').hidden=true;
    Array.prototype.forEach.call(document.querySelectorAll('#rail .chip'), function(b){
      b.setAttribute('aria-pressed', String(b.dataset.id === m.id));
    });
@@ -524,6 +528,7 @@ code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--pa
          document.getElementById('diagnostics').textContent=JSON.stringify({file:file.name,format:parsed.format,partial:parsed.partial||false,errors:parsed.errors,rejected:parsed.rejected,warnings:parsed.warnings},null,2);
          if(!parsed.faces.length)throw Error(parsed.errors.join('; ')||'No supported faces');
          const m=arraysFromParsed(parsed,file.name);
+         m.file=file;
          m.note=parsed.format+'. '+(parsed.partial?'PARTIAL geometry: '+parsed.rejected.length+' rejected records. ':'')+'Mesh only; dimensions in mm.';
          m.diagnostics=document.getElementById('diagnostics').textContent;
          var loaded=DATA.filter(function(x){return x.id.startsWith('drop-');});
@@ -536,6 +541,23 @@ code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--pa
      worker.postMessage(bytes,[bytes]);
    }catch(e){if(id!==requestId)return;cancelParse();say('Could not read '+file.name+': '+e.message,'err');}
  }
+ // exact B-rep STEP for the loaded file, made in a worker from the Parasolid body (not the mesh)
+ document.getElementById('step-export').onclick=async function(){
+   var m=current,link=document.getElementById('step-download');if(!m||!m.file)return;
+   link.hidden=true;say('Writing exact STEP for '+m.file.name+'…');
+   var t0=performance.now(),bytes=await m.file.arrayBuffer(),w=new Worker('step-worker.js');
+   var stop=setTimeout(function(){w.terminate();say('STEP export stopped after 120 seconds; use the CLI.','err');},120000);
+   w.onerror=function(e){clearTimeout(stop);w.terminate();say('STEP worker failed: '+e.message,'err');};
+   w.onmessage=function(event){
+     clearTimeout(stop);w.terminate();if(current!==m)return;
+     if(event.data.error){say('Exact STEP failed: '+event.data.error,'err');return;}
+     var r=event.data.report;if(link.href)URL.revokeObjectURL(link.href);
+     link.href=URL.createObjectURL(new Blob([event.data.text],{type:'application/step'}));
+     link.download=m.file.name.replace(/\.sldprt$/i,'')+'.step';link.hidden=false;
+     say('Exact STEP · '+r.faces+' faces · '+r.bodies+' bod'+(r.bodies===1?'y':'ies')+' · uncertainty '+r.uncertaintyMM+' mm · '+Math.round(performance.now()-t0)+' ms','ok');
+   };
+   w.postMessage({bytes:bytes,name:m.file.name.replace(/\.sldprt$/i,'')},[bytes]);
+ };
  document.getElementById('legacy-demo').onclick=async function(){
    try{const r=await fetch('../samples/sw2011/C10_cube_shell_1mm.SLDPRT');if(!r.ok)throw Error('Sample unavailable');await handleFile(new File([await r.arrayBuffer()],'SW2011-shell.SLDPRT'));}
    catch(e){say(e.message,'err');}
