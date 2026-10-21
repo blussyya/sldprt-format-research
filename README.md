@@ -76,7 +76,7 @@ const body = sldprt.readBrep('part.SLDPRT');   // the Parasolid nodes plus graph
 fs.writeFileSync('part.stl', sldprt.toSTL('part.SLDPRT'));
 ```
 
-The mesh reader also runs in a browser. See [docs/api.md](docs/api.md).
+The mesh reader and the exact STEP export also run in a browser. See [docs/api.md](docs/api.md).
 
 ## How do we know it's right
 
@@ -99,7 +99,6 @@ Without it, the tests that need the corpus show up as skipped.
 
 ## What it can't do yet
 
-- STEP export still turns curved faces into triangles. Now that the B-rep decode matches SolidWorks exactly, the exact STEP writer is next.
 - It only reads. It can't write SLDPRT.
 - It's tested on 2011 and 2022 files plus 21 real parts whose version nobody recorded. Other versions probably work, but I haven't proven that.
 - Single parts only. No assemblies, drawings or feature history.

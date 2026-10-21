@@ -108,4 +108,20 @@ plain scripts and define `SLDPRTInflate`, `SLDPRTModern`, `SLDPRTOLE` and `SLDPR
 </script>
 ```
 
-The Parasolid reader and the exporters use Node's `Buffer` and `zlib`, and are Node-only for now.
+Exact STEP works in the browser too. Load these twelve files in this order (as plain scripts, or
+with `importScripts` in a worker, which is what `web/step-worker.js` does):
+
+```
+src/inflate.js  src/container/modern.js  src/container/ole.js  src/parasolid/xt.js
+src/parasolid/partition.js  src/geom/eval.js  src/brep/native.js  src/brep/fit.js
+src/brep/procedural.js  src/brep/split.js  src/step/write.js  src/step/export.js
+```
+
+```js
+const body = SLDPRTPartition.readBody(bytes);          // bytes: Uint8Array of the .SLDPRT
+if (body.parsed.error) throw new Error(body.parsed.error);
+const { text, report } = SLDPRTStepExport.toSTEP(body.parsed, { name: 'part' });
+```
+
+A big part takes seconds (Pocket Wheel, 454 faces, about 10 s), so run it in a worker. The STL
+writer (`convert.js`) is still Node-only.
