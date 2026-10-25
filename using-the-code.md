@@ -46,9 +46,11 @@ stream. The black lines are the edges the file marks as face boundaries.*
 ![Pocket wheel, six views](images/pocket-wheel.png)
 
 *Pocket Wheel: 400 faces, 17,078 triangles, exactly as the parser read them. Nothing welded or
-patched.*
+patched. Render of a third-party part, not covered by this repo's license (see [NOTICE](NOTICE)).*
 
 ![Terminal viewer](images/terminal-viewer.png)
+
+*`sldprt view` on USB hub case TOP. Render of a third-party part, not covered by this repo's license (see [NOTICE](NOTICE)).*
 
 ## From JavaScript
 

@@ -97,5 +97,9 @@ MIT License, and those copies stay under MIT.
 The facts themselves (stream names, the GUID, field layouts, numbers) belong to the files, not to
 anyone. What the license covers is this write-up of them.
 
+Four images are renders of real parts that aren't mine, and the license doesn't cover them:
+`images/usb-hub-top.png`, `images/helical-gear.png`, `images/pocket-wheel.png` and
+`images/terminal-viewer.png`. [NOTICE](NOTICE) has the details.
+
 The Parasolid part follows the public *Parasolid XT Format Reference* (2006). No SolidWorks or
 Parasolid source code, binaries or SDK files were used.

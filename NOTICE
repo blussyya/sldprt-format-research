@@ -1,0 +1,22 @@
+sldprt-format-research
+Copyright 2026 blussyya
+https://github.com/blussyya/sldprt-format-research
+
+The documentation in this repository is licensed under Creative Commons
+Attribution-ShareAlike 4.0, in LICENSE.
+
+NOT COVERED: these images are renders of real parts that belong to their
+owners, not to me. They're here only to show what the reader decodes.
+Neither the license nor anything else here grants rights to them, so
+don't copy, redistribute or reuse them:
+
+  images/usb-hub-top.png       USB hub case TOP
+  images/terminal-viewer.png   USB hub case TOP, in the terminal viewer
+  images/helical-gear.png      Helical Bevel Gear
+  images/pocket-wheel.png      Pocket Wheel
+
+If one of these parts is yours and you want the image removed, open an
+issue.
+
+images/sw2011-c10-shell.png is a render of a model I built, and is covered
+by the license like everything else.

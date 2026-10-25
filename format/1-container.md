@@ -44,8 +44,12 @@ but fails its CRC, treat it as a corrupt file and stop.
 
 Two more rules if you write your own reader:
 
-- Only accept a header if the u32 at +14 is at least 65536 and the compressed size isn't zero.
-  The first check throws out small directory-like records that reuse a stream's name.
+- Only accept a header if its data inflates to exactly the size at +22. The file also holds
+  directory-like records that reuse a stream's name, but not its sizes. Some of them inflate to
+  junk that would fail the CRC, and on one file one of them would win the name. Don't throw
+  them out by the size of the CRC field: an earlier version of the reference reader skipped
+  anything below 65536, which looks like it works on the corpus but would also skip a real
+  stream whose CRC-32 happens to be small.
 - If a name shows up twice, the first one wins.
 
 There's almost certainly a directory somewhere. Nobody here has decoded it. Other public projects

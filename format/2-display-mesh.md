@@ -17,7 +17,7 @@ the face ID to the Parasolid body ([page 3](3-parasolid-body.md)).
 ![USB hub case, six views](../images/usb-hub-top.png)
 
 *USB hub case top: 68 faces read straight from DisplayLists. The black lines are the Block1
-boundary edges.*
+boundary edges. Render of a third-party part, not covered by this repo's license (see [NOTICE](../NOTICE)).*
 
 ## Typed arrays
 
@@ -116,7 +116,7 @@ says an edge ID can't be 1.
 
 *Helical bevel gear, 113 faces. The gaps between the teeth are real geometry, not missing faces.
 All 32 open edges in this mesh run along another open edge, which is the sampling effect described
-next.*
+next. Render of a third-party part, not covered by this repo's license (see [NOTICE](../NOTICE)).*
 
 ### Boundary cycles
 
