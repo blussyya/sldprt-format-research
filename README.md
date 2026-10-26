@@ -9,6 +9,11 @@ repo, [solidworks-converters](https://github.com/blussyya/solidworks-converters)
 
 Come talk about it on [Discord](https://discord.gg/vC4Jee5Q4n).
 
+# NOTICE
+if you were building something and cloned this repo for its code, use the [solidworks-converters](https://github.com/blussyya/solidworks-converters) repository instead.
+The split is due to organization, that repository will contain a combined one CLI command tool instead of the fragmented tools that existed here, this current repo will become a documentation-only repository.
+sorry i know that i restructured it multiple times now but this will the last time (hopefully)
+
 ## Where to start
 
 | if you want | read |
