@@ -52,6 +52,16 @@ Still open:
   once per configuration.
 - Faces with zero normals. Another project's code allows them. None turn up here, and the
   reference reader rejects them.
+- The tessellation vertex count of a cylindrical face doesn't track diameter. 70 vertices for
+  the 5 mm hole, 56 for the 3 mm one: a 1.25 ratio against an expected 1.67. Two diameters isn't
+  enough to guess the rule, only to kill the linear one ([EXP-028][exp028]).
+- What makes Block1's tokens change. Faces next to a newly added face changed in 17 of 17 cases;
+  36 of 36 untouched non-adjacent faces kept theirs. Between those sit the 12 faces whose
+  vertices moved without new neighbours: 11 changed, one (the C06 cylinder) didn't. So neither
+  candidate explanation, adjacency or own vertices moving, can be eliminated yet — the
+  discriminating cell, adjacent faces whose vertices did not change, has zero rows corpus-wide.
+  The split-line model that would fill it (spec'd as C13) is designed and has never been built
+  ([EXP-041][exp041]).
 
 ## Container and versions
 
@@ -61,7 +71,12 @@ Still open:
   empty arrays in chainwheel's face records ([page 5](../format/5-pre-2011.md#the-mesh)).
 - SolidWorks versions other than 2011 and 2022 are only covered by the real parts, and nobody
   recorded which versions those were saved in.
-- Assemblies and drawings haven't been looked at yet.
+- Assemblies and drawings haven't been looked at yet. One suspicion ahead of that: a display
+  reader run on two assemblies outside the corpus — SolidWorks 2020 and 2023 — decoded the
+  first's mesh but found no strip-length signatures in the second's (DisplayLists 16000), and
+  neither file offered a `Config-N-Partition`. Parts through 17000 read fine, so nothing here
+  contradicts [page 1](../format/1-container.md). But both observations come from one run each,
+  on files nobody stored, so treat them as something to test, not as facts.
 
 ## Feature tree
 
@@ -85,6 +100,8 @@ depends on it.
 
 [next]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/NEXT_QUESTIONS.md
 [exp079]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP079.md
+[exp028]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-08-14_v0.4.7-EXP028.md
+[exp041]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-13_v0.4.7-EXP041.md
 [exp080]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP080.md
 [exp081]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP081.md
 [exp082]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP082.md

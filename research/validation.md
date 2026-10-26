@@ -53,6 +53,13 @@ Against SolidWorks' own exports of the 13 controlled cubes C00–C12:
 SolidWorks' own STL exports of C03, C09 and C11 have no −X face at all, and C04's has no top cap.
 The mesh stored in the SLDPRT has them. Don't use those STL files as watertight ground truth.
 
+The legacy corpus's references are worse. On 12 of the 25 SolidWorks 2011 models the vendor STL
+misses a whole planar cap, always the face that carries an inner loop — the through-hole and
+shell models ([EXP-066][exp066]). On C04 the top face has 38 triangles in the stored mesh and 0
+in the STL. The affected set: C04, C05, C06, C07, C08, C10, C11, C16, C17, C19, C20, C26. On
+those files, triangle-for-triangle agreement with the vendor STL is not a usable correctness
+gate, at all.
+
 ## Exact STEP
 
 Every corpus part was written out as exact STEP ([exact STEP](../export/exact-step.md)) and loaded in

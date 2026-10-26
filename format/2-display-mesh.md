@@ -217,6 +217,13 @@ Checked against STEP geometry exported separately:
 The other tags' parameters are kept raw. For exact geometry of any face, follow its face ID to the
 Parasolid body.
 
+## The stream is rewritten on any change
+
+Don't plan to cache face offsets and patch one face. When a face is added or changed, every face
+after it moves in the stream, and the byte diff between files built one feature apart is mostly
+reshuffling, not the new face's own bytes ([EXP-028][exp028]). A change cannot be localized in
+the binary; readers parse the stream as a whole, every time.
+
 ## SolidWorks 2011
 
 The 25 SolidWorks 2011 models use the same face record and bounding record. Their geometry was
@@ -238,4 +245,5 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp063]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP063.md
 [exp064]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP064.md
 [exp066]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-22_v0.5-EXP066.md
+[exp028]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-08-14_v0.4.7-EXP028.md
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md

@@ -107,6 +107,13 @@ Every modern and 2011 file in the corpus uses base schema **13006**, under five 
 Older files are written in schema 13006 itself or in schema 9008. Both are on
 [page 5](5-pre-2011.md#the-parasolid-body).
 
+Careful with those counts. In the 24 SW2022 controls, export bytes 0–349 are byte-identical in
+all 24 files, so "13-declaration prefix, schema token at byte 349, agreement 24 of 24" is one
+SolidWorks build read 24 times, not 24 independent observations; the same goes for the partition
+prefix's 8 declarations at byte 257. The original-part corpus alone carries five distinct
+partition prefixes. Numbers like 13 and 349 describe a modeller version, not the format
+([EXP-058][exp058], [EXP-059][exp059]).
+
 ### Schema edits
 
 A file doesn't repeat the field layout of every node type. The first time a node type shows up, it
@@ -156,6 +163,23 @@ describe. It never scans ahead for a marker.
 legitimately equal the integer null value, so never run pointers through null conversion.
 
 Text files write logicals as `T` and `F`, and `c` and `l` fields have no space after them.
+
+### The first BODY's table
+
+In text, the declaration prefix ends with a `Z` line, and the numbers after it are the first
+body's: index (1 in every corpus file), `highest_node_id`, the BODY's pointer fields, then
+`res_size` (1000) and `res_linear` (1e-8) in that order. That is the 2006 spec's `BODY_s`, and
+the SW2011 gap of six pointers between the ceiling and `res_size` matches the spec's own worked
+example. The SW2022 gap of nine is the edit script at work: the lattice, mesh and polyline types
+are inserted ahead of the residuals, which is where the pointer count goes ([EXP-067][exp067],
+[EXP-068][exp068]).
+
+`highest_node_id` is what the name says: an ID ceiling. It equals the highest decoded node_id in
+94 of the 98 text and binary export pairs in the audit; the four misses are the two loft models
+in both eras, whose decoded bodies run 16 IDs past the stored ceiling ([EXP-071][exp071]).
+Every decoded positive ID is unique and at or below the ceiling anyway, so a reader can still
+use it to bound its work. Why the lofts overshoot is open. An allocation-history explanation is
+plausible but unproven.
 
 ## What's in a body
 
@@ -298,6 +322,10 @@ references and types differ ([EXP-072][exp072]).
 [exp072]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP072.md
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp075]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP075.md
+[exp067]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-22_v0.5-EXP067.md
+[exp068]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-22_v0.5-EXP068.md
+[exp058]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP058.md
+[exp059]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP059.md
 [exp076]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP076.md
 [exp077]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP077.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
