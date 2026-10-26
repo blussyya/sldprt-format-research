@@ -107,12 +107,13 @@ Every modern and 2011 file in the corpus uses base schema **13006**, under five 
 Older files are written in schema 13006 itself or in schema 9008. Both are on
 [page 5](5-pre-2011.md#the-parasolid-body).
 
-Careful with those counts. In the 24 SW2022 controls, export bytes 0–349 are byte-identical in
-all 24 files, so "13-declaration prefix, schema token at byte 349, agreement 24 of 24" is one
-SolidWorks build read 24 times, not 24 independent observations; the same goes for the partition
-prefix's 8 declarations at byte 257. The original-part corpus alone carries five distinct
-partition prefixes. Numbers like 13 and 349 describe a modeller version, not the format
-([EXP-058][exp058], [EXP-059][exp059]).
+One trap for anyone porting a reader: the constants of one modeller build are not the format's
+constants. In the 24 SW2022 controls, export bytes 0–349 (13 declarations; schema token at byte
+349; the partition prefix, 8 declarations, at byte 257) are byte-identical in all 24 files, so
+"24 of 24 files agree" there is really one SolidWorks build read 24 times. The original corpus
+alone carries five distinct prefixes ([EXP-058][exp058], [EXP-059][exp059]). The same holds the
+other way: what the corpus says is the only thing verifiable — a schema-early-2022 preamble
+matches because that's what's in it.
 
 ### Schema edits
 
