@@ -13,9 +13,9 @@ inside it.
 
 Bytes 0–3 of a modern file are different in every file, so you have to look at offset 4, not 0.
 A second opinion, if you want one: every modern file in the corpus also contains the nine bytes
-`34 f6 e6 47 56 e6 47 37 f2` early in the file (first occurrence at offsets 39–614 across the 21
-original modern files), and none of the legacy files does. That far out, it's a containment
-test, not a signature.
+`34 f6 e6 47 56 e6 47 37 f2` early in the file (first occurrence at offsets 39–614, checked on
+all 45 modern files), and none of the 28 legacy and pre-2011 files contains it anywhere at all.
+That far out, it's a containment test, not a signature.
 
 ## Modern container
 
