@@ -10,6 +10,7 @@ and they're numbered in the order you'd read them.
 | [3. Parasolid body](3-parasolid-body.md) | The exact solid: partition sections, the XT transmit encoding, node types, where every curve lives |
 | [4. Mesh and body together](4-mesh-and-body.md) | How the mesh and the body point at each other by ID, and how closely they agree |
 | [5. Files older than 2011](5-pre-2011.md) | PKWARE implode, Parasolid 13 and Parasolid 9 bodies, the older mesh layouts |
+| [6. Which SolidWorks saved the file](6-version-history.md) | `_MO_VERSION_` stream name, release codes 1995–2026, the History stream and build dates |
 
 ## The file at a glance
 

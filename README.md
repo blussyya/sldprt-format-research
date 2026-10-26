@@ -24,6 +24,7 @@ sorry i know that i restructured it multiple times now but this will the last ti
 | the exact solid inside every part | [3. Parasolid body](format/3-parasolid-body.md) |
 | how the mesh and the solid point at each other | [4. Mesh and body together](format/4-mesh-and-body.md) |
 | files from before 2011 | [5. Files older than 2011](format/5-pre-2011.md) |
+| which SolidWorks release saved a file | [6. Version history](format/6-version-history.md) |
 | exact STEP and exact volume from the solid | [export/exact-step.md](export/exact-step.md), [export/exact-volume.md](export/exact-volume.md) |
 | proof that it's right | [research/validation.md](research/validation.md) |
 | the story, including everything we got wrong | [research/history.md](research/history.md) |
@@ -40,6 +41,7 @@ sorry i know that i restructured it multiple times now but this will the last ti
 | Surface type, parameters and bounding box per face | modern, and the bounding box on 2011 too | [display mesh](format/2-display-mesh.md#surface-record-modern-only) |
 | The Parasolid body: topology, analytic surfaces, B-splines, intersection curves | decoded in every version, and it matches SolidWorks' own STEP export | [Parasolid body](format/3-parasolid-body.md) |
 | The link between the mesh and the body | face and edge IDs match on 1,414 of 1,414 faces, and every version joins by edge ID | [mesh and body](format/4-mesh-and-body.md) |
+| Which release saved the file | release code and every save with its build date, 1997–2024 files | [version history](format/6-version-history.md) |
 | Files older than 2011 | mesh and body both decoded, including Parasolid 9 bodies from around 2000 | [pre-2011](format/5-pre-2011.md) |
 | Exact STEP | written from the body: exact where STEP can hold it, fitted to 1e-5 mm where it can't. 64 of 64 match SolidWorks' own export | [exact STEP](export/exact-step.md) |
 | Exact volume | straight from the surfaces, no mesh involved | [exact volume](export/exact-volume.md) |
