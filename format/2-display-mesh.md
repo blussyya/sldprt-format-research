@@ -2,8 +2,8 @@
 
 `Contents/DisplayLists` (modern) and `DisplayLists__ZLB` (SolidWorks 2011) hold the triangle mesh
 SolidWorks drew the part with. There's one record per B-rep face, followed by a record describing
-that face's surface. Both containers and every DisplayLists version in the corpus (13000–17000)
-use the same per-face grammar.
+that face's surface. Both containers and every DisplayLists version seen so far (3800–19000,
+[page 1](1-container.md#displaylists-version)) use the same per-face grammar.
 
 All integers are little-endian `u32`. Coordinates are `float32` in **metres**, and surface
 parameters are `float64`. The reference reader is [`display.js`][display.js].
@@ -224,6 +224,31 @@ after it moves in the stream, and the byte diff between files built one feature 
 reshuffling, not the new face's own bytes ([EXP-028][exp028]). A change cannot be localized in
 the binary; readers parse the stream as a whole, every time.
 
+## Cosmetic threads
+
+A cosmetic thread gets a record of its own: a closed band around the hole or shaft at about the
+thread's minor diameter, drawn over the real face. It starts like a face record, with strip
+lengths, points and normals: two strips of 50 points, 100 points in all in every case so far.
+Then comes u32 1 where Block1's array header would be. It isn't a face, so the band doesn't count
+toward the face total, and it doesn't belong in an STL.
+
+Seen in three online parts, with 2, 4 and 1 bands (radius 4.25 mm × 25 mm, 1.65 × 10, 5.1 × 15).
+Each part's Parasolid body has exactly that many VECTOR_VALUES nodes, and no other part has any,
+so the thread is stored on the body side too ([EXP-084][exp084]). The rest of the band record
+hasn't been decoded; one of them is followed by the strings "Thread" and "Steel".
+
+## Parts saved without display data
+
+A part can be saved without its mesh. Then either there's no DisplayLists stream at all, or there
+is one that holds only lights and view settings. Two such streams from different parts were the
+same 12,979 bytes, with the default bounding box −1 to 1.
+
+You can tell them apart by class name. A stream with a mesh has `uoTempBodyTessData_c` and
+`uoTempFaceTessData_c` in it, and one without a mesh doesn't. Across the 125 modern files in the
+online sample that rule has no exceptions: 108 have the class and faces, 5 have a DisplayLists
+stream without it and no faces, and 12 have no DisplayLists ([EXP-084][exp084]). For these parts,
+a mesh has to come from triangulating the Parasolid body.
+
 ## SolidWorks 2011
 
 The 25 SolidWorks 2011 models use the same face record and bounding record. Their geometry was
@@ -247,3 +272,4 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp066]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-22_v0.5-EXP066.md
 [exp028]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-08-14_v0.4.7-EXP028.md
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
+[exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md

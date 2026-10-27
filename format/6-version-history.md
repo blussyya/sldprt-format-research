@@ -79,8 +79,22 @@ Every part in the corpus, 0 parse errors, saves from 1997 to 2024:
 | distributor main boss rev a | 17000 2024/078 (created) |
 | PTC GE8080-8 | 12000 2019/304 (created), 14000 2021/301, 17000 2024/157 |
 
+The same reader, run on 136 public parts from GitHub ([EXP-084][exp084]), reads every one and
+gives one or more files for each of these releases. None turned up for 2008, 2009 or 2012 yet.
+
+| release | code | files |
+|---|---|---|
+| 2007 | 3400 | 1 |
+| 2010, 2011 | 4400, 4700 | 2 each |
+| 2013, 2014, 2015 | 6000, 7000, 8000 | 3, 2, 2 |
+| 2016, 2017, 2018 | 9000, 10000, 11000 | 4, 7, 7 |
+| 2019, 2020, 2021 | 12000, 13000, 14000 | 15, 9, 5 |
+| 2022, 2023, 2024 | 15000, 16000, 17000 | 24, 14, 16 |
+| 2025, 2026 | 18000, 19000 | 15, 8 |
+
 The reader is `src/container/history.js` in
 [solidworks-converters](https://github.com/blussyya/solidworks-converters); `sldprt info` prints
 "saved in" and "created in". Evidence: [EXP-083][dump].
 
 [dump]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP083.md
+[exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md

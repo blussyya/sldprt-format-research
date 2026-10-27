@@ -79,14 +79,20 @@ Some files have these too: `Contents/Config-0-GhostPartition` (18 of 21),
 `Contents/PMISemanticDataDB` (17 of 21), and `Config-0-FeatureBodies/LocalBodies` (1 of 21, the
 imported body in PTC GE8080-8).
 
+`Config-0` is configuration 0. A part with several configurations has a `Config-N-…` set for each
+one that was rebuilt, and the N can be anything (21, 1885 and 5907 turn up in vendor parts).
+Which one was active when the file was saved is told by `Header2`: from about SolidWorks 2020 on,
+it's a copy of that configuration's `Contents/Config-N-ModelHeader`. After a rename the document
+name inside it differs, and nothing else does ([page 3](3-parasolid-body.md#which-body-is-the-part)).
+
 The ones that matter for geometry:
 
 | stream | holds | see |
 |---|---|---|
 | `Contents/DisplayLists` | the saved mesh and one surface record per face | [page 2](2-display-mesh.md) |
-| `Contents/Config-0-Partition` | the Parasolid body | [page 3](3-parasolid-body.md) |
+| `Contents/Config-N-Partition` | the Parasolid body, for configuration N | [page 3](3-parasolid-body.md) |
 | `Contents/Config-0-GhostPartition` | wire and sheet bodies: feature inputs, never the solid | [page 3](3-parasolid-body.md#the-other-partition-streams) |
-| `Config-0-FeatureBodies/LocalBodies` | an imported body, when there is one | [page 3](3-parasolid-body.md#which-body-is-the-part) |
+| `Config-N-FeatureBodies/LocalBodies` | imported bodies, one per section | [page 3](3-parasolid-body.md#which-body-is-the-part) |
 | `Contents/Config-0-ResolvedFeatures` | the feature tree, plus small one-face Parasolid bodies | [open questions](../research/open-questions.md) |
 
 In a modern file the stream really is called `Contents/DisplayLists`. No modern file has a `__ZLB`
@@ -105,8 +111,24 @@ The DisplayLists version is in the **name** of a stream that contains `_DL_VERSI
 | 16000 | 1 | 400 | 0 |
 | 17000 | 2 | 177 | 0 |
 
-One grammar reads all five, so across this range the version doesn't pick a layout. Nothing
-outside 13000–17000 has been tested.
+One grammar reads all five, so across this range the version doesn't pick a layout.
+
+The 122 modern parts in the online sample (public parts saved from 2015 to 2026,
+[EXP-084][exp084]) widen that to 3800–19000, still with one grammar:
+
+| version | files | faces | no faces |
+|---|---|---|---|
+| 3800, 4100, 5000, 7000 | 5 | 258 | 0 |
+| 8000, 9000 | 12 | 528 | 0 |
+| 10000, 11000, 12000 | 26 | 4,782 | 3 |
+| 13000, 14000, 15000 | 32 | 2,632 | 7 |
+| 16000, 17000 | 29 | 5,061 | 4 |
+| 18000, 19000 | 18 | 3,931 | 0 |
+
+The version is the DisplayLists' own, not the release's. A part saved in 2024 can carry 3800, so
+SolidWorks doesn't always rewrite the stream on save. The "no faces" parts were all saved without
+display data: either no DisplayLists stream at all, or one that holds only view settings
+([page 2](2-display-mesh.md#parts-saved-without-display-data)).
 
 ## Legacy container (SolidWorks 2011)
 
@@ -124,15 +146,18 @@ and `Config-0-GhostPartition` (24 of 25), among others.
 
 ```
 16-byte GUID 231dd571-da81-48a2-a858-98b21b89ef99
-u32le inflated length        (offset 16)
-u32le compressed length      (offset 20)  == stream length − 32
-zlib member                  (offset 24)
+chunks, each:
+  u32le inflated length
+  u32le compressed length
+  zlib member
 8 zero bytes
 ```
 
 That's the same frame a Parasolid partition section uses ([page 3](3-parasolid-body.md#section-frame)),
-minus the size word in front: same GUID, same length fields, same eight zeros at the end. The
-reference reader rejects any other frame and checks the inflated length.
+minus the size word in front: same GUID, same chunks, same eight zeros at the end. A mesh under
+1 MiB is one chunk, so then the compressed length is the stream length − 32. Bigger ones come in
+several; the 2013 head_back and head_face parts need them joined ([EXP-084][exp084]). The reference
+reader rejects any other frame and checks each chunk's inflated length.
 
 ## What isn't read
 
@@ -143,3 +168,4 @@ The feature tree and the other MFC-serialised streams (`Config-0`, `Header`, `CM
 [modern.js]: https://github.com/blussyya/solidworks-converters/blob/main/src/container/modern.js
 [ole.js]: https://github.com/blussyya/solidworks-converters/blob/main/src/container/ole.js
 [exp057]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_independent-verification-EXP057.md
+[exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md

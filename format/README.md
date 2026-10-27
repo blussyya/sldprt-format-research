@@ -29,8 +29,9 @@ and they're numbered in the order you'd read them.
 │   ├── bounding record: analytic box and sphere       float64
 │   └── surface record: face node_id, surface tag, parameters, edge table   (modern only)
 │
-├── Config-0-Partition ────────────────────── 3-parasolid-body.md
-│   │   framed zlib sections: (partition) then (deltas)
+├── Config-N-Partition ────────────────────── 3-parasolid-body.md
+│   │   framed zlib sections: (partition) then (deltas); N = the configuration
+│   │   (imported bodies: Config-N-FeatureBodies/LocalBodies)
 │   └── Parasolid XT neutral binary, schema 13006
 │       WORLD → BODY → REGION/SHELL → FACE → LOOP → FIN → EDGE / VERTEX
 │       surfaces: plane, cylinder, cone, sphere, torus, B-spline, swept, blend
@@ -46,10 +47,10 @@ A part file stores the same shape twice, and the two copies are linked.
 
 | | display mesh | Parasolid body |
 |---|---|---|
-| stream | DisplayLists | Config-0-Partition (or LocalBodies) |
+| stream | DisplayLists | Config-N-Partition (or LocalBodies) |
 | what you get | triangles, normals, boundary edges, surface type | exact surfaces, curves, topology |
 | curved faces | facets, with boundary points on chords | exact |
-| good for | STL, viewing | exact STEP, measuring |
+| good for | STL, viewing | exact STEP, measuring, STL when there's no mesh |
 | SolidWorks 2011 | mesh and bounding boxes, no surface record | the full body |
 | before 2011 | mesh and bounding boxes | the full body |
 | link | face and edge IDs are the same numbers in both | |
