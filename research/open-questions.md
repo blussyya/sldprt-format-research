@@ -39,13 +39,25 @@ Still open:
   follows the number of cuts or split lines. That's an observation, not a decoded meaning.
 - The 64-byte prefix before the LocalBodies section. It contains the imported file's name in
   UTF-16LE, plus fields nobody has decoded.
-- How the body gets picked in parts with several configurations. Every corpus part has one.
+- Which configuration was active, in files without `Config-N-ModelHeader` (before about
+  SolidWorks 2020). From 2020 on, `Header2` says so ([page 3](../format/3-parasolid-body.md#which-body-is-the-part)).
+- One online part (d0d61cde) has a line edge whose vertices are 37 mm off the line, so its body
+  can't be written as exact STEP yet ([EXP-084][exp084]).
+- STL from the B-rep, for parts with no display mesh, fails or leaves open edges on 56 of the 136
+  online parts. The causes are listed in [EXP-084][exp084]: blends on blends, vertices tens of mm
+  off their edge curves, the seam split and two intersection curves.
+- XT types 85, 87, 88 and 89 are in the reader with their 2006-reference layouts but haven't
+  been seen in a file.
 
 ## Display mesh
 
 - The SolidWorks 2011 surface record. 2011 faces have geometry and bounding records but no decoded
   surface record, so no face ID or tag. The body still has both, and the mesh joins it by edge IDs.
 - Block3. Every byte seen so far is zero.
+- The cosmetic-thread band record after its normals, and how a band links to its VECTOR_VALUES
+  node in the body ([page 2](../format/2-display-mesh.md#cosmetic-threads)).
+- One 2013 part (head_back) has 535 faces in its body and 532 in its mesh. Which three faces have
+  no tessellation, and why, isn't known.
 - The optional per-vertex arrays (390 faces), the 8-byte extra array (8 faces), and the edge type
   tags in the edge table.
 - The first 12 and last 40 bytes of the bounding record, and the bounding record that shows up
@@ -69,8 +81,8 @@ Still open:
 - The per-file value at stream header +0.
 - Files older than 2011: what strip control word 0 means beyond "a single triangle", and the two
   empty arrays in chainwheel's face records ([page 5](../format/5-pre-2011.md#the-mesh)).
-- SolidWorks versions other than 2011 and 2022 are only covered by the real parts, and nobody
-  recorded which versions those were saved in.
+- Releases 2008, 2009 and 2012 have no sample yet. Every other release from 2007 to 2026 is
+  covered by at least one public part ([page 6](../format/6-version-history.md#verified-on)).
 - Assemblies and drawings haven't been looked at yet. One suspicion ahead of that: a display
   reader run on two assemblies outside the corpus — SolidWorks 2020 and 2023 — decoded the
   first's mesh but found no strip-length signatures in the second's (DisplayLists 16000), and
@@ -105,3 +117,4 @@ depends on it.
 [exp080]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP080.md
 [exp081]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP081.md
 [exp082]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP082.md
+[exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md

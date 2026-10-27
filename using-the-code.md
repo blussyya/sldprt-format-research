@@ -140,7 +140,13 @@ sldprt.toSTEP(file, { mode: 'faceted' })  // every face as triangles
 sldprt.volume(file)                       // { volume (m³), faces, unsupported }
 ```
 
-STL always comes from the display mesh. Exact STEP throws if the body uses something it can't
+STL comes from the display mesh. A part saved without one (no DisplayLists, or one with no
+tessellation in it) gets its STL from the Parasolid body instead, triangulated so every triangle
+is within `tolerance` of the exact surface (metres, 1e-5 by default). `sldprt.meshModel(file).source`
+says which one you got. The triangulation is new: across the online sample it gives a closed mesh
+on 80 of 136 parts and fails or leaves gaps on the rest ([EXP-084][exp084], section 8).
+
+Exact STEP throws if the body uses something it can't
 write yet (see [what isn't done](export/exact-step.md#what-isnt-done)). `report.mode` says which
 mode was used, and for exact STEP `report.uncertaintyMM` gives the uncertainty written into the
 file. For mesh STEP and STL, `scale` (1000 by default) converts metres to the output unit.
@@ -215,3 +221,4 @@ Without it, the tests that need the corpus show up as skipped. The OpenCascade c
 Python with `cadquery-ocp`, set with `SLDPRT_OCP_PYTHON`.
 
 [code]: https://github.com/blussyya/solidworks-converters
+[exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
