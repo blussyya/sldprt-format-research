@@ -22,19 +22,24 @@ The reference readers are [`partition.js`][partition.js] (streams, sections, pic
 Every stream that carries a partition is a chain of sections:
 
 ```
-u32le size                          size = compressed + 32
+u32le size                          bytes after this word
 16-byte GUID 231dd571-da81-48a2-a858-98b21b89ef99
-u32le inflated length
-u32le compressed length
-zlib member                         compressed bytes
+chunks, each:
+  u32le inflated length
+  u32le compressed length
+  zlib member                       compressed bytes
 8 zero bytes
 ```
+
+The body is the chunks' output joined. Most sections have one chunk, so size = compressed + 32.
+A body over 1 MiB comes as a 1 MiB chunk and then either 4 KiB chunks or one remainder: 1,142,601
+bytes in 24 chunks, 1,863,177 bytes in 2 ([EXP-084][exp084]).
 
 | stream | sections | chains exactly to the end of the stream |
 |---|---|---|
 | `Config-N-Partition` | `TRANSMIT FILE (partition)`, then `TRANSMIT FILE (deltas)` | 70 of 70 |
 | `Config-N-GhostPartition` | one `(partition)` | 65 of 65 |
-| `Config-0-FeatureBodies/LocalBodies` | one plain `TRANSMIT FILE`, after a 64-byte prefix | 1 file |
+| `Config-N-FeatureBodies/LocalBodies` | one plain `TRANSMIT FILE` per imported body, with other data between them | not a chain |
 | `Config-N-ResolvedFeatures` | plain one-face PLANE bodies, 36 sections in 14 files | |
 
 All 242 sections end in eight zero bytes ([EXP-074][exp074]). The same GUID-and-lengths frame,
@@ -43,14 +48,33 @@ without the size word, wraps the 2011 `DisplayLists__ZLB` stream
 
 ### Which body is the part
 
-Take the first section of `Config-0-Partition`. If that body has no faces, take the first section
-with faces from any other stream that carries the GUID.
+**First, which configuration.** A part keeps a `Config-N-Partition` for every configuration that
+was rebuilt, and they can be quite different: one online part has configurations 0 to 3 with 378,
+318, 777 and 13 faces, and its mesh shows 13. The one to read is the one active at save time.
+`Header2` is a copy of that configuration's `Contents/Config-N-ModelHeader` (only the document
+name can differ, after a rename), so pick the ModelHeader that matches it best. On the two
+online parts where it matters, the match is exact for one configuration and at most 0.874 for
+any other ([EXP-084][exp084]).
 
-The corpus needs that second rule once. PTC GE8080-8's main partition holds nothing but a WORLD
-node, and its 126-face body is an imported body in `Config-0-FeatureBodies/LocalBodies`. With the
-rule, the body's face count equals the mesh's face count on all 21 original modern parts and all 49
-controlled parts. That's what the corpus supports. It isn't a model of configurations or rollback
-states.
+Files from before about SolidWorks 2020 have no ModelHeader streams, and nothing else found so far
+says which configuration was active. The reference reader takes the lowest N then. In the
+corpus those configurations all have the same face count, but they can still differ in size.
+
+**Then, which bodies.** The bodies are the first section of that `Config-N-Partition` plus the
+ones in `Config-N-FeatureBodies/LocalBodies`: imported bodies, one per section, with other data
+between the sections. An online part with an empty partition has 8 LocalBodies of 70, 201, 219,
+31, 22, 444, 117 and 13 faces, and its mesh has 1,117.
+
+Not every body there is in the finished part. Each one carries an INT attribute
+`BODY_IN_LIGHTWEIGHT_PERM`, and SolidWorks sets it to 0 on a body that isn't: an imported body a
+later feature used up, or a surface body kept for reference. In one part, a LocalBody flagged 0
+shares 128 of its 130 vertices with the partition's solid, which was built from it. Leaving out
+the bodies flagged 0 gives the mesh's face count on 187 of 188 parts with a mesh
+([EXP-084][exp084]). Bodies without the attribute count as in.
+
+Each LocalBodies section was cut out of a bigger model, so its BODY `next`/`previous` and
+ATTRIB_DEF `next` pointers lead nowhere (13 or 14 per section). That's expected. Each section
+also numbers its node_ids from 1, so a reader that puts them together has to renumber.
 
 ### The other partition streams
 
@@ -209,6 +233,12 @@ plausible but unproven.
 | 38, 40, 41 | INTERSECTION, CHART, LIMIT | intersection curves, stored as their defining data (below) |
 | 56, 59 | BLENDED_EDGE, BLEND_BOUND | rolling-ball blends |
 | 67 | SWEPT_SURF | `section`, `sweep`, `scale` |
+| 60 | OFFSET_SURF | `check`, `true_offset`, `surface`, `offset`, `scale` |
+| 68 | SPUN_SURF | `profile`, `base`, `axis`, `start`, `end`, `start_param`, `end_param`, `x_axis`, `scale` |
+| 163 | HELIX_SU_FORM | a surface's helical shape: `axis_pt`, `axis_dir`, `hand`, `turns`, `pitch`, `gap`, `tol` |
+| 184 | HELIX_CU_FORM | a curve's helical shape: `axis_pt`, `axis_dir`, `point`, `hand`, `turns`, `pitch`, `tol` |
+| 100 | TRANSFORM | `rotation_matrix` (9 doubles), `translation_vector`, `scale`, `flag`, `perspective_vector` |
+| 86 | VECTOR_VALUES | a list of vectors (on cosmetic threads, [page 2](2-display-mesh.md#cosmetic-threads)) |
 | 70, 74, 79–84, 98 | LIST, POINTER_LIS_BLOCK, attributes and value arrays | |
 
 Every surface and curve has the common geometry fields (`node_id`, `owner`, `next`, `previous`,
@@ -224,6 +254,18 @@ complete parses ([EXP-071][exp071]):
 - LIST's base fields are a nine-field reconstruction from the edit scripts in the files. Reading
   every file all the way through backs it up, but there was no separate schema file to check it
   against.
+- **The helix numbers are the other way round.** The reference's table has 163 for the curve helix
+  and 184 for the surface one. In the files, a SURFACE_DATA's `analytic_form` (type 'H') points at
+  a 163 with the surface layout, and a CURVE_DATA's at a 184 with the curve layout. The bytes
+  settle it: read with the surface layout, ReducerBox's first 163 is 89 bytes of fields that end
+  exactly where the next node's type starts, with axis (0, 0, 1), hand '+', 13.75 turns, pitch
+  0.8 mm and a null gap. The curve layout would run 24 bytes into the next node ([EXP-084][exp084]).
+
+The layouts of 60, 68, 86, 100, 163 and 184 aren't in the 13006 schema the files edit, and files
+that use them say "same as the base", so the bytes don't spell them out. They come from the
+reference and are checked the usual way: every node ends where the next begins, every pointer
+resolves, and the graph checks pass. POINT, AXIS, TAG and DIRECTION_VALUES (85, 87, 88, 89) are in
+the reader with their reference layouts but haven't turned up in a file yet.
 
 A few more conventions came out of writing the body back out as STEP ([EXP-078][exp078]). In the
 corpus, SWEPT_SURF is always a linear extrusion. Rational control points are stored homogeneous
@@ -284,6 +326,7 @@ TOP).
 | 49 controlled models, `.x_t` and `.x_b` exports (98 files) | every file parses to its terminator; 28,428 graph checks, 0 failures; face counts equal SolidWorks' own |
 | the same 49 models' embedded partitions | 8,209 nodes, 287 faces, 14,262 graph checks, 0 failures; face counts equal the exports' |
 | 21 original modern parts | 43,158 nodes, 1,272 faces, 0 graph failures |
+| 136 online parts saved 2007–2026, from public GitHub repositories | every body reads to its terminator, 0 graph failures; the face count equals the mesh's on all but one part ([EXP-084][exp084]) |
 | C00 cube, both versions | 6 planes, 12 edges, 8 vertices, Euler characteristic 2, loops facing outward, corners exactly at 0 and 0.01 m, volume exactly 1e-6 m³ |
 
 The graph checks cover who owns each face and loop, closed fin rings, forward and backward fins
@@ -330,3 +373,4 @@ references and types differ ([EXP-072][exp072]).
 [exp076]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP076.md
 [exp077]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP077.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
+[exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
