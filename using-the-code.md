@@ -141,20 +141,24 @@ sldprt.volume(file)                       // { volume (m³), faces, unsupported 
 ```
 
 STL comes from the display mesh. A part saved without one (no DisplayLists, or one with no
-tessellation in it) gets its STL from the Parasolid body instead, triangulated so every triangle
-is within `tolerance` of the exact surface (metres, 1e-5 by default). `sldprt.meshModel(file).source`
-says which one you got. The triangulation is new: across the online sample it gives a closed mesh
-on 80 of 136 parts and fails or leaves gaps on the rest ([EXP-084][exp084], section 8).
+tessellation in it) gets its STL from the Parasolid body instead. Every vertex is on the exact
+surface, and every triangle is within `tolerance` of it (metres, 1e-5 by default).
+`sldprt.meshModel(file).source` says which one you got.
+
+No STL is exact on a curved face; triangles can only get closer. At the default tolerance the
+mesh is as close to the exact volume as SolidWorks' own STL export, and at `{tolerance: 1e-6}`
+about ten times closer ([EXP-085][exp085]). If you need the exact shape, use STEP. The
+triangulation is still new and doesn't close on every online part yet (EXP-085, section 7).
 
 Exact STEP throws if the body uses something it can't
-write yet (see [what isn't done](export/exact-step.md#what-isnt-done)). `report.mode` says which
+write yet, or if any fitted curve or surface comes out more than 1 µm from the exact one
+(`maxError`, in metres) (see [what isn't done](export/exact-step.md#what-isnt-done)). `report.mode` says which
 mode was used, and for exact STEP `report.uncertaintyMM` gives the uncertainty written into the
 file. For mesh STEP and STL, `scale` (1000 by default) converts metres to the output unit.
 
-`volume` is the [exact volume](export/exact-volume.md), with no mesh involved. For now it only
-handles bodies without intersection curves, tolerant edges, swept surfaces or blends. On a body
-that has them, `volume` is `undefined` and `unsupported` lists what it met, for example
-`['intersection curve', 'blend']`.
+`volume` is the [exact volume](export/exact-volume.md), with no mesh involved. It resolves
+intersection curves and blends first, the same way exact STEP does. If something can't be
+resolved or integrated, `volume` is `undefined` and `unsupported` says what.
 
 ### Lower-level modules
 
@@ -222,3 +226,4 @@ Python with `cadquery-ocp`, set with `SLDPRT_OCP_PYTHON`.
 
 [code]: https://github.com/blussyya/solidworks-converters
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
+[exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md

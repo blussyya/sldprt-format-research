@@ -78,6 +78,11 @@ Every part in the corpus, 0 parse errors, saves from 1997 to 2024:
 | Pocket Wheel | 16000 2023/096 (created) |
 | distributor main boss rev a | 17000 2024/078 (created) |
 | PTC GE8080-8 | 12000 2019/304 (created), 14000 2021/301, 17000 2024/157 |
+| re-exports of plate4, C00, C01 and holefillets | the original saves, then 19000 2026/138 |
+
+The re-exports came from the community: the same parts opened and saved again in SolidWorks 2026.
+plate4's History goes straight from its two 1997 saves to 2026, and its body is unchanged: the same
+24 vertices and the same volume ([EXP-085][exp085]).
 
 The same reader, run on 136 public parts from GitHub ([EXP-084][exp084]), reads every one and
 gives one or more files for each of these releases. None turned up for 2008, 2009 or 2012 yet.
@@ -98,3 +103,4 @@ The reader is `src/container/history.js` in
 
 [dump]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP083.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
+[exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md

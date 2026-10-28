@@ -76,6 +76,10 @@ Each LocalBodies section was cut out of a bigger model, so its BODY `next`/`prev
 ATTRIB_DEF `next` pointers lead nowhere (13 or 14 per section). That's expected. Each section
 also numbers its node_ids from 1, so a reader that puts them together has to renumber.
 
+The same goes for bodies inside one partition: node_ids are unique within a body, not within the
+stream. One online part's solid and its four reference sheets each have an EDGE with node_id 7, and
+keying edges by node_id gave the solid a sheet's line ([EXP-085][exp085]).
+
 ### The other partition streams
 
 **The ghost partition never holds the solid.** In 61 of the 73 files, `Config-0-GhostPartition`
@@ -319,6 +323,17 @@ each fin curve hits the stored trim points to 1e-16 m (54 of 54). The two copies
 edge's tolerance of each other (27 of 27 edges, at worst 0.21 µm apart in Dekor and 1.76 µm in USB
 TOP).
 
+**Which way round (u, v) is.** An SP_CURVE's control points are in its surface's own parameters,
+so they're only right if you evaluate the surface the way Parasolid does. Plane, cylinder, torus
+and B-surface match the obvious reading. Two don't ([EXP-085][exp085]):
+
+- SPUN_SURF: u is the profile curve's parameter and v the angle of rotation.
+- CONE: v runs along the axis, not the slant: the point at (u, v) is at radius r + v·tan α, a
+  distance v along the axis from `pvec`.
+
+Read the other way, the pcurves on one online part landed up to 499 m (spun) and 35 mm (a 79°
+cone) from their own vertices. Read this way, every end is within 1e-6 mm.
+
 ## How well it reads
 
 | set | result |
@@ -374,3 +389,4 @@ references and types differ ([EXP-072][exp072]).
 [exp077]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP077.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
+[exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md

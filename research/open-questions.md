@@ -41,11 +41,10 @@ Still open:
   UTF-16LE, plus fields nobody has decoded.
 - Which configuration was active, in files without `Config-N-ModelHeader` (before about
   SolidWorks 2020). From 2020 on, `Header2` says so ([page 3](../format/3-parasolid-body.md#which-body-is-the-part)).
-- One online part (d0d61cde) has a line edge whose vertices are 37 mm off the line, so its body
-  can't be written as exact STEP yet ([EXP-084][exp084]).
-- STL from the B-rep, for parts with no display mesh, fails or leaves open edges on 56 of the 136
-  online parts. The causes are listed in [EXP-084][exp084]: blends on blends, vertices tens of mm
-  off their edge curves, the seam split and two intersection curves.
+- STL from the B-rep, for parts with no display mesh, doesn't close on every online part yet
+  ([EXP-085][exp085], section 7).
+- What makes a save rewrite DisplayLists. In 18 of 175 files the stream is from an older save
+  than the last one, but four community re-saves all got a new one ([page 1](../format/1-container.md#displaylists-version)).
 - XT types 85, 87, 88 and 89 are in the reader with their 2006-reference layouts but haven't
   been seen in a file.
 
@@ -118,3 +117,4 @@ depends on it.
 [exp081]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP081.md
 [exp082]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP082.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
+[exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md

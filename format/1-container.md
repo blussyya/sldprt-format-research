@@ -125,8 +125,12 @@ The 122 modern parts in the online sample (public parts saved from 2015 to 2026,
 | 16000, 17000 | 29 | 5,061 | 4 |
 | 18000, 19000 | 18 | 3,931 | 0 |
 
-The version is the DisplayLists' own, not the release's. A part saved in 2024 can carry 3800, so
-SolidWorks doesn't always rewrite the stream on save. The "no faces" parts were all saved without
+The version is the release that last wrote the stream, which isn't always the one that last saved
+the file. In all 175 modern files with a save History, the DisplayLists version is one of the
+releases in that History. In 157 it's the last save; in 18 it's an earlier one, and the stream was
+carried through the later saves unchanged. A part saved in 2024 that started in SolidWorks 95
+carries 3800 that way. Re-saving doesn't always keep it: four parts re-saved in 2026 all got 19000
+([EXP-085][exp085]). The "no faces" parts were all saved without
 display data: either no DisplayLists stream at all, or one that holds only view settings
 ([page 2](2-display-mesh.md#parts-saved-without-display-data)).
 
@@ -169,3 +173,4 @@ The feature tree and the other MFC-serialised streams (`Config-0`, `Header`, `CM
 [ole.js]: https://github.com/blussyya/solidworks-converters/blob/main/src/container/ole.js
 [exp057]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_independent-verification-EXP057.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
+[exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md

@@ -246,8 +246,14 @@ same 12,979 bytes, with the default bounding box −1 to 1.
 You can tell them apart by class name. A stream with a mesh has `uoTempBodyTessData_c` and
 `uoTempFaceTessData_c` in it, and one without a mesh doesn't. Across the 125 modern files in the
 online sample that rule has no exceptions: 108 have the class and faces, 5 have a DisplayLists
-stream without it and no faces, and 12 have no DisplayLists ([EXP-084][exp084]). For these parts,
-a mesh has to come from triangulating the Parasolid body.
+stream without it and no faces, and 12 have no DisplayLists ([EXP-084][exp084]).
+
+The mesh isn't somewhere else either. Every stream of those 17 parts was searched for the
+tessellation classes and for runs of float32 unit vectors, which a mesh has thousands of. None has
+the classes, and the few unit vectors there are all belong to something else: standard view
+rotations (`moView_c`), light directions, colours and feature data ([EXP-085][exp085]). Four of the
+five view-only streams were carried over from an older save. For these parts, a mesh has to come
+from triangulating the Parasolid body.
 
 ## SolidWorks 2011
 
@@ -273,3 +279,4 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp028]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-08-14_v0.4.7-EXP028.md
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
+[exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md

@@ -60,6 +60,11 @@ The file's `UNCERTAINTY_MEASURE_WITH_UNIT` is the largest of:
 Each is rounded up to 1, 2 or 5 × 10ⁿ mm. On the corpus it's 1e-5 mm for every part except Dekor
 (2e-4 mm) and USB hub case TOP (5e-3 mm).
 
+A fit error over 1 µm doesn't become the uncertainty. The export stops instead (`maxError`, in
+metres, changes the limit). Fit error is our approximation going wrong, not the model's own
+tolerance, and before this check a few online parts were written with fitted curves millimetres to
+kilometres off and an uncertainty to match ([EXP-085][exp085]).
+
 **Tolerant edges.** Parasolid lets an edge have no 3D curve, just a curve on each of its two faces,
 and lets those two miss each other by the edge's tolerance (up to 1e-5 m in the corpus). STEP wants
 one 3D curve, so the first face's curve gets used, and its distance from the other face is
@@ -91,10 +96,16 @@ solids with the right volume to 1e-9.
 Every corpus part gets written out and loaded in OpenCascade. The numbers are in
 [validation](../research/validation.md#exact-step).
 
+On all 49 controlled models OpenCascade gives the same volume for our STEP as for SolidWorks' own
+STEP export: 48 within 3e-16 relative, and the crossed cylinders (C20) within 2.3e-8
+([EXP-085][exp085]). C20's difference is SolidWorks' side: the file stores the intersection
+curves as ellipses and we write ellipses, where SolidWorks writes B-splines. Against the closed
+form, ours is the exact one ([exact volume](exact-volume.md#how-well-it-does)).
+
 ## What isn't done
 
-- SPUN_SURF and OFFSET_SURF get written correctly, but their XT field layouts aren't known yet,
-  because no corpus file has one. A part that uses them can't be read.
+- SPUN_SURF and OFFSET_SURF are read now ([EXP-084][exp084]) and written, but OpenCascade hasn't
+  checked a part that has them yet.
 - A spun face that goes all the way round isn't cut at a seam. Most STEP readers want one.
 - Only constant-radius rolling-ball blends. Variable-radius blends and chamfers stop the export.
 
@@ -108,3 +119,5 @@ Every corpus part gets written out and loaded in OpenCascade. The numbers are in
 [write.js]: https://github.com/blussyya/solidworks-converters/blob/main/src/step/write.js
 [export.js]: https://github.com/blussyya/solidworks-converters/blob/main/src/step/export.js
 [exp079]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP079.md
+[exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
+[exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
