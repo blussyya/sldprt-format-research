@@ -129,8 +129,8 @@ The version is the release that last wrote the stream, which isn't always the on
 the file. In all 175 modern files with a save History, the DisplayLists version is one of the
 releases in that History. In 157 it's the last save; in 18 it's an earlier one, and the stream was
 carried through the later saves unchanged. A part saved in 2024 that started in SolidWorks 95
-carries 3800 that way. Re-saving doesn't always keep it: four parts re-saved in 2026 all got 19000
-([EXP-085][exp085]). The "no faces" parts were all saved without
+carries 3800 that way. Re-saving doesn't always keep it: four parts re-saved in 2026 all got 19000,
+and one saved as 2025 got 18000 ([EXP-085][exp085]). The "no faces" parts were all saved without
 display data: either no DisplayLists stream at all, or one that holds only view settings
 ([page 2](2-display-mesh.md#parts-saved-without-display-data)).
 

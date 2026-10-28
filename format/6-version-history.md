@@ -79,10 +79,15 @@ Every part in the corpus, 0 parse errors, saves from 1997 to 2024:
 | distributor main boss rev a | 17000 2024/078 (created) |
 | PTC GE8080-8 | 12000 2019/304 (created), 14000 2021/301, 17000 2024/157 |
 | re-exports of plate4, C00, C01 and holefillets | the original saves, then 19000 2026/138 |
+| plate4 saved as 2025 | 627, 629, then 19000 2026/138 and 18000 2026/138, 24 s apart |
 
 The re-exports came from the community: the same parts opened and saved again in SolidWorks 2026.
 plate4's History goes straight from its two 1997 saves to 2026, and its body is unchanged: the same
 24 vertices and the same volume ([EXP-085][exp085]).
+
+One more plate4 was saved in 2026 and then saved as SolidWorks 2025. History keeps both saves
+and puts 2025 last, so the last row is the release that wrote the file, not the newest one that
+had it open. Its DisplayLists version is 18000, the 2025 one.
 
 The same reader, run on 136 public parts from GitHub ([EXP-084][exp084]), reads every one and
 gives one or more files for each of these releases. None turned up for 2008, 2009 or 2012 yet.
