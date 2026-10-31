@@ -16,6 +16,11 @@ gets exact entities where it has them, and B-splines fitted to 1e-5 mm where it 
 
 Still open:
 
+- **Two online parts don't resolve yet.** In `2f121983` a blend's spine is where two offset swept
+  surfaces cross. The file's chart for it is exact, but it has 5 points over 28 mm and the curve
+  bows 1.4 mm away from the first chord, and near the start the foot on the offsets jumps. In
+  `82981f2a` (head_back) the blend surface fit stops on an interpolation band. Three others that
+  used to stop are fixed ([EXP-086][exp086]).
 - Variable-radius blends and chamfer blends. None of the corpus parts with a solid needs them, but
   the export stops if it meets one.
 - The XT field layouts of SPUN_SURF and OFFSET_SURF. No corpus file uses either. A file that has
@@ -118,3 +123,4 @@ depends on it.
 [exp082]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-05_v0.5-EXP082.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md

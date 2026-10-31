@@ -118,6 +118,17 @@ See [exact volume](../export/exact-volume.md). Against SolidWorks' STEP on the 4
 the worst difference is 5.6e-15 relative, and against hand-worked values on 24 files it's 4.3e-15
 ([EXP-076][exp076]).
 
+## Online sample
+
+The 139 openly licensed parts in `test files online/` (saved 2007 to 2026) are checked with
+[`tools/resolve-sweep.js`](../tools/resolve-sweep.js) ([EXP-086][exp086]).
+
+| check | result |
+|---|---|
+| Exact B-rep resolves, every fitted curve and surface within 1e-8 m of it | 132 of 139 parts |
+| Parts with no partition stream, so no body to resolve | 5 |
+| Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `82981f2a` (interpolation band) |
+
 ## What isn't validated
 
 - Real-browser use of the viewer. The worker and the server are tested, but no browser runs in the
@@ -137,4 +148,5 @@ the worst difference is 5.6e-15 relative, and against hand-worked values on 24 f
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp076]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP076.md
 [exp077]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP077.md
+[exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
