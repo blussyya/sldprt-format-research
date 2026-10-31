@@ -30,6 +30,7 @@ sorry i know that i restructured it multiple times now but this will the last ti
 | the story, including everything we got wrong | [research/history.md](research/history.md) |
 | what nobody knows yet | [research/open-questions.md](research/open-questions.md) |
 | to run the code | [using-the-code.md](using-the-code.md) |
+| to work on the research yourself: repos, workflow, and the rules (doubt everything, have every finding broken by someone who didn't make it) | [START_HERE](https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/START_HERE.md) in the dump |
 
 ## What's known
 
