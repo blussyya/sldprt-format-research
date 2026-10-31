@@ -19,7 +19,8 @@ Still open:
 - **Two online parts don't resolve yet.** In `2f121983` a blend's spine is where two offset swept
   surfaces cross. The file's chart for it is exact, but it has 5 points over 28 mm and the curve
   bows 1.4 mm away from the first chord, and near the start the foot on the offsets jumps. In
-  `82981f2a` (head_back) the blend surface fit stops on an interpolation band. Three others that
+  `82981f2a` (head_back) a blend face runs 4.7 mm past the point where its spine's chart ends (a T
+  limit, where the two offsets touch), so the spine has to be followed beyond it. Three others that
   used to stop are fixed ([EXP-086][exp086]).
 - Variable-radius blends and chamfer blends. None of the corpus parts with a solid needs them, but
   the export stops if it meets one.

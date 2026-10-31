@@ -127,7 +127,7 @@ The 139 openly licensed parts in `test files online/` (saved 2007 to 2026) are c
 |---|---|
 | Exact B-rep resolves, every fitted curve and surface within 1e-8 m of it | 132 of 139 parts |
 | Parts with no partition stream, so no body to resolve | 5 |
-| Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `82981f2a` (interpolation band) |
+| Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `82981f2a` (a blend face past its spine's end) |
 
 ## What isn't validated
 
