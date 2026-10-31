@@ -19,8 +19,9 @@ Still open:
 - **Two online parts don't resolve yet.** In `2f121983` a blend's spine is where two offset swept
   surfaces cross. The file's chart for it is exact, but it has 5 points over 28 mm and the curve
   bows 1.4 mm away from the first chord, and near the start the foot on the offsets jumps. In
-  `82981f2a` (head_back) resolves now, but its worst fitted curve is 4.7e-8 m and worst fitted
-  surface 2.4e-7 m off the exact data, above the 1e-8 m the others meet. Getting that far needed offsets on the right side, B-splines carried on
+  `82981f2a` (head_back) resolves now, within 1e-8 m by the fitter's own check, but a dense check
+  finds one edge at 1.12e-8 m, and within ~1 µm of one T limit a spine is up to 7.5e-8 m off.
+  Getting that far needed tolerant vertices handled, and offsets on the right side, B-splines carried on
   past their edge, and closed spines ([EXP-086][exp086]).
 - Variable-radius blends and chamfer blends. None of the corpus parts with a solid needs them, but
   the export stops if it meets one.
