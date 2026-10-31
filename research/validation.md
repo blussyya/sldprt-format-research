@@ -125,7 +125,8 @@ The 139 openly licensed parts in `test files online/` (saved 2007 to 2026) are c
 
 | check | result |
 |---|---|
-| Exact B-rep resolves, every fitted curve and surface within 1e-8 m of it | 132 of 139 parts |
+| Exact B-rep resolves | 133 of 139 parts |
+| ...with every fitted curve and surface within 1e-8 m of it | 129 of them. Over it: `0739c559` (curve 9.6e-3 m), `3c4752f1` (3.95e-8), `2e6e140a` (2.7e-8), `f0b9a118` (1.6e-8). This row used to claim all of them. |
 | Parts with no partition stream, so no body to resolve | 5 |
 | Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `82981f2a` (resolves, but a curve is 4.7e-8 m and a surface 2.4e-7 m off) |
 
