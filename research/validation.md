@@ -127,7 +127,7 @@ The 139 openly licensed parts in `test files online/` (saved 2007 to 2026) are c
 |---|---|
 | Exact B-rep resolves, every fitted curve and surface within 1e-8 m of it | 132 of 139 parts |
 | Parts with no partition stream, so no body to resolve | 5 |
-| Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `82981f2a` (an edge whose contact curve closes on itself) |
+| Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `82981f2a` (resolves, but a curve is 4.7e-8 m and a surface 2.4e-7 m off) |
 
 ## What isn't validated
 
