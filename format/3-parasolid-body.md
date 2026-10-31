@@ -276,6 +276,24 @@ corpus, SWEPT_SURF is always a linear extrusion. Rational control points are sto
 (already multiplied by their weight). A trimmed curve runs in the direction of its own sense times
 its basis curve's sense. A plane's (u, v) is `pvec + u·x_axis + v·(normal × x_axis)`.
 
+An OFFSET_SURF lies `offset` along its basis surface's normal, and a `-` sense reverses that
+normal ([EXP-086][exp086]). Reading the offset as always along the basis's du × dv put head_back's
+`-` offsets on the wrong side, 2 × `offset` away from their own intersection charts. In the online
+sample, 62 distinct offsets bound an intersection curve with a chart and 39 carry faces (1,180
+vertices). Every point sits on the side the sense says, and none on the other. `offset` itself is
+negative on about two thirds of them, and the rule holds for both signs. A second check that
+started from scratch, and was told to break the rule, couldn't. One thing isn't settled. In all
+592 OFFSET_SURF nodes in the sample, the offset's own sense equals its basis's, so which of the two
+Parasolid reads can't be told yet. All of them are offsets of B_SURFACE or SWEPT_SURF.
+
+Past the end of its knot range, a B-spline surface carries on flat along its edge tangent,
+S(u, v0) + (v − v0)·Sv(u, v0) ([EXP-086][exp086]). Offsets reach past their basis's edge, and
+the intersection charts there are exact to that extension. Only head_back and head_face have
+chart points past an edge: all 28 in head_back, and all 162 in head_face that clamping would put
+more than 50 µm off, lie within 1 µm of it (most under 1 nm), past edges in u and in v. Carrying the end span's
+polynomial on misses by up to 0.3 mm. Corners, and rational surfaces past their edge, haven't
+been seen.
+
 ### Faces and loops with no edges
 
 Two kinds of face have boundaries that are easy to trip over:
@@ -390,3 +408,4 @@ references and types differ ([EXP-072][exp072]).
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md

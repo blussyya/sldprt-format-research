@@ -19,13 +19,15 @@ Still open:
 - **Two online parts don't resolve yet.** In `2f121983` a blend's spine is where two offset swept
   surfaces cross. The file's chart for it is exact, but it has 5 points over 28 mm and the curve
   bows 1.4 mm away from the first chord, and near the start the foot on the offsets jumps. In
-  `82981f2a` (head_back) a blend face runs 4.7 mm past the point where its spine's chart ends (a T
-  limit, where the two offsets touch), so the spine has to be followed beyond it. Three others that
-  used to stop are fixed ([EXP-086][exp086]).
+  `82981f2a` (head_back) every blend fits now, but an edge whose contact curve on a blend closes on
+  itself isn't handled yet. Getting that far needed offsets on the right side, B-splines carried on
+  past their edge, and closed spines ([EXP-086][exp086]).
 - Variable-radius blends and chamfer blends. None of the corpus parts with a solid needs them, but
   the export stops if it meets one.
-- The XT field layouts of SPUN_SURF and OFFSET_SURF. No corpus file uses either. A file that has
-  one would settle it.
+- Whether an OFFSET_SURF's side comes from its own sense or its basis's. In all 592 in the online
+  sample the two agree, so a part where they differ would settle it ([EXP-086][exp086]).
+- Vertices 0.1 to 1 mm off thread and degree-1 B-spline surfaces, inside the knot range, in 5 online
+  parts (d799e9a3, 073482d3, 0d68d32d, db8a97e2, f0b9a118). Found in passing, not looked at yet.
 - **The two lofts.** In C16, in both versions, the embedded body differs from the exported one in
   `nom_geom_state` and in several curve references. Which one SolidWorks treats as the part isn't
   known.

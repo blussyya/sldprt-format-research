@@ -80,6 +80,8 @@ to cover it.
 - **Orientation.** A face's outward normal is its surface normal, flipped once for a `-` surface
   sense and once more for a `-` face sense. A fitted blend takes its sense from the neighbouring
   face it's tangent to.
+- **Offsets.** STEP's OFFSET_SURFACE runs along its basis's own normal, so the distance is written
+  negated when the XT basis has a `-` sense ([EXP-086][exp086]).
 - **Voids.** A solid region with inner shells becomes a BREP_WITH_VOIDS, with each inner shell as
   an ORIENTED_CLOSED_SHELL with orientation `.F.`.
 - **Several bodies.** Each solid body is its own MANIFOLD_SOLID_BREP in the same representation.
@@ -121,3 +123,4 @@ form, ours is the exact one ([exact volume](exact-volume.md#how-well-it-does)).
 [exp079]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP079.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
