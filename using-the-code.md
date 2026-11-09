@@ -90,7 +90,7 @@ A face:
 | `bounds` | `{min, max, center, radius}`, the face's analytic box (float64), or `null` |
 | `metadata` | modern only, and `null` with `metadataError` if it didn't check out |
 | `metadata.rawId` | the Parasolid FACE `node_id` |
-| `metadata.typeTag` | 4001 plane, 4002 cylinder, 4003 cone, 4004 sphere, 4005 torus, 4006 B-surface, 4007 blend, 4009 swept |
+| `metadata.typeTag` | 4001 plane, 4002 cylinder, 4003 cone, 4004 sphere, 4005 torus, 4006 B-surface, 4007 blend, 4008 offset, 4009 swept, 4010 spun ([table](format/2-display-mesh.md#surface-type-tags)) |
 | `metadata.direction`, `metadata.parameters` | see [surface parameters](format/2-display-mesh.md#surface-parameters) |
 | `metadata.edgeRecords` | `[{id, typeTag}]`, the face's B-rep edges |
 | `block1`, `block2`, `block3`, `offsets`, … | the raw arrays and byte offsets, so you can check any value against the file |

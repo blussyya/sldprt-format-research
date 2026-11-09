@@ -61,6 +61,40 @@ Two older layouts:
 The build dates check the codes against the calendar: 12000 built 2019/304 (SW2019 SP5), 15000
 built 2022/009 (SW2022 SP1), 17000 built 2024/157 (SW2024).
 
+## The Biography stream
+
+`Biography` is save history too, not feature history. It records the environment each save ran
+in, and nothing decoded in it names a feature or an operation. An earlier guess that the 2011
+feature log moved into `Biography` in modern files is unsupported ([EXP-088][exp088]).
+
+It is an MFC `moBiography_c` object followed by a `u32` record count. Each record is:
+
+```
+9 × u32
+CString, u16
+2 snapshots, each:
+  3 × u32
+  6 × (CString, 3 × u32)
+```
+
+A sequential reader, with no forward scanning, takes all 216 Biography streams in the dump's 222
+local part files: 3,519 records, each stream ending exactly at its boundary. Six files have no
+Biography stream. A second reader, written without the first parser, reproduced the boundaries on
+six files (C22, C23, C24, head_back before and after its re-save, and the gear) and rejected
+truncations, bad class and count fields, and bad string lengths.
+
+What is named:
+
+- The first two words of a record match the release code and build-date code of the
+  [History](#the-history-stream) stream, in the five files checked (C22, C23, C24, head_back and
+  the gear). C23 keeps C22's first two records byte for byte and adds one.
+- The first two words of a snapshot form a plausible Windows FILETIME. In five checked files, one
+  snapshot's whole seconds equal the first `ModelStamps` word.
+
+The remaining words look like Windows environment and path metadata, and most have no verified
+name. Nothing in the stream says whether a file was saved by an API call, a batch job or an
+interactive session. Checked by a second reader; no blind prove/disprove pass is recorded for it.
+
 ## Verified on
 
 Every part in the corpus, 0 parse errors, saves from 1997 to 2024:
@@ -109,3 +143,4 @@ The reader is `src/container/history.js` in
 [dump]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP083.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp088]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP088.md

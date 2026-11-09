@@ -54,7 +54,11 @@ Two more rules if you write your own reader:
   them out by the size of the CRC field: an earlier version of the reference reader skipped
   anything below 65536, which looks like it works on the corpus but would also skip a real
   stream whose CRC-32 happens to be small.
-- If a name shows up twice, the first one wins.
+- If a name shows up twice, the reference reader keeps the first. The corpus never exercises
+  that: the dump's 178 modern containers hold 7,374 valid nonempty streams (printable name,
+  inflates to the declared size, CRC matches) and no name appears twice. Another 521 valid
+  streams are empty. The data is raw DEFLATE; inflating it as zlib finds nothing
+  ([EXP-095][exp095], corrected in [EXP-097][exp097]).
 
 There's almost certainly a directory somewhere. Nobody here has decoded it. Other public projects
 cover this layer in more detail (see [prior art](../research/history.md#prior-art)).
@@ -166,11 +170,14 @@ reader rejects any other frame and checks each chunk's inflated length.
 ## What isn't read
 
 The feature tree and the other MFC-serialised streams (`Config-0`, `Header`, `CMgr`,
-`Biography`, `History`, `Definition`), in every version. Work on them has started, see
-[open questions](../research/open-questions.md#feature-tree).
+`History`, `Definition`), in every version. Work on them has started, see
+[open questions](../research/open-questions.md#feature-tree). `Biography` is read, see
+[page 6](6-version-history.md#the-biography-stream).
 
 [modern.js]: https://github.com/blussyya/solidworks-converters/blob/main/src/container/modern.js
 [ole.js]: https://github.com/blussyya/solidworks-converters/blob/main/src/container/ole.js
 [exp057]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_independent-verification-EXP057.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp095]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP095.md
+[exp097]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP097.md

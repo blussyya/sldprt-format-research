@@ -35,7 +35,8 @@ Still open:
 - **Off-surface display vertices.** 231 interior and 11 boundary vertices in the real parts are
   neither on their surface nor on a chord between on-surface points
   ([page 4](../format/4-mesh-and-body.md#how-close-the-mesh-sits-to-the-surface)). Everything else
-  that's off the surface is explained.
+  that's off the surface is explained, except 173 vertices in `2f121983` and 899 in `a4ecc6f5` that
+  are on no chord of their own face ([EXP-105][exp105]).
 
 ## Partition streams
 
@@ -46,10 +47,10 @@ Still open:
   stands for.
 - The one-face PLANE bodies in `ResolvedFeatures`. In the controlled cubes, how many there are
   follows the number of cuts or split lines. That's an observation, not a decoded meaning.
-- The 64-byte prefix before the LocalBodies section. It contains the imported file's name in
-  UTF-16LE, plus fields nobody has decoded.
 - Which configuration was active, in files without `Config-N-ModelHeader` (before about
-  SolidWorks 2020). From 2020 on, `Header2` says so ([page 3](../format/3-parasolid-body.md#which-body-is-the-part)).
+  SolidWorks 2020). From 2020 on, `Header2` says so. Before that, the display's face count and
+  box pick the geometry, not the configuration, and no part has a known answer to check against
+  ([page 3](../format/3-parasolid-body.md#which-body-is-the-part)).
 - STL from the B-rep, for parts with no display mesh, doesn't close on every online part yet
   ([EXP-085][exp085], section 7).
 - What makes a save rewrite DisplayLists. In 18 of 175 files the stream is from an older save
@@ -68,8 +69,9 @@ Still open:
   no tessellation, and why, isn't known.
 - The optional per-vertex arrays (390 faces), the 8-byte extra array (8 faces), and the edge type
   tags in the edge table.
-- The first 12 and last 40 bytes of the bounding record, and the bounding record that shows up
-  once per configuration.
+- The first 12 and last 40 bytes of the bounding record, and what the configuration envelope is
+  used for, and why `ac760485` has one larger than its faces
+  ([page 2](../format/2-display-mesh.md#configuration-envelope)).
 - Faces with zero normals. Another project's code allows them. None turn up here, and the
   reference reader rejects them.
 - The tessellation vertex count of a cylindrical face doesn't track diameter. 70 vertices for
@@ -128,3 +130,4 @@ depends on it.
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
+[exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md

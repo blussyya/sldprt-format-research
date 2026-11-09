@@ -7,7 +7,9 @@ things hold on all 1,414 modern faces ([EXP-074][exp074]):
 1. **Identity.** The face ID in the display surface record is the body's `FACE.node_id`, on 1,414
    of 1,414 faces. The edge table, and the face's nonzero Block1 IDs, are exactly the `node_id`s of
    the body edges around that face. The edge-table check covers 1,408 faces. The other 6 are C23's
-   empty tables, where Block1 still matches.
+   empty tables, where Block1 still matches. The ID is unique within a body, not within a part, so
+   on parts with several bodies a join by ID alone can pick the wrong face
+   ([page 2](2-display-mesh.md#face-ids-repeat-across-bodies)).
 2. **Type.** Each display tag maps to exactly one Parasolid surface type, including 4007 →
    BLENDED_EDGE and 4009 → SWEPT_SURF. That's how those two tags got their names.
 3. **Geometry.** On analytic faces, the display mesh lies on the body's surface. The display
@@ -67,8 +69,35 @@ That leaves **231 interior vertices and 11 boundary vertices unexplained**: Deko
 chainwheel 57, Helical Bevel Gear 47, USB TOP 38, Pocket Wheel 27, distributor 3. One Pocket Wheel
 blend vertex is 1.5e-5 m off the exact rolling-ball surface.
 
+### Curved faces in three online parts
+
+A later look at cylinder and cone faces in `8cd79ff5`, `2f121983` and `a4ecc6f5` found the same
+cause at larger scale. Measured, not blind-checked ([EXP-105][exp105]).
+
+Every vertex that isn't shared with a neighbouring face is within 1e-9 m of the joined surface
+(largest 9.8e-10 m). The vertices that are off it are shared boundary vertices, and they sit on
+straight chords of this face's boundary rather than on the surface:
+
+| part | vertices over 1e-9 m | on a chord of their own face |
+|---|---:|---:|
+| `8cd79ff5` | 619 of 2,419 | 619 |
+| `2f121983` | 987 of 3,403 | 814 |
+| `a4ecc6f5` | 2,338 of 4,586 | 1,439 |
+
+In `8cd79ff5` face 1462 (a cylinder, radius 3.24 mm), 10 of 14 vertices are at 1e-11 m and 4 sit
+1.10e-5 m inward, in pairs, one per rim, at one angle. Controls: a lone cone (C13) has 144
+vertices, none off, with a maximum of 1.8e-10 m; C04 and C19 have none; the crossed cylinders (C20)
+and the cylinder fillet (C21) show the effect, with 20 and 66 vertices off, all on chords and
+shared. The radius field, the units, transforms and a stale mesh are ruled out.
+
+It does not explain 173 vertices in `2f121983` and 899 in `a4ecc6f5` that are on no chord of their
+own face. A display-to-surface distance check has to leave out vertices shared with other faces,
+or test them against the boundary edge, or curved faces fail a 1e-8 m bar for reasons that have
+nothing to do with the surface.
+
 So for exact geometry, the body is the source and the mesh isn't. The face and edge IDs connect the
 two exactly.
 
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
+[exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md

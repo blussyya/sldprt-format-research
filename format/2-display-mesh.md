@@ -153,8 +153,37 @@ of the 24 modern controlled models. The odd one out is the spline loft C16, whic
 about 10.4 µm on every side, so spline boxes aren't guaranteed to be tight
 ([EXP-061][exp061], [EXP-063][exp063], [EXP-064][exp064]).
 
-The same layout also turns up once per configuration elsewhere in the stream, after the
-configuration's name in UTF-16LE (45 of 45 modern files). Nobody knows yet what that box is for.
+The same layout turns up once more in most streams from version 13000 on, as the
+[configuration envelope](#configuration-envelope).
+
+### Configuration envelope
+
+From DisplayLists version 13000 on, a stream usually holds one more record in the bounding-record
+layout: the box around every saved face. It sits at the configuration's name, an MFC UTF-16
+string (`ff fe ff`, a length, UTF-16LE units). The 132-byte record starts 8 bytes before the end
+of that string. Find it by that name relationship. Arithmetic alone isn't enough: unnamed boxes
+with the same arithmetic turn up in Dekor, the helical gear, `J6_Flange_Adapter`, `CR26-201-08`
+and eight files with no named record, and none of them equals the face union.
+
+Blind-checked ([EXP-091][exp091], [EXP-093][exp093], [EXP-097][exp097]):
+
+- 113 of 166 readable modern files have a named record. In 112 of them it equals the union of the
+  saved per-face boxes, to within 1.1e-16 m.
+- It starts at version 13000: none in the 42 files at 12000 or below, and 113 of 124 files from
+  13000 on. The declared version belongs to the release that last wrote the stream
+  ([page 1](1-container.md#displaylists-version)), so a recent file can lack it.
+- Of the 11 files from 13000 on without it, 3 have no faces. The other 8 all have LocalBodies or
+  several configuration IDs, but 15 of 21 files with LocalBodies, and one with several
+  configuration IDs, keep it. Re-saving doesn't decide it either: 3 of the 8 were saved by one
+  release only, and 34 files saved by several releases keep the record. No tested property
+  explains the omissions.
+- `ac760485_存矿小端` is the exception: its record reaches 4.412 mm past the face union in −x and
+  12.684 mm in +z. The cause isn't known.
+
+Earlier this page said the layout turns up once per configuration in 45 of 45 modern files
+([EXP-064][exp064]). That count took the nameless look-alikes in Dekor and the gear for second
+configurations. Each of those files has one named record ([EXP-091][exp091]). What the box is
+used for is still unknown.
 
 ## Surface record (modern only)
 
@@ -167,7 +196,7 @@ It starts 132 bytes after Block3, right after the bounding record. Read it forwa
 | 3 | typed array `[12, 100, 2, A]`, empty everywhere in the corpus |
 | 4 | typed array `[12, 100, 2, B]`, empty everywhere in the corpus |
 | 5 | `u32 scalarFlag`: `0`, or `1` followed by two `[4, 100, 2, V]` float32 arrays with one value per vertex |
-| 6 | `u32 × 3`, zero everywhere in the corpus |
+| 6 | `u32 × 3`, zero in 13,533 of 13,533 records that have steps 7–11. [Nonzero ones](#records-with-no-id-or-tag-block) have none of them |
 | 7 | `u32` **face ID**, which is the Parasolid FACE `node_id` |
 | 8 | `float64 × 3` direction |
 | 9 | `u32` **surface type tag** |
@@ -198,11 +227,21 @@ general is open.
 | 4005 | torus | same. A 90° torus is still 4005, so the tag is the surface type, not the trimmed patch |
 | 4006 | B-surface (spline) | same |
 | 4007 | blend (Parasolid `BLENDED_EDGE`) | the ID link to the Parasolid body, 33 of 33 faces in two real parts |
+| 4008 | offset surface (Parasolid `OFFSET_SURF`) | the ID link, 1 of 1 face (`2f121983`). Blind check upheld ([EXP-100][exp100]) |
 | 4009 | swept surface (Parasolid `SWEPT_SURF`) | the ID link to the Parasolid body, 311 of 311 faces in one real part |
+| 4010 | spun surface (Parasolid `SPUN_SURF`) | the ID link, 288 of 290 faces in two parts (`a4ecc6f5`, `8cd79ff5`); the other 2 have no native face. Blind check upheld ([EXP-100][exp100]) |
 
 4001–4006 agree with SolidWorks on 136 of 136 faces of the 2022 models that were built in 2022
 ([EXP-055][exp055]). Every tag maps to exactly one Parasolid surface type on all 1,414 modern faces
 ([EXP-074][exp074]). 4007 and 4009 come from real parts, not from a model built to test them.
+
+4008 and 4010 were found by counting the tag on every display face in the corpus, which also
+turned up 56 records that have no tag at all ([EXP-097][exp097], [below](#records-with-no-id-or-tag-block)).
+A blind check joined the faces to the body by ID and upheld both names: 284 of 286 faces of
+`a4ecc6f5` and 4 of 4 of `8cd79ff5` join a spun surface, and the one 4008 face joins an offset
+surface ([EXP-100][exp100]). Mesh vertices sit on the joined surface at a mean of 6e-6 m, 3e-7 m
+and 1.0e-5 m (the 4008 face). That is as close as the cylinder and cone controls, so the distance
+by itself can't tell a spun face from a cylinder, and the names rest on the ID join.
 
 ### Surface parameters
 
@@ -214,8 +253,44 @@ Checked against STEP geometry exported separately:
 | 4002 cylinder | the axis | slots 0–2 a point on the axis, slot 6 the radius |
 | 4003 cone | the axis | slots 0–2 a point on the axis, slot 6 the radius there, slot 7 the half-angle in radians. Apex = point + axis · radius / tan(angle) |
 
-The other tags' parameters are kept raw. For exact geometry of any face, follow its face ID to the
-Parasolid body.
+The other tags' parameters are kept raw. 4010 records carry no axis in them: all eight parameters
+are 0 on 290 of 290 faces. Their display `direction` is parallel to the axis on 260 faces and
+perpendicular on 28, so it isn't the axis either ([EXP-100][exp100]). For exact geometry of any
+face, follow its face ID to the Parasolid body.
+
+### Records with no id or tag block
+
+56 modern display records have no face ID, direction, tag or parameters. They are 33 faces in
+`0739c559`, 22 in `7765d286` and 1 in `eefa906d`. Measured by one agent ([EXP-099][exp099]), not
+blind-checked.
+
+The record boundary is right: the stored bounding records check on all 410 faces of the three
+parts. After the normals, though, the three reserved words (step 6) are nonzero (`0, 0, 1` or
+`0, 1, 0xFFFFFFFF`), and an appearance block sits where the ID and tag would be: colour bytes,
+MFC strings such as `SOLIDWORKS Materials|ABS|33`, float64 values and paths. Read at the usual
+offset it gives the "tags" 4980815, 16368 and 65536, which are bytes of that block. Moving the
+read offset by ±1 to 16 bytes passes 0 of 13,533 good records, and the usual offset passes
+13,533 of 13,533.
+
+A reader should refuse the ID and tag when the reserved words are nonzero or the tag is outside
+4001–4010, and keep the mesh. The reference reader on `dev` does this (commit a256dba). Not
+decoded: the appearance block itself, two faces of `0739c559` (100 and 101) with yet another
+shape, and 5,612 other modern faces in 48 parts whose metadata is rejected for other reasons.
+
+### Face IDs repeat across bodies
+
+A face ID is unique within one body, not within the part. In 9 parts, 552 groups of display faces
+share an ID, and in all 552 the members are in different bodies, never in the same one. In
+`2f121983`, ID 253 is a cylinder in body 2 and a plane in body 8 of one partition. A periodic face
+split in two would put both halves in one body, so that doesn't explain it. Measured by one
+agent ([EXP-099][exp099]), not blind-checked.
+
+A LocalBodies section numbers its own node_ids from 1 ([page 3](3-parasolid-body.md#localbodies-entries)),
+and the display keeps those section-local numbers. In 6 parts, 3,880 of 13,532 display faces match
+a native face only after undoing the renumbering a reader applies when it puts sections together
+(`d2515121` alone has 2,349); 148 faces in four parts match neither way. So a join by ID alone can
+land on the wrong face. A fix needs each display face's body, and how to get that from the stream
+hasn't been checked.
 
 ## The stream is rewritten on any change
 
@@ -274,9 +349,14 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp055]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_tag-identification-EXP055.md
 [exp061]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP061.md
 [exp063]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP063.md
-[exp064]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP064.md
 [exp066]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-22_v0.5-EXP066.md
+[exp064]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_v0.4.9-EXP064.md
 [exp028]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-08-14_v0.4.7-EXP028.md
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp091]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP091.md
+[exp093]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP093.md
+[exp097]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP097.md
+[exp099]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP099.md
+[exp100]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP100.md

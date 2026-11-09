@@ -39,7 +39,7 @@ bytes in 24 chunks, 1,863,177 bytes in 2 ([EXP-084][exp084]).
 |---|---|---|
 | `Config-N-Partition` | `TRANSMIT FILE (partition)`, then `TRANSMIT FILE (deltas)` | 70 of 70 |
 | `Config-N-GhostPartition` | one `(partition)` | 65 of 65 |
-| `Config-N-FeatureBodies/LocalBodies` | one plain `TRANSMIT FILE` per imported body, with other data between them | not a chain |
+| `Config-N-FeatureBodies/LocalBodies` | a count, then named entries of one or more plain `TRANSMIT FILE` sections ([below](#localbodies-entries)) | 41 of 41 end exactly after the last entry |
 | `Config-N-ResolvedFeatures` | plain one-face PLANE bodies, 36 sections in 14 files | |
 
 All 242 sections end in eight zero bytes ([EXP-074][exp074]). The same GUID-and-lengths frame,
@@ -56,9 +56,48 @@ name can differ, after a rename), so pick the ModelHeader that matches it best. 
 online parts where it matters, the match is exact for one configuration and at most 0.874 for
 any other ([EXP-084][exp084]).
 
-Files from before about SolidWorks 2020 have no ModelHeader streams, and nothing else found so far
-says which configuration was active. The reference reader takes the lowest N then. In the
-corpus those configurations all have the same face count, but they can still differ in size.
+Files from before about SolidWorks 2020 have no ModelHeader streams, and no field has been found
+that names the active configuration. The saved mesh can pick the geometry, though. Keep the
+configurations whose native body has as many faces as the DisplayLists stream. Of those, keep the
+ones whose box (every vertex, plus the extremes of every edge) equals the union of the display's
+per-face boxes ([bounding record](2-display-mesh.md#bounding-record-132-bytes)) within 1e-8 m.
+The reference reader on `main` still takes the lowest N; this rule is on its `dev` branch.
+
+Blind-checked on the six multi-configuration online parts without ModelHeader
+([EXP-094][exp094], [EXP-097][exp097]). It leaves one geometry in each:
+
+| part | configurations | rule keeps | lowest N |
+|---|---|---|---|
+| `118a3cb0` | 25 | 268 | 0, box 56.0 mm off |
+| `289756ce` | 2 | 21 | 1, box 0.10 mm off |
+| `629adcec`, `70477058` | 6, 7 | 0, 1, 4 | 0, inside the set |
+| `516a7dc5`, `afc71d14` | 2, 2 | 0, 1 | 0, inside the set |
+
+Configurations tied in one part export identical STEP, so the shape is settled even where the
+configuration number isn't. The two parts with a ModelHeader work as controls: the rule picks the
+configuration their header names ([EXP-097][exp097]).
+
+Limits:
+
+- It shows a fit, not that the configuration was the active one. None of the parts has ground
+  truth ([EXP-098][exp098], blind-checked).
+- The match for 268 depends on four single-vertex loops on cone faces. Without them the union is
+  about 2 mm off ([EXP-097][exp097]).
+- The box test misses right answers. On 183 single-configuration parts, 31 (17%) fail the 1e-8 m
+  bar. In a multi-configuration part a miss falls back to the lowest N. The OLE2 part `300f9732`
+  matches no configuration: the best one is 2.5e-8 m short of the display on +z, where the
+  display pads faces at tolerant vertices. It falls back to configuration 0, the only one with the
+  display's face count.
+- Face count and box don't pin the shape. Six synthetic cubes (a fillet, a chamfer, 3, 4 and 5 mm
+  holes, and a moved hole) all pass against the 5 mm cube's display with 7 faces and gaps under
+  1.7e-18 m, yet their STEP differs. No corpus part has a tie like this.
+- Ties are broken by the mesh: each display face is matched to a B-rep face of its own, and the
+  configuration whose worst vertex distance, then worst normal angle, is smallest wins. A blind
+  check ([EXP-102][exp102]) found it right in 296 of 306 ordered runs. It failed on a plain cube
+  with a split line, whose display fits a filleted cube's planes exactly, until the one-to-one
+  matching was added (`dev` 705b69b). A second blind check upheld that fix: no wrong pick
+  between different shapes in the SW2011 set or the corpus ([EXP-106][exp106]).
+  Uniform noise of 1e-8 m on the display flips a chamfer to a fillet on 1 of 5 seeds.
 
 **Then, which bodies.** The bodies are the first section of that `Config-N-Partition` plus the
 ones in `Config-N-FeatureBodies/LocalBodies`: imported bodies, one per section, with other data
@@ -79,6 +118,48 @@ also numbers its node_ids from 1, so a reader that puts them together has to ren
 The same goes for bodies inside one partition: node_ids are unique within a body, not within the
 stream. One online part's solid and its four reference sheets each have an EDGE with node_id 7, and
 keying edges by node_id gave the solid a sheet's line ([EXP-085][exp085]).
+
+### LocalBodies entries
+
+A `LocalBodies` stream is a `u32le` entry count, then that many entries. All 41 streams (in 40
+files) end exactly after their last entry: 281 entries and 289 sections. Blind-checked
+([EXP-091][exp091], [EXP-092][exp092], [EXP-097][exp097]).
+
+```
+entry:
+  MFC CString name     ff fe ff, a length, UTF-16LE: the imported file's name
+  header               10 or 18 bytes
+  section              the section frame above
+  (section)            more sections of the same entry, each after a 10-byte record
+```
+
+The header comes in two layouts:
+
+```
+10 bytes: u32 flag | u8 0 | u32 first section's size word + 5 | u8 0
+18 bytes: u32 0 | u32 section count | the 10-byte layout
+```
+
+117 entries have the 10-byte layout (files from 2017–2019) and 164 the 18-byte one (principally
+2020–2026). The section count matches the sections found in all 164. Two entries have more than one
+section, one with two and one with eight. Between sections sits a 10-byte record in the same
+layout as the old header, with flag 0 and the next section's size word + 5. All 289 sections end
+in eight zero bytes.
+
+**The flag** is 1 on 8 entries and 0 on 273. It is 1 exactly when the body's
+`BODY_IN_LIGHTWEIGHT_PERM` is explicitly 0 ([EXP-096][exp096], second reader
+[EXP-101][exp101]):
+
+| flag | attribute value | entries |
+|---|---|---:|
+| 1 | 0 | 8 |
+| 0 | 1 | 265 |
+| 0 | attribute missing | 8 |
+| 0 | 0 | 0 |
+
+The second reader chose the flag byte's position because it gave 8 ones, so what it checks
+independently is the agreement with the decoded value on the 273 entries that carry the attribute.
+It did not confirm that the value's owner pointer names the entry's own body.
 
 ### The other partition streams
 
@@ -409,3 +490,12 @@ references and types differ ([EXP-072][exp072]).
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
+[exp091]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP091.md
+[exp092]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP092.md
+[exp094]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP094.md
+[exp106]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP106.md
+[exp096]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP096.md
+[exp097]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP097.md
+[exp098]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP098.md
+[exp101]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/scripts/EXP101/findings.md
+[exp102]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP102.md
