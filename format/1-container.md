@@ -207,6 +207,6 @@ The feature tree and the other MFC-serialised streams (`Config-0`, `Header`, `CM
 [exp057]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_independent-verification-EXP057.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
-[exp112]: https://github.com/blussyya/sldprt-research-dump/blob/claude/research-breakthrough-f7b0ph/knowledge/evidence/2026-11-09_v0.5-EXP112.md
+[exp112]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP112.md
 [exp095]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP095.md
 [exp097]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP097.md

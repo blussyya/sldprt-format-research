@@ -108,7 +108,13 @@ Still open:
   those signatures.
 - How the three signatures follow from the 4-byte key at the start of the file. About 1,000 keys
   exist; the map isn't an XOR, rotate or linear one ([EXP-112][exp112]).
-- The 4 bytes at the ZIP time/date position of each stream header. Not a plain DOS time/date.
+- The 4 bytes at the ZIP time/date position of each stream header. Not a plain DOS time/date:
+  2 to 44 values per file, 2,474 of 7,895 valid as DOS time.
+- The directory hasn't had its blind disprove check yet. The prove check held on 181 of 181 files;
+  the disprove run stopped at the usage limit ([EXP-112][exp112]).
+- The filler: its full record shapes, the 220–798 bytes after the real end record, and whether
+  any reader needs any of it. Nothing in the directory points into it.
+- Whether assemblies and drawings use the same directory.
 - Files older than 2011: what strip control word 0 means beyond "a single triangle", and the two
   empty arrays in chainwheel's face records ([page 5](../format/5-pre-2011.md#the-mesh)).
 - Releases 2008, 2009 and 2012 have no sample yet. Every other release from 2007 to 2026 is
@@ -163,5 +169,5 @@ depends on it.
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
 [exp089]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP089.md
-[exp112]: https://github.com/blussyya/sldprt-research-dump/blob/claude/research-breakthrough-f7b0ph/knowledge/evidence/2026-11-09_v0.5-EXP112.md
+[exp112]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP112.md
 [exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md
