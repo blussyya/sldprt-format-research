@@ -11,11 +11,11 @@ inside it.
 | compression | raw DEFLATE per stream, with a CRC-32 | zlib inside a small frame |
 | reference reader | [`modern.js`][modern.js] | [`ole.js`][ole.js] |
 
-Bytes 0–3 of a modern file are different in every file, so you have to look at offset 4, not 0.
+Bytes 0–3 of a modern file are a key that varies between files, so you have to look at offset 4, not 0.
 A second opinion, if you want one: every modern file in the corpus also contains the nine bytes
 `34 f6 e6 47 56 e6 47 37 f2` early in the file (first occurrence at offsets 39–614, checked on
 all 45 modern files), and none of the 28 legacy and pre-2011 files contains it anywhere at all.
-That far out, it's a containment test, not a signature.
+Those nine bytes are `Contents/` with each byte rotated, so it's a containment test, not a signature.
 
 ## Modern container
 
@@ -26,8 +26,8 @@ exactly where a ZIP local file header puts them, apart from the first four bytes
 
 | offset | type | field | checked on |
 |---|---|---|---|
-| +0 | u32 | a per-file value: the same within a file, different in all 45 files. Meaning unknown | |
-| +4 | u16 ×3 | `20`, `6`, `8` (deflate). This is the 6-byte pattern `14 00 06 00 08 00` a reader scans for | |
+| +0 | u32 | the file's local-header signature, selected by bytes 0–3 ([the directory](#the-directory)) | |
+| +4 | u16 ×3 | `20`, `6`, `8` (deflate). The 6-byte pattern `14 00 06 00 08 00` a scan looks for | |
 | +14 | u32 | **CRC-32 of the inflated stream** | 1,730 of 1,730 named streams, 0 mismatches |
 | +18 | u32 | compressed size | |
 | +22 | u32 | inflated size | 1,730 of 1,730 |
@@ -38,31 +38,58 @@ exactly where a ZIP local file header puts them, apart from the first four bytes
 
 Everything is little-endian. The counts are over the 45 modern files.
 
-**The scan finds fake headers.** There's no directory to walk, so a reader has to scan for the
-6-byte pattern, and that pattern also turns up inside compressed data. Fake hits decode to names
-you can't print. In the corpus, 1,465 fake hits fail to inflate and 10 more fail their CRC. All of
-them have unprintable names, and none has a printable one ([EXP-057][exp057]).
+### The directory
 
-So only check the CRC of streams with printable names. If a stream with a printable name inflates
-but fails its CRC, treat it as a corrupt file and stop.
+From byte 8 on, the file is a ZIP archive in disguise ([EXP-112][exp112]). After the stream
+headers and data comes a central directory, then an end record, with their fields at the ZIP
+positions. Three things differ from ZIP:
 
-Two more rules if you write your own reader:
+- **Signatures.** The local header, the central record and the end record each start with a
+  per-file value where ZIP has `PK\3\4`, `PK\1\2` and `PK\5\6`. The value at stream header +0
+  is the first of the three.
+- **Offsets are counted from byte 8**, the end of the file header.
+- **Filler.** Blocks that imitate headers, central records and end records sit before the first
+  stream (255–900 bytes), between some streams (85–100 bytes, one size per file), after the
+  directory and around the end record. They reuse real stream names with made-up sizes, and they
+  contain the 6-byte pattern, which is where most fake scan hits come from.
 
-- Only accept a header if its data inflates to exactly the size at +22. The file also holds
-  directory-like records that reuse a stream's name, but not its sizes. Some of them inflate to
-  junk that would fail the CRC, and on one file one of them would win the name. Don't throw
-  them out by the size of the CRC field: an earlier version of the reference reader skipped
-  anything below 65536, which looks like it works on the corpus but would also skip a real
-  stream whose CRC-32 happens to be small.
-- If a name shows up twice, the reference reader keeps the first. The corpus never exercises
-  that: the dump's 178 modern containers hold 7,374 valid nonempty streams (printable name,
-  inflates to the declared size, CRC matches) and no name appears twice. Another 521 valid
-  streams are empty. The scan started from 19,655 raw signature candidates; the rest are false
-  hits that fail the name, bounds, inflation, size or CRC check. The data is raw DEFLATE; inflating it as zlib finds nothing
-  ([EXP-095][exp095], corrected in [EXP-097][exp097]).
+A central record:
 
-There's almost certainly a directory somewhere. Nobody here has decoded it. Other public projects
-cover this layer in more detail (see [prior art](../research/history.md#prior-art)).
+| offset | type | field |
+|---|---|---|
+| +0 | u32 | per-file signature, not the local header's |
+| +4 | u16 ×4 | `0`, `20`, `6`, `8` |
+| +12 | u32 | the same 4 bytes as local header +10. Not decoded; not a plain DOS time/date |
+| +16 | u32 ×3 | CRC-32, compressed size, inflated size |
+| +28 | u16 ×3 | name length, extra length (0), comment length (0) |
+| +36 | u16 | 1 on the XML streams, 0 elsewhere |
+| +42 | u32 | the stream header's offset, minus 8 |
+| +46 | bytes | the name, rotated like the header's |
+
+The end record is 22 bytes: a per-file signature, 4 zero bytes, the entry count twice (u16), the
+directory's size (u32, up to the end record, filler included), the directory's offset minus 8
+(u32), and a zero u16.
+
+**Finding it without the signatures.** A file holds 10 to 17 shapes that look like an end record.
+Exactly one sits at `8 + offset + size`, and only its directory walks: `count` records with one
+signature, each pointing at a header that repeats its CRC, sizes and name. That holds in 181 of
+181 modern files. The directory lists every stream: 7,895 entries in the 178 distinct files
+(7,374 nonempty, 521 empty), all inflating to their size and passing CRC-32, in increasing
+offset order, no name twice. A scan for headers finds no valid stream outside it.
+
+So read the directory, and scan only when a file has none (a truncated file). If you do scan:
+
+- Fake hits decode to names you can't print, or reuse a real name with sizes that don't inflate.
+  Accept a header only if its data inflates to exactly the size at +22 and the CRC matches.
+- Don't throw hits out by the size of the CRC field. An earlier reference reader skipped
+  anything below 65536, which would also skip a real stream whose CRC-32 happens to be small.
+
+**The key.** Bytes 0–3 select the three signatures: 15 pairs of unrelated files share them, and
+in all 15 the signatures match too. That collision rate puts the number of keys near 1,000. 162
+of the 163 keys seen are four successive `rand() & 0xff` outputs of the Microsoft C runtime. How
+the signatures follow from the key isn't known. They aren't an XOR, rotate or linear map of it.
+
+Other public projects cover this layer too (see [prior art](../research/history.md#prior-art)).
 
 ### What the streams are
 
@@ -180,5 +207,6 @@ The feature tree and the other MFC-serialised streams (`Config-0`, `Header`, `CM
 [exp057]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-21_independent-verification-EXP057.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp112]: https://github.com/blussyya/sldprt-research-dump/blob/claude/research-breakthrough-f7b0ph/knowledge/evidence/2026-11-09_v0.5-EXP112.md
 [exp095]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP095.md
 [exp097]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP097.md
