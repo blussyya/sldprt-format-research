@@ -289,8 +289,10 @@ A LocalBodies section numbers its own node_ids from 1 ([page 3](3-parasolid-body
 and the display keeps those section-local numbers. In 6 parts, 3,880 of 13,532 display faces match
 a native face only after undoing the renumbering a reader applies when it puts sections together
 (`d2515121` alone has 2,349); 148 faces in four parts match neither way. So a join by ID alone can
-land on the wrong face. A fix needs each display face's body, and how to get that from the stream
-hasn't been checked.
+land on the wrong face. A reader has to keep each section's own ids and narrow repeated ones by
+surface type, then by geometry. Done that way, 13,375 of 13,533 display faces join; a blind check
+contradicted 3 of those joins, by 8 to 22 µm, and couldn't separate candidates that share id, type
+and edge ids ([EXP-104][exp104], [EXP-107][exp107]). The reference reader does this on `dev`.
 
 ## The stream is rewritten on any change
 
@@ -360,3 +362,5 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp097]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP097.md
 [exp099]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP099.md
 [exp100]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP100.md
+[exp104]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP104.md
+[exp107]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP107.md
