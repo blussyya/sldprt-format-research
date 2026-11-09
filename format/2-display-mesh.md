@@ -112,6 +112,17 @@ of them come out below 1e-30.
 Use Block2's lengths to split the sections. Don't treat every `1` as a separator, because nothing
 says an edge ID can't be 1.
 
+**A split line leaves the neighbour's Block1 alone.** C18 is a cube with a line across its top at
+y = 0.005, built in both the SW2011 and SW2022 sets. The side face at y = 0 keeps its four
+vertices, four edge IDs, strip length and raw Block1 while its top neighbour changes from face 1
+to a new face (143 in SW2011, 148 in SW2022). That side's Block1 stays `1,7,76,0,77,53` (SW2011,
+face 83) and `1,9,81,0,82,58` (SW2022, face 88). The two sides at x gain a midpoint and one edge
+ID, and their Block1 grows from six words to eight. So Block1 lists the face's own edge IDs and
+never names a neighbour. The shared top edge kept its ID, which is why nothing changed, and C18
+can't show what happens when the shared edge itself changes. The SW2011 face IDs come from the
+converter's package linker, not from raw bytes. Every number was reproduced from raw bytes by a
+blind check ([EXP-090][exp090], [EXP-097][exp097]).
+
 ![Helical bevel gear, six views](../images/helical-gear.png)
 
 *Helical bevel gear, 113 faces. The gaps between the teeth are real geometry, not missing faces.
@@ -136,12 +147,12 @@ Right after Block3, in both containers:
 
 | offset | type | field |
 |---|---|---|
-| +0 | u32 × 3 | `0, 0, 1` on all 1,414 modern faces. Meaning unknown |
+| +0 | u32 × 3 | `0, 0, 1` on all 13,589 modern face records in 118 files whose metadata parses. Meaning unknown |
 | +12 | float64 × 3 | centre |
 | +36 | float64 × 3 | maximum corner |
 | +60 | float64 × 3 | minimum corner |
 | +84 | float64 | radius: the distance from the centre to a corner |
-| +92 | 40 bytes | not decoded |
+| +92 | 40 bytes | [tail](#the-tail-of-the-bounding-record), partly decoded |
 
 On every face the centre is exactly halfway between the corners and the radius is exactly the
 corner distance (to under 1e-12), and `min ≤ max` on 1,461 of 1,461 modern and 145 of 145 legacy
@@ -155,6 +166,27 @@ about 10.4 µm on every side, so spline boxes aren't guaranteed to be tight
 
 The same layout turns up once more in most streams from version 13000 on, as the
 [configuration envelope](#configuration-envelope).
+
+Earlier versions of this table said `0, 0, 1` on 1,414 faces, and EXP-092 first reported several
+leading patterns. Those came from arithmetic matches that weren't face records. With the restriction
+to records whose following metadata parses, the head is `0, 0, 1` on 13,589 of 13,589
+([EXP-092][exp092], [EXP-097][exp097]). They are constants in this sample, not face counts.
+
+### The tail of the bounding record
+
+The 40 bytes at +92 to +131 hold five binary words, and the sample shows eight combinations of
+them. One combination is decoded: when the words at +104 and +108 are both 1, bytes +112 to +127
+are four little-endian float32 values, and the last three form a unit vector in all 2,986 such
+records (norms 0.999999959 to 1.000000040). The first float, the word at +100 and the other seven
+states are unnamed. Measured over the 13,589 records of 118 files and reproduced by a blind check
+([EXP-092][exp092], [EXP-097][exp097]).
+
+Don't read more into the vector than that. EXP-092 first said it is perpendicular to the cylinder's
+axis on 2,406 of 2,406 cylinders, but that used the display record's own axis. Against the native
+B-rep axis only 740 of the cylinders could be checked. All 740 pass (largest 2.82e-8), and the
+display and native axes disagree on 51 of 2,313 matched cylinders. On 396 of the 740 the vector is
+the direction from the axis to the record's box centre, which is perpendicular to the axis anyway.
+So perpendicularity doesn't identify what the vector is.
 
 ### Configuration envelope
 
@@ -178,7 +210,19 @@ Blind-checked ([EXP-091][exp091], [EXP-093][exp093], [EXP-097][exp097]):
   release only, and 34 files saved by several releases keep the record. No tested property
   explains the omissions.
 - `ac760485_存矿小端` is the exception: its record reaches 4.412 mm past the face union in −x and
-  12.684 mm in +z. The cause isn't known.
+  12.684 mm in +z. The cause isn't known. Nothing readable in the file reaches that box. It has 11
+  framed Parasolid sections and 10 parse: the active 38-face body, a ghost partition with two
+  points at the origin, and eight one-face support snapshots. Their combined point box, and a
+  sample of every decoded edge (147,600 points, 1,025 parameters per edge), both stop at the display
+  box. The eleventh section is the partition's delta program, not an independent body. The sampling
+  is corroboration, not proof. A stale envelope, sketch or reference geometry, or another
+  display-level object would all fit ([EXP-092][exp092]).
+- By version, the files with the record are 0 of 42 at 3800 to 12000, 8 of 8 at 13000, 5 of 5 at
+  14000 and 100 of 111 at 15000 to 19000. By structure (13000 and later, with faces): 97 of 97 with
+  one configuration ID and no LocalBodies, 15 of 21 with one ID and LocalBodies, 1 of 2 with
+  several IDs and no LocalBodies, 0 of 1 with several IDs and LocalBodies. Five of the 42 older
+  files have an arithmetic box match with no name relationship, so arithmetic shape alone isn't a
+  signature ([EXP-093][exp093]).
 
 Earlier this page said the layout turns up once per configuration in 45 of 45 modern files
 ([EXP-064][exp064]). That count took the nameless look-alikes in Dekor and the gear for second
@@ -212,9 +256,35 @@ Block1. There's one known exception: a part saved in SolidWorks 2011 and saved a
 has an **empty** table on every face, while Block1 still has the IDs. The edge type tags are kept
 raw. Nobody has decoded them.
 
-**The optional per-vertex arrays.** 390 faces have the two float32 arrays from step 5. On four cone
-faces they act like an angle in radians and a negative distance along the axis. What they mean in
-general is open.
+**The optional per-vertex arrays.** The two float32 arrays from step 5 are per-vertex surface
+parameters, conventionally (u, v). They occur on 1,545 faces and 205,327 vertices in 37 files. Earlier
+this page said 390 faces and described the values on four cone faces as an angle and a negative
+distance; the 390 was a smaller count and the description was incomplete. Evaluated in stored order
+against the exact native surface of the controlled models, with a blind check using its own
+closed-form evaluators ([EXP-091][exp091], [EXP-097][exp097]):
+
+| tag | faces | vertices | largest point error |
+|---|---:|---:|---:|
+| 4003 cone | 1 | 144 | 1.09e-9 m |
+| 4004 sphere | 1 | 5,004 | 1.24e-9 m |
+| 4006 B-surface | 4 | 1,776 | 2.29e-6 m |
+
+The cone's second array is the signed axial distance. On the B-surfaces the saved display points
+are approximate, so the error is the gap between a display point and the exact surface point at its
+stored parameters. Both cone and sphere residuals are at float32 rounding.
+
+Limits:
+
+- Swapping the two arrays gives metres of error only on the cone. On the sphere and the loft the
+  median is about 5 mm (largest 1.0 and 1.3 cm), so the order is not proven by a large swap error
+  there.
+- One closed periodic B-spline (`leva1`) stores u up to 2 on a knot range of [0, 1]. Wrapping by the
+  period brings it to 2.4e-8 m.
+- Planes, cylinders, tori, blends and tags 4008 and 4010 were not evaluated. The same arrays occur
+  on tags 4007 to 4010 and on four records with an undecoded tag, but those were counted only.
+- Boundary vertices sit off the surface: 9,250 of 39,529 are over 1e-7 m, up to 6.9e-4 m on a
+  swept face (Dekor), against 180 of 42,630 interior vertices. The boundary ones are shared
+  vertices that lie on chords ([EXP-105][exp105], [page 4](4-mesh-and-body.md#curved-faces-in-three-online-parts)).
 
 ### Surface type tags
 
@@ -226,14 +296,18 @@ general is open.
 | 4004 | sphere | same |
 | 4005 | torus | same. A 90° torus is still 4005, so the tag is the surface type, not the trimmed patch |
 | 4006 | B-surface (spline) | same |
-| 4007 | blend (Parasolid `BLENDED_EDGE`) | the ID link to the Parasolid body, 33 of 33 faces in two real parts |
+| 4007 | blend (Parasolid `BLENDED_EDGE`) | the ID link to the Parasolid body, 72 faces in 7 files ([EXP-097][exp097]) |
 | 4008 | offset surface (Parasolid `OFFSET_SURF`) | the ID link, 1 of 1 face (`2f121983`). Blind check upheld ([EXP-100][exp100]) |
-| 4009 | swept surface (Parasolid `SWEPT_SURF`) | the ID link to the Parasolid body, 311 of 311 faces in one real part |
+| 4009 | swept surface (Parasolid `SWEPT_SURF`) | the ID link to the Parasolid body, 408 faces in 6 files ([EXP-097][exp097]) |
 | 4010 | spun surface (Parasolid `SPUN_SURF`) | the ID link, 288 of 290 faces in two parts (`a4ecc6f5`, `8cd79ff5`); the other 2 have no native face. Blind check upheld ([EXP-100][exp100]) |
 
 4001–4006 agree with SolidWorks on 136 of 136 faces of the 2022 models that were built in 2022
 ([EXP-055][exp055]). Every tag maps to exactly one Parasolid surface type on all 1,414 modern faces
-([EXP-074][exp074]). 4007 and 4009 come from real parts, not from a model built to test them.
+([EXP-074][exp074]). 4007 and 4009 come from real parts, not from a model built to test them. Earlier this page gave
+33 faces in two parts for 4007 and 311 faces in one part for 4009; EXP-097 counted every display
+face in the corpus and got the larger numbers above. Both sets of counts rest on a join by face ID,
+which was later found unreliable where IDs repeat ([below](#face-ids-repeat-across-bodies)), so
+treat the counts as soft. The control holds: C13 to C16 join as cone, sphere, torus and B-spline.
 
 4008 and 4010 were found by counting the tag on every display face in the corpus, which also
 turned up 56 records that have no tag at all ([EXP-097][exp097], [below](#records-with-no-id-or-tag-block)).
@@ -357,10 +431,13 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
+[exp090]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP090.md
 [exp091]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP091.md
+[exp092]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP092.md
 [exp093]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP093.md
 [exp097]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-06_v0.5-EXP097.md
 [exp099]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP099.md
 [exp100]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP100.md
 [exp104]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP104.md
+[exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md
 [exp107]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP107.md

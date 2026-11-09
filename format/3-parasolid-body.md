@@ -33,14 +33,17 @@ chunks, each:
 
 The body is the chunks' output joined. Most sections have one chunk, so size = compressed + 32.
 A body over 1 MiB comes as a 1 MiB chunk and then either 4 KiB chunks or one remainder: 1,142,601
-bytes in 24 chunks, 1,863,177 bytes in 2 ([EXP-084][exp084]).
+bytes in 24 chunks, 1,863,177 bytes in 2 ([EXP-084][exp084]). In LocalBodies, 287 of the 289
+sections are one chunk. The other two are `60f84235` (48 chunks) and `a4ecc6f5` (205). All 253
+chunks in those two inflate to their declared length and meet the eight zero bytes, which makes
+540 validated chunks in all ([EXP-091][exp091]).
 
 | stream | sections | chains exactly to the end of the stream |
 |---|---|---|
 | `Config-N-Partition` | `TRANSMIT FILE (partition)`, then `TRANSMIT FILE (deltas)` | 70 of 70 |
 | `Config-N-GhostPartition` | one `(partition)` | 65 of 65 |
 | `Config-N-FeatureBodies/LocalBodies` | a count, then named entries of one or more plain `TRANSMIT FILE` sections ([below](#localbodies-entries)) | 41 of 41 end exactly after the last entry |
-| `Config-N-ResolvedFeatures` | plain one-face PLANE bodies, 36 sections in 14 files | |
+| `Config-N-ResolvedFeatures` | plain one-face PLANE bodies, 36 sections in 14 files ([below](#resolvedfeatures-one-face-bodies)) | |
 
 All 242 sections end in eight zero bytes ([EXP-074][exp074]). The same GUID-and-lengths frame,
 without the size word, wraps the 2011 `DisplayLists__ZLB` stream
@@ -64,7 +67,9 @@ per-face boxes ([bounding record](2-display-mesh.md#bounding-record-132-bytes)) 
 The reference reader on `main` still takes the lowest N; this rule is on its `dev` branch.
 
 Blind-checked on the six multi-configuration online parts without ModelHeader
-([EXP-094][exp094], [EXP-097][exp097]). It leaves one geometry in each:
+([EXP-094][exp094], [EXP-097][exp097]). It leaves one geometry in each. The nearest rejected
+configuration is 5.0 mm off in `118a3cb0`, 0.10 mm in `289756ce`, 0.75 mm in `629adcec` and 10 mm
+in `70477058`. `516a7dc5` and `afc71d14` have no rejected configuration, because every one ties:
 
 | part | configurations | rule keeps | lowest N |
 |---|---|---|---|
@@ -75,7 +80,18 @@ Blind-checked on the six multi-configuration online parts without ModelHeader
 
 Configurations tied in one part export identical STEP, so the shape is settled even where the
 configuration number isn't. The two parts with a ModelHeader work as controls: the rule picks the
-configuration their header names ([EXP-097][exp097]).
+configuration their header names ([EXP-097][exp097]). In `03afebf4` the other configuration has the
+same 7 faces and only the box rules it out, by 1.3 mm. In `c613782b` configuration 2 matches all 13
+display boxes but has 777 faces, so the face count rules it out.
+
+The ninth multi-configuration part is `300f9732`, an OLE2 container (SW2014) with no ModelHeader
+and 2 configurations. Neither matches the display's 92 faces and box; see the limits below
+([EXP-098][exp098]).
+
+A second witness, from one blind check ([EXP-098][exp098]): the mesh volume against each
+configuration's B-rep volume. In `118a3cb0`, configuration 268 is 0.04% off and the next best 1.1%.
+In `289756ce`, configuration 21 is 0.09% off and configuration 1 is 1.5%. The configurations
+outside the ties are 36% to 440% off.
 
 Limits:
 
@@ -84,10 +100,18 @@ Limits:
 - The match for 268 depends on four single-vertex loops on cone faces. Without them the union is
   about 2 mm off ([EXP-097][exp097]).
 - The box test misses right answers. On 183 single-configuration parts, 31 (17%) fail the 1e-8 m
-  bar. In a multi-configuration part a miss falls back to the lowest N. The OLE2 part `300f9732`
-  matches no configuration: the best one is 2.5e-8 m short of the display on +z, where the
-  display pads faces at tolerant vertices. It falls back to configuration 0, the only one with the
-  display's face count.
+  bar; three more parts hit the 180 s limit and aren't counted. The 31 overlap in these causes: 29
+  have the B-rep box inside the display box (sphere, torus and loft faces bulge past their edges, and
+  the box looks only at edges and vertices), 19 have tolerant vertices or edges, and 7 are under
+  1 µm. Two have the B-rep outside the display: `636b653d` by 2.794 mm and `f0b9a118` by 0.26 mm.
+  Why isn't known. A stale display mesh is a guess. `eefa906d` is the largest miss, with the B-rep
+  0.325 m inside. In a multi-configuration part a miss falls back to the lowest N.
+- The OLE2 part `300f9732` matches no configuration: the best one is 2.5e-8 m short of the display
+  on +z. The display is off, not the B-rep. The B-rep has four tolerant vertices (tolerance
+  1e-8 m) at y = 0.061 m and 0.215 m, and the display faces there are padded by 5e-8 m in x and y
+  and 2.5e-8 m in z. Why the padding is 5e-8 m for a 1e-8 m tolerance is not checked. Configuration
+  1 has 46 faces against the display's 92, so the rule falls back to configuration 0, the only one
+  with the display's face count.
 - Face count and box don't pin the shape. Six synthetic cubes (a fillet, a chamfer, 3, 4 and 5 mm
   holes, and a moved hole) all pass against the 5 mm cube's display with 7 faces and gaps under
   1.7e-18 m, yet their STEP differs. No corpus part has a tie like this.
@@ -146,6 +170,14 @@ section, one with two and one with eight. Between sections sits a 10-byte record
 layout as the old header, with flag 0 and the next section's size word + 5. All 289 sections end
 in eight zero bytes.
 
+**Multi-section entries and the flag: unresolved.** The two entries with several sections are the
+motherboard import in `34fe5ff1` (two sections) and `ST3215_C018_04.step<1>` in `2e6e140a` (eight).
+EXP-096 counts bodies and says all ten bodies in these two entries use the missing-attribute case
+(so they are flag 0 by default). EXP-097 and EXP-101 count entries, and find the attribute missing in
+8 flag-0 entries. The write-ups don't say whether the two multi-section entries are among those 8,
+and EXP-101 leaves out their later sections, so the two accounts haven't been reconciled. EXP-096's own split (258 bodies with value 1, 16 with the attribute missing) was
+superseded by EXP-101's entry counts below.
+
 **The flag** is 1 on 8 entries and 0 on 273. It is 1 exactly when the body's
 `BODY_IN_LIGHTWEIGHT_PERM` is explicitly 0 ([EXP-096][exp096], second reader
 [EXP-101][exp101]):
@@ -181,8 +213,35 @@ So the ghost partition holds what features were built from: profile sketches, se
 reference surfaces. Which feature each body belongs to, and what the lone default vertex stands
 for, are still open.
 
-The `(deltas)` section and the ResolvedFeatures bodies are read as sections, but what they're for
-hasn't been worked out ([open questions](../research/open-questions.md#partition-streams)).
+The `(deltas)` section is read as a section, but what it's for hasn't been worked out
+([open questions](../research/open-questions.md#partition-streams)).
+
+### ResolvedFeatures one-face bodies
+
+**Where the owner can be read, a one-face PLANE section is the support face of a face-attached
+sketch.** It is a snapshot of the face the sketch was drawn on, taken when the sketch was made. The
+survey has 40 such sections in 16 files (the 36 above plus two later copies of the same part). The
+feature reader reaches the owning object for 14 of the 40. All 14 are an `sgSketch` with
+`onPlane=0`, and the compressed bytes equal the separately parsed section. The other 26 lie past the
+point where the reader stops, so their owner is inferred from identical framing, not shown
+([EXP-089][exp089]).
+
+Controls:
+
+- C04's section is the 10 × 10 mm top face before the hole (one square loop, four edges, plane at
+  z = 0.01 m). The finished top face has that square plus a circular inner loop, and Sketch2 holds
+  only the circle.
+- In C07, Sketch2 stores the untouched top face. Sketch3 stores the face after the first hole: two
+  loops, five edges.
+
+That fits the observation that the number of sections follows later cuts and split lines.
+
+**Limit.** One-face sections also occur under other object types. In
+`51065319_Mirror (opt 1-PSA)-HME_D.SLDPRT` one sits beside `moSingleFaceRef_w`, and the word after
+it is `01000802` where the controlled sketches have zero. The blind scan found 516 valid one-face
+sections over the three input trees. All 516 have the size-plus-five and zero-flag prefix, but 28
+have a nonzero word after the section. The prefix is generic section framing and can't identify
+an `sgSketch`.
 
 ## The transmit format
 
@@ -490,6 +549,7 @@ references and types differ ([EXP-072][exp072]).
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
+[exp089]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP089.md
 [exp091]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP091.md
 [exp092]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP092.md
 [exp094]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP094.md

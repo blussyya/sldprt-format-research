@@ -45,8 +45,16 @@ Still open:
   never the solid ([page 3](../format/3-parasolid-body.md#the-other-partition-streams)). Still
   open: which feature each body belongs to, and what the single default vertex in most files
   stands for.
-- The one-face PLANE bodies in `ResolvedFeatures`. In the controlled cubes, how many there are
-  follows the number of cuts or split lines. That's an observation, not a decoded meaning.
+- The one-face PLANE bodies in `ResolvedFeatures`. Where the owner can be read (14 of 40
+  sections), it is a face-attached `sgSketch` and the body is its support face
+  ([page 3](../format/3-parasolid-body.md#resolvedfeatures-one-face-bodies)). Still open: the owner
+  of the other 26, and which object types own the one-face sections that aren't sketch supports
+  (one sits beside `moSingleFaceRef_w`).
+- LocalBodies entries with several sections: EXP-096 puts all ten bodies of the two such entries in
+  the missing-attribute case, EXP-097 and EXP-101 count 8 entries with the attribute missing, and
+  the write-ups don't say whether those include the two
+  ([page 3](../format/3-parasolid-body.md#localbodies-entries)). Also the meaning of the 10- and
+  18-byte entry header fields other than the flag and section count.
 - Which configuration was active, in files without `Config-N-ModelHeader` (before about
   SolidWorks 2020). From 2020 on, `Header2` says so. Before that, the display's face count and
   box pick the geometry, not the configuration, and no part has a known answer to check against
@@ -67,11 +75,16 @@ Still open:
   node in the body ([page 2](../format/2-display-mesh.md#cosmetic-threads)).
 - One 2013 part (head_back) has 535 faces in its body and 532 in its mesh. Which three faces have
   no tessellation, and why, isn't known.
-- The optional per-vertex arrays (390 faces), the 8-byte extra array (8 faces), and the edge type
-  tags in the edge table.
-- The first 12 and last 40 bytes of the bounding record, and what the configuration envelope is
-  used for, and why `ac760485` has one larger than its faces
-  ([page 2](../format/2-display-mesh.md#configuration-envelope)).
+- The optional per-vertex arrays (1,545 faces) are (u, v), checked only on a cone, a sphere and
+  four B-surfaces; planes, cylinders, tori, blends and tags 4008 and 4010 are untested
+  ([page 2](../format/2-display-mesh.md#surface-record-modern-only)). The 8-byte extra array (8 faces)
+  and the edge type tags in the edge table are still undecoded.
+- The first 12 bytes of the bounding record, the first float, the word at +100 and seven of the
+  eight states in its 40-byte tail, and what the vector in the decoded state is. EXP-092 also
+  reports that checks against saved vertex normals gave no exact scalar reading; no number or
+  script for that was kept. What the configuration envelope is used for, and why `ac760485` has one
+  larger than its faces
+  ([page 2](../format/2-display-mesh.md#the-tail-of-the-bounding-record)).
 - Faces with zero normals. Another project's code allows them. None turn up here, and the
   reference reader rejects them.
 - The tessellation vertex count of a cylindrical face doesn't track diameter. 70 vertices for
@@ -81,9 +94,11 @@ Still open:
   36 of 36 untouched non-adjacent faces kept theirs. Between those sit the 12 faces whose
   vertices moved without new neighbours: 11 changed, one (the C06 cylinder) didn't. So neither
   candidate explanation, adjacency or own vertices moving, can be eliminated yet — the
-  discriminating cell, adjacent faces whose vertices did not change, has zero rows corpus-wide.
-  The split-line model that would fill it (spec'd as C13) is designed and has never been built
-  ([EXP-041][exp041]).
+  discriminating cell, adjacent faces whose vertices did not change, had zero rows corpus-wide
+  ([EXP-041][exp041]). C18, the split-line cube, was built later in both the SW2011 and SW2022 sets.
+  It shows that a new neighbour alone didn't change Block1 on the y = 0 side
+  ([page 2](../format/2-display-mesh.md#block1-which-edges-are-face-boundaries)). It doesn't cover a
+  change to the shared edge itself, so the question stays open for that case.
 
 ## Container and versions
 
@@ -116,6 +131,18 @@ Decoding the fields has started, and it's in progress in the dump:
 - What SolidWorks 2022 changes when it re-saves a 2011 file ([EXP-080][exp080]), the `Config-0`
   configuration archive ([EXP-081][exp081]), and the first real parts ([EXP-082][exp082]).
 
+- Component references: the current reader recovers 863 unique `@comp` blocks from 205 feature
+  streams (222 part paths), and each matches the raw stream at the component object's offset +17.
+  The first u32 of the 28-byte block is the ghost-body join ID. The six words after it are zero in
+  862 of 863 blocks. The exception is `moCompFace_c` in the helical gear's Plane1, with a 1 at byte
+  16 of the block; 30 other `moCompFace_c` blocks have 0 there. One example can't name the field, so
+  it is unnamed ([EXP-089][exp089]).
+- Dimension-placement ranges, the bytes between a displayed dimension and its favourite handle: 100
+  ranges in 51 files, 51,738 bytes, 13 distinct lengths from 308 to 587. Four SW2011/SW2022 pairs
+  grow by 2 bytes (585 to 587, 539 to 541, 513 to 515, 336 to 338). The first differing byte is
+  often byte 3, so the growth doesn't point to a length field. No layout is decoded
+  ([EXP-089][exp089]).
+
 None of that is written up here yet. Rebuilding a part from its history would need every feature
 type SolidWorks has, which is a far bigger job than the geometry. Nothing in exact STEP or STL
 depends on it.
@@ -130,4 +157,5 @@ depends on it.
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
+[exp089]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP089.md
 [exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md

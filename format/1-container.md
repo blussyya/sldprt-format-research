@@ -57,7 +57,8 @@ Two more rules if you write your own reader:
 - If a name shows up twice, the reference reader keeps the first. The corpus never exercises
   that: the dump's 178 modern containers hold 7,374 valid nonempty streams (printable name,
   inflates to the declared size, CRC matches) and no name appears twice. Another 521 valid
-  streams are empty. The data is raw DEFLATE; inflating it as zlib finds nothing
+  streams are empty. The scan started from 19,655 raw signature candidates; the rest are false
+  hits that fail the name, bounds, inflation, size or CRC check. The data is raw DEFLATE; inflating it as zlib finds nothing
   ([EXP-095][exp095], corrected in [EXP-097][exp097]).
 
 There's almost certainly a directory somewhere. Nobody here has decoded it. Other public projects
