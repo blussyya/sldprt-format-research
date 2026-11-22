@@ -120,15 +120,17 @@ the worst difference is 5.6e-15 relative, and against hand-worked values on 24 f
 
 ## Online sample
 
-The 139 openly licensed parts in `test files online/` (saved 2007 to 2026) are checked with
-[`tools/resolve-sweep.js`](../tools/resolve-sweep.js) ([EXP-086][exp086]).
+The 141 openly licensed parts in `test files online/` (saved 2007 to 2026) are checked with
+[`tools/resolve-sweep.js`](../tools/resolve-sweep.js) ([EXP-086][exp086], last run
+[EXP-103][exp103]). This section used to say 139. The folder holds 141, and EXP-086's sweep file has 140
+(`f666f342` is missing). Where 139 came from isn't recorded (corrected 2026-11-22).
 
 | check | result |
 |---|---|
-| Exact B-rep resolves | 133 of 139 parts |
-| ...with every fitted curve and surface within 1e-8 m of it | 130 of them. Over it: `3c4752f1` (curve 3.95e-8 m), `2e6e140a` (2.7e-8), `f0b9a118` (1.6e-8). This row used to claim all of them. `0739c559` was 9.6e-3 m and is 9.8e-9 m since the offset and edge-extension fixes ([EXP-086][exp086]). |
+| Exact B-rep resolves | 134 of 141 parts |
+| ...with every fitted curve and surface within 1e-8 m of it | 130 of them. Over it: `f0b9a118` (4.49e-4 m) and `0739c559` (1.57e-4 m), each with a vertex far outside its tolerance, so their exact STEP export refuses. `3c4752f1` (2.53e-8 m), two edges where a blend touches a plane. `82981f2a` (surface 1.54e-8 m), four blends whose spines run to a T limit, where the exact spine can't be found to 1e-8 m. Since EXP-103 the fitter checks 8 more points per interval and counts a pinned end's gap to its vertex. Before that, this row listed `3c4752f1` 3.95e-8, `2e6e140a` 2.7e-8 and `f0b9a118` 1.6e-8 m. `2e6e140a` is within now. The vertex gaps on `f0b9a118` and `0739c559` were there before but weren't counted. Earlier still, this row claimed all of them were within. |
 | Parts with no partition stream, so no body to resolve | 5 |
-| Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `82981f2a` (resolves in ~20 min, past the sweep's 300 s; one edge 1.12e-8 m off on dense sampling) |
+| Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `f666f342` (doesn't finish in 2,400 s). `82981f2a` (head_back) resolves in about 14 minutes |
 
 ## What isn't validated
 
@@ -150,4 +152,5 @@ The 139 openly licensed parts in `test files online/` (saved 2007 to 2026) are c
 [exp076]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP076.md
 [exp077]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP077.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
+[exp103]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-22_v0.5-EXP103.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md

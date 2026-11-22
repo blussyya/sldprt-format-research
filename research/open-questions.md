@@ -18,11 +18,24 @@ Still open:
 
 - **Two online parts don't resolve yet.** In `2f121983` a blend's spine is where two offset swept
   surfaces cross. The file's chart for it is exact, but it has 5 points over 28 mm and the curve
-  bows 1.4 mm away from the first chord, and near the start the foot on the offsets jumps. In
-  `82981f2a` (head_back) resolves now, within 1e-8 m by the fitter's own check, but a dense check
-  finds one edge at 1.12e-8 m, and within ~1 µm of one T limit a spine is up to 7.5e-8 m off.
-  Getting that far needed tolerant vertices handled, and offsets on the right side, B-splines carried on
-  past their edge, and closed spines ([EXP-086][exp086]).
+  bows 1.4 mm away from the first chord, and near the start the foot on the offsets jumps.
+  `f666f342` (head_face) doesn't finish in 2,400 s, and where the time goes isn't known
+  ([EXP-103][exp103]).
+- **head_back (`82981f2a`) resolves, but four of its blends report 1.48e-8 to 1.54e-8 m.** Their
+  spines run to a T limit. Within a few tenths of a micron of it the exact spine itself can't be
+  found to 1e-8 m, so whether these blends are within the bar isn't known. Fitting the nested
+  spines much tighter than 1e-10 m would settle it ([EXP-103][exp103]). Getting this far needed
+  tolerant vertices handled, offsets on the right side, B-splines carried on past their edge, and
+  closed spines ([EXP-086][exp086]). This item used to say head_back was within 1e-8 m by the
+  fitter's own check, with one edge at 1.12e-8 m on a dense check. The dense check is now in the
+  fitter and that edge is 9.44e-9 m, but it also found a 1.13e-6 m hook on edge 844 that the old
+  check reported as 8.9e-9 m. The hook is fixed (corrected 2026-11-22).
+- **Two vertices far outside their tolerance.** `0739c559` edge 6075 has a vertex 1.57e-4 m off
+  its curve (vertex tolerance 4.8e-5 m), and `f0b9a118` edge 152 has one 4.49e-4 m off (tolerance
+  1e-6 m). Exact STEP refuses both parts. Whether the vertex, the curve or our evaluation of its
+  surface is wrong isn't known ([EXP-103][exp103]).
+- `3c4752f1`: two plane × blend edges where the blend touches the plane are 2.53e-8 m off, over
+  the 1e-8 m bar ([EXP-103][exp103]).
 - Variable-radius blends and chamfer blends. None of the corpus parts with a solid needs them, but
   the export stops if it meets one.
 - Whether an OFFSET_SURF's side comes from its own sense or its basis's. In all 592 in the online
@@ -171,3 +184,4 @@ depends on it.
 [exp089]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP089.md
 [exp112]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP112.md
 [exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md
+[exp103]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-22_v0.5-EXP103.md
