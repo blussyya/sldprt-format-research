@@ -143,4 +143,4 @@ The reader is `src/container/history.js` in
 [dump]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP083.md
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
-[exp088]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP088.md
+[exp088]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-05_v0.5-EXP088.md

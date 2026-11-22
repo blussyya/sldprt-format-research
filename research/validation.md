@@ -152,5 +152,5 @@ The 141 openly licensed parts in `test files online/` (saved 2007 to 2026) are c
 [exp076]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP076.md
 [exp077]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-03_v0.5-EXP077.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
-[exp103]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-22_v0.5-EXP103.md
+[exp103]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-22_v0.5-EXP103.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md

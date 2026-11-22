@@ -181,7 +181,7 @@ depends on it.
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
 [exp086]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-31_v0.5-EXP086.md
-[exp089]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-05_v0.5-EXP089.md
-[exp112]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP112.md
-[exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md
-[exp103]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-22_v0.5-EXP103.md
+[exp089]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-05_v0.5-EXP089.md
+[exp112]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP112.md
+[exp105]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP105.md
+[exp103]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-22_v0.5-EXP103.md

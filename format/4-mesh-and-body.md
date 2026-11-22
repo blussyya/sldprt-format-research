@@ -100,4 +100,4 @@ two exactly.
 
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
-[exp105]: https://github.com/blussyya/sldprt-research-dump/blob/validation/knowledge/evidence/2026-11-09_v0.5-EXP105.md
+[exp105]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP105.md
