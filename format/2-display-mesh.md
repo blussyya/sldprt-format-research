@@ -64,8 +64,31 @@ N     = sum(B2) = 2·(V − S)
 **Block2 tells you nothing new.** The strip lengths fully decide it ([EXP-061][exp061]). It's the
 table of Block1 section lengths.
 
-**Block3** has one byte per Block1 word. All 122,142 of them in the original corpus are zero. What
-it's for is unknown, and the reference reader warns if it ever sees a nonzero byte.
+**Block3** has one byte per Block1 word. In the original corpus every byte is zero, but the online
+sample has 30,713 nonzero ones in 27 files, all 1, 2 or 4. Where a byte sits decides what it means
+([EXP-088][exp088], [EXP-109][exp109]):
+
+| Block1 position | byte 1 | byte 2 | byte 4 |
+|---|---:|---:|---:|
+| a strip's control word | 2,690 (first strips only) | 0 | 16,455 (later strips only) |
+| a nonzero edge label | 11,322 | 246 | 0 |
+| a zero edge label | 0 | 0 | 0 |
+
+- On an edge label, 1 marks a smooth edge use. All 371 edges with 1 on both sides and all 102 with
+  1 on one side are smooth within 0.001 rad. It belongs to the face's use of the edge: where a
+  plane meets a cylinder, only the curved side carries it. Not every tangent edge gets it: 12 tangent
+  edges carry 0 on both sides, and all 12 touch a B-spline face.
+- On an edge label, 2 marks an open boundary: 66 mesh segments on the 6 joined native edges that
+  have one face, and no edge with two faces.
+- On the first strip, 1 is a per-face flag. It is set on exactly the 2,690 faces that have any
+  nonzero Block3 byte, 852 of which have no edge byte at all. On those faces the later strips carry
+  4 throughout or 0 throughout, the same choice across a file, and 0 only below DisplayLists
+  version 17000. What 4 means against 0 isn't known: winding, strip restarts and degenerate
+  triangles don't separate them.
+
+This page used to say every Block3 byte was zero and its purpose unknown. That was true only of the
+original corpus (corrected 2026-11-23). Both experiments were blind-checked. The reference reader
+still warns on nonzero bytes, since the strip-control bytes aren't fully decoded.
 
 ### Triangles
 
@@ -253,8 +276,27 @@ that moves it.
 **The edge table.** Its set of IDs equals the face's nonzero Block1 IDs, and also equals the set of
 Parasolid edges around the face. The reference reader refuses a filled-in table that disagrees with
 Block1. There's one known exception: a part saved in SolidWorks 2011 and saved again in 2022 (C23)
-has an **empty** table on every face, while Block1 still has the IDs. The edge type tags are kept
-raw. Nobody has decoded them.
+has an **empty** table on every face, while Block1 still has the IDs.
+
+**The edge type tag** is the native edge's curve class ([EXP-108][exp108]). A file uses one of two
+forms, set by its DisplayLists version: `3000 + class` up to 15000, and `48000 + 16 × class + j`
+from 16000. No file mixes them.
+
+| class | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| curve | line | circle | ellipse | intersection | B-spline | SP_CURVE |
+
+A trimmed curve counts as its basis curve. In the 480xx form, `j` says how the edge is shared: 2 is
+an edge with one fin (966 of 966), 1 a tangent edge, 0 a sharp one, and -1 a variant that fills two
+whole files (`a4ecc6f5` and `PTC GE8080-8`) with smooth and sharp edges alike. Seams, where both fins
+are on one face, come out as `j` = 1. Convexity isn't encoded: both convex and concave edges occur
+in the thousands under 3001 and 48016.
+
+A blind check found 0 class mismatches over 34,876 edges joined by display ID. Joined by mesh
+endpoints instead, 32 of about 52,000 rows disagree, all on IDs shared by two or three native edges, so "no
+exceptions" depends on the join. 28 files at versions 16000 to 19000 have no edge numbers at all.
+What follows the edge table is only partly read: it starts with a persistent-id string for the face
+(for example `moSimpleSurfIdRep_c,N,N,`), and the objects after it aren't decoded.
 
 **The optional per-vertex arrays.** The two float32 arrays from step 5 are per-vertex surface
 parameters, conventionally (u, v). They occur on 1,545 faces and 205,327 vertices in 37 files. Earlier
@@ -441,3 +483,6 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp104]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP104.md
 [exp105]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP105.md
 [exp107]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP107.md
+[exp088]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-05_v0.5-EXP088.md
+[exp108]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP108.md
+[exp109]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP109.md

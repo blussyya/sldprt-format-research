@@ -83,7 +83,9 @@ Still open:
 
 - The SolidWorks 2011 surface record. 2011 faces have geometry and bounding records but no decoded
   surface record, so no face ID or tag. The body still has both, and the mesh joins it by edge IDs.
-- Block3. Every byte seen so far is zero.
+- Block3's strip-control bytes: what 4 means against 0 on later strips. The edge bytes and the
+  first-strip flag are decoded ([page 2](../format/2-display-mesh.md#face-record)). This item used
+  to say every Block3 byte was zero, which held only for the original corpus (corrected 2026-11-23).
 - The cosmetic-thread band record after its normals, and how a band links to its VECTOR_VALUES
   node in the body ([page 2](../format/2-display-mesh.md#cosmetic-threads)).
 - One 2013 part (head_back) has 535 faces in its body and 532 in its mesh. Which three faces have
@@ -91,7 +93,8 @@ Still open:
 - The optional per-vertex arrays (1,545 faces) are (u, v), checked only on a cone, a sphere and
   four B-surfaces; planes, cylinders, tori, blends and tags 4008 and 4010 are untested
   ([page 2](../format/2-display-mesh.md#surface-record-modern-only)). The 8-byte extra array (8 faces)
-  and the edge type tags in the edge table are still undecoded.
+  is still undecoded. The edge type tags are decoded ([EXP-108][exp108]); the objects after the edge
+  table, past the face's persistent-id string, aren't.
 - The first 12 bytes of the bounding record, the first float, the word at +100 and seven of the
   eight states in its 40-byte tail, and what the vector in the decoded state is. EXP-092 also
   reports that checks against saved vertex normals gave no exact scalar reading; no number or
@@ -152,6 +155,9 @@ Decoding the fields has started, and it's in progress in the dump:
   and some dimension values ([EXP-079][exp079]).
 - Sketches decode on every SolidWorks 2022 controlled model, and a sequential reader gets through
   all 24 of those models to the end of the stream ([EXP-079][exp079]).
+- Per-feature times: a FILETIME on every feature node and a unix-second stamp in each History item
+  ([page 6](../format/6-version-history.md#per-feature-times)). Open: whether the History stamp is
+  the creation time, and the sketch case against the SolidWorks 2011 log ([EXP-111][exp111]).
 - What SolidWorks 2022 changes when it re-saves a 2011 file ([EXP-080][exp080]), the `Config-0`
   configuration archive ([EXP-081][exp081]), and the first real parts ([EXP-082][exp082]).
 
@@ -184,4 +190,6 @@ depends on it.
 [exp089]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-05_v0.5-EXP089.md
 [exp112]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP112.md
 [exp105]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP105.md
+[exp108]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP108.md
+[exp111]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP111.md
 [exp103]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-22_v0.5-EXP103.md

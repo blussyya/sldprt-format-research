@@ -95,6 +95,30 @@ The remaining words look like Windows environment and path metadata, and most ha
 name. Nothing in the stream says whether a file was saved by an API call, a batch job or an
 interactive session. Checked by a second reader; no blind prove/disprove pass is recorded for it.
 
+## Per-feature times
+
+Modern files keep a time per feature in the feature tree, not in Biography ([EXP-111][exp111]):
+
+| record | where | encoding |
+|---|---|---|
+| node time | last 8 bytes of every feature node's 54-byte tail (tail offsets 46 to 53) | Windows FILETIME, high u32 first, 100 ns steps |
+| History stamp | each `moHistoryFeatItemData_c` in the History folder holds a `moCompFeature_c`: u32 feature id, then u32 time | unix seconds, native SW2022 files only |
+
+- The node time is when the feature was last written. In the 25 SolidWorks 2011 controls, its whole
+  second equals the old Config-0 log's time for 39 of 39 non-sketch features (EXP-081 decoded that
+  log). A blind check put 142 of 143 user features inside the file's own save window, from its
+  ModelStamps time to its last Biography save. No other offset, word order or epoch comes close (0
+  to 2 of 143).
+- Template items in native SolidWorks 2022 files (default planes, origin, folders) carry one fixed
+  time from the document template, before the file existed. A material node and some all-zero
+  folder tails are the other exceptions.
+- The History stamp is never later than the node time (0 of 135) and equals its whole second in 85.
+  Whether it is the creation time or a first touch isn't settled. For sketches, the original check
+  and the blind one disagree on whether the node time matches the old log's Created or Modified
+  time, so that case is open.
+
+The converter doesn't read either yet.
+
 ## Verified on
 
 Every part in the corpus, 0 parse errors, saves from 1997 to 2024:
@@ -144,3 +168,4 @@ The reader is `src/container/history.js` in
 [exp084]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-27_v0.5-EXP084.md
 [exp085]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-28_v0.5-EXP085.md
 [exp088]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-05_v0.5-EXP088.md
+[exp111]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP111.md
