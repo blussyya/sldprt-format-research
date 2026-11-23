@@ -127,9 +127,9 @@ The 141 openly licensed parts in `test files online/` (saved 2007 to 2026) are c
 
 | check | result |
 |---|---|
-| Exact B-rep resolves | 134 of 141 parts |
+| Exact B-rep resolves | 134 of the 136 real parts (141 files) |
 | ...with every fitted curve and surface within 1e-8 m of it | 130 of them. Over it: `f0b9a118` (4.49e-4 m) and `0739c559` (1.57e-4 m), each with a vertex far outside its tolerance, so their exact STEP export refuses. `3c4752f1` (2.53e-8 m), two edges where a blend touches a plane. `82981f2a` (surface 1.54e-8 m), four blends whose spines run to a T limit, where the exact spine can't be found to 1e-8 m. Since EXP-103 the fitter checks 8 more points per interval and counts a pinned end's gap to its vertex. Before that, this row listed `3c4752f1` 3.95e-8, `2e6e140a` 2.7e-8 and `f0b9a118` 1.6e-8 m. `2e6e140a` is within now. The vertex gaps on `f0b9a118` and `0739c559` were there before but weren't counted. Earlier still, this row claimed all of them were within. |
-| Parts with no partition stream, so no body to resolve | 5 |
+| Files in `not-a-part/`, which aren't SolidWorks files at all (4 are STEP text, 1 is undecodable text; found by the EXP-112 blind check, earlier listed as parts with no partition stream) | 5 |
 | Parts that still stop | 2: `2f121983` (a blend spine on two offset swept surfaces) and `f666f342` (doesn't finish in 2,400 s). `82981f2a` (head_back) resolves in about 14 minutes |
 
 ## What isn't validated

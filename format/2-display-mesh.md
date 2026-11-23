@@ -177,6 +177,17 @@ Right after Block3, in both containers:
 | +84 | float64 | radius: the distance from the centre to a corner |
 | +92 | 40 bytes | [tail](#the-tail-of-the-bounding-record), partly decoded |
 
+Two other layouts exist ([EXP-110][exp110], [EXP-099][exp099], blind-checked):
+
+- A 140-byte record with an extra float64 at +92 equal to twice the radius, the rest moved by 8:
+  190 faces in 3 files.
+- SolidWorks 2025 and 2026 saves: +128 is 0, and the surface record's step 1 (the `[8, 100, 2, K]`
+  array) is missing, so the `1` of step 2 comes right after the record and the id/tag block sits 16
+  bytes earlier: 4,432 faces in 18 files.
+
+The reference reader reads only the 132-byte layout, so it has no face ID or tag for those 4,622
+faces yet.
+
 On every face the centre is exactly halfway between the corners and the radius is exactly the
 corner distance (to under 1e-12), and `min ≤ max` on 1,461 of 1,461 modern and 145 of 145 legacy
 records.
@@ -197,19 +208,33 @@ to records whose following metadata parses, the head is `0, 0, 1` on 13,589 of 1
 
 ### The tail of the bounding record
 
-The 40 bytes at +92 to +131 hold five binary words, and the sample shows eight combinations of
-them. One combination is decoded: when the words at +104 and +108 are both 1, bytes +112 to +127
-are four little-endian float32 values, and the last three form a unit vector in all 2,986 such
-records (norms 0.999999959 to 1.000000040). The first float, the word at +100 and the other seven
-states are unnamed. Measured over the 13,589 records of 118 files and reproduced by a blind check
-([EXP-092][exp092], [EXP-097][exp097]).
+In the 132-byte layout, the 40 bytes at +92 to +131 are ([EXP-110][exp110], blind-checked):
 
-Don't read more into the vector than that. EXP-092 first said it is perpendicular to the cylinder's
-axis on 2,406 of 2,406 cylinders, but that used the display record's own axis. Against the native
-B-rep axis only 740 of the cylinders could be checked. All 740 pass (largest 2.82e-8), and the
-display and native axes disagree on 51 of 2,313 matched cylinders. On 396 of the 740 the vector is
-the direction from the axis to the record's box centre, which is perpendicular to the axis anyway.
-So perpendicularity doesn't identify what the vector is.
+| offset | what |
+|---|---|
+| +92 | 1 on a plane, 0 on every other surface (0 mismatches on 18,808 faces joined to the native body) |
+| +96 | 0 or 1, mostly the same for a whole file; meaning not found |
+| +100 | per face. The low 16 bits group faces by the feature that made or trimmed them; the high 16 bits change with every save. 999,999 on every face in 11 files |
+| +104, +108 | both 1 when a normal cone is stored |
+| +112 | float32 s, the cone's cosine |
+| +116 | float32 × 3, the cone's unit axis v |
+| +128 | 1 up to DisplayLists 17000; 0 in SolidWorks 2025 and 2026 saves |
+
+**The normal cone.** v points to the outward side of the face, so it follows the face's sense (on a
+reversed cylinder it points toward the axis). s runs from 0.70837 to 0.999997, so the half-angle
+stays under 45 degrees. s is never below the cosine of the widest angle between a stored vertex
+normal and v, but usually above it: on most faces some normals fall outside the cone. On the 90
+degree fillet of C03 and C12 the half-arc is 45.000 degrees and the stored half-angle 40.455. How
+SolidWorks computes s isn't known. A file stores a cone on every non-planar face narrow enough, or
+on none; no file mixes the two, and what decides it isn't known. Planes never get one. Without both
+flags the floats at +112 are leftover data.
+
+The +100 reading comes from the controlled models: on C04 the hole and the two planes it passes
+through share low bits 0x006f and the other four planes 0x0068, and the fillets, chamfer, shell
+and split line follow the same pattern. It isn't checked against feature IDs yet.
+
+This section used to call +92 to +128 five binary words and the vector unexplained (corrected
+2026-11-23).
 
 ### Configuration envelope
 
@@ -326,7 +351,7 @@ Limits:
   on tags 4007 to 4010 and on four records with an undecoded tag, but those were counted only.
 - Boundary vertices sit off the surface: 9,250 of 39,529 are over 1e-7 m, up to 6.9e-4 m on a
   swept face (Dekor), against 180 of 42,630 interior vertices. The boundary ones are shared
-  vertices that lie on chords ([EXP-105][exp105], [page 4](4-mesh-and-body.md#curved-faces-in-three-online-parts)).
+  vertices that lie on chords ([EXP-105][exp105], [page 4](4-mesh-and-body.md#curved-faces-in-the-online-sample)).
 
 ### Surface type tags
 
@@ -376,22 +401,24 @@ face, follow its face ID to the Parasolid body.
 
 ### Records with no id or tag block
 
-56 modern display records have no face ID, direction, tag or parameters. They are 33 faces in
-`0739c559`, 22 in `7765d286` and 1 in `eefa906d`. Measured by one agent ([EXP-099][exp099]), not
-blind-checked.
+Some modern display records have no face ID, direction, tag or parameters. The three words at step 6
+tell them apart: zero on every record with an id/tag block (13,533 of 13,533) and nonzero on every
+record without one (994 records in 21 parts, none with a valid tag). Two blind checks hold this both
+ways ([EXP-099][exp099]).
 
-The record boundary is right: the stored bounding records check on all 410 faces of the three
-parts. After the normals, though, the three reserved words (step 6) are nonzero (`0, 0, 1` or
-`0, 1, 0xFFFFFFFF`), and an appearance block sits where the ID and tag would be: colour bytes,
-MFC strings such as `SOLIDWORKS Materials|ABS|33`, float64 values and paths. Read at the usual
-offset it gives the "tags" 4980815, 16368 and 65536, which are bytes of that block. Moving the
-read offset by ±1 to 16 bytes passes 0 of 13,533 good records, and the usual offset passes
-13,533 of 13,533.
+In three parts every record lacks the block: 342 in `0739c559`, 62 in `7765d286` and 6 in
+`eefa906d`. Read at the usual offset, some give "tags" that are bytes of other data: 4980815 (UTF-16
+"OL" from `SOLIDWORKS Materials|ABS|33`) on 33 faces, 16368 (the high half of a float64 1.0 in a
+colour block) on 23, and 65536 on 1. Most of the 994 are short records with a 44-byte tail and no
+appearance text, where the "tag" is bytes of the next record. Six in `14f9214b` and `a0ab30c8` have
+words 1, 96, 2 and a 3 KB tail, not decoded.
 
-A reader should refuse the ID and tag when the reserved words are nonzero or the tag is outside
-4001–4010, and keep the mesh. The reference reader on `dev` does this (commit a256dba). Not
-decoded: the appearance block itself, two faces of `0739c559` (100 and 101) with yet another
-shape, and 5,612 other modern faces in 48 parts whose metadata is rejected for other reasons.
+This section first said 56 records in 3 parts, 22 of them in `7765d286`. Those were only the records
+whose misread tag looked odd (corrected 2026-11-23).
+
+A reader should refuse the ID and tag when any of the three words is nonzero, and keep the mesh. The
+reference reader does. These records aren't the faces in the
+[other two layouts](#bounding-record-132-bytes), which do have an id/tag block in another place.
 
 ### Face IDs repeat across bodies
 
@@ -486,3 +513,4 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp088]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-05_v0.5-EXP088.md
 [exp108]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP108.md
 [exp109]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP109.md
+[exp110]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP110.md

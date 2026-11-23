@@ -33,7 +33,7 @@ exactly where a ZIP local file header puts them, apart from the first four bytes
 | +22 | u32 | inflated size | 1,730 of 1,730 |
 | +26 | u16 | name length | |
 | +28 | u16 | extra length, always 0 | 1,730 of 1,730 |
-| +30 | bytes | the name, each byte rotated left by `(file byte 7) & 7` bits | byte 7 is `4` in 45 of 45 files |
+| +30 | bytes | the name, each byte rotated left by 4 bits | byte 7 is `4` in 178 of 178 modern files, so whether the rotation follows byte 7 is untested; the reference reader takes it from `(byte 7) & 7` |
 | +30+n | bytes | raw DEFLATE data | |
 
 Everything is little-endian. The counts are over the 45 modern files.
@@ -76,6 +76,14 @@ signature, each pointing at a header that repeats its CRC, sizes and name. That 
 181 modern files. The directory lists every stream: 7,895 entries in the 178 distinct files
 (7,374 nonempty, 521 empty), all inflating to their size and passing CRC-32, in increasing
 offset order, no name twice. A scan for headers finds no valid stream outside it.
+
+Two blind checks agree ([EXP-112][exp112]). The second undid the disguise: it cut bytes 0–7, put
+back the PK signatures, un-rotated the names, removed the filler before the end record and set
+the size field to the real central bytes. Python's `zipfile` and `unzip -t` then read 178 of 178
+files with no warnings. Leave the filler in and both refuse, because the size field covers it. A
+raw DEFLATE scan at every byte offset finds every nonempty stream at its exact start and nothing
+valid outside the directory, down to about 90 compressed bytes, below which a scan can't tell a
+stream from chance.
 
 So read the directory, and scan only when a file has none (a truncated file). If you do scan:
 

@@ -69,31 +69,31 @@ That leaves **231 interior vertices and 11 boundary vertices unexplained**: Deko
 chainwheel 57, Helical Bevel Gear 47, USB TOP 38, Pocket Wheel 27, distributor 3. One Pocket Wheel
 blend vertex is 1.5e-5 m off the exact rolling-ball surface.
 
-### Curved faces in three online parts
+### Curved faces in the online sample
 
-A later look at cylinder and cone faces in `8cd79ff5`, `2f121983` and `a4ecc6f5` found the same
-cause at larger scale. Measured, not blind-checked ([EXP-105][exp105]).
+On cylinder and cone faces, the display vertices that sit off the surface are boundary vertices.
+They lie on the straight chord between their neighbours on the face's boundary, and they're shared
+with the neighbouring face ([EXP-105][exp105]). Two blind checks hold this at 1e-7 m: 23,700 off
+vertices in 44 parts, all on the boundary, none interior. 23,659 are on the chord and 23,609 are
+shared exactly (90 more within 1e-8 m).
 
-Every vertex that isn't shared with a neighbouring face is within 1e-9 m of the joined surface
-(largest 9.8e-10 m). The vertices that are off it are shared boundary vertices, and they sit on
-straight chords of this face's boundary rather than on the surface:
+Two kinds aren't explained:
 
-| part | vertices over 1e-9 m | on a chord of their own face |
-|---|---:|---:|
-| `8cd79ff5` | 619 of 2,419 | 619 |
-| `2f121983` | 987 of 3,403 | 814 |
-| `a4ecc6f5` | 2,338 of 4,586 | 1,439 |
+- 41 off the chord: 15 in `2f121983`, 0.1 to 0.3 µm outside the surface, which a chord of a convex
+  arc can't give; 22 in `d0d61cde`, up to 9.9e-7 m; 2 each in `a4ecc6f5` and Dekor.
+- 27 with no vertex of another face within 1e-5 m: 26 in the BME280 part (`03764871`), 1 in
+  `3c4752f1`.
 
 In `8cd79ff5` face 1462 (a cylinder, radius 3.24 mm), 10 of 14 vertices are at 1e-11 m and 4 sit
-1.10e-5 m inward, in pairs, one per rim, at one angle. Controls: a lone cone (C13) has 144
-vertices, none off, with a maximum of 1.8e-10 m; C04 and C19 have none; the crossed cylinders (C20)
-and the cylinder fillet (C21) show the effect, with 20 and 66 vertices off, all on chords and
-shared. The radius field, the units, transforms and a stale mesh are ruled out.
+1.10e-5 m inward, in pairs, one per rim, at one angle. A lone cone (C13) has none off; the crossed
+cylinders (C20) and the cylinder fillet (C21) show the effect.
 
-It does not explain 173 vertices in `2f121983` and 899 in `a4ecc6f5` that are on no chord of their
-own face. A display-to-surface distance check has to leave out vertices shared with other faces,
-or test them against the boundary edge, or curved faces fail a 1e-8 m bar for reasons that have
-nothing to do with the surface.
+**Mind float32.** Display positions are float32. A point exactly on a cylinder misses it after
+rounding by 6e-10 m at 0.01 m from the origin, 5e-9 m at 0.1 m and 8e-8 m at 1 m. So a fixed 1e-9 m
+bar fails on rounding alone for any part over a few centimetres. This page first said every
+non-shared vertex was within 1e-9 m; that held only on the three small parts it was measured on
+(corrected 2026-11-23). A display-to-surface check needs a per-vertex float32 bound, and it has to
+leave out boundary vertices or test them against the boundary edge.
 
 So for exact geometry, the body is the source and the mesh isn't. The face and edge IDs connect the
 two exactly.

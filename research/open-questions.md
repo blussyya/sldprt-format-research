@@ -95,12 +95,13 @@ Still open:
   ([page 2](../format/2-display-mesh.md#surface-record-modern-only)). The 8-byte extra array (8 faces)
   is still undecoded. The edge type tags are decoded ([EXP-108][exp108]); the objects after the edge
   table, past the face's persistent-id string, aren't.
-- The first 12 bytes of the bounding record, the first float, the word at +100 and seven of the
-  eight states in its 40-byte tail, and what the vector in the decoded state is. EXP-092 also
-  reports that checks against saved vertex normals gave no exact scalar reading; no number or
-  script for that was kept. What the configuration envelope is used for, and why `ac760485` has one
-  larger than its faces
-  ([page 2](../format/2-display-mesh.md#the-tail-of-the-bounding-record)).
+- The bounding record: its first 12 bytes, word +96, how SolidWorks computes the normal cone's
+  cosine, what decides which files store cones, and whether +100's low bits are feature IDs
+  ([page 2](../format/2-display-mesh.md#the-tail-of-the-bounding-record)). What the configuration
+  envelope is used for, and why `ac760485` has one larger than its faces.
+- Face metadata in the two other record layouts, the 140-byte record (190 faces) and SolidWorks
+  2025/2026 saves (4,432 faces). The layouts are found; the reference reader doesn't read their
+  face IDs and tags yet ([page 2](../format/2-display-mesh.md#bounding-record-132-bytes)).
 - Faces with zero normals. Another project's code allows them. None turn up here, and the
   reference reader rejects them.
 - The tessellation vertex count of a cylindrical face doesn't track diameter. 70 vertices for
@@ -126,8 +127,9 @@ Still open:
   exist; the map isn't an XOR, rotate or linear one ([EXP-112][exp112]).
 - The 4 bytes at the ZIP time/date position of each stream header. Not a plain DOS time/date:
   2 to 44 values per file, 2,474 of 7,895 valid as DOS time.
-- The directory hasn't had its blind disprove check yet. The prove check held on 181 of 181 files;
-  the disprove run stopped at the usage limit ([EXP-112][exp112]).
+- Whether the name rotation follows byte 7. Byte 7 is 4 in all 178 modern files, so a fixed 4-bit
+  rotation reads every one. (The directory's blind disprove check, pending here before, holds:
+  [EXP-112][exp112].)
 - The filler: its full record shapes, the 220–798 bytes after the real end record, and whether
   any reader needs any of it. Nothing in the directory points into it.
 - Whether assemblies and drawings use the same directory.
