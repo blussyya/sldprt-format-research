@@ -155,7 +155,14 @@ next. Render of a third-party part, not covered by this repo's license (see [NOT
 ### Boundary cycles
 
 Take only the edges with a nonzero ID and join vertices whose coordinates are exactly equal. On
-every face in the corpus, that gives a graph where every vertex has two neighbours. Its loops are
+every face of the original corpus, that gives a graph where every vertex has two neighbours. In the
+online sample it doesn't on 300 faces: an edge used twice by the face (a seam, or a slit on a plane)
+or two loops touching at a vertex gives vertices with three or four neighbours. The reader walks
+those faces through their triangles instead: each boundary segment is a cut, and at a vertex the two
+boundary segments that frame the same fan of triangles are consecutive. A seam is walked once on
+each side. That resolves all 159 such faces in modern files and gives identical cycles on the
+20,788 faces the simple rule handles; 141 faces in chainwheel (pre-2011) stay unresolved
+([EXP-115][exp115]). Its loops are
 the face's boundary cycles (1,698 cycles on 1,272 faces). They're display polylines: the reference
 reader doesn't decide which one is the outer boundary, and it doesn't weld vertices.
 
@@ -185,8 +192,11 @@ Two other layouts exist ([EXP-110][exp110], [EXP-099][exp099], blind-checked):
   array) is missing, so the `1` of step 2 comes right after the record and the id/tag block sits 16
   bytes earlier: 4,432 faces in 18 files.
 
-The reference reader reads only the 132-byte layout, so it has no face ID or tag for those 4,622
-faces yet.
+The reference reader tells the three apart by structure, not by version (one 2025 save is all
+132-byte layout). In the 2025/2026 layout the id/tag block is there, 16 bytes earlier: the reader
+gets 4,484 faces in 24 files from it, and all join a native face of the matching surface type
+([EXP-116][exp116]). The 140-byte layout has no id or tag: after two empty arrays and a zero flag,
+the record ends with three nonzero words.
 
 On every face the centre is exactly halfway between the corners and the radius is exactly the
 corner distance (to under 1e-12), and `min ≤ max` on 1,461 of 1,461 modern and 145 of 145 legacy
@@ -418,7 +428,7 @@ whose misread tag looked odd (corrected 2026-11-23).
 
 A reader should refuse the ID and tag when any of the three words is nonzero, and keep the mesh. The
 reference reader does. These records aren't the faces in the
-[other two layouts](#bounding-record-132-bytes), which do have an id/tag block in another place.
+[2025/2026 layout](#bounding-record-132-bytes), which have their id/tag block 16 bytes earlier.
 
 ### Face IDs repeat across bodies
 
@@ -514,3 +524,5 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp108]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP108.md
 [exp109]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP109.md
 [exp110]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP110.md
+[exp115]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP115.md
+[exp116]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP116.md

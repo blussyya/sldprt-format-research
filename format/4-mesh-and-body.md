@@ -77,12 +77,17 @@ with the neighbouring face ([EXP-105][exp105]). Two blind checks hold this at 1e
 vertices in 44 parts, all on the boundary, none interior. 23,659 are on the chord and 23,609 are
 shared exactly (90 more within 1e-8 m).
 
-Two kinds aren't explained:
+The chord points aren't on the edge curve: on circle and ellipse edges, 0 of 2,186 off vertices lie
+on it ([EXP-113][exp113]). The 41 vertices off the chord are a second kind, points of tolerant
+B-spline edge curves. In `d0d61cde` all 14 sit on the fitted edge curve to 1.4e-9 m, and that curve
+runs 1e-7 to 1e-6 m off this face's surface, inside the edge's tolerance; Dekor's two are on their
+curve to 3e-8 m. A tolerant edge's curve doesn't have to lie on both its faces, and the mesh follows
+the curve. Still unexplained: 27 vertices with no vertex of another face within 1e-5 m, 26 in the
+BME280 part (`03764871`) and 1 in `3c4752f1`.
 
-- 41 off the chord: 15 in `2f121983`, 0.1 to 0.3 µm outside the surface, which a chord of a convex
-  arc can't give; 22 in `d0d61cde`, up to 9.9e-7 m; 2 each in `a4ecc6f5` and Dekor.
-- 27 with no vertex of another face within 1e-5 m: 26 in the BME280 part (`03764871`), 1 in
-  `3c4752f1`.
+**Cone apexes.** A cone face meshed to its apex stores the apex once per triangle, each copy with the
+normal of its own generator. On a 118 degree drill point those normals differ by up to 62 degrees,
+180 − 2 × 59. A normal check has to skip apex vertices ([EXP-114][exp114]).
 
 In `8cd79ff5` face 1462 (a cylinder, radius 3.24 mm), 10 of 14 vertices are at 1e-11 m and 4 sit
 1.10e-5 m inward, in pairs, one per rim, at one angle. A lone cone (C13) has none off; the crossed
@@ -101,3 +106,5 @@ two exactly.
 [exp074]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-09-29_v0.4.9-EXP074.md
 [exp078]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-10-04_v0.5-EXP078.md
 [exp105]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP105.md
+[exp113]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP113.md
+[exp114]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP114.md

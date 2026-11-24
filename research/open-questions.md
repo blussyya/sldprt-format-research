@@ -99,9 +99,10 @@ Still open:
   cosine, what decides which files store cones, and whether +100's low bits are feature IDs
   ([page 2](../format/2-display-mesh.md#the-tail-of-the-bounding-record)). What the configuration
   envelope is used for, and why `ac760485` has one larger than its faces.
-- Face metadata in the two other record layouts, the 140-byte record (190 faces) and SolidWorks
-  2025/2026 saves (4,432 faces). The layouts are found; the reference reader doesn't read their
-  face IDs and tags yet ([page 2](../format/2-display-mesh.md#bounding-record-132-bytes)).
+- Where the 190 faces of the 140-byte layout keep their IDs, if anywhere. Their display record has
+  none. (The 2025/2026 layout's IDs and tags are read now, [EXP-116][exp116].)
+- Boundary cycles on 141 faces of chainwheel (pre-2011), where a boundary chain ends at a vertex.
+  Seams and touching loops in modern files are handled ([EXP-115][exp115]).
 - Faces with zero normals. Another project's code allows them. None turn up here, and the
   reference reader rejects them.
 - The tessellation vertex count of a cylindrical face doesn't track diameter. 70 vertices for
@@ -194,4 +195,6 @@ depends on it.
 [exp105]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP105.md
 [exp108]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP108.md
 [exp111]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP111.md
+[exp115]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP115.md
+[exp116]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP116.md
 [exp103]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-22_v0.5-EXP103.md
