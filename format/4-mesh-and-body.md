@@ -78,11 +78,11 @@ vertices in 44 parts, all on the boundary, none interior. 23,659 are on the chor
 shared exactly (90 more within 1e-8 m).
 
 The chord points aren't on the edge curve: on circle and ellipse edges, 0 of 2,186 off vertices lie
-on it ([EXP-113][exp113]). The 41 vertices off the chord are a second kind, points of tolerant
-B-spline edge curves. In `d0d61cde` all 14 sit on the fitted edge curve to 1.4e-9 m, and that curve
-runs 1e-7 to 1e-6 m off this face's surface, inside the edge's tolerance; Dekor's two are on their
-curve to 3e-8 m. A tolerant edge's curve doesn't have to lie on both its faces, and the mesh follows
-the curve. Still unexplained: 27 vertices with no vertex of another face within 1e-5 m, 26 in the
+on it ([EXP-113][exp113]). The few off the chord (86 of 26,219 positions in a blind sweep) sit on
+the neighbouring face's own copy of the edge, its fin curve, or on a tolerant vertex. In
+`2f121983` the edge's 3D curve is a circle, and these vertices are 1.2e-7 to 2.9e-7 m off it but within
+9e-10 m of the plane face's fin curve. In `d0d61cde` they are within 1.7e-9 m of a tolerant SP_CURVE.
+A tolerant edge doesn't have to lie on both its faces, and the mesh follows the neighbour's copy. Still unexplained: 27 vertices with no vertex of another face within 1e-5 m, 26 in the
 BME280 part (`03764871`) and 1 in `3c4752f1`.
 
 **Cone apexes.** A cone face meshed to its apex stores the apex once per triangle, each copy with the

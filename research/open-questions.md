@@ -101,8 +101,6 @@ Still open:
   envelope is used for, and why `ac760485` has one larger than its faces.
 - Where the 190 faces of the 140-byte layout keep their IDs, if anywhere. Their display record has
   none. (The 2025/2026 layout's IDs and tags are read now, [EXP-116][exp116].)
-- Boundary cycles on 141 faces of chainwheel (pre-2011), where a boundary chain ends at a vertex.
-  Seams and touching loops in modern files are handled ([EXP-115][exp115]).
 - Faces with zero normals. Another project's code allows them. None turn up here, and the
   reference reader rejects them.
 - The tessellation vertex count of a cylindrical face doesn't track diameter. 70 vertices for

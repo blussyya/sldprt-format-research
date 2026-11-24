@@ -157,12 +157,15 @@ next. Render of a third-party part, not covered by this repo's license (see [NOT
 Take only the edges with a nonzero ID and join vertices whose coordinates are exactly equal. On
 every face of the original corpus, that gives a graph where every vertex has two neighbours. In the
 online sample it doesn't on 300 faces: an edge used twice by the face (a seam, or a slit on a plane)
-or two loops touching at a vertex gives vertices with three or four neighbours. The reader walks
+or a closed edge that starts and ends at one vertex, so the loop passes it twice, gives vertices with
+three or four neighbours. The reader walks
 those faces through their triangles instead: each boundary segment is a cut, and at a vertex the two
 boundary segments that frame the same fan of triangles are consecutive. A seam is walked once on
 each side. That resolves all 159 such faces in modern files and gives identical cycles on the
-20,788 faces the simple rule handles; 141 faces in chainwheel (pre-2011) stay unresolved
-([EXP-115][exp115]). Its loops are
+20,788 faces the simple rule handles, and a blind check found the loops equal the native B-rep's
+([EXP-115][exp115]). Chainwheel's 141 faces failed for another reason: in a control-0 strip the
+first two edge ids come swapped, (v,v+2) before (v,v+1). Read that way, all 189 of its faces close
+([EXP-117][exp117]). Its loops are
 the face's boundary cycles (1,698 cycles on 1,272 faces). They're display polylines: the reference
 reader doesn't decide which one is the outer boundary, and it doesn't weld vertices.
 
@@ -526,3 +529,4 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp110]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP110.md
 [exp115]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP115.md
 [exp116]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP116.md
+[exp117]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP117.md
