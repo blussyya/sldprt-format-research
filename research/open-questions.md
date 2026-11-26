@@ -88,6 +88,9 @@ Still open:
   to say every Block3 byte was zero, which held only for the original corpus (corrected 2026-11-23).
 - The cosmetic-thread band record after its normals, and how a band links to its VECTOR_VALUES
   node in the body ([page 2](../format/2-display-mesh.md#cosmetic-threads)).
+- Where the display's ids part from the body's node ids in two 2013 files (`f666f342`: 0, −1, +1;
+  head_back: 0 to −44), and whether offset 82 of the legacy tail is the face id in every pre-2014
+  file ([EXP-118][exp118]).
 - One 2013 part (head_back) has 535 faces in its body and 532 in its mesh. Which three faces have
   no tessellation, and why, isn't known.
 - The optional per-vertex arrays (1,545 faces) are (u, v), checked only on a cone, a sphere and
@@ -195,4 +198,5 @@ depends on it.
 [exp111]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-09_v0.5-EXP111.md
 [exp115]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP115.md
 [exp116]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP116.md
+[exp118]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-26_v0.5-EXP118.md
 [exp103]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-22_v0.5-EXP103.md

@@ -450,6 +450,20 @@ surface type, then by geometry. Done that way, 13,375 of 13,533 display faces jo
 contradicted 3 of those joins, by 8 to 22 µm, and couldn't separate candidates that share id, type
 and edge ids ([EXP-104][exp104], [EXP-107][exp107]). The reference reader does this on `dev`.
 
+### Ids that don't match the body (two 2013 files)
+
+In `f666f342` (head_face, SolidWorks 2013) the display's edge ids equal the body's node ids up to
+9087, are one lower from 9542 to 9602 and one higher from 10898, over the same 1,810 edges. The
+shifts fall in id ranges with no edge. The legacy record's face id, the u32 at offset 82 of its
+96-byte tail, is shifted the same way. head_back (2013) shifts by 0 to −44, and its mesh isn't the
+same geometry as its body. Other 2013 and 2014 files don't shift. Both numbers are read from their
+own fields, so a join by id alone can be off by one here. Blind-checked ([EXP-118][exp118]); where
+the shift comes from isn't known.
+
+The same file has the only two display faces in the corpus whose mesh boundary carries no edge id
+(faces 75 and 448). Their body faces have a loop that doesn't go round the bore, so SolidWorks'
+mesh stops at an edge that isn't in the body ([EXP-118][exp118]).
+
 ## The stream is rewritten on any change
 
 Don't plan to cache face offsets and patch one face. When a face is added or changed, every face
@@ -530,3 +544,4 @@ Files older than 2011 have two more variants of this record. They're on [page 5]
 [exp115]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP115.md
 [exp116]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP116.md
 [exp117]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-24_v0.5-EXP117.md
+[exp118]: https://github.com/blussyya/sldprt-research-dump/blob/main/knowledge/evidence/2026-11-26_v0.5-EXP118.md
